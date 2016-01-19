@@ -1,0 +1,5 @@
+\contentsline {section}{\numberline {0.1}Title suggestion}{1}
+\contentsline {section}{\numberline {0.2}Problemformulering}{1}
+\contentsline {section}{\numberline {0.3}Method}{1}
+\contentsline {section}{\numberline {0.4}Time plan}{1}
+\contentsline {section}{\numberline {0.5}Expected results for half time presentation}{1}
