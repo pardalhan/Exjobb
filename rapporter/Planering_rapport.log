@@ -1,16 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.16)  20 JAN 2016 15:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  25 JAN 2016 08:39
 entering extended mode
 **./Planering_rapport.tex
 (Planering_rapport.tex
 LaTeX2e <2015/10/01> patch level 2
 Babel <3.9m> and hyphenation patterns for 69 languages loaded.
-
-("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.c
-ls"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-
-("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.cl
-o"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -51,8 +47,8 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
  [1
 
-{C:/Users/NFCexjobb/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (time_p
-lan.tex
+{C:/Users/arman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (time_plan.
+tex
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -70,20 +66,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--30
 [1] (Planering_rapport.aux) ) 
 Here is how much of TeX's memory you used:
  238 strings out of 493634
- 2701 string characters out of 3133607
+ 2685 string characters out of 3135239
  58604 words of memory out of 3000000
  3692 multiletter control sequences out of 15000+200000
  7588 words of font info for 27 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  23i,6n,17p,157b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/NFCexjobb/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/NFCexj
-obb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-<C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr12.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb>
-Output written on Planering_rapport.pdf (2 pages, 72429 bytes).
+<C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/arman/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/arman/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/ar
+man/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+<C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmr17.pfb>
+Output written on Planering_rapport.pdf (2 pages, 72657 bytes).
 PDF statistics:
  29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
