@@ -1,0 +1,29 @@
+﻿Build started 2016-01-26 09:49:54.
+     1>Project "C:\Users\NFCexjobb\Desktop\Data_generator\Data_generator\Data_generator.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\DEP\OpenCV_3.1.0\opencv\build\include /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /analyze- /errorReport:prompt /clr:nostdlib MyForm.cpp
+         MyForm.cpp
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\cvstd.hpp(599): warning C4793: 'cv::String::String' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(392): warning C4793: 'cv::Mat::Mat' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(1872): warning C4793: 'cv::SparseMat::addref' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(3473): warning C4793: 'cv::UMat::addref' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: 'cv::detail::PtrOwner::incRef' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: 'cv::detail::PtrOwner::decRef' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\NFCexjobb\Desktop\Data_generator\Debug\Data_generator.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\DEP\OpenCV_3.1.0\opencv\build\x64\vc12\lib opencv_world310d.lib /ASSEMBLYRESOURCE:Debug\Data_generator.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\NFCexjobb\Desktop\Data_generator\Debug\Data_generator.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\MyForm.obj
+         "Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
+     1>MyForm.obj : error LNK2028: unresolved token (0A0006D7) "public: void __thiscall cv::UMat::copySize(class cv::UMat const &)" (?copySize@UMat@cv@@$$FQAEXABV12@@Z) referenced in function "public: __thiscall cv::UMat::UMat(class cv::UMat const &)" (??0UMat@cv@@$$FQAE@ABV01@@Z)
+     1>MyForm.obj : error LNK2019: unresolved external symbol "public: void __thiscall cv::UMat::copySize(class cv::UMat const &)" (?copySize@UMat@cv@@$$FQAEXABV12@@Z) referenced in function "public: __thiscall cv::UMat::UMat(class cv::UMat const &)" (??0UMat@cv@@$$FQAE@ABV01@@Z)
+     1>MyForm.obj : error LNK2019: unresolved external symbol "public: void __thiscall cv::Mat::copySize(class cv::Mat const &)" (?copySize@Mat@cv@@QAEXABV12@@Z) referenced in function "public: __thiscall cv::Mat::Mat(class cv::Mat const &)" (??0Mat@cv@@QAE@ABV01@@Z)
+     1>C:\Users\NFCexjobb\Desktop\Data_generator\Debug\Data_generator.exe : fatal error LNK1120: 3 unresolved externals
+     1>Done Building Project "C:\Users\NFCexjobb\Desktop\Data_generator\Data_generator\Data_generator.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.64
