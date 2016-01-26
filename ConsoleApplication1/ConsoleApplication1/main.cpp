@@ -7,7 +7,7 @@
 using namespace cv;
 void main(void)
 {
-	Mat img = cv::imread("C:\\Users\\arman\\Desktop\\Exjobb_NFC\\lena.png");
+	Mat img = cv::imread("D:\Testdata\\lena.png");
 	namedWindow("MyWindow", CV_WINDOW_AUTOSIZE); //create a window with the name "MyWindow"
 	imshow("MyWindow", img); //display the image which is stored in the 'img' in the "MyWindow" window
 	waitKey(0);
