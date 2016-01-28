@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Main.aux
+The style file: unsrt.bst
+Database file #1: references.bib
+You're missing a field name---line 7 of file references.bib
+ :     
+ :     %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 28 of file references.bib
+ :  
+ :  %note     = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 35 of file references.bib
+ :     
+ :     %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 52 of file references.bib
+ :  
+ :  %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 73 of file references.bib
+ :  
+ :  %note     = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 125 of file references.bib
+ :  
+ :  %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--empty year in forensic_identification
+Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
+while executing---line 944 of file unsrt.bst
+Warning--empty year in statistic_RPPVSM
+Too many commas in name 1 of "Partha Das, Anirban Sarkar, Soumyadeep Halder, Debasish Kundu, Sudipta Ghosh, Sauvik Das Gupta" for entry face_segmentation_skin
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Partha Das, Anirban Sarkar, Soumyadeep Halder, Debasish Kundu, Sudipta Ghosh, Sauvik Das Gupta" for entry face_segmentation_skin
+while executing---line 944 of file unsrt.bst
+Too many commas in name 1 of "Partha Das, Anirban Sarkar, Soumyadeep Halder, Debasish Kundu, Sudipta Ghosh, Sauvik Das Gupta" for entry face_segmentation_skin
+while executing---line 944 of file unsrt.bst
+Warning--empty year in face_segmentation_skin
+Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbeek, Diane Larlus" for entry 11_colours
+while executing---line 944 of file unsrt.bst
+Warning--empty year in landmarks_wild
+(There were 11 error messages)

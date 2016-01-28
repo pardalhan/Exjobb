@@ -3,6 +3,8 @@
 \usepackage{float}
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
+\usepackage{cleveref}
+%\usepackage{biblatex}
 
 
 \setlength{\parindent}{0cm} %Indenteringen för första raden på ett nytt stycke
@@ -89,13 +91,23 @@ This thesis work will focus on developing a automatic system which can automatic
 This thesis will result in a thesis report which must have a appropriate title. The first suggestion is: 
 
 \begin{displayquote}
-"Automatic detection of relatively permanent pigmented or vascular skin marks (RPPVSM)"
+"Automatic detection and position of relatively permanent pigmented or vascular skin marks (RPPVSM)"
 \end{displayquote}
 
 \section{Problem specification}
 
 To generate statistical data of the presence of facial marks in specific regions in human faces it would be effective to do this automatically. Thus, is it possible to detect and locate facial marks and separate them into permanent respectively non-permanent marks automatically. Several different segmentation and digital image processing algorithms will be explored to detect facial marks and divide the face into regions. 
 
+\section{Boundary}
+
+When working with images, in general, the quality of the images are crucial for the results. Low resolution and badly illuminated images taken from different angles can cause analytical difficulties. This is why this thesis are only going to use images which:
+
+\begin{itemize}
+	\item Have a high resolution
+	\item Are well illuminated
+	\item Are taken en face
+	\item Are in RGB-colours 
+\end{itemize}
 
 \input{method}
 
