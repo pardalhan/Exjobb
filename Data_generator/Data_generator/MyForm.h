@@ -130,7 +130,7 @@ namespace Data_generator {
 
 		Mat CVimg = cv::imread("D:\Testdata\\lena.png");
 		DrawCVImage(pictureBox1, CVimg);
-
+		int a = 10;
 	}
 	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
