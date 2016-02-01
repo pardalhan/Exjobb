@@ -26,12 +26,9 @@ You're missing a field name---line 73 of file references.bib
  :  %note     = "",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 125 of file references.bib
- :  
- :  %editor   = "",
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Warning--empty year in forensic_identification
+Warning--empty booktitle in automatic_detector_2015
+Warning--can't use both volume and number fields in automatic_detector_2015
 Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
 while executing---line 944 of file unsrt.bst
 Warning--empty year in statistic_RPPVSM
@@ -44,5 +41,6 @@ while executing---line 944 of file unsrt.bst
 Warning--empty year in face_segmentation_skin
 Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbeek, Diane Larlus" for entry 11_colours
 while executing---line 944 of file unsrt.bst
-Warning--empty year in landmarks_wild
-(There were 11 error messages)
+Warning--empty booktitle in 11_colours
+Warning--can't use both volume and number fields in 11_colours
+(There were 10 error messages)

@@ -28,29 +28,15 @@
 \section*{Participants}
 
 \begin{center}
-	Master thesis worker
-\end{center}
 
-\begin{center}
 	\begin{tabular}{|l|l|l|l|}
 		\hline
-		Name          & Role          & Email            & Abbreviation \\ \hline
-		Armand Moulis & Thesis worker & armand@moulis.se & AM           \\ \hline
-	\end{tabular}
-\end{center}
-
-\begin{center}
-	Experts and mentors
-\end{center}
-
-\begin{center}
-	\begin{tabular}{|l|l|l|l|}
-		\hline
-		Name             & Role          & Email                      & Abbreviation \\ \hline
-		Niclas Appleby   & Mentor at NFC & elisabet.leitet@polisen.se & NA           \\ \hline
-		Elisabet Leitet  & Mentor at NFC & niclas.appleby@polisen.se  & EL           \\ \hline
-		Lasse Alfredsson & Examiner      & lasse.alfredsson@liu.se    & LA           \\ \hline
-		Martin Danelljan & Expert at LIU & martin.danelljan@liu.se    & MD           \\ \hline
+		Name             & Role            & Email                      & Abbreviation \\ \hline
+		Armand Moulis    & Thesis worker   & armand@moulis.se           & AM           \\ \hline
+		Niclas Appleby   & Mentor at NFC   & elisabet.leitet@polisen.se & NA           \\ \hline
+		Elisabet Leitet  & Mentor at NFC   & niclas.appleby@polisen.se  & EL           \\ \hline
+		Lasse Alfredsson & Examiner at LIU & lasse.alfredsson@liu.se    & LA           \\ \hline
+		Martin Danelljan & Expert at LIU   & martin.danelljan@liu.se    & MD           \\ \hline
 	\end{tabular}
 \end{center}
 \newpage
@@ -66,7 +52,7 @@
 	\begin{tabular}{|l|l| p{5cm} |l|l| }
 		\hline
 		Version &  Date  & Changes     & Sign & Reviewed \\ \hline
-		  0.1   & \today & First Draft & AM   &  \\ \hline
+		  0.1   & \today & First Draft &    &  \\ \hline
 	\end{tabular}
 \end{center}
 \newpage
@@ -82,7 +68,7 @@ The amount of technical tools available for forensic analysis in law enforcement
 
 Forensic technicians use still images to comparing visible features between suspect and perpetrator in order to determine whether it is the same person. This is done manually and is time consuming which is why there exist an interest in creating methods and standards which could do the comparison automatically. \cite{forensic_identification} To create automatic methods the facial features has to be detected, classified and located. The most common facial marks are moles, pockmarks, freckles, scars and acne. Some of these marks are not permanent, e.g. acne usually heals without leaving any marks, while scares and moles remains the whole life.    \cite{automatic_detector_2015}. Skin marks which can be used for identification are called "Relatively Permanent Pigmented or Vascular Skin Marks" (RPPVSM) and they have to be relatively permanent, common and can be observed without special equipment. \cite{statistic_RPPVSM}
 
-When the pattern of facial marks has been determined and compared with a suspect, the forensic technicians give a specialist report to he court. The report states how probable it is that the suspect is the perpetrator. In order to do give this statement they need to know the probability that two persons can have the same facial mark pattern. To know this there is a need of statical information about the occurrence and position of facial marks within the population. [Källa NFC????]
+When the pattern of facial marks has been determined and compared with a suspect, the forensic technicians give a specialist report to he court. The report states how probable it is that the suspect is the perpetrator. In order to do give this statement they need to know the probability that two persons can have the same facial mark pattern. To know this there is a need of statical information about the occurrence and position of facial marks within the population. \cite{NFC_stat}
 
 This thesis work will focus on developing a automatic system which can automatically detect and position RPPVSM in human faces in order to get reliable statistics about facial marks in the population.   
 
@@ -96,7 +82,7 @@ This thesis will result in a thesis report which must have a appropriate title. 
 
 \section{Problem specification}
 
-To generate statistical data of the presence of facial marks in specific regions in human faces it would be effective to do this automatically. Thus, is it possible to detect and locate facial marks and separate them into permanent respectively non-permanent marks automatically. Several different segmentation and digital image processing algorithms will be explored to detect facial marks and divide the face into regions. 
+To generate statistical data of the presence of facial marks in specific regions in human faces it would be effective to do this automatically. Thus, is it possible to detect and locate facial marks and separate them into permanent respectively non-permanent marks automatically? Several different segmentation and digital image processing algorithms will be explored to detect facial marks and divide the face into regions. 
 
 \section{Boundary}
 

@@ -1,48 +1,52 @@
 \section{Time plan}
 
-This section describes how the time will be distributed between different tasks and parts during the thesis work. The time given for this thesis work is 800 hours and a working day (d) is usually 8 hours. This means that the  time resources is 100 work days for this thesis work.   
+This section describes how the time will be distributed between different tasks and parts during the thesis work. The time given for this thesis work is 800 hours and a working day (d) is usually 8 hours. This means that the  time resources is 100 work days for this thesis work. The time is distributed between the different task in \cref{table:time_consumption}.
 
 \begin{table}[H]
-	\caption{Time consumption for different tasks, time is counted in number of work days (d).}
-	\label{table:time_consumption}
-	\begin{tabular}{|p{0.25\textwidth}|p{0.1\textwidth}|p{0.55\textwidth}|}
-		\hline
-		\textbf{Task}              & \textbf{Time (d)} & \textbf{Description}                                        \\ \hline
-		Thesis plan                & 12                & Writing a plan for the thesis work                          \\ \hline
-		Data generation            & 5                 & Create training and test data for validation and classifier \\ \hline
-		Face segmentation          & 3                 & Implement face detection and segmentation                   \\ \hline
-		Landmarks                  & 3                 & Implement facial landmark detection                         \\ \hline
-		Grid                       & 5                 & Implement face region                                       \\ \hline
-		Pre-processing (Detector)  & 8                 & Implement pre-processing algorithms for the detector        \\ \hline
-		Detection (Detector)       & 12                & Implement detector algorithms for the detector              \\ \hline
-		Post-processing (Detector) & 12                & Implement post-processing algorithms for the detector       \\ \hline
-		Classification             & 6                 & Implement a SVM classifier                                  \\ \hline
-		GUI                        & 4                 & Create a graphical user interface                           \\ \hline
-		Validation                 & 5                 & Generate results and validate the main algorithm            \\ \hline
+\centering
+\caption{Time consumption for different tasks, time is counted in number of work days (d).}
+\label{table:time_consumption}
+\begin{tabular}{|p{0.25\textwidth}|p{0.1\textwidth}|p{0.55\textwidth}|}
+	\hline
+	\textbf{Task}              & \textbf{Time (d)} & \textbf{Description}                                        \\ \hline
+	Thesis plan                & 12                & Writing a plan for the thesis work                          \\ \hline
+	Data generation            & 5                 & Create training and test data for validation and classifier \\ \hline
+	Face segmentation          & 3                 & Implement face detection and segmentation                   \\ \hline
+	Landmarks                  & 3                 & Implement facial landmark detection                         \\ \hline
+	Grid                       & 5                 & Implement face region                                       \\ \hline
+	Pre-processing (Detector)  & 8                 & Implement pre-processing algorithms for the detector        \\ \hline
+	Detection (Detector)       & 12                & Implement detector algorithms for the detector              \\ \hline
+	Post-processing (Detector) & 12                & Implement post-processing algorithms for the detector       \\ \hline
+	Classification             & 6                 & Implement a SVM classifier                                  \\ \hline
+	GUI                        & 4                 & Create a graphical user interface                           \\ \hline
+	Validation                 & 5                 & Generate results and validate the main algorithm            \\ \hline
 %		                           &                   &  \\ \hline
 %		                           &                   &  \\ \hline
 %		                           &                   &  \\ \hline
 %		                           &                   &  \\ \hline
 %		                           &                   &  \\ \hline
-		Thesis report              & 20                & Writing the thesis work                                     \\ \hline
-		Presentation               & 1                 & Presentation of master thesis                               \\ \hline
-		Opposition                 & 1                 & Opposition of an other thesis work                          \\ \hline
-		Reflection                 & 0.5               & Writing reflection document                                 \\ \hline
-		\textbf{SUM}               & 97.5                & Summation of the time                                       \\ \hline
-	\end{tabular}
+	Thesis report              & 20                & Writing the thesis work                                     \\ \hline
+	Presentation               & 1                 & Presentation of master thesis                               \\ \hline
+	Opposition                 & 1                 & Opposition of an other thesis work                          \\ \hline
+	Reflection                 & 0.5               & Writing reflection document                                 \\ \hline
+	\textbf{SUM}               & 97.5                & Summation of the time                                       \\ \hline
+\end{tabular}
 \end{table}
 
+Some relevant milestones are listed in \cref{table:milestones}. These are just goals for the thesis work and the aim is to reach each milestone at the end of the week. The date in brackets represents Friday for each corresponding week. 
+
 \begin{table}[H]
+\centering
 \caption{Milestones}
 \label{table:milestones}
 \begin{tabular}{|p{0.15\textwidth}|p{0.3\textwidth}|p{0.45\textwidth}|}
 	\hline
-	\textbf{Week (date)} & \textbf{Description}                  & \textbf{Comment}                                                  \\ \hline
+	\textbf{Week (date)} & \textbf{Description}                  & \textbf{Comment}                                                                                                                      \\ \hline
 	3 (22/1)             &                                       &  \\ \hline
-	4 (29/1)             & First draft of thesis plan            & Thesis plan has been sent to MD                                   \\ \hline
-	5 (5/2)              & Thesis plan approved                  & Thesis plan has been approved by LA                               \\ \hline
+	4 (29/1)             & First draft of thesis plan            & Thesis plan has been sent to MD                                                                                                       \\ \hline
+	5 (5/2)              & Thesis plan approved                  & Thesis plan has been approved by LA                                                                                                   \\ \hline
 	6 (12/2)             &                                       &  \\ \hline
-	7 (19/2)             & Facial Grid                           & The face region generator works  \\ \hline
+	7 (19/2)             & Facial Grid                           & The face region generator works                                                                                                       \\ \hline
 	8 (26/2)             &                                       &  \\ \hline
 	9 (4/3)              &                                       &  \\ \hline
 	10 (11/3)            &                                       &  \\ \hline
@@ -51,26 +55,31 @@ This section describes how the time will be distributed between different tasks 
 	13 (1/4)             &                                       &  \\ \hline
 	14 (8/4)             &                                       &  \\ \hline
 	15 (15/4)            &                                       &  \\ \hline
-	16 (22/4)            & Algorithm functional                  &  The algorithm function and may need fine tuning\\ \hline
+	16 (22/4)            & Algorithm functional                  & The algorithm function and may need fine tuning                                                                                       \\ \hline
 	17 (29/4)            &                                       &  \\ \hline
 	18 (6/5)             &                                       &  \\ \hline
 	19 (13/5)            & Results and validation                &  \\ \hline
-	20 (20/5)            & First complete draft of thesis report & Thesis report has been sent to MD                                 \\ \hline
-	21 (27/5)            & Final version of thesis report        & Thesis report has been approved by LA                             \\ \hline
+	20 (20/5)            & First complete draft of thesis report & Thesis report has been sent to MD                                                                                                     \\ \hline
+	21 (27/5)            & Final version of thesis report        & Thesis report has been approved by LA                                                                                                 \\ \hline
 	22 (3/6)             &                                       &  \\ \hline
-	23 (10/6)            & Thesis presentation 10/6              &  \\ \hline
+	23 (10/6)            & Thesis presentation                   &  \\ \hline
 \end{tabular}
 \end{table}
 
-In \cref{table:milestones}, the time is divided into weeks and the date in brackets represents Friday in the corresponding week. 
+The most important date which are regarded as deadlines are listed in \cref{table:dates}.
 
 
 \begin{table}[H]
+	\centering
 	\caption{Important dates}
 	\label{table:dates}
 	\begin{tabular}{|p{0.3\textwidth}|p{0.45\textwidth}|}
 		\hline
-		Date & Description \\ \hline
+		\textbf{Date} & \textbf{Description}                  \\ \hline
+		18/3          & Half time report                      \\ \hline
+		20/5          & Thesis report has been sent to MD     \\ \hline
+		27/5          & Thesis report has been approved by LA \\ \hline
+		10/6          & Thesis presentation                   \\ \hline
 	\end{tabular}
 \end{table}
 

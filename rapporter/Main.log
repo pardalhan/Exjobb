@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.16)  28 JAN 2016 16:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.16)  29 JAN 2016 11:10
 entering extended mode
 **./Main.tex
 (Main.tex
@@ -389,24 +389,23 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {C:/Users/NFCexjobb/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 35.
+(Font)              <7> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 35.
+(Font)              <5> on input line 32.
 
 [2] (Main.toc)
 \tf@toc=\write3
 \openout3 = `Main.toc'.
 
  [3] [4] [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 106.
-
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
 
 ("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd
 "
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 106.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
  (method.tex <"bilder/system_flow".png, id=22, 804.606pt x 198.341pt>
 File: "bilder/system_flow".png Graphic file (type png)
 
@@ -429,42 +428,42 @@ Package pdftex.def Info: "bilder/Grid_flow".png used on input line 38.
 (pdftex.def)             Requested size: 430.0pt x 31.00159pt.
  [3 <./bilder/detection_flow.png> <./bilder/Grid_flow.png>]) (reference_base.te
 x) (time_plan.tex [4]
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
+Underfull \hbox (badness 10000) in paragraph at lines 11--11
 []\OT1/cmr/bx/n/10 Time
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--16
+Underfull \hbox (badness 10000) in paragraph at lines 17--17
 []\OT1/cmr/m/n/10 Pre-processing (De-tec-
  []
 
 
-Underfull \hbox (badness 1997) in paragraph at lines 18--18
+Underfull \hbox (badness 1997) in paragraph at lines 19--19
 []\OT1/cmr/m/n/10 Post-processing (De-tec-
  []
 
-[5]) (expected_results.tex) [6] (Main.bbl) [7] (Main.aux) ) 
+[5]) (expected_results.tex [6]) [7] (Main.bbl) [8] (Main.aux) ) 
 Here is how much of TeX's memory you used:
  3884 strings out of 493634
- 65466 string characters out of 3133607
+ 65468 string characters out of 3133607
  167109 words of memory out of 3000000
  7250 multiletter control sequences out of 15000+200000
  8241 words of font info for 29 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,9n,22p,967b,229s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/NFCexjobb/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
-/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr10.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/NFCexjobb/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/NFCexjo
-bb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmti10.pfb>
-Output written on Main.pdf (11 pages, 175275 bytes).
+ 27i,9n,22p,967b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/NFCexj
+obb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/NFCexjobb/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/NFC
+exjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti10.pfb>
+Output written on Main.pdf (12 pages, 176697 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

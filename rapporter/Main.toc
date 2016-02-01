@@ -10,4 +10,4 @@
 \contentsline {subsection}{\numberline {5.5}Statistic}{4}
 \contentsline {section}{\numberline {6}Reference base}{4}
 \contentsline {section}{\numberline {7}Time plan}{5}
-\contentsline {section}{\numberline {8}Expected results for half time presentation}{6}
+\contentsline {section}{\numberline {8}Expected results for half time presentation}{7}
