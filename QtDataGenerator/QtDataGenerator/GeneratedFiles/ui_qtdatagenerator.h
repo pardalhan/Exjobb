@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -22,7 +21,6 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
-#include "cvimagewidget.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -32,8 +30,6 @@ public:
     QWidget *centralWidget;
     QPushButton *btn_1;
     QLabel *lbl_1;
-    CVImageWidget *imageWidget;
-    QGraphicsView *pictureBox;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -42,26 +38,21 @@ public:
     {
         if (QtDataGeneratorClass->objectName().isEmpty())
             QtDataGeneratorClass->setObjectName(QStringLiteral("QtDataGeneratorClass"));
-        QtDataGeneratorClass->resize(715, 582);
+        QtDataGeneratorClass->resize(723, 729);
         centralWidget = new QWidget(QtDataGeneratorClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         btn_1 = new QPushButton(centralWidget);
         btn_1->setObjectName(QStringLiteral("btn_1"));
-        btn_1->setGeometry(QRect(60, 100, 161, 101));
+        btn_1->setGeometry(QRect(40, 180, 161, 101));
         lbl_1 = new QLabel(centralWidget);
         lbl_1->setObjectName(QStringLiteral("lbl_1"));
-        lbl_1->setGeometry(QRect(70, 230, 171, 91));
+        lbl_1->setGeometry(QRect(260, 30, 401, 411));
+        lbl_1->setLayoutDirection(Qt::LeftToRight);
         lbl_1->setAlignment(Qt::AlignCenter);
-        imageWidget = new CVImageWidget(centralWidget);
-        imageWidget->setObjectName(QStringLiteral("imageWidget"));
-        imageWidget->setGeometry(QRect(380, 20, 261, 251));
-        pictureBox = new QGraphicsView(centralWidget);
-        pictureBox->setObjectName(QStringLiteral("pictureBox"));
-        pictureBox->setGeometry(QRect(50, 320, 256, 192));
         QtDataGeneratorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtDataGeneratorClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 715, 21));
+        menuBar->setGeometry(QRect(0, 0, 723, 21));
         QtDataGeneratorClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(QtDataGeneratorClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
