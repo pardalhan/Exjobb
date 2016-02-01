@@ -56,6 +56,7 @@ namespace Data_generator {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->btn_write = (gcnew System::Windows::Forms::Button());
 			this->lbl_writing = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
@@ -64,7 +65,7 @@ namespace Data_generator {
 			// 
 			// btn_write
 			// 
-			this->btn_write->Location = System::Drawing::Point(294, 310);
+			this->btn_write->Location = System::Drawing::Point(607, 33);
 			this->btn_write->Name = L"btn_write";
 			this->btn_write->Size = System::Drawing::Size(107, 55);
 			this->btn_write->TabIndex = 0;
@@ -83,17 +84,20 @@ namespace Data_generator {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(211, 31);
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Location = System::Drawing::Point(66, 108);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(208, 250);
+			this->pictureBox1->Size = System::Drawing::Size(648, 480);
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &MyForm::pictureBox1_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(435, 394);
+			this->ClientSize = System::Drawing::Size(787, 617);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->lbl_writing);
 			this->Controls->Add(this->btn_write);
@@ -105,31 +109,26 @@ namespace Data_generator {
 
 		}
 
+		// Module which tackes a picture box and drows a CV::MAT-image on it
+		void DrawCVImage(System::Windows::Forms::Control^ control, cv::Mat& colorImage)
+		{
+			System::Drawing::Graphics^ graphics = control->CreateGraphics();
+			System::IntPtr ptr(colorImage.ptr());
+			System::Drawing::Bitmap^ b = gcnew System::Drawing::Bitmap(colorImage.cols, colorImage.rows, colorImage.step, System::Drawing::Imaging::PixelFormat::Format24bppRgb, ptr);
+			System::Drawing::RectangleF rect(0, 0, control->Width, control->Height);
+			graphics->DrawImage(b, rect);
+			delete graphics;
+		}
+
 #pragma endregion
 	private: System::Void btn_write_Click(System::Object^  sender, System::EventArgs^  e) {
 		lbl_writing->Text = "Funkar";
 
 		Mat CVimg = cv::imread("D:\Testdata\\lena.png");
-
-		pictureBox1->Width = CVimg.cols;
-		pictureBox1->Height = CVimg.rows;
-		pictureBox1->Image = gcnew System::Drawing::Bitmap(CVimg.cols, CVimg.rows);
-
-		System::Drawing::Bitmap^ bmpImage = gcnew Bitmap(
-			CVimg.cols, CVimg.rows, CVimg.step,
-			System::Drawing::Imaging::PixelFormat::Format24bppRgb,
-			System::IntPtr(CVimg.data)
-			);
-
-		pictureBox1->Image = bmpImage;
-	
-
-		namedWindow("MyWindow", CV_WINDOW_AUTOSIZE); //create a window with the name "MyWindow"
-		imshow("MyWindow", CVimg); //display the image which is stored in the 'img' in the "MyWindow" window
-		waitKey(0);
-		destroyWindow("MyWindow"); //destroy the window with the name, "MyWindow"
-
+		DrawCVImage(pictureBox1, CVimg);
 
 	}
-	};
+	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }

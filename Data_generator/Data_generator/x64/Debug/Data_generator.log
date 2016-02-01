@@ -1,9 +1,31 @@
-﻿Build started 2016-02-01 09:20:42.
+﻿Build started 2016-02-01 10:57:47.
      1>Project "C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\Data_generator\Data_generator\Data_generator.vcxproj" on node 2 (Build target(s)).
-     1>Link:
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /ID:\DEP\OpenCV_3.1.0\opencv\build\include /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.1\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Forms.dll" /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" /errorReport:prompt /clr:nostdlib MyForm.cpp
+         MyForm.cpp
+     1>c:\users\nfcexjobb\desktop\exjobb_nfc\exjobb\data_generator\data_generator\MyForm.h(127): warning C4129: 'T' : unrecognized character escape sequence
+     1>c:\users\nfcexjobb\desktop\exjobb_nfc\exjobb\data_generator\data_generator\MyForm.h(117): warning C4267: 'argument' : conversion from 'size_t' to 'int', possible loss of data
+     1>c:\users\nfcexjobb\desktop\exjobb_nfc\exjobb\data_generator\data_generator\MyForm.h(118): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\cvstd.hpp(599): warning C4793: 'cv::String::String' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(392): warning C4793: 'cv::Mat::Mat' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(681): warning C4793: 'cv::Mat::release' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(1872): warning C4793: 'cv::SparseMat::addref' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\mat.inl.hpp(3473): warning C4793: 'cv::UMat::addref' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\ptr.inl.hpp(67): warning C4793: 'cv::detail::PtrOwner::incRef' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+     1>d:\dep\opencv_3.1.0\opencv\build\include\opencv2\core\ptr.inl.hpp(72): warning C4793: 'cv::detail::PtrOwner::decRef' : function compiled as native :
+         	Found an intrinsic not supported in managed code
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\Data_generator\x64\Debug\Data_generator.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\DEP\OpenCV_3.1.0\opencv\build\x64\vc12\lib opencv_world310d.lib /ASSEMBLYRESOURCE:x64\Debug\Data_generator.MyForm.resources /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\Data_generator\x64\Debug\Data_generator.pdb" /ASSEMBLYDEBUG /SUBSYSTEM:WINDOWS /TLBID:1 /ENTRY:"main" /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X64 x64\Debug\MyForm.obj
+         "x64\Debug\.NETFramework,Version=v4.5.AssemblyAttributes.obj"
          Data_generator.vcxproj -> C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\Data_generator\x64\Debug\Data_generator.exe
      1>Done Building Project "C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\Data_generator\Data_generator\Data_generator.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.07
+Time Elapsed 00:00:01.72
