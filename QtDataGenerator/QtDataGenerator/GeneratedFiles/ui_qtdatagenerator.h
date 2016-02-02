@@ -30,6 +30,8 @@ public:
     QWidget *centralWidget;
     QPushButton *btn_1;
     QLabel *lbl_1;
+    QLabel *lbl_2;
+    QPushButton *btn_browser;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -38,7 +40,7 @@ public:
     {
         if (QtDataGeneratorClass->objectName().isEmpty())
             QtDataGeneratorClass->setObjectName(QStringLiteral("QtDataGeneratorClass"));
-        QtDataGeneratorClass->resize(723, 729);
+        QtDataGeneratorClass->resize(735, 701);
         centralWidget = new QWidget(QtDataGeneratorClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         btn_1 = new QPushButton(centralWidget);
@@ -46,13 +48,20 @@ public:
         btn_1->setGeometry(QRect(40, 180, 161, 101));
         lbl_1 = new QLabel(centralWidget);
         lbl_1->setObjectName(QStringLiteral("lbl_1"));
-        lbl_1->setGeometry(QRect(260, 30, 401, 411));
+        lbl_1->setGeometry(QRect(270, 100, 401, 411));
         lbl_1->setLayoutDirection(Qt::LeftToRight);
         lbl_1->setAlignment(Qt::AlignCenter);
+        lbl_2 = new QLabel(centralWidget);
+        lbl_2->setObjectName(QStringLiteral("lbl_2"));
+        lbl_2->setGeometry(QRect(50, 400, 101, 91));
+        lbl_2->setAlignment(Qt::AlignCenter);
+        btn_browser = new QPushButton(centralWidget);
+        btn_browser->setObjectName(QStringLiteral("btn_browser"));
+        btn_browser->setGeometry(QRect(40, 300, 161, 51));
         QtDataGeneratorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtDataGeneratorClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 723, 21));
+        menuBar->setGeometry(QRect(0, 0, 735, 21));
         QtDataGeneratorClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(QtDataGeneratorClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -71,6 +80,8 @@ public:
         QtDataGeneratorClass->setWindowTitle(QApplication::translate("QtDataGeneratorClass", "QtDataGenerator", 0));
         btn_1->setText(QApplication::translate("QtDataGeneratorClass", "Click Me", 0));
         lbl_1->setText(QApplication::translate("QtDataGeneratorClass", "Resting", 0));
+        lbl_2->setText(QApplication::translate("QtDataGeneratorClass", "TextLabel", 0));
+        btn_browser->setText(QApplication::translate("QtDataGeneratorClass", "Browser", 0));
     } // retranslateUi
 
 };
