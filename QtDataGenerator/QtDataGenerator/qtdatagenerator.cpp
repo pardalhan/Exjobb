@@ -7,6 +7,12 @@ QtDataGenerator::QtDataGenerator(QWidget *parent) : QMainWindow(parent)
 	ui.setupUi(this);
 	setMouseTracking(true);
 }
+QtDataGenerator::QtDataGenerator(cv::Mat image)
+{
+	altered_image = image;
+	org_img = image;
+	
+}
 
 QtDataGenerator::~QtDataGenerator()
 {
@@ -18,12 +24,19 @@ void QtDataGenerator::on_btn_1_clicked()
 
 	//ui.lbl_2->setText(QString::number(QCursor::pos()));
 
-	ui.lbl_2->setText("DÅ DÅ DÅ");
+	ui.lbl_2->setText("DÅ DÅ DÅ");	
+	qDebug() << "HEHE"; 
 
 }
 
 void QtDataGenerator::on_btn_browser_clicked()
 {
+	/*
+	QString folder_path = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "/home", QFileDialog::ReadOnly);
+	//QString folder_path = "D:\Testdata\ref_bilder";
+	QDirIterator dir_iter(folder_path, QStringList() << "*.png *.jpg *.jpeg *.bmp *.gif", QDir::Files, QDirIterator::Subdirectories);
+	QString filename = dir_iter.filePath();
+	*/
 	QString filename = QFileDialog::getOpenFileName(this, tr("Choose"), "", tr("Images (*.png *.jpg *.jpeg *.bmp *.gif)"));
 
 	if (QString::compare(filename, QString()) != 0) // Check if the QString is empty 
@@ -35,8 +48,7 @@ void QtDataGenerator::on_btn_browser_clicked()
 		{
 			// Display image on label
 			ui.lbl_1->setPixmap(QPixmap::fromImage(image).scaled(ui.lbl_1->width(), ui.lbl_1->height(), Qt::KeepAspectRatio));
-			//ui.lbl_1->setScaledContents(false);
-			//ui.lbl_1->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+
 		}
 		else
 		{
@@ -49,24 +61,16 @@ void QtDataGenerator::on_btn_browser_clicked()
 	myimage_vec.push_back(curr_image);
 
 	// Read image to MAT
-	img = cv::imread(filename.toStdString().c_str());
-	cv::namedWindow("MyWindow", CV_WINDOW_AUTOSIZE); //create a window with the name "MyWindow"
-	cv::imshow("MyWindow", img);
+	org_img = cv::imread(filename.toStdString().c_str()); // Convert QString to string for loading image
+	cv::namedWindow("MyWindow", CV_WINDOW_KEEPRATIO); //create a window with the name "MyWindow"
+	cv::imshow("MyWindow", org_img); // Show image in window 
 
 
 	//cv::setMouseCallback("MyWindow", CallBackFunc, NULL);
-	QtDataGenerator test;
-	test.init();
+	QtDataGenerator test(org_img);
+	cv::setMouseCallback("MyWindow", mouseWrapper, this);
 
 
-
-	//cv::imshow("MyWindow", CVimg); //display the image which is stored in the 'img' in the "MyWindow" window
-	//cv::waitKey(0);
-	//cv::destroyWindow("MyWindow"); //destroy the window with the name, "MyWindow"
-	//// Convert image from MAT to Q-image
-	//cv::Mat dest;
-	//cv::cvtColor(CVimg, dest, CV_BGR2RGB);
-	//QImage Qimage((uchar*)dest.data, dest.cols, dest.rows, QImage::Format_RGB888);
 
 }
 
@@ -101,51 +105,93 @@ void QtDataGenerator::mouseDoubleClickEvent(QMouseEvent *ev)
 
 void QtDataGenerator::MYtester()
 {
-	cv::imshow("MyWindow", img);
+
 }
 
 void QtDataGenerator::MouseHandler(int event, int x, int y, int flags, void* userdata)
 {
+	// LEFT BUTTOM ----------------------------------------
 	if (event == CV_EVENT_LBUTTONDOWN && !drag)
 	{
-		///* left button clicked. ROI selection begins */
+		// left button clicked. ROI selection begins 
 		point1 = cv::Point(x, y);
 		drag = 1;
 	}
-
 	if (event == CV_EVENT_MOUSEMOVE && drag)
 	{
-		///* mouse dragged. ROI being selected */
-		cv::Mat img1 = img.clone();
+		// mouse dragged. ROI being selected 
+		cv::Mat img1 = org_img.clone();
 		point2 = cv::Point(x, y);
-		cv::rectangle(img1, point1, point2, CV_RGB(255, 0, 0), 3, 8, 0);
-	//	MYtester();
-	//	cv::imshow("MyWindow", img);
+		cv::rectangle(img1, point1, point2, CV_RGB(255, 0, 0), 1, 8, 0);
+		cv::imshow("MyWindow", img1);
 	}
-
 	if (event == CV_EVENT_LBUTTONUP && drag)
 	{
+		// left button up. ROI selection ended
 		point2 = cv::Point(x, y);
-		rect = cv::Rect(5, 5, 100, 100);
+		rect = cv::Rect(point1, point2);
 		drag = 0;
-		//roiImg = img(rect);
-		//cv::namedWindow("ROI", CV_WINDOW_AUTOSIZE); //create a window with the name "MyWindow"
-		//cv::imshow("ROI", roiImg);
-	}
 
+		// OBS DET ÄR HÄR SOM VARJE SUBWINDOW INTE VISAR SIG 
+		if (roi_img.empty())
+		{
+			roi_img = org_img(rect);
+			cv::namedWindow("ROI", CV_WINDOW_AUTOSIZE);
+			cv::imshow("ROI", roi_img);
+		}
+	}
 	if (event == CV_EVENT_LBUTTONUP)
 	{
-		///* ROI selected */
-		select_flag = 1;
+		// ROI selected 
+		cv::rectangle(org_img, rect, CV_RGB(0, 255, 0), 2, 8, 0);
+		cv::imshow("MyWindow", org_img);
+
+	}
+	if (event == CV_EVENT_LBUTTONDBLCLK)
+	{
+
+	}
+	// RIGHT BUTTOM ---------------------------------
+	// LEFT BUTTOM ----------------------------------------
+	if (event == CV_EVENT_RBUTTONDOWN && !drag)
+	{
+		// left button clicked. ROI selection begins 
+		point1 = cv::Point(x, y);
+		drag = 1;
+	}
+	if (event == CV_EVENT_MOUSEMOVE && drag)
+	{
+		// mouse dragged. ROI being selected 
+		cv::Mat img1 = org_img.clone();
+		point2 = cv::Point(x, y);
+		cv::rectangle(img1, point1, point2, CV_RGB(255, 0, 0), 1, 8, 0);
+		cv::imshow("MyWindow", img1);
+	}
+	if (event == CV_EVENT_RBUTTONUP && drag)
+	{
+		// left button up. ROI selection ended
+		point2 = cv::Point(x, y);
+		rect = cv::Rect(point1, point2);
 		drag = 0;
 
-		//if (select_flag == 1)
-		//{
-		//	cv::imshow("ROI", roiImg); /* show the image bounded by the box */
-		//}
-		//cv::rectangle(img, rect, CV_RGB(255, 0, 0), 3, 8, 0);
-		//cv::imshow("MyWindow", img);
-		//cv::waitKey(0);
+		// OBS DET ÄR HÄR SOM VARJE SUBWINDOW INTE VISAR SIG 
+		if (roi_img.empty())
+		{
+			roi_img = org_img(rect);
+			cv::namedWindow("ROI", CV_WINDOW_AUTOSIZE);
+			cv::imshow("ROI", roi_img);
+		}
+	}
+	if (event == CV_EVENT_RBUTTONUP)
+	{
+		// ROI selected 
+		cv::rectangle(org_img, rect, CV_RGB(0, 0, 255), 2, 8, 0);
+		cv::imshow("MyWindow", org_img);
+
+	}
+	if (event == CV_EVENT_RBUTTONDBLCLK)
+	{
+
 	}
 }
 
@@ -154,13 +200,6 @@ void QtDataGenerator::mouseWrapper(int event, int x, int y, int flags, void *par
 	QtDataGenerator* cal = (QtDataGenerator*)param; // cast back to 'this'
 	// now call your member-function.
 	cal->MouseHandler(event, x, y, flags, 0);
-}
-
-void QtDataGenerator::init()
-{
-	// call the wrapper function instead, and
-	// pass this pointer for later redirection
-	cv::setMouseCallback("MyWindow", mouseWrapper, this);
 }
 
 

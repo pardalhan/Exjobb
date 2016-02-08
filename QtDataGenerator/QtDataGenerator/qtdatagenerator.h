@@ -9,11 +9,9 @@
 #include <opencv2\opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <Qfiledialog.h>
-//#include <QDialog>
 #include <QPainter>
-//#include <QRect>
-//#include <QBrush>
-//#include <QApplication>
+#include <qdebug.h>
+#include <qdiriterator.h>
 #include <QMouseEvent>
 #include <QCursor>
 #include <QMessageBox>
@@ -27,6 +25,7 @@ class QtDataGenerator : public QMainWindow
 public:
 
 	QtDataGenerator(QWidget *parent = 0);
+	QtDataGenerator(cv::Mat image);
 	~QtDataGenerator();
 
 
@@ -42,20 +41,23 @@ private:
 	void mousePressEvent(QMouseEvent * ev); // Pressed mouse
 	void mouseDoubleClickEvent(QMouseEvent * ev); // Doubble pressed
 
+	// Mouse handler 
 	void MouseHandler(int event, int x, int y, int flags, void* userdata);
 	static void mouseWrapper(int event, int x, int y, int flags, void *param);
-	void init();
+
 
 	void MYtester();
 
+	// GUI
 	Ui::QtDataGeneratorClass ui;
 
-	int tester = 9;
-	cv::Point point1, point2; /* vertical points of the bounding box */
-	int drag = 0;
-	cv::Rect rect; /* bounding box */
-	cv::Mat img, roiImg; /* roiImg - the part of the image in the bounding box */
-	int select_flag = 0;
+	// Data members
+	cv::Point point1, point2; 
+	int drag = 0;	
+	cv::Rect rect; 
+	cv::Mat org_img, roi_img, altered_image; 
+	QString folder_path; 
+
 
 protected: 
 
