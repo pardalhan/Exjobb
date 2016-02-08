@@ -57,11 +57,11 @@ public:
         lbl_2->setAlignment(Qt::AlignCenter);
         btn_browser = new QPushButton(centralWidget);
         btn_browser->setObjectName(QStringLiteral("btn_browser"));
-        btn_browser->setGeometry(QRect(40, 300, 161, 51));
+        btn_browser->setGeometry(QRect(30, 520, 161, 51));
         QtDataGeneratorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtDataGeneratorClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 735, 21));
+        menuBar->setGeometry(QRect(0, 0, 735, 26));
         QtDataGeneratorClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(QtDataGeneratorClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

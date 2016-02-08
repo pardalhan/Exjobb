@@ -36,7 +36,7 @@
 		Niclas Appleby   & Mentor at NFC   & elisabet.leitet@polisen.se & NA           \\ \hline
 		Elisabet Leitet  & Mentor at NFC   & niclas.appleby@polisen.se  & EL           \\ \hline
 		Lasse Alfredsson & Examiner at LIU & lasse.alfredsson@liu.se    & LA           \\ \hline
-		Martin Danelljan & Expert at LIU   & martin.danelljan@liu.se    & MD           \\ \hline
+		Martin Danelljan & Supervisor at LIU   & martin.danelljan@liu.se    & MD           \\ \hline
 	\end{tabular}
 \end{center}
 \newpage
@@ -52,7 +52,8 @@
 	\begin{tabular}{|l|l| p{5cm} |l|l| }
 		\hline
 		Version &  Date  & Changes     & Sign & Reviewed \\ \hline
-		  0.1   & \today & First Draft &    &  \\ \hline
+		  0.1   & January 29, 2016 & First Draft & AM  & MD, EL \\ \hline
+		  0.2   & \today & Minor changes after comments from MD and EL, added section data generation & AM  &  \\ \hline
 	\end{tabular}
 \end{center}
 \newpage
@@ -66,9 +67,9 @@
 
 The amount of technical tools available for forensic analysis in law enforcement increases rapidly and today there exist millions of devises capable of taking relatively sharp images. Video surveillance cameras, security cameras and cellphone cameras can all be used to catch perpetrators in the act. The videos and still images can be used as evidence for identification during trails which means that forensic technicians need tools to evaluate if the suspect is the same person as the one caught on camera.
 
-Forensic technicians use still images to comparing visible features between suspect and perpetrator in order to determine whether it is the same person. This is done manually and is time consuming which is why there exist an interest in creating methods and standards which could do the comparison automatically. \cite{forensic_identification} To create automatic methods the facial features has to be detected, classified and located. The most common facial marks are moles, pockmarks, freckles, scars and acne. Some of these marks are not permanent, e.g. acne usually heals without leaving any marks, while scares and moles remains the whole life.    \cite{automatic_detector_2015}. Skin marks which can be used for identification are called "Relatively Permanent Pigmented or Vascular Skin Marks" (RPPVSM) and they have to be relatively permanent, common and can be observed without special equipment. \cite{statistic_RPPVSM}
+Forensic technicians use still images to comparing visible features between suspect and perpetrator in order to determine whether it is the same person. This is done manually and is time consuming which is why there exist an interest in creating methods and standards which could do the comparison automatically \cite{forensic_identification}. To create automatic methods the facial features has to be detected, classified and located. The most common facial marks are moles, pockmarks, freckles, scars and acne. Some of these marks are not permanent, e.g. acne usually heals without leaving any marks, while scares and moles remains the whole life    \cite{automatic_detector_2015}. Skin marks which can be used for identification are called "Relatively Permanent Pigmented or Vascular Skin Marks" (RPPVSM) and they have to be relatively permanent, common and can be observed without special equipment. \cite{statistic_RPPVSM}
 
-When the pattern of facial marks has been determined and compared with a suspect, the forensic technicians give a specialist report to he court. The report states how probable it is that the suspect is the perpetrator. In order to do give this statement they need to know the probability that two persons can have the same facial mark pattern. To know this there is a need of statical information about the occurrence and position of facial marks within the population. \cite{NFC_stat}
+When the pattern of facial marks has been determined and compared with a suspect, the forensic technicians give a specialist report to he court. The report states how probable it is that the suspect is the perpetrator. In order to do give this statement they need to know the probability that two persons can have the same facial mark pattern. To know this there is a need of statical information about the occurrence and position of facial marks within the population \cite{NFC_stat}.
 
 This thesis work will focus on developing a automatic system which can automatically detect and position RPPVSM in human faces in order to get reliable statistics about facial marks in the population.   
 
@@ -77,12 +78,12 @@ This thesis work will focus on developing a automatic system which can automatic
 This thesis will result in a thesis report which must have a appropriate title. The first suggestion is: 
 
 \begin{displayquote}
-"Automatic detection and position of relatively permanent pigmented or vascular skin marks (RPPVSM)"
+"Automatic detection and localization of relatively permanent pigmented or vascular skin marks (RPPVSM)"
 \end{displayquote}
 
 \section{Problem specification}
 
-To generate statistical data of the presence of facial marks in specific regions in human faces it would be effective to do this automatically. Thus, is it possible to detect and locate facial marks and separate them into permanent respectively non-permanent marks automatically? Several different segmentation and digital image processing algorithms will be explored to detect facial marks and divide the face into regions. 
+The aim of this thesis is to examine the possibilities to automatically detect and locate facial marks and separate them into permanent respectively non-permanent marks. Several different segmentation and digital image processing algorithms will be explored to detect facial marks and divide the face into regions. 
 
 \section{Boundary}
 

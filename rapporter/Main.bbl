@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{forensic_identification}
 Bruegge~R.W.V. Spaun~N.A.
@@ -9,7 +9,7 @@ Bruegge~R.W.V. Spaun~N.A.
 Richard W. Vorder Bruegge~Ph.D. Nisha Srinivas~M.Sc., Patrick J. Flynn~Ph.D.
 \newblock Human identification using automatic and semi-automatically detected
   facial marks.
-\newblock volume~61, pages 117--130, September 2015.
+\newblock {\em Journal of Forensic Sciences}, 61(S1):117--130, September 2015.
 
 \bibitem{statistic_RPPVSM}
 Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
@@ -32,7 +32,19 @@ Soumyadeep Halder Debasish Kundu Sudipta Ghosh Sauvik Das~Gupta Partha~Das,
 \bibitem{11_colours}
 Jakob Verbeek Diane~Larlus Joost van~de Weijer, Cordelia~Schmid.
 \newblock Learning color names for real-world applications.
-\newblock volume~18, pages 1512--1523, July 2009.
+\newblock {\em IEEE Transactions on Image Processing}, 18(7):1512--1523, July
+  2009.
+
+\bibitem{segmentation_method}
+Nida~M Zaitoun and Musbah~J Aqel.
+\newblock Survey on image segmentation techniques.
+\newblock {\em Procedia Computer Science}, 65:797--806, 2015.
+
+\bibitem{edge_method}
+{\c{S}}aban {\"O}zt{\"u}rk and Bayram Akdemir.
+\newblock Comparison of edge detection algorithms for texture analysis on glass
+  production.
+\newblock {\em Procedia-Social and Behavioral Sciences}, 195:2675--2682, 2015.
 
 \bibitem{landmarks_SVM}
 Michal U{\v{r}}i{\v{c}}{\'{a}}{\v{r}}, Vojt{\v{e}}ch Franc, and V{\'{a}}clav

@@ -59,6 +59,12 @@
     <ClCompile Include="GeneratedFiles\Release\moc_CVImageWidget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="MyImage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Calibrate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="qtdatagenerator.h">
@@ -77,6 +83,12 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_qtdatagenerator.h">
       <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyImage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Calibrate.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
