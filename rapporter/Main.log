@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  5 FEB 2016 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  8 FEB 2016 08:32
 entering extended mode
 **./Main.tex
 (Main.tex
@@ -388,13 +388,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout3 = `Main.toc'.
 
  [3] [4] [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 93.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 94.
 
 ("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 93.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 94.
 
 (method.tex <"bilder/system_flow".png, id=22, 804.606pt x 198.341pt>
 File: "bilder/system_flow".png Graphic file (type png)
@@ -450,7 +450,7 @@ ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/arman/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/arman/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Main.pdf (12 pages, 178622 bytes).
+Output written on Main.pdf (12 pages, 178728 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
