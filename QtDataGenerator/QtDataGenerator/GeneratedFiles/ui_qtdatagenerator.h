@@ -28,7 +28,7 @@ class Ui_QtDataGeneratorClass
 {
 public:
     QWidget *centralWidget;
-    QPushButton *btn_1;
+    QPushButton *btn_next;
     QLabel *lbl_1;
     QLabel *lbl_2;
     QPushButton *btn_browser;
@@ -43,9 +43,10 @@ public:
         QtDataGeneratorClass->resize(735, 701);
         centralWidget = new QWidget(QtDataGeneratorClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        btn_1 = new QPushButton(centralWidget);
-        btn_1->setObjectName(QStringLiteral("btn_1"));
-        btn_1->setGeometry(QRect(40, 180, 161, 101));
+        btn_next = new QPushButton(centralWidget);
+        btn_next->setObjectName(QStringLiteral("btn_next"));
+        btn_next->setEnabled(false);
+        btn_next->setGeometry(QRect(40, 180, 161, 101));
         lbl_1 = new QLabel(centralWidget);
         lbl_1->setObjectName(QStringLiteral("lbl_1"));
         lbl_1->setGeometry(QRect(270, 100, 401, 411));
@@ -61,7 +62,7 @@ public:
         QtDataGeneratorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(QtDataGeneratorClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 735, 26));
+        menuBar->setGeometry(QRect(0, 0, 735, 21));
         QtDataGeneratorClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(QtDataGeneratorClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -78,7 +79,7 @@ public:
     void retranslateUi(QMainWindow *QtDataGeneratorClass)
     {
         QtDataGeneratorClass->setWindowTitle(QApplication::translate("QtDataGeneratorClass", "QtDataGenerator", 0));
-        btn_1->setText(QApplication::translate("QtDataGeneratorClass", "Click Me", 0));
+        btn_next->setText(QApplication::translate("QtDataGeneratorClass", "Next image", 0));
         lbl_1->setText(QApplication::translate("QtDataGeneratorClass", "Resting", 0));
         lbl_2->setText(QApplication::translate("QtDataGeneratorClass", "TextLabel", 0));
         btn_browser->setText(QApplication::translate("QtDataGeneratorClass", "Browser", 0));

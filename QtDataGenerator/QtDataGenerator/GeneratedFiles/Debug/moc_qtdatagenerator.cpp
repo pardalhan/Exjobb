@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_QtDataGenerator_t {
     QByteArrayData data[4];
-    char stringdata0[57];
+    char stringdata0[60];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,13 +30,13 @@ struct qt_meta_stringdata_QtDataGenerator_t {
 static const qt_meta_stringdata_QtDataGenerator_t qt_meta_stringdata_QtDataGenerator = {
     {
 QT_MOC_LITERAL(0, 0, 15), // "QtDataGenerator"
-QT_MOC_LITERAL(1, 16, 16), // "on_btn_1_clicked"
-QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 22) // "on_btn_browser_clicked"
+QT_MOC_LITERAL(1, 16, 19), // "on_btn_next_clicked"
+QT_MOC_LITERAL(2, 36, 0), // ""
+QT_MOC_LITERAL(3, 37, 22) // "on_btn_browser_clicked"
 
     },
-    "QtDataGenerator\0on_btn_1_clicked\0\0"
-    "on_btn_browser_clicked"
+    "QtDataGenerator\0on_btn_next_clicked\0"
+    "\0on_btn_browser_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +70,7 @@ void QtDataGenerator::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         QtDataGenerator *_t = static_cast<QtDataGenerator *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_btn_1_clicked(); break;
+        case 0: _t->on_btn_next_clicked(); break;
         case 1: _t->on_btn_browser_clicked(); break;
         default: ;
         }
