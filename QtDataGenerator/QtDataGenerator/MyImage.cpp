@@ -10,13 +10,47 @@ MyImage::~MyImage()
 {
 }
 
-QString MyImage::get_filename()
+QString MyImage::get_name(int option)
 {
-	return filename; 
+	switch (option)
+	{
+	case 1: 
+		return file_name;
+		break;
+	case 2:
+		return file_path;
+		break;
+	default: 
+		return QString("Error");
+		// EROOR 
+		break; 
+
+	}
+
 }
 
-QString MyImage::set_filename(QString name)
+void MyImage::set_name(QString new_name, int option)
 {
-	filename = name; 
-	return 0; 
+	switch (option)
+	{
+	case 1:
+		file_name = new_name;
+		break;
+	case 2:
+		file_path = new_name; 
+		break;
+	default:
+		
+		// EROOR 
+		break;
+
+	}
+}
+
+void MyImage::insert_selection(cv::Point point1, cv::Point point2, int class_type)
+{
+	point1_vec.push_back(point1);
+	point2_vec.push_back(point2);
+	class_type_vec.push_back(class_type);
+
 }
