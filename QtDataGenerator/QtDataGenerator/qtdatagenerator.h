@@ -17,6 +17,7 @@
 #include <qmessagebox.h>
 #include <iostream>
 #include <fstream>
+#include "wtypes.h"
  
 class QtDataGenerator : public QMainWindow
 {
@@ -33,6 +34,9 @@ private slots:
 	// Buttons 
 	void on_btn_next_clicked();
 	void on_btn_browser_clicked();
+	void on_btn_zoomout_clicked();
+	void on_btn_clearall_clicked();
+	void on_btn_clearlast_clicked();
 
 private:
 	
@@ -47,7 +51,8 @@ private:
 	// Writing to file
 	bool if_file_exist(std::string fileName);
 	void pre_writing(); 
-	void wite_all_selections(); 
+	void write_all_selections(); 
+	void draw_rect(std::vector<cv::Point> vec1, std::vector<cv::Point> vec2, std::vector<int> vec3);
 	
 	// GUI
 	Ui::QtDataGeneratorClass ui;
@@ -56,10 +61,12 @@ private:
 	QStringList list_of_files;
 	QString folder_path;
 
-	cv::Point point1, point2; 
+	cv::Point point1, point2;
+	cv::Point zoom_point = cv::Point(0, 0);
 	int drag, file_counter = 0;	
+	int screen_h, screen_w;
 	cv::Rect rect; 
-	cv::Mat org_img, roi_img;
+	cv::Mat org_img, roi_img, altered_img;
 	
 	std::ofstream outPutStream;
 

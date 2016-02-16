@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>735</width>
-    <height>701</height>
+    <width>799</width>
+    <height>714</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,23 +20,23 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>180</y>
-      <width>161</width>
-      <height>101</height>
+      <x>30</x>
+      <y>290</y>
+      <width>181</width>
+      <height>111</height>
      </rect>
     </property>
     <property name="text">
-     <string>Next image</string>
+     <string>NEXT IMAGE</string>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_1">
+   <widget class="QLabel" name="lbl_img">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>100</y>
-      <width>401</width>
-      <height>411</height>
+      <x>230</x>
+      <y>20</y>
+      <width>541</width>
+      <height>591</height>
      </rect>
     </property>
     <property name="layoutDirection">
@@ -49,17 +49,17 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="lbl_2">
+   <widget class="QLabel" name="lbl_msg">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>400</y>
-      <width>101</width>
+      <x>40</x>
+      <y>420</y>
+      <width>181</width>
       <height>91</height>
      </rect>
     </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>Message</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -68,8 +68,8 @@
    <widget class="QPushButton" name="btn_browser">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>520</y>
+      <x>50</x>
+      <y>570</y>
       <width>161</width>
       <height>51</height>
      </rect>
@@ -78,14 +78,84 @@
      <string>Browser</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_zoomin">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zoom in</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_zoomout">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>90</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Zoom out</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_clearall">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>150</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear all</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_clearlast">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>220</y>
+      <width>151</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Clear last</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>735</width>
-     <height>21</height>
+     <width>799</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
