@@ -1,0 +1,22 @@
+﻿Build started 2/18/2016 3:49:19 PM.
+     1>Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\FaceGrid\FaceGrid\FaceGrid.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(935,5): warning MSB8027: Two or more files with the name of moc_facegrid.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are GeneratedFiles\Debug\moc_facegrid.cpp, GeneratedFiles\Release\moc_facegrid.cpp.
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt facegrid.cpp GeneratedFiles\Debug\moc_facegrid.cpp main.cpp
+         facegrid.cpp
+         moc_facegrid.cpp
+         main.cpp
+         Generating Code...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /Oy- /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt GeneratedFiles\qrc_facegrid.cpp
+         qrc_facegrid.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\FaceGrid\Win32\Debug\\FaceGrid.exe" /NOLOGO /LIBPATH:c:\opencv\build\x64\vc12\lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib opencv_world310d.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\FaceGrid\Win32\Debug\FaceGrid.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\FaceGrid\Win32\Debug\FaceGrid.lib" /MACHINE:X86 /SAFESEH Debug\facegrid.obj
+         Debug\moc_facegrid.obj
+         Debug\qrc_facegrid.obj
+         Debug\main.obj
+     1>Qt5Widgetsd.lib(Qt5Widgetsd.dll) : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'X86'
+     1>Done Building Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\FaceGrid\FaceGrid\FaceGrid.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:05.15

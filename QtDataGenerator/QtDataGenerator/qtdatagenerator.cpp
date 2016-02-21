@@ -90,7 +90,7 @@ void QtDataGenerator::on_btn_next_clicked()
 	{
 		ui.btn_next->setText("DONE");
 
-	}
+	} 
 }
 
 void QtDataGenerator::on_btn_browser_clicked() // Get a list with all the files which should be examined

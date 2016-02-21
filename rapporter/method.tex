@@ -1,5 +1,5 @@
 \section{Method} \label{method}
-A functional automatic system for facial mark detection should consist of several smaller subsystems, see \cref{fig:system_flow}. All these subsystems use images from a database and since only the face is of interest, the background has to be removed. This step is called face segmentation and the output is sent to the skin mark detector and the face region generator. When the RPPVSM are separated from the other skin marks and which region they belong to, a validation of the algorithm is performed. If the results from the validation are satisfying, the algorithm can be used on a larger database to generate statistical information about the occurrence and location of RPPVSM.  
+A functional automatic system for facial mark detection should consist of several smaller subsystems, see \cref{fig:system_flow}. All these subsystems require images from a database and since only faces are of interest, the background has to be removed in every examined image. This step is called face segmentation and the output is sent to the skin mark detector and the face region generator. When the RPPVSM are separated from other skin marks and the region they belong to, a validation of the algorithm is performed. If the results from the validation are satisfying, the algorithm can be used on a larger database to generate statistical information about the occurrence and location of RPPVSM.  
 
 \begin{figure}[H]
 	\centering
@@ -10,15 +10,15 @@ A functional automatic system for facial mark detection should consist of severa
 
 \subsection{Face segmentation}
 
-The main idea for face segmentation is to use simple thresholds to create binary masks and also some use edge templates. \cite{face_segmentation_skin} It would also be interesting to test the Color Names descriptor \cite{11_colours}, which is based on the 11 most common colours in the English language as colour spaces when trying to segment out the face. The segmentation can also be done by finding the contour of the face.  
+The main idea of face segmentation is to use simple threshold methods to create binary masks and also use edge templates. \cite{face_segmentation_skin} To facilitate the segmentation I will use the Color Names descriptor \cite{11_colours}, which is based on the 11 most common colours in the English language. The segmentation can also be done by finding the contour of the faces, if time allows it.  
 
 \subsection{Skin mark detection}
 
-The skin mark detector consist of smaller parts, \cref{fig:detection_flow}. When the image is imported, it has to be pre-processed by cancelling the illumination variations and normalizing face by centring the eyes and setting the interpupillary distance to a specific pixel distance. \cite{automatic_detector_2015}. To visualize certain colours better the RGB-image can be transformed into other colour spaces, such as pink, grey and HSV. \cite{11_colours}. 
+The skin mark detector consist of smaller parts, \cref{fig:detection_flow}. When the image is imported, it has to be pre-processed by canceling the illumination variations, and face normalizing by centering the eyes and setting the interpupillary distance to a specific pixel distance. \cite{automatic_detector_2015}. To visualize certain colours better the RGB-image can be transformed into other colour spaces, such as pink and grey. \cite{11_colours}. 
 
-With the pre-processed image the detection of marks can begin. The detection can be done with edge detection and segmentation algorithms such as watershed \cite{segmentation_method, edge_method}. It would also be interesting to use the Fast Radial Symmetry Detector (FRSD) used by Nisha Srinivas et al. \cite{automatic_detector_2015}. 
+With the pre-processed image, the detection of marks can begin. The detection can be done with edge detection and segmentation algorithms such as watershed \cite{segmentation_method, edge_method}. The Fast Radial Symmetry Detector (FRSD) used by Nisha Srinivas et al. \cite{automatic_detector_2015} will be investigated if time allows it. 
 
-These detection methods result in mark candidates and among them there will surely be some false positive detections. The false detections will be excluded by removing candidates within regions with a lot of hair and candidates which do not have a blob shape. This is the post-processing step. \cite{automatic_detector_2015}
+These detection methods result in mark candidates and among them there will surely be some false positive detections. The false detections will be excluded if they are located in regions with a lot of hair and do not have a blob shape. This is the post-processing step. \cite{automatic_detector_2015}
 
 When there only remains true facial marks, they have to be separated into RPPVSM and transient marks. The classification step is done by training a radial kernel Support Vector Machine (SVM) and using it to classify the detected marks.  
 
@@ -42,15 +42,15 @@ The face region generator, \cref{fig:grid_flow}, will be based on landmark detec
 
 \subsection{Data generation}
 
-In order to validate the algorithm a set of training and test data has to be generated. To get the required data set a simple GUI will be created where the mentors from NFC can set bounding boxes over facial marks. The marks are labeled permanent respectively non-permanent. The mentors will also provide facial images which will be labeled.      
+In order to validate the algorithm a set of training and test data has to be generated. To get the required data set, a simple GUI will be created where the mentors from NFC can set bounding boxes over facial marks. The marks are labeled permanent respectively non-permanent. The mentors will also provide facial images which will be labeled.      
 
 \subsection{Validation}
 
-Validation of the algorithm will be done by comparing the output with the ground truth on a couple of images. The data used for this will consist of 100 images at first since the generation of training and test data is quite laborious. The number of images can of course be increased if need be. 75\% of the images will be uses as training data and the remaining 25\% as test data. To get an average, the data will be cross validated which means that the training data and test data is alternated. 
+Validation of the algorithm will be done by comparing the output with the ground truth on a number of images. The data used for this will consist of 100 images at first since the generation of training and test data is quite laborious. The number of images can of course be increased if needed. 75\% of the images will be used as training data and the remaining 25\% as test data. To get an average, the data will be cross validated which means that the training data and test data is alternated. 
 
-The measurement for validation will mainly be the accuracy of the confusion matrix but also the precision and recall will be used for the validation. Since algorithm will use fixed thresholds and parameters it would be of interest to display the validation results for different parameter settings in a Receiver Operating Characteristic (ROC) graph.
+The measurement for validation will be the accuracy of the confusion matrix, but also the precision and recall will be used for the validation. Since the algorithm will use fixed thresholds and parameters the validation results for different parameter settings will be displayed in Receiver Operating Characteristic (ROC) graphs.
 
-Since it is facial marks which will be detected there has to be a definition of what counts as a true respectively false detection. The most natural way to do this is to determine the ratio between the intersection area and union area of the detected and true skin marks. When the ratio is greater than this ratio, e.g. 50\%, it counts as a true detection, otherwise it is a false detection. 
+Since it is facial marks which will be detected there has to be a definition of what counts as a true respectively false detection. The most natural way to do this is to determine the ratio between the intersection area and union area of the detected and true skin marks. When the ratio is greater than a specified amount, e.g. 50\%, it counts as a true detection, otherwise it is a false detection. 
 
 
 \subsection{Statistic}

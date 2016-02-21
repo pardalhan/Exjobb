@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  8 FEB 2016 08:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  19 FEB 2016 07:30
 entering extended mode
 **./Main.tex
 (Main.tex
@@ -387,14 +387,19 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `Main.toc'.
 
- [3] [4] [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 94.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+[]\OT1/cmr/m/n/10 Grammatical cor-rec-tions and
+ []
+
+[4] [1]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 96.
 
 ("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 94.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 96.
 
 (method.tex <"bilder/system_flow".png, id=22, 804.606pt x 198.341pt>
 File: "bilder/system_flow".png Graphic file (type png)
@@ -416,8 +421,8 @@ File: "bilder/Grid_flow".png Graphic file (type png)
 <use "bilder/Grid_flow".png>
 Package pdftex.def Info: "bilder/Grid_flow".png used on input line 38.
 (pdftex.def)             Requested size: 430.0pt x 31.00159pt.
- [3 <./bilder/detection_flow.png>])
-(reference_base.tex [4 <./bilder/Grid_flow.png>]) (time_plan.tex
+ [3 <./bilder/detection_flow.png> <./bilder/Grid_flow.png>]) (reference_base.te
+x [4]) (time_plan.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--11
 []\OT1/cmr/bx/n/10 Time
  []
@@ -432,15 +437,20 @@ Underfull \hbox (badness 1997) in paragraph at lines 19--19
 []\OT1/cmr/m/n/10 Post-processing (De-tec-
  []
 
+
+Underfull \hbox (badness 3492) in paragraph at lines 49--49
+[]\OT1/cmr/m/n/10 Thesis plan ap-proved and
+ []
+
 [5]) (expected_results.tex [6]) [7] (Main.bbl) [8] (Main.aux) ) 
 Here is how much of TeX's memory you used:
  3889 strings out of 493634
  65316 string characters out of 3135239
- 161223 words of memory out of 3000000
+ 168223 words of memory out of 3000000
  7255 multiletter control sequences out of 15000+200000
  8241 words of font info for 29 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,9n,22p,966b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,9n,22p,974b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/arman/
 AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:
 /Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
@@ -450,7 +460,7 @@ ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/arman/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/arman/AppD
 ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Main.pdf (12 pages, 178728 bytes).
+Output written on Main.pdf (12 pages, 178942 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

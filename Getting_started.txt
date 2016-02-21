@@ -4,3 +4,8 @@ opencv_world310d.lib
 opencv_world310.lib
 
 5.5 i qt project settings
+
+qtmaind.lib
+Qt5Cored.lib
+Qt5Guid.lib
+Qt5Widgetsd.lib

@@ -28,8 +28,6 @@ public:
 	QtDataGenerator(QWidget *parent = 0);
 	~QtDataGenerator();
 
-
-
 private slots:
 	// Buttons 
 	void on_btn_next_clicked();

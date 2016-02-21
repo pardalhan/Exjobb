@@ -1,25 +1,30 @@
-﻿Build started 2/16/2016 4:58:48 PM.
-     1>Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\QtDataGenerator\QtDataGenerator.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2/18/2016 5:23:26 PM.
+     1>Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\QtDataGenerator\QtDataGenerator.vcxproj" on node 2 (Rebuild target(s)).
      1>CustomBuild:
          Moc'ing qtdatagenerator.h...
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(935,5): warning MSB8027: Two or more files with the name of moc_qtdatagenerator.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are GeneratedFiles\Debug\moc_qtdatagenerator.cpp, GeneratedFiles\Release\moc_qtdatagenerator.cpp.
+         Uic'ing qtdatagenerator.ui...
+         Rcc'ing qtdatagenerator.qrc...
+     1>RCC : warning : No resources in 'C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\QtDataGenerator\qtdatagenerator.qrc'.
+         
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\Debug\moc_qtdatagenerator.cpp main.cpp qtdatagenerator.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\/GeneratedFiles\Debug\/" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\Debug\moc_qtdatagenerator.cpp
          moc_qtdatagenerator.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\/GeneratedFiles\/" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\qrc_qtdatagenerator.cpp
+         qrc_qtdatagenerator.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\//" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt main.cpp MyImage.cpp qtdatagenerator.cpp
          main.cpp
+         MyImage.cpp
          qtdatagenerator.cpp
          Generating Code...
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Ic:\opencv\build\include /I.\GeneratedFiles /I. /IC:\Qt\5.5\msvc2013_64\include /I.\GeneratedFiles\Debug /IC:\Qt\5.5\msvc2013_64\include\QtCore /IC:\Qt\5.5\msvc2013_64\include\QtGui /IC:\Qt\5.5\msvc2013_64\include\QtWidgets /Zi /nologo /W1 /WX- /Od /D UNICODE /D WIN32 /D WIN64 /D QT_DLL /D QT_CORE_LIB /D QT_GUI_LIB /D QT_WIDGETS_LIB /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt GeneratedFiles\qrc_qtdatagenerator.cpp
-         qrc_qtdatagenerator.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\\QtDataGenerator.exe" /NOLOGO /LIBPATH:c:\opencv\build\x64\vc12\lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\QtDataGenerator.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\QtDataGenerator.lib" /MACHINE:X64 x64\Debug\moc_qtdatagenerator.obj
-         x64\Debug\qrc_qtdatagenerator.obj
-         x64\Debug\main.obj
-         x64\Debug\MyImage.obj
-         x64\Debug\qtdatagenerator.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\\QtDataGenerator.exe" /NOLOGO /LIBPATH:c:\opencv\build\x64\vc12\lib /LIBPATH:C:\Qt\5.5\msvc2013_64\lib qtmaind.lib Qt5Cored.lib Qt5Guid.lib Qt5Widgetsd.lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\QtDataGenerator.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\QtDataGenerator.lib" /MACHINE:X64 x64\Debug\/GeneratedFiles\Debug\/moc_qtdatagenerator.obj
+         x64\Debug\/GeneratedFiles\/qrc_qtdatagenerator.obj
+         x64\Debug\//main.obj
+         x64\Debug\//MyImage.obj
+         x64\Debug\//qtdatagenerator.obj
          QtDataGenerator.vcxproj -> C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\x64\Debug\QtDataGenerator.exe
-     1>Done Building Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\QtDataGenerator\QtDataGenerator.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\QtDataGenerator\QtDataGenerator.vcxproj" (Rebuild target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:17.76
+Time Elapsed 00:00:10.39
