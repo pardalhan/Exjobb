@@ -1,4 +1,4 @@
-﻿Build started 2/18/2016 5:23:26 PM.
+﻿Build started 2/22/2016 7:32:50 AM.
      1>Project "C:\Users\arman\Desktop\Exjobb_NFC\Exjobb\QtDataGenerator\QtDataGenerator\QtDataGenerator.vcxproj" on node 2 (Rebuild target(s)).
      1>CustomBuild:
          Moc'ing qtdatagenerator.h...
@@ -27,4 +27,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:10.39
+Time Elapsed 00:00:10.03
