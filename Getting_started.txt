@@ -3,8 +3,12 @@ $(OPENCV_PATH)\x64\vc12\lib
 opencv_world310d.lib
 opencv_world310.lib
 
-5.5 i qt project settings
 
+set path to qt in the QT add-in toolbar
+set version in qt project settings in the project
+
+
+Kanske redan är med:
 qtmaind.lib
 Qt5Cored.lib
 Qt5Guid.lib

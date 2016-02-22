@@ -71,6 +71,7 @@ void QtDataGenerator::on_btn_next_clicked()
 		this->display_image(list_of_files[file_counter]);
 		this->curr_image->set_name(QFileInfo(list_of_files[file_counter]).fileName(), 1);
 		this->curr_image->set_name(QFileInfo(list_of_files[file_counter]).absoluteDir().absolutePath(), 2);
+		ui.lbl_img->clear();
 
 	}
 	else
@@ -173,7 +174,7 @@ void QtDataGenerator::MouseHandler(int event, int x, int y, int flags, void* use
 				// mouse dragged. ROI being selected 
 				cv::Mat img1 = this->altered_img.clone();
 				this->point2 = cv::Point(x, y);
-				cv::rectangle(img1, this->point1, this->point2, CV_RGB(255, 0, 0), 1, 8, 0);
+				cv::rectangle(img1, this->point1, this->point2, CV_RGB(255, 0, 0), 2, 8, 0);
 				cv::imshow("MyWindow", img1);
 			}
 			if (event == CV_EVENT_LBUTTONUP && drag)
@@ -198,7 +199,7 @@ void QtDataGenerator::MouseHandler(int event, int x, int y, int flags, void* use
 			if (event == CV_EVENT_LBUTTONUP)
 			{
 				// ROI selected 
-				cv::rectangle(this->altered_img, this->rect, CV_RGB(0, 255, 0), 1, 8, 0);
+				cv::rectangle(this->altered_img, this->rect, CV_RGB(0, 255, 0), 2, 8, 0);
 				cv::imshow("MyWindow", this->altered_img);
 			}
 			// RIGHT BUTTOM -------------------------------------------------------------------------
@@ -213,7 +214,7 @@ void QtDataGenerator::MouseHandler(int event, int x, int y, int flags, void* use
 				// mouse dragged. ROI being selected 
 				cv::Mat img1 = this->altered_img.clone();
 				this->point2 = cv::Point(x, y);
-				cv::rectangle(img1, this->point1, this->point2, CV_RGB(255, 0, 0), 1, 8, 0);
+				cv::rectangle(img1, this->point1, this->point2, CV_RGB(255, 0, 0), 2, 8, 0);
 				cv::imshow("MyWindow", img1);
 			}
 			if (event == CV_EVENT_RBUTTONUP && drag)
@@ -238,7 +239,7 @@ void QtDataGenerator::MouseHandler(int event, int x, int y, int flags, void* use
 			if (event == CV_EVENT_RBUTTONUP)
 			{
 				// ROI selected 
-				cv::rectangle(this->altered_img, rect, CV_RGB(0, 0, 255), 1, 8, 0);
+				cv::rectangle(this->altered_img, rect, CV_RGB(0, 0, 255), 2, 8, 0);
 				cv::imshow("MyWindow", this->altered_img);
 
 			}
@@ -256,7 +257,7 @@ void QtDataGenerator::MouseHandler(int event, int x, int y, int flags, void* use
 				// mouse dragged. ROI being selected 
 				cv::Mat img1 = this->altered_img.clone();
 				this->point2 = cv::Point(x, y);
-				cv::rectangle(img1, this->point1, this->point2, CV_RGB(255, 0, 0), 1, 8, 0);
+				cv::rectangle(img1, this->point1, this->point2, CV_RGB(255, 0, 0), 2, 8, 0);
 				cv::imshow("MyWindow", img1);
 			}
 			if (event == CV_EVENT_LBUTTONUP && drag)
@@ -338,11 +339,11 @@ void QtDataGenerator::draw_rect(std::vector<cv::Point> vec1, std::vector<cv::Poi
 			switch (vec3[it])
 			{
 			case 1:
-				cv::rectangle(this->altered_img, temp, CV_RGB(0, 255, 0), 1, 8, 0);
+				cv::rectangle(this->altered_img, temp, CV_RGB(0, 255, 0), 2, 8, 0);
 				break;
 
 			case 2:
-				cv::rectangle(this->altered_img, temp, CV_RGB(0, 0, 255), 1, 8, 0);
+				cv::rectangle(this->altered_img, temp, CV_RGB(0, 0, 255), 2, 8, 0);
 				break;
 			}
 		}
