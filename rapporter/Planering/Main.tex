@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{cleveref}
+%\usepackage{biblatex}
+
+
+\setlength{\parindent}{0cm} %Indenteringen för första raden på ett nytt stycke
+\setlength{\parskip}{3mm} %Avståndet för en ny rad inom samma section
+\setlength{\hoffset}{-40pt} % Flyttar vänstermarginalen -70
+\setlength{\textwidth}{430pt}
+
+\begin{document}
+	
+
+
+\pagenumbering{<command>}
+\pagenumbering{Roman}
+
+\title{Master thesis plan}
+\author{Armand Moulis}
+\date{\today}
+\maketitle
+\newpage
+
+\section*{Participants}
+
+\begin{center}
+
+	\begin{tabular}{|l|l|l|l|}
+		\hline
+		Name             & Role            & Email                      & Abbreviation \\ \hline
+		Armand Moulis    & Thesis worker   & armand@moulis.se           & AM           \\ \hline
+		Niclas Appleby   & Mentor at NFC   & elisabet.leitet@polisen.se & NA           \\ \hline
+		Elisabet Leitet  & Mentor at NFC   & niclas.appleby@polisen.se  & EL           \\ \hline
+		Lasse Alfredsson & Examiner at LIU & lasse.alfredsson@liu.se    & LA           \\ \hline
+		Martin Danelljan & Supervisor at LIU   & martin.danelljan@liu.se    & MD           \\ \hline
+	\end{tabular}
+\end{center}
+\newpage
+
+
+\newpage
+\setcounter{tocdepth}{3}
+\tableofcontents
+\newpage
+
+\section*{Document history}
+\begin{center}
+	\begin{tabular}{|l|l| p{5cm} |l|l| }
+		\hline
+		Version &  Date  & Changes     & Sign & Reviewed \\ \hline
+		  0.1   & January 29, 2016 & First Draft & AM  & MD, EL \\ \hline
+		  0.2   & February 5, 2016 & Minor changes after comments from MD and EL, added section data generation & AM  & MD  \\ \hline
+		  0.3   & February 8, 2016 & Changes to the problem specification  & AM  & LA  \\ \hline
+		  0.4   & February 17, 2016 & Grammatical corrections and clarification of method, date of half time & AM  &  LA\\ \hline
+		  1.0   & \today & Approved by LA & AM  &  LA\\ \hline
+	\end{tabular}
+\end{center}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+%% Start of the document
+
+\section{Introduction}
+
+The amount of technical tools available for forensic analysis in law enforcement increases rapidly and today there exist millions of devises capable of taking relatively sharp images. Video surveillance cameras, security cameras and cellphone cameras can all be used to catch perpetrators in the act. The videos and still images can be used as evidence for identification during trails which means that forensic technicians need tools to evaluate if the suspect is the same person as the one caught on camera.
+
+Forensic technicians use still images to compare visible features between suspect a and a perpetrator in order to determine whether it is the same person. This is done manually and is time consuming which is why there is an interest in creating methods and standards which could do the comparison automatically \cite{forensic_identification}. To create automatic methods the facial features have to be detected, classified, and located. The most common facial marks are moles, pockmarks, freckles, scars, and acne. Some of these marks are not permanent, e.g. acne usually heals without leaving any marks, while scares and moles remain the whole life    \cite{automatic_detector_2015}. Skin marks which can be used for identification are called "Relatively Permanent Pigmented or Vascular Skin Marks" (RPPVSM) and they have to be relatively permanent, common and also be observable without any special equipment. \cite{statistic_RPPVSM}
+
+When the pattern of facial marks has been determined and compared with a suspect, the forensic technicians give a specialist report to he court. The report states how probable it is that the suspect is the perpetrator. In order to give this statement they need to know the probability that two persons can have the same facial mark pattern. To know this there is a need of statical information about the occurrence and position of facial marks within the population \cite{NFC_stat}.
+
+This thesis work will focus on developing an automatic system which can automatically detect and position RPPVSM in human faces, in order to get reliable statistics about facial marks in the population.   
+
+\section{Title suggestion}
+
+This thesis will result in a thesis report which must have a appropriate title. The first suggestion is: 
+
+\begin{displayquote}
+"Automatic detection and localization of relatively permanent pigmented or vascular skin marks"
+\end{displayquote}
+
+\section{Problem specification}
+
+The aim of this thesis is to examine the possibilities of automatically detecting and locating facial marks and classifying them as permanent or non-permanent marks. Several different segmentation and digital image processing algorithms for detecting facial marks will be explored. The thesis will also investigate how to create a facial grid from facial landmarks, in order to give the facial marks a position.
+
+\section{Boundary}
+
+In general, when working with image, the quality of the images are crucial for the results. Low resolution and badly illuminated images taken from different angles can cause analytical difficulties. Therefore, in this thesis we are only going to us images which:
+
+\begin{itemize}
+	\item Have a high resolution
+	\item Are well illuminated
+	\item Are taken en face
+	\item Are in RGB-colours 
+\end{itemize}
+
+\input{method}
+
+\input{reference_base}
+
+\input{time_plan}
+
+\input{expected_results}
+
+\newpage
+\bibliographystyle{unsrt} %Style which sort after referenced 
+\bibliography{references}
+
+%% End of the document
+
+\end{document}
+

@@ -20,7 +20,6 @@ void GridFace::on_btn_browser_clicked()
 
 	this->file_counter = 0;
 	ui.btn_run->setEnabled(true);
-	//this->curr_img = new MyImage;
 	this->list_of_files = QFileDialog::getOpenFileNames(this, "Select one or more files to open", "D:\\Testdata\\ref_bilder", "*.png *.jpg *.jpeg *.bmp *.gif");
 
 	//display_image(file_path); // Display image from filepath 
@@ -45,9 +44,6 @@ void GridFace::on_btn_browser_clicked()
 	this->on_btn_run_clicked();
 
 }
-
-
-
 
 void GridFace::on_btn_run_clicked()
 {
