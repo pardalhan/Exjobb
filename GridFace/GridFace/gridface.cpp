@@ -104,8 +104,6 @@ void GridFace::on_btn_run_clicked()
 	if ((file_counter + 1) >= this->list_of_files.size()) // Last file in the list
 	{
 		ui.btn_run->setText("DONE");
-	
-
 	}
 
 	this->file_counter++;

@@ -16,13 +16,9 @@
 #include <qmessagebox.h>
 //#include <iostream>
 //#include <fstream>
-
-#include "flandmark_detector.h"
-//#include <cstring>
-//#include <cmath>
-//#include "opencv2/objdetect/objdetect.hpp"
-//#include "opencv2/highgui/highgui.hpp"
-//#include "opencv2/imgproc/imgproc.hpp" 
+ 
+#include "SVM_landmarks\flandmark_detector.h"
+ 
 
 class GridFace : public QMainWindow
 {

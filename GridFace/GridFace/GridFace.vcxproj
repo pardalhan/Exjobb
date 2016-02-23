@@ -137,7 +137,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="flandmark_detector.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_gridface.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
@@ -157,9 +156,10 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="gridface.cpp" />
-    <ClCompile Include="liblbp.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyImage.cpp" />
+    <ClCompile Include="SVM_landmarks\flandmark_detector.cpp" />
+    <ClCompile Include="SVM_landmarks\liblbp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gridface.h">
@@ -202,11 +202,11 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="flandmark_detector.h" />
     <ClInclude Include="GeneratedFiles\ui_gridface.h" />
-    <ClInclude Include="liblbp.h" />
-    <ClInclude Include="msvc-compat.h" />
     <ClInclude Include="MyImage.h" />
+    <ClInclude Include="SVM_landmarks\flandmark_detector.h" />
+    <ClInclude Include="SVM_landmarks\liblbp.h" />
+    <ClInclude Include="SVM_landmarks\msvc-compat.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gridface.qrc">
@@ -229,10 +229,10 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="flandmark_model.dat" />
+    <None Include="SVM_landmarks\flandmark_model.dat" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="haarcascade_frontalface_alt.xml" />
+    <Xml Include="SVM_landmarks\haarcascade_frontalface_alt.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -33,6 +33,12 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Wild_landmarks">
+      <UniqueIdentifier>{bb8141d8-c0d5-4755-884b-156059a61584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SVM_landmarks">
+      <UniqueIdentifier>{68741c96-c177-4596-b111-0609c3ca45b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -50,14 +56,14 @@
     <ClCompile Include="GeneratedFiles\qrc_gridface.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="flandmark_detector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="liblbp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MyImage.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SVM_landmarks\flandmark_detector.cpp">
+      <Filter>SVM_landmarks</Filter>
+    </ClCompile>
+    <ClCompile Include="SVM_landmarks\liblbp.cpp">
+      <Filter>SVM_landmarks</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -75,27 +81,27 @@
     <ClInclude Include="GeneratedFiles\ui_gridface.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="flandmark_detector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="liblbp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="msvc-compat.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MyImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SVM_landmarks\flandmark_detector.h">
+      <Filter>SVM_landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="SVM_landmarks\liblbp.h">
+      <Filter>SVM_landmarks</Filter>
+    </ClInclude>
+    <ClInclude Include="SVM_landmarks\msvc-compat.h">
+      <Filter>SVM_landmarks</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="flandmark_model.dat">
-      <Filter>Form Files</Filter>
+    <None Include="SVM_landmarks\flandmark_model.dat">
+      <Filter>SVM_landmarks</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="haarcascade_frontalface_alt.xml">
-      <Filter>Form Files</Filter>
+    <Xml Include="SVM_landmarks\haarcascade_frontalface_alt.xml">
+      <Filter>SVM_landmarks</Filter>
     </Xml>
   </ItemGroup>
 </Project>

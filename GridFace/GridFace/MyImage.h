@@ -5,8 +5,8 @@
 #include <vector>
 #include <opencv2\opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include "flandmark_detector.h"
-
+#include "SVM_landmarks\flandmark_detector.h"
+ 
 class MyImage
 {
 

@@ -13,7 +13,7 @@ MyImage::~MyImage()
 void MyImage::init()
 {
 	// Haar Cascade file, used for Face Detection.
-	char faceCascadeFilename[] = "haarcascade_frontalface_alt.xml";
+	char faceCascadeFilename[] = "SVM_landmarks\\haarcascade_frontalface_alt.xml";
 	// Load the HaarCascade classifier for face detection.
 	if (!faceCascade.load(faceCascadeFilename))
 	{
@@ -21,7 +21,7 @@ void MyImage::init()
 		exit(1);
 	}
 
-	model_fland = flandmark_init("flandmark_model.dat"); // load flandmark model structure and initialize
+	model_fland = flandmark_init("SVM_landmarks\\flandmark_model.dat"); // load flandmark model structure and initialize
 }
 
 QString MyImage::get_name(int option)
