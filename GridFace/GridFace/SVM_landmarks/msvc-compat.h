@@ -3,7 +3,7 @@
 #ifdef _MSC_VER
 
 typedef unsigned char uint8_t;
-typedef char int8_t;
+//typedef char int8_t; // can't work with dlib
 typedef unsigned __int16 uint16_t;
 typedef __int16 int16_t;
 typedef unsigned __int32 uint32_t;

@@ -17,7 +17,7 @@ void MyImage::init()
 	// Load the HaarCascade classifier for face detection.
 	if (!faceCascade.load(faceCascadeFilename))
 	{
-		printf("Couldnt load Face detector '%s'\n", faceCascadeFilename);
+		// ERROR
 		exit(1);
 	}
 
@@ -109,8 +109,5 @@ void MyImage::detect_landmarks(cv::Mat orig, IplImage* input, cv::CascadeClassif
 
 		}
 	}
-
-
-
 
 }

@@ -56,6 +56,32 @@
      <string>Browser</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="btn_second">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>91</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Second</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="ch_method">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>30</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Method</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -63,7 +89,7 @@
      <x>0</x>
      <y>0</y>
      <width>627</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

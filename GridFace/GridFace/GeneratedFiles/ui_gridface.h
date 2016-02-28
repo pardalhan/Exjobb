@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -31,6 +32,8 @@ public:
     QPushButton *btn_run;
     QLabel *lbl_msg;
     QPushButton *btn_browser;
+    QPushButton *btn_second;
+    QCheckBox *ch_method;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -52,10 +55,16 @@ public:
         btn_browser = new QPushButton(centralWidget);
         btn_browser->setObjectName(QStringLiteral("btn_browser"));
         btn_browser->setGeometry(QRect(240, 80, 171, 41));
+        btn_second = new QPushButton(centralWidget);
+        btn_second->setObjectName(QStringLiteral("btn_second"));
+        btn_second->setGeometry(QRect(30, 20, 91, 41));
+        ch_method = new QCheckBox(centralWidget);
+        ch_method->setObjectName(QStringLiteral("ch_method"));
+        ch_method->setGeometry(QRect(520, 30, 81, 20));
         GridFaceClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(GridFaceClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 627, 21));
+        menuBar->setGeometry(QRect(0, 0, 627, 26));
         GridFaceClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(GridFaceClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -75,6 +84,8 @@ public:
         btn_run->setText(QApplication::translate("GridFaceClass", "RUN FOR THE HILLS", 0));
         lbl_msg->setText(QApplication::translate("GridFaceClass", "Message", 0));
         btn_browser->setText(QApplication::translate("GridFaceClass", "Browser", 0));
+        btn_second->setText(QApplication::translate("GridFaceClass", "Second", 0));
+        ch_method->setText(QApplication::translate("GridFaceClass", "Method", 0));
     } // retranslateUi
 
 };

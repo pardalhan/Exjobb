@@ -1,12 +1,13 @@
 #ifndef GRIDFACE_H
 #define GRIDFACE_H
+#define DLIB_JPEG_SUPPORT
+#define DLIB_PNG_SUPPORT
 
 #include <QtWidgets/QMainWindow>
 #include "ui_gridface.h"
 #include <opencv2\opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <Qfiledialog.h>
-#include "MyImage.h"
 //#include <qdebug.h>
 //#include <qdiriterator.h>
 //#include <QMouseEvent>
@@ -16,8 +17,18 @@
 #include <qmessagebox.h>
 //#include <iostream>
 //#include <fstream>
- 
-#include "SVM_landmarks\flandmark_detector.h"
+
+
+#include <../image_processing/frontal_face_detector.h>
+#include <../image_processing/render_face_detections.h>
+#include <../image_processing.h>
+#include <../gui_widgets.h>
+#include <../image_io.h>
+
+
+#include "MyImage.h"
+
+
  
 
 class GridFace : public QMainWindow
@@ -30,6 +41,7 @@ public:
 
 private slots:
 	void on_btn_run_clicked();
+	void on_btn_second_clicked();
 	void on_btn_browser_clicked();
 
 private:
