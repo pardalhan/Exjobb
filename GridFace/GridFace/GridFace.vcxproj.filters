@@ -36,6 +36,9 @@
     <Filter Include="SVM_landmarks">
       <UniqueIdentifier>{68741c96-c177-4596-b111-0609c3ca45b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="dlib">
+      <UniqueIdentifier>{29398cae-9528-48af-8533-10395df7455b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -62,8 +65,8 @@
     <ClCompile Include="SVM_landmarks\liblbp.cpp">
       <Filter>SVM_landmarks</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\dlib-18.18\dlib\all\source.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="dlib\source.cpp">
+      <Filter>dlib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +100,9 @@
   <ItemGroup>
     <None Include="SVM_landmarks\flandmark_model.dat">
       <Filter>SVM_landmarks</Filter>
+    </None>
+    <None Include="dlib\shape_predictor_68_face_landmarks.dat">
+      <Filter>dlib</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

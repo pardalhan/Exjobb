@@ -1,7 +1,7 @@
 #ifndef GRIDFACE_H
 #define GRIDFACE_H
-#define DLIB_JPEG_SUPPORT
-#define DLIB_PNG_SUPPORT
+//#define DLIB_JPEG_SUPPORT
+//#define DLIB_PNG_SUPPORT
 
 #include <QtWidgets/QMainWindow>
 #include "ui_gridface.h"
@@ -17,14 +17,6 @@
 #include <qmessagebox.h>
 //#include <iostream>
 //#include <fstream>
-
-
-#include <../image_processing/frontal_face_detector.h>
-#include <../image_processing/render_face_detections.h>
-#include <../image_processing.h>
-#include <../gui_widgets.h>
-#include <../image_io.h>
-
 
 #include "MyImage.h"
 
@@ -55,6 +47,7 @@ private:
 	MyImage *curr_img;
 	QStringList list_of_files;
 	bool my_switch;
+	QMessageBox message; 
 };
 
 #endif // GRIDFACE_H

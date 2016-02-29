@@ -50,7 +50,7 @@ void GridFace::on_btn_run_clicked()
 {
 	//while (my_switch)
 	{
-
+		this->curr_img->clear_data(); 
 	if (file_counter < this->list_of_files.size()) // Display image there is a image in the filelist
 	{
 		QString file_path = this->list_of_files[this->file_counter];
@@ -66,32 +66,24 @@ void GridFace::on_btn_run_clicked()
 		}
 		else
 		{
-			//ERROR
+			message.setText("File list empty"); 
 		}
-		file_path;
-		cv::Mat img_grayscale;
-		cv::cvtColor(img, img_grayscale, CV_BGR2GRAY);	// convert image to grayscale
-		IplImage* img_grayscale_ipl = cvCloneImage(&(IplImage)img_grayscale); // detectFaceInImage need IplImage* as input 
-
 
 		double t = (double)cvGetTickCount();
-
-		curr_img->detect_landmarks(img, img_grayscale_ipl, curr_img->faceCascade, curr_img->model_fland);
+		curr_img->detect_landmarks(img, curr_img->faceCascade, curr_img->model_fland);
 
 		t = (double)cvGetTickCount() - t;
 		int ms = cvRound(t / ((double)cvGetTickFrequency() * 1000.0));
 
-		if (curr_img->faces.size() > 0)
+		if (curr_img->faces_vec.size() > 0)
 		{
-			ui.lbl_msg->setText("Faces detected: " + QString::number(curr_img->faces.size()) + "\n" +
+			ui.lbl_msg->setText("Faces detected: " + QString::number(curr_img->faces_vec.size()) + "\n" +
 				"Detection of facial landmark on all faces took " + QString::number(ms) + "ms \n");
 
 		}
 		else {
 			printf("NO Face");
 		}
-
-		cv::imshow("MainWindow", img);
 
 	}
 	else
@@ -115,66 +107,5 @@ void GridFace::on_btn_run_clicked()
 
 void GridFace::on_btn_second_clicked()
 {
-	try
-	{
-		// We need a face detector.  We will use this to get bounding boxes for
-		// each face in an image.
-		dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
-		// And we also need a shape_predictor.  This is the tool that will predict face
-		// landmark positions given an image and face bounding box.  Here we are just
-		// loading the model from the shape_predictor_68_face_landmarks.dat file you gave
-		// as a command line argument.
-		dlib::shape_predictor sp;
-		dlib::deserialize("C:\\Users\\arman\\Desktop\\shape_predictor_68_face_landmarks.dat") >> sp;
 
-
-		dlib::image_window win, win_faces;
-
-		dlib::array2d<dlib::rgb_pixel> img;
-		//load_image(img, "C:\\Users\\arman\\Desktop\\Cropped_Face.bmp");
-		//load_image(img, "C:\\Users\\arman\\Desktop\\010_frontal.JPG");
-		dlib::load_image(img, "C:\\Users\\arman\\Desktop\\lena.png");
-
-		// Make the image larger so we can detect small faces.
-		dlib::pyramid_up(img);
-
-		// Now tell the face detector to give us a list of bounding boxes
-		// around all the faces in the image.
-		std::vector<dlib::rectangle> dets = detector(img);
-
-		// Now we will go ask the shape_predictor to tell us the pose of
-		// each face we detected.
-		std::vector<dlib::full_object_detection> shapes;
-		for (unsigned long j = 0; j < dets.size(); ++j)
-		{
-			dlib::full_object_detection shape = sp(img, dets[j]);
-			std::cout << "number of parts: " << shape.num_parts() << std::endl;
-			std::cout << "pixel position of first part:  " << shape.part(0) << std::endl;
-			std::cout << "pixel position of second part: " << shape.part(1) << std::endl;
-			// You get the idea, you can get all the face part locations if
-			// you want them.  Here we just store them in shapes so we can
-			// put them on the screen.
-			shapes.push_back(shape);
-		}
-
-		// Now let's view our face poses on the screen.
-		win.clear_overlay();
-		win.set_image(img);
-		win.add_overlay(render_face_detections(shapes));
-
-		// We can also extract copies of each face that are cropped, rotated upright,
-		// and scaled to a standard size as shown here:
-		dlib::array<dlib::array2d<dlib::rgb_pixel> > face_chips;
-		extract_image_chips(img, get_face_chip_details(shapes), face_chips);
-		win_faces.set_image(tile_images(face_chips));
-
-		std::cout << "Hit enter to process the next image..." << std::endl;
-		std::cin.get();
-
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "\nexception thrown!" << std::endl;
-		std::cout << e.what() << std::endl;
-	}
 }

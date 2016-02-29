@@ -6,22 +6,18 @@
 #include <opencv2\opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-#define DLIB_JPEG_SUPPORT
-#define DLIB_PNG_SUPPORT
+#include "SVM_landmarks\flandmark_detector.h"
+
 #include <../image_processing/frontal_face_detector.h>
 #include <../image_processing/render_face_detections.h>
 #include <../image_processing.h>
-#include <../gui_widgets.h>
+//#include <../gui_widgets.h>
 #include <../image_io.h>
-
-#include "SVM_landmarks\flandmark_detector.h"
-
-
+#include <../opencv/cv_image.h>
 
  
 class MyImage
 {
-
 
 public:
 	MyImage();
@@ -40,20 +36,21 @@ public:
 
 	void insert_selection(cv::Point point1, cv::Point point2, int class_type); // Set point and class of facial marks
 	
-	void detect_landmarks(cv::Mat orig, IplImage* input, cv::CascadeClassifier cascade, FLANDMARK_Model *model);
-	//void dlib_landmarks(cv::Mat orig);
+	void detect_landmarks(cv::Mat orig, cv::CascadeClassifier cascade, FLANDMARK_Model *model);
 
+	void clear_data(); // Clear all data in object
 
 	// Public data members
 
 	cv::CascadeClassifier faceCascade;
 	FLANDMARK_Model *model_fland;
-	dlib::frontal_face_detector model_dlib; 
+	dlib::shape_predictor model_dlib;
 
 	std::vector<cv::Point> point1_vec; // Vector with points of facial marks 
 	std::vector<cv::Point> point2_vec; // Vector with points of facial marks
 	std::vector<int> class_type_vec; // 1 is permanent, 2 is non-permanent 
-	std::vector<cv::Rect> faces; // Vector rects containing faces 
+	std::vector<cv::Rect> faces_vec; // Vector rects containing faces 
+	std::vector<cv::Point> landmark_vec; // Vector with landmark points
 
 
 private:
@@ -62,6 +59,10 @@ private:
 	QString file_name; // File name 
 
 	// Functions 
+	void landmarks_SVM(IplImage *grey_img, int *bbox, FLANDMARK_Model *model, double *landmarks);
+	void landmarks_dlib(cv::Mat orig_img);
+	void display_landmarks(cv::Mat orig_img);
+
 	
 };
 
