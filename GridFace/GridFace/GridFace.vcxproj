@@ -160,8 +160,9 @@
     <ClCompile Include="gridface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MyImage.cpp" />
-    <ClCompile Include="SVM_landmarks\flandmark_detector.cpp" />
-    <ClCompile Include="SVM_landmarks\liblbp.cpp" />
+    <ClCompile Include="normalize\C_BADGER.cpp" />
+    <ClCompile Include="normalize\MSR.cpp" />
+    <ClCompile Include="normalize\SLRMSR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gridface.h">
@@ -206,9 +207,9 @@
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_gridface.h" />
     <ClInclude Include="MyImage.h" />
-    <ClInclude Include="SVM_landmarks\flandmark_detector.h" />
-    <ClInclude Include="SVM_landmarks\liblbp.h" />
-    <ClInclude Include="SVM_landmarks\msvc-compat.h" />
+    <ClInclude Include="normalize\C_BADGER.h" />
+    <ClInclude Include="normalize\MSR.h" />
+    <ClInclude Include="normalize\SLRMSR.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="gridface.qrc">
@@ -232,10 +233,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dlib\shape_predictor_68_face_landmarks.dat" />
-    <None Include="SVM_landmarks\flandmark_model.dat" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="SVM_landmarks\haarcascade_frontalface_alt.xml" />
+    <Xml Include="opencv\haarcascade_eye.xml" />
+    <Xml Include="opencv\haarcascade_frontalface_alt.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

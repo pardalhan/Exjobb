@@ -1,7 +1,13 @@
 $(OPENCV_PATH)\include
+$(DLIB_PATH)\dlib\all
+
 $(OPENCV_PATH)\x64\vc12\lib
+$(DLIB_PATH)\dlib
+
 opencv_world310d.lib
 opencv_world310.lib
+dlib.lib
+ddlib.lib
 
 
 set path to qt in the QT add-in toolbar

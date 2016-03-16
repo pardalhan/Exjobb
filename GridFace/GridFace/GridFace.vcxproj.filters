@@ -33,11 +33,14 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
-    <Filter Include="SVM_landmarks">
-      <UniqueIdentifier>{68741c96-c177-4596-b111-0609c3ca45b5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="dlib">
       <UniqueIdentifier>{29398cae-9528-48af-8533-10395df7455b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="opencv">
+      <UniqueIdentifier>{f4096b04-e99c-4948-94d5-f0fb9fc12ab5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="normalize">
+      <UniqueIdentifier>{e9c153fa-c13e-4979-8087-59d30025b952}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,14 +62,17 @@
     <ClCompile Include="MyImage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SVM_landmarks\flandmark_detector.cpp">
-      <Filter>SVM_landmarks</Filter>
-    </ClCompile>
-    <ClCompile Include="SVM_landmarks\liblbp.cpp">
-      <Filter>SVM_landmarks</Filter>
-    </ClCompile>
     <ClCompile Include="dlib\source.cpp">
       <Filter>dlib</Filter>
+    </ClCompile>
+    <ClCompile Include="normalize\C_BADGER.cpp">
+      <Filter>normalize</Filter>
+    </ClCompile>
+    <ClCompile Include="normalize\MSR.cpp">
+      <Filter>normalize</Filter>
+    </ClCompile>
+    <ClCompile Include="normalize\SLRMSR.cpp">
+      <Filter>normalize</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,27 +93,27 @@
     <ClInclude Include="MyImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SVM_landmarks\flandmark_detector.h">
-      <Filter>SVM_landmarks</Filter>
+    <ClInclude Include="normalize\C_BADGER.h">
+      <Filter>normalize</Filter>
     </ClInclude>
-    <ClInclude Include="SVM_landmarks\liblbp.h">
-      <Filter>SVM_landmarks</Filter>
+    <ClInclude Include="normalize\MSR.h">
+      <Filter>normalize</Filter>
     </ClInclude>
-    <ClInclude Include="SVM_landmarks\msvc-compat.h">
-      <Filter>SVM_landmarks</Filter>
+    <ClInclude Include="normalize\SLRMSR.h">
+      <Filter>normalize</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SVM_landmarks\flandmark_model.dat">
-      <Filter>SVM_landmarks</Filter>
-    </None>
     <None Include="dlib\shape_predictor_68_face_landmarks.dat">
       <Filter>dlib</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="SVM_landmarks\haarcascade_frontalface_alt.xml">
-      <Filter>SVM_landmarks</Filter>
+    <Xml Include="opencv\haarcascade_eye.xml">
+      <Filter>opencv</Filter>
+    </Xml>
+    <Xml Include="opencv\haarcascade_frontalface_alt.xml">
+      <Filter>opencv</Filter>
     </Xml>
   </ItemGroup>
 </Project>

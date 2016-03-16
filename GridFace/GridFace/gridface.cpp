@@ -22,12 +22,8 @@ void GridFace::on_btn_browser_clicked()
 	ui.btn_run->setEnabled(true);
 	this->list_of_files = QFileDialog::getOpenFileNames(this, "Select one or more files to open", "D:\\Testdata\\ref_bilder", "*.png *.jpg *.jpeg *.bmp *.gif");
 
-	//display_image(file_path); // Display image from filepath 
-
-
 	if (list_of_files.size() == 1)
 	{
-
 		ui.btn_run->setText("DONE");
 	}
 	else
@@ -54,7 +50,7 @@ void GridFace::on_btn_run_clicked()
 	if (file_counter < this->list_of_files.size()) // Display image there is a image in the filelist
 	{
 		QString file_path = this->list_of_files[this->file_counter];
-		cv::Mat img;
+		cv::Mat cv_img;
 		if (QString::compare(file_path, QString()) != 0) // Check if the QString is empty 
 		{
 
@@ -62,23 +58,68 @@ void GridFace::on_btn_run_clicked()
 			this->curr_img->set_name(QFileInfo(file_path).fileName(), 1);
 
 
-			img = cv::imread(file_path.toStdString().c_str()); // load input image
+			cv_img = cv::imread(file_path.toStdString().c_str()); // load input image
 		}
 		else
 		{
-			message.setText("File list empty"); 
+			// EROOR 
 		}
 
 		double t = (double)cvGetTickCount();
-		curr_img->detect_landmarks(img, curr_img->faceCascade, curr_img->model_fland);
+		//------------------------------------------- START PROCESSING ------------------------------------------------
+		
+		// Light normalization
+		cv::Mat img_light = badger_process(cv_img);
+		//cv::Mat img_light = MSR_process(cv_img);
 
+		// Rotation
+		this->curr_img->detect_faces(img_light);
+		this->curr_img->detect_landmarks(img_light);
+		cv::Mat rotated_img = this->curr_img->rotate_img(img_light);
+		
+		// Resize factor 
+		cv::Point middle_1 = curr_img->landmark_vec[36] + (curr_img->landmark_vec[39] - curr_img->landmark_vec[36]) / 2;
+		cv::Point middle_2 = curr_img->landmark_vec[42] + (curr_img->landmark_vec[45] - curr_img->landmark_vec[42]) / 2;
+		double resize_factor = (double)500/(double)(middle_2.x - middle_1.x); 
+		
+		this->curr_img->clear_data();
+		
+		// Cut out face
+		this->curr_img->detect_faces(rotated_img);
+		cv::Rect face_rect = this->curr_img->enlarg_face_rect(this->curr_img->faces_vec[0], 0, rotated_img.size());
+		cv::Mat cut_out_face = rotated_img(face_rect);
+
+		// Resize image 
+
+		cv::Mat img_resize;
+		cv::resize(cut_out_face, img_resize, 
+			cv::Size(cut_out_face.size().width*resize_factor, cut_out_face.size().height*resize_factor),0, 0, CV_INTER_CUBIC);
+		this->curr_img->faces_vec[0] = cv::Rect(0, 0, img_resize.size().width, img_resize.size().height);
+		this->curr_img->detect_landmarks(img_resize);
+
+		// Image normalized 
+		cv::Mat done_img = img_resize; 
+	
+		// Display
+		 middle_1 = curr_img->landmark_vec[36] + (curr_img->landmark_vec[39] - curr_img->landmark_vec[36]) / 2;
+		 middle_2 = curr_img->landmark_vec[42] + (curr_img->landmark_vec[45] - curr_img->landmark_vec[42]) / 2;
+		cv::line(done_img, middle_1, middle_2, CV_RGB(0, 255, 0), 2);
+		this->curr_img->display_landmarks(done_img);
+		this->curr_img->draw_grid(done_img);
+		cv::imshow("MainWindow", done_img);
+	
+
+
+		//------------------------------------------- END PROCESSING ------------------------------------------------
 		t = (double)cvGetTickCount() - t;
 		int ms = cvRound(t / ((double)cvGetTickFrequency() * 1000.0));
 
 		if (curr_img->faces_vec.size() > 0)
 		{
 			ui.lbl_msg->setText("Faces detected: " + QString::number(curr_img->faces_vec.size()) + "\n" +
-				"Detection of facial landmark on all faces took " + QString::number(ms) + "ms \n");
+				"Detection of facial landmark on all faces took " + QString::number(ms) + "ms \n" +
+				QString::number(middle_2.x - middle_1.x) + "\n" +
+				QString::number(done_img.size().width) + " " + QString::number(done_img.size().height) + "\n");
 
 		}
 		else {
@@ -100,7 +141,7 @@ void GridFace::on_btn_run_clicked()
 	}
 
 	this->file_counter++;
-	cv::waitKey(2 * 1000);
+	cv::waitKey(0);
 
 	}
 }
@@ -109,3 +150,4 @@ void GridFace::on_btn_second_clicked()
 {
 
 }
+

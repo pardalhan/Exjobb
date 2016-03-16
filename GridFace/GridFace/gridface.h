@@ -1,7 +1,5 @@
 #ifndef GRIDFACE_H
 #define GRIDFACE_H
-//#define DLIB_JPEG_SUPPORT
-//#define DLIB_PNG_SUPPORT
 
 #include <QtWidgets/QMainWindow>
 #include "ui_gridface.h"
@@ -11,10 +9,10 @@
 //#include <qdebug.h>
 //#include <qdiriterator.h>
 //#include <QMouseEvent>
-#include <QMessageBox>
+
 #include <vector>
 #include <string>
-#include <qmessagebox.h>
+#include <QMessageBox>
 //#include <iostream>
 //#include <fstream>
 
@@ -39,15 +37,13 @@ private slots:
 private:
 	Ui::GridFaceClass ui;
 
-	void detectFaceInImage(cv::Mat orig, IplImage* input, cv::CascadeClassifier cascade, FLANDMARK_Model *model, int *bbox, double *landmarks);
-
+	//void detectFaceInImage(cv::Mat orig, IplImage* input, cv::CascadeClassifier cascade, FLANDMARK_Model *model, int *bbox, double *landmarks);
 
 	// Data members 
 	int file_counter;
 	MyImage *curr_img;
 	QStringList list_of_files;
 	bool my_switch;
-	QMessageBox message; 
 };
 
 #endif // GRIDFACE_H
