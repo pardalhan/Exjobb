@@ -231,6 +231,65 @@ std::pair<cv::Mat, cv::Mat> face_segment(cv::Mat cv_img,  std::vector<cv::Point>
 	return std::make_pair(end_mask, foreground);
 }
 
+double calc_angle(cv::Point a, cv::Point b, cv::Point c)
+{
+
+	cv::Point diff_ab = b - a;
+	cv::Point diff_ac = c - a;
+	double dist_ab = sqrt(std::pow((b.x - a.x), 2) + pow((b.y - a.y), 2));
+	double dist_ac = sqrt(std::pow((c.x - a.x), 2) + pow((c.y - a.y), 2));
+	double dotprod = diff_ab.dot(diff_ac);
+	double angle = acos(dotprod / (dist_ab*dist_ac));
+	angle = angle * (double)180 / M_PI;
+	if (c.y > b.y)
+	{
+		angle = -angle;
+	}
+	return angle;
+}
+
+cv::Mat rotate_img(cv::Mat orig_img, std::vector<cv::Point> landmark_vec)
+{
+	cv::Mat rotated_img;
+
+	cv::Point left_eye_1 = landmark_vec[36];
+	cv::Point left_eye_2 = landmark_vec[39];
+	cv::Point right_eye_1 = landmark_vec[42];
+	cv::Point right_eye_2 = landmark_vec[45];
+	cv::Point straight_point_1(left_eye_1.x + right_eye_1.x, left_eye_1.y);
+	cv::Point straight_point_2(left_eye_2.x + right_eye_2.x, left_eye_2.y);
+
+	double angle_1 = calc_angle(left_eye_1, straight_point_1, right_eye_1);
+	double angle_2 = calc_angle(left_eye_2, straight_point_2, right_eye_2);
+	double angle = (angle_1 + angle_2) / 2;
+
+	cv::Point2f pt(orig_img.cols / 2., orig_img.rows / 2.);
+	cv::Mat r = getRotationMatrix2D(pt, -angle, 1.0);
+	warpAffine(orig_img, rotated_img, r, cv::Size(orig_img.cols, orig_img.rows));
+
+
+	return rotated_img;
+}
+
+cv::Point RotatePoint(cv::Point cen_pt, cv::Point p, float angle)
+{
+	float rand = M_PI*(angle / 180);
+	float s = sin(rand);
+	float c = cos(rand);
+
+	// translate point back to origin:
+	p.x -= cen_pt.x;
+	p.y -= cen_pt.y;
+
+	// rotate point
+	float xnew = p.x * c - p.y * s;
+	float ynew = p.x * s + p.y * c;
+
+	// translate point back:
+	p.x = xnew + cen_pt.x;
+	p.y = ynew + cen_pt.y;
+	return p;
+}
 
 
 
@@ -267,13 +326,53 @@ int main(){
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------
 
-	 std::pair<cv::Mat, cv::Mat> segmentation = face_segment(cv_img, landmark_vec, false);
+
+		cv::Mat rotated_img;
+
+		cv::Point left_eye_1 = landmark_vec[36];
+		cv::Point left_eye_2 = landmark_vec[39];
+		cv::Point right_eye_1 = landmark_vec[42];
+		cv::Point right_eye_2 = landmark_vec[45];
+		cv::Point straight_point_1(left_eye_1.x + right_eye_1.x, left_eye_1.y);
+		cv::Point straight_point_2(left_eye_2.x + right_eye_2.x, left_eye_2.y);
+
+		double angle_1 = calc_angle(left_eye_1, straight_point_1, right_eye_1);
+		double angle_2 = calc_angle(left_eye_2, straight_point_2, right_eye_2);
+		double angle = (angle_1 + angle_2) / 2;
+
+		cv::Point2f pt(cv_img.cols / 2., cv_img.rows / 2.);
+		cv::Mat r = getRotationMatrix2D(pt, -angle, 1.0);
+		warpAffine(cv_img, rotated_img, r, cv::Size(cv_img.cols, cv_img.rows));
+		
+		std::vector<cv::Point> rotated_landmarks; 
+		for (int i = 0; i < landmark_vec.size(); i++)
+		{
+			cv::Point temp_rot = RotatePoint(pt, landmark_vec[i], angle);
+			rotated_landmarks.push_back(temp_rot);
+		}
+
+		for (int i = 0; i < landmark_vec.size(); i++)
+		{
+			cv::circle(cv_img, landmark_vec[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
+		}
+
+		for (int i = 0; i < rotated_landmarks.size(); i++)
+		{
+			cv::circle(rotated_img, rotated_landmarks[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
+		}
+		cv::Point temp = RotatePoint(pt, cv::Point(faces[0].x, faces[0].y),angle);
+		cv::Rect rotated_face(temp.x, temp.y, faces[0].width, faces[0].height);
+
+		cv::rectangle(cv_img, faces[0], CV_RGB(0, 0, 255), 2);
+		cv::rectangle(rotated_img, rotated_face, CV_RGB(0, 0, 255), 2);
+	
+	//std::pair<cv::Mat, cv::Mat> segmentation = face_segment(cv_img, landmark_vec, false);
 	
 	// show it
-	cv::namedWindow("foreground", CV_WINDOW_KEEPRATIO);
-	cv::imshow("foreground", segmentation.second);
-	cv::namedWindow("mask", CV_WINDOW_KEEPRATIO);
-	cv::imshow("mask", segmentation.first);
+	//cv::namedWindow("test", CV_WINDOW_KEEPRATIO);
+	//cv::imshow("test", rotated_img);
+	cv::namedWindow("test", CV_WINDOW_KEEPRATIO);
+	cv::imshow("test", rotated_img);
 	cv::namedWindow("orig", CV_WINDOW_KEEPRATIO);
 	cv::imshow("orig", cv_img);
 	cv::waitKey(0);

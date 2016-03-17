@@ -54,6 +54,8 @@ public:
 	void detect_landmarks(cv::Mat orig_img);
 	cv::Mat MyImage::rotate_img(cv::Mat orig_img);
 	cv::Rect enlarg_face_rect(cv::Rect face, double procent, cv::Size img_size);
+	std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv::Point> landmark_vec, bool down_sample);
+	cv::Mat MyImage::close_open(cv::Mat mask, int iterations = 7, int kernels_size = 5);
 
 	void display_landmarks(cv::Mat orig_img);
 	void draw_grid(cv::Mat img);

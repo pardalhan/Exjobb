@@ -1,6 +1,8 @@
 #ifndef MYIMAGE_H
 #define MYIMAGE_H
 
+#define _USE_MATH_DEFINES
+
 #include <vector>
 #include <opencv2\opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>

@@ -99,7 +99,7 @@ void QtDataGenerator::on_btn_browser_clicked() // Get a list with all the files 
 	this->file_counter = 0;
 	ui.btn_next->setEnabled(true);
 
-	QStringList files = QFileDialog::getOpenFileNames(this, "Select one or more files to open", "\\home", "*.png *.jpg *.jpeg *.bmp *.gif");
+	QStringList files = QFileDialog::getOpenFileNames(this, "Select one or more files to open", "C:\\Users\\NFCexjobb\\Desktop\\Exjobb_NFC\\ExjobbBilder", "*.png *.jpg *.jpeg *.bmp *.gif");
 	this->folder_path = QFileInfo(files[0]).absoluteDir().absolutePath();
 	this->list_of_files = files;
 	QString file_path = list_of_files[file_counter]; 
@@ -127,7 +127,7 @@ void QtDataGenerator::on_btn_browser_clicked() // Get a list with all the files 
 
 	curr_image = new MyImage; 
 	this->curr_image->set_name(QFileInfo(files[file_counter]).fileName(), 1);
-	this->curr_image->set_name(file_path, 2);
+	this->curr_image->set_name(folder_path, 2);
 	ui.btn_browser->setEnabled(false);
 
 }
