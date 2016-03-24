@@ -83,25 +83,24 @@ void GridFace::on_btn_run_clicked()
 		double resize_factor = (double)500/(double)(middle_2.x - middle_1.x); 
 
 		// Cut out face
-		cv::Rect face_rect = this->curr_img->enlarg_face_rect(this->curr_img->faces_vec[0], 0, rotated_img.size());
+		cv::Rect face_rect = this->curr_img->enlarg_face_rect(this->curr_img->faces_vec[0], 0.4, rotated_img.size());
 		cv::Mat cut_out_face = rotated_img(face_rect);
 		
 		this->curr_img->clear_data();
-		
-	
-		this->curr_img->detect_faces(cut_out_face);
-
-
+			
 		// Resize image 
 
 		cv::Mat img_resize;
 		cv::resize(cut_out_face, img_resize, 
 			cv::Size(cut_out_face.size().width*resize_factor, cut_out_face.size().height*resize_factor),0, 0, CV_INTER_CUBIC);
-		this->curr_img->faces_vec[0] = cv::Rect(0, 0, img_resize.size().width, img_resize.size().height);
+		this->curr_img->detect_faces(img_resize);
+		//this->curr_img->faces_vec[0] = cv::Rect(0, 0, img_resize.size().width, img_resize.size().height);
 		this->curr_img->detect_landmarks(img_resize);
 
+		std::pair<cv::Mat, cv::Mat> segmentation = this->curr_img->face_segment(img_resize, curr_img->landmark_vec, false);
+
 		// Image normalized 
-		cv::Mat done_img = img_resize; 
+		cv::Mat done_img = segmentation.second;
 	
 		// Display
 		 middle_1 = curr_img->landmark_vec[36] + (curr_img->landmark_vec[39] - curr_img->landmark_vec[36]) / 2;
