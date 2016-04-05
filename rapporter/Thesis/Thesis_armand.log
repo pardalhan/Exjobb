@@ -1,12 +1,16 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  2 MAR 2016 13:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.16)  5 APR 2016 15:57
 entering extended mode
 **./Thesis_armand.tex
 (Thesis_armand.tex
 LaTeX2e <2015/10/01> patch level 2
 Babel <3.9m> and hyphenation patterns for 69 languages loaded.
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
+
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.c
+ls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo"
+
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.cl
+o"
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,38 +25,39 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
-sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graph
+icx.sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.st
-y"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyva
+l.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.
-sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graph
+ics.sty"
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.
+sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\graphics.
-cfg"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\graph
+ics.cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 94.
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.
-def"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdf
+tex.def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infware
-rr.sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\inf
+warerr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds
-.sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltx
+cmds.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
@@ -60,7 +65,8 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.st
+y"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count88
 \float@exts=\toks15
@@ -68,18 +74,20 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box27
 )
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.
+sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
+
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
-
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu
+"
 File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -239,7 +247,8 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.df
+u"
 File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -280,7 +289,8 @@ File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.df
+u"
 File: omsenc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -304,12 +314,12 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.
-sty"
-Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquo
+tes.sty"
+Package: csquotes 2015/07/18 v5.1f context-sensitive quotations (JAW)
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.
-sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etool
+box.sty"
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count89
 )
@@ -321,24 +331,25 @@ Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \csq@tshold=\count95
 \csq@ltx@everypar=\toks19
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.
-def"
-File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquo
+tes.def"
+File: csquotes.def 2015/07/18 v5.1f csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.
-cfg"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquo
+tes.cfg"
 File: csquotes.cfg 
 ))
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cleveref\cleveref.
-sty"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cleveref\cleve
+ref.sty"
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (Thesis_armand.aux)
+ (Thesis_armand.aux (Abstract.aux) (Introduction.aux)
+(Related_work.aux) (Method.aux) (Result.aux) (Discussion.aux) (Conclusion.aux))
 \openout1 = `Thesis_armand.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -354,8 +365,8 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 
-("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
-ii"
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pd
+f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count96
 \scratchdimen=\dimen105
@@ -377,36 +388,102 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 23.
  [1
 
-{C:/Users/arman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(Thesis_armand.toc)
-\tf@toc=\write3
-\openout3 = `Thesis_armand.toc'.
+{C:/Users/NFCexjobb/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(Thesis_armand.lof)
+\tf@lof=\write3
+\openout3 = `Thesis_armand.lof'.
 
- [2]
+ (Thesis_armand.lot)
+\tf@lot=\write4
+\openout4 = `Thesis_armand.lot'.
+
+ [2] (Thesis_armand.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 34.
+(Font)              <7> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 34.
- [1] [2] (Thesis_armand.bbl) [3] (Thesis_armand.aux) ) 
+(Font)              <5> on input line 2.
+)
+\tf@toc=\write5
+\openout5 = `Thesis_armand.toc'.
+
+ [3] [4]
+\openout2 = `Abstract.aux'.
+
+
+(Abstract.tex) [5
+
+]
+\openout2 = `Introduction.aux'.
+
+ (Introduction.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 28.
+
+("C:\Users\NFCexjobb\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd
+"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 28.
+ [1
+
+
+]) [2]
+\openout2 = `Related_work.aux'.
+
+ (Related_work.tex) [3
+
+
+]
+\openout2 = `Method.aux'.
+
+ (Method.tex) [4
+
+
+]
+\openout2 = `Result.aux'.
+
+ (Result.tex) [5
+
+
+]
+\openout2 = `Discussion.aux'.
+
+
+(Discussion.tex) [6
+
+
+]
+\openout2 = `Conclusion.aux'.
+
+ (Conclusion.tex) [7
+
+
+] (Thesis_armand.bbl) [8
+
+]
+(Thesis_armand.aux (Abstract.aux) (Introduction.aux) (Related_work.aux)
+(Method.aux) (Result.aux) (Discussion.aux) (Conclusion.aux)) ) 
 Here is how much of TeX's memory you used:
- 3806 strings out of 493634
- 63959 string characters out of 3135239
- 151223 words of memory out of 3000000
- 7192 multiletter control sequences out of 15000+200000
- 7934 words of font info for 28 fonts, out of 3000000 for 9000
+ 3893 strings out of 493634
+ 65388 string characters out of 3133607
+ 154109 words of memory out of 3000000
+ 7221 multiletter control sequences out of 15000+200000
+ 8241 words of font info for 29 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 27i,8n,22p,825b,185s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/arman/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/ar
-man/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr10.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/arman/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Thesis_armand.pdf (5 pages, 77900 bytes).
+ 27i,8n,24p,1006b,185s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/NFCexjo
+bb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+<C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><C:/Users/NFCexjobb/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/NFCexjobb/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/NFCe
+xjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Users/NFCexjobb/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmti10.pfb>
+Output written on Thesis_armand.pdf (13 pages, 113324 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
+ 73 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
