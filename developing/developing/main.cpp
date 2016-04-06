@@ -296,7 +296,7 @@ cv::Point RotatePoint(cv::Point cen_pt, cv::Point p, float angle)
 int main(){
 	//--------------------------------------------------------------------------------------------------------------------------------
 	//cv::Mat cv_img = cv::imread("C:\\Users\\NFCexjobb\\Desktop\\003_frontal.JPG");
-	cv::Mat cv_img = cv::imread("C:\\Users\\NFCexjobb\\Desktop\\04423d02.JPG");
+	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Desktop\\04423d02.JPG");
 	cv::CascadeClassifier face_Cascade;
 	dlib::shape_predictor model_dlib;
 	face_Cascade.load("haarcascade_frontalface_alt.xml");
@@ -309,7 +309,7 @@ int main(){
 	// Detect faces - OPENCV
 	face_Cascade.detectMultiScale(cv_img, faces, search_scale_factor, 2, 0 | flags, minFeatureSize);
 
-
+	 
 	std::vector<cv::Point> landmark_vec;
 
 	//Convert from mat to dlib

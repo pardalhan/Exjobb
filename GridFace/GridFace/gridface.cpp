@@ -100,17 +100,39 @@ void GridFace::on_btn_run_clicked()
 		std::pair<cv::Mat, cv::Mat> segmentation = this->curr_img->face_segment(img_resize, curr_img->landmark_vec, false);
 
 		// Image normalized 
-		cv::Mat done_img = segmentation.second;
+		cv::Mat grid = img_resize.clone();
+		cv::Mat seg_img = segmentation.second.clone();
 	
 		// Display
 		 middle_1 = curr_img->landmark_vec[36] + (curr_img->landmark_vec[39] - curr_img->landmark_vec[36]) / 2;
 		 middle_2 = curr_img->landmark_vec[42] + (curr_img->landmark_vec[45] - curr_img->landmark_vec[42]) / 2;
-		cv::line(done_img, middle_1, middle_2, CV_RGB(0, 255, 0), 2);
-		this->curr_img->display_landmarks(done_img);
-		this->curr_img->draw_grid(done_img);
-		cv::imshow("MainWindow", done_img);
-	
+		 cv::line(grid, middle_1, middle_2, CV_RGB(0, 255, 0), 2);
+		 this->curr_img->display_landmarks(grid);
+		 this->curr_img->draw_grid(grid);
 
+		cv::imshow("MainWindow", seg_img);
+
+		/*
+		cv::namedWindow("Orig", CV_WINDOW_KEEPRATIO);
+		cv::imshow("Orig", cv_img);
+
+		cv::namedWindow("Light", CV_WINDOW_KEEPRATIO);
+		cv::imshow("Light", img_light);
+
+		cv::namedWindow("Rotated", CV_WINDOW_KEEPRATIO);
+		cv::imshow("Rotated", rotated_img);
+
+
+
+		cv::namedWindow("Grid", CV_WINDOW_KEEPRATIO);
+		cv::imshow("Grid", grid);
+
+		cv::imwrite(QFileInfo(file_path).absoluteDir().absolutePath().toStdString() + "//cv_img.jpg", cv_img);
+		cv::imwrite(QFileInfo(file_path).absoluteDir().absolutePath().toStdString() + "//img_light.jpg", img_light);
+		cv::imwrite(QFileInfo(file_path).absoluteDir().absolutePath().toStdString() + "//rotated_img.jpg", rotated_img);
+		cv::imwrite(QFileInfo(file_path).absoluteDir().absolutePath().toStdString() + "//seg_img.jpg", seg_img);
+		cv::imwrite(QFileInfo(file_path).absoluteDir().absolutePath().toStdString() + "//grid.jpg", grid);
+		*/
 
 		//------------------------------------------- END PROCESSING ------------------------------------------------
 		t = (double)cvGetTickCount() - t;
@@ -121,7 +143,7 @@ void GridFace::on_btn_run_clicked()
 			ui.lbl_msg->setText("Faces detected: " + QString::number(curr_img->faces_vec.size()) + "\n" +
 				"Detection of facial landmark on all faces took " + QString::number(ms) + "ms \n" +
 				QString::number(middle_2.x - middle_1.x) + "\n" +
-				QString::number(done_img.size().width) + " " + QString::number(done_img.size().height) + "\n");
+				QString::number(seg_img.size().width) + " " + QString::number(seg_img.size().height) + "\n");
 
 		}
 		else {

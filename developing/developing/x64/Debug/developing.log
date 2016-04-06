@@ -1,19 +1,32 @@
-﻿Build started 2016-03-17 12:00:40.
-     1>Project "C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\developing\developing\developing.vcxproj" on node 2 (Build target(s)).
+﻿Build started 2016-03-25 13:16:25.
+     1>Project "C:\Users\Stubborn\Desktop\Exjobb\developing\developing\developing.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /ID:\DEP\OpenCV_3.1.0\opencv\build\include /I"D:\DEP\dlib-18.18\dlib\all" /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\opencv\build\include /I"C:\dlib-18.18\dlib\all" /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt C_BADGER.cpp Header.cpp main.cpp MSR.cpp SLRMSR.cpp source.cpp
+         source.cpp
+         SLRMSR.cpp
+     1>SLRMSR.cpp(155): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>SLRMSR.cpp(199): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>SLRMSR.cpp(200): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>SLRMSR.cpp(478): warning C4800: 'int' : forcing value to bool 'true' or 'false' (performance warning)
+         MSR.cpp
          main.cpp
      1>main.cpp(323): warning C4018: '<' : signed/unsigned mismatch
+         Header.cpp
+         C_BADGER.cpp
+     1>C_BADGER.cpp(84): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>C_BADGER.cpp(85): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>C_BADGER.cpp(106): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\developing\x64\Debug\developing.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\DEP\dlib-18.18\dlib" /LIBPATH:D:\DEP\OpenCV_3.1.0\opencv\build\x64\vc12\lib opencv_world310d.lib ddlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\developing\x64\Debug\developing.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\developing\x64\Debug\developing.lib" /MACHINE:X64 x64\Debug\C_BADGER.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Stubborn\Desktop\Exjobb\developing\x64\Debug\developing.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\dlib-18.18\dlib" /LIBPATH:C:\opencv\build\x64\vc12\lib opencv_world310d.lib ddlib.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Stubborn\Desktop\Exjobb\developing\x64\Debug\developing.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Stubborn\Desktop\Exjobb\developing\x64\Debug\developing.lib" /MACHINE:X64 x64\Debug\C_BADGER.obj
          x64\Debug\Header.obj
          x64\Debug\main.obj
          x64\Debug\MSR.obj
          x64\Debug\SLRMSR.obj
          x64\Debug\source.obj
-         developing.vcxproj -> C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\developing\x64\Debug\developing.exe
-     1>Done Building Project "C:\Users\NFCexjobb\Desktop\Exjobb_NFC\Exjobb\developing\developing\developing.vcxproj" (Build target(s)).
+         developing.vcxproj -> C:\Users\Stubborn\Desktop\Exjobb\developing\x64\Debug\developing.exe
+     1>Done Building Project "C:\Users\Stubborn\Desktop\Exjobb\developing\developing\developing.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:11.02
+Time Elapsed 00:00:22.88

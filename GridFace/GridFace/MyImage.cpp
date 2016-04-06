@@ -150,11 +150,9 @@ void MyImage::display_landmarks(cv::Mat orig_img)
 		//	CV_FONT_HERSHEY_SIMPLEX, 0.5, CV_RGB(0, 0, 255), 2); 
 
 	}
-	for (int i = 0; i < this->faces_vec.size(); i++)
-	{
-		cv::rectangle(orig_img, this->faces_vec[0], CV_RGB(0, 0, 255), 2);
-	}
-	
+
+	cv::rectangle(orig_img, this->faces_vec[0], CV_RGB(0, 0, 255), 2);
+
 }
 
 void MyImage::draw_grid(cv::Mat img)
@@ -321,15 +319,25 @@ std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv
 		mouth_vec.push_back(landmark_vec[i]);
 	}
 
+	int head_width = landmark_vec[24].x - landmark_vec[19].x;
+	cv::Rect forehead(landmark_vec[19].x, landmark_vec[19].y - (int)round(head_width / 2), head_width, (int)round(head_width / 3));
+
+	int mouth_chin = landmark_vec[8].y - landmark_vec[57].y;
+	cv::Rect throat(landmark_vec[7].x, landmark_vec[7].y,
+		landmark_vec[9].x - landmark_vec[7].x, mouth_chin);
+
 	cv::RotatedRect eye_rec_1 = cv::fitEllipse(eye_1_vec);
 	cv::RotatedRect eye_rec_2 = cv::fitEllipse(eye_2_vec);
 	cv::RotatedRect mouth_rec = cv::fitEllipse(mouth_vec);
 	cv::approxPolyDP(lower_face_vec, lower_face_roi, 1.0, true);
 
 	cv::fillConvexPoly(mask, &lower_face_roi[0], lower_face_roi.size(), cv::Scalar(cv::GC_PR_FGD), 8, 0);
-	cv::ellipse(mask, eye_rec_1, cv::Scalar(cv::GC_BGD), -1);
-	cv::ellipse(mask, eye_rec_2, cv::Scalar(cv::GC_BGD), -1);
-	cv::ellipse(mask, mouth_rec, cv::Scalar(cv::GC_BGD), -1);
+	rectangle(mask, forehead, cv::Scalar(cv::GC_PR_FGD), -1, 8, 0);
+	rectangle(mask, throat, cv::Scalar(cv::GC_PR_FGD), -1, 8, 0);
+	//cv::ellipse(mask, eye_rec_1, cv::Scalar(cv::GC_BGD), -1);
+	//cv::ellipse(mask, eye_rec_2, cv::Scalar(cv::GC_BGD), -1);
+	//cv::ellipse(mask, mouth_rec, cv::Scalar(cv::GC_BGD), -1);
+	
 
 	/*
 	// BACK GOUND
@@ -373,6 +381,7 @@ std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv
 
 	cv::Rect throat(landmark_vec[7].x, landmark_vec[7].y,
 	landmark_vec[9].x - landmark_vec[7].x, mouth_chin);
+
 	rectangle(mask, cheek_2, cv::Scalar(cv::GC_FGD), -1, 8, 0);
 	rectangle(mask, cheek_1, cv::Scalar(cv::GC_FGD), -1, 8, 0);
 	rectangle(mask, chin, cv::Scalar(cv::GC_FGD), -1, 8, 0);
@@ -420,12 +429,14 @@ std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv
 
 		// Generate output images
 		end_mask = this->close_open(resultUp);
+
+		cv::ellipse(end_mask, eye_rec_1, cv::Scalar(0), -1);
+		cv::ellipse(end_mask, eye_rec_2, cv::Scalar(0), -1);
+		cv::ellipse(end_mask, mouth_rec, cv::Scalar(0), -1);
+
 		cv_img.copyTo(foreground, end_mask); // bg pixels not copied
 
-		//cv::namedWindow("one", CV_WINDOW_KEEPRATIO);
-		//cv::imshow("one", end_mask);
-		//cv::namedWindow("two", CV_WINDOW_KEEPRATIO);
-		//cv::imshow("two", resultUp);
+
 	}
 	else
 	{
@@ -433,12 +444,14 @@ std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv
 		cv::Mat mask_fg = (mask == cv::GC_FGD) | (mask == cv::GC_PR_FGD);
 		// Generate output images
 		end_mask = this->close_open(mask_fg);
+
+		cv::ellipse(end_mask, eye_rec_1, cv::Scalar(0), -1);
+		cv::ellipse(end_mask, eye_rec_2, cv::Scalar(0), -1);
+		cv::ellipse(end_mask, mouth_rec, cv::Scalar(0), -1);
+
 		cv_img.copyTo(foreground, end_mask); // bg pixels not copied
 
-		//cv::namedWindow("one", CV_WINDOW_KEEPRATIO);
-		//cv::imshow("one", end_mask);
-		//cv::namedWindow("two", CV_WINDOW_KEEPRATIO);
-		//cv::imshow("two", mask_fg);
+
 	}
 
 	return std::make_pair(end_mask, foreground);
