@@ -19,5 +19,10 @@
 #include <../image_io.h>
 
 
+#include "opencv2/imgproc/imgproc.hpp"
+#include <stdlib.h>
+#include <stdio.h>
+
+
 
 #endif

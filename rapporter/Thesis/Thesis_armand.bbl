@@ -10,21 +10,39 @@ Anders Nordgaard, Ricky Ansell, Weine Drotz, and Lars Jaeger.
 \newblock Scale of conclusions for the value of evidence.
 \newblock {\em Law, probability and risk}, pages 1--24, 2011.
 
-\bibitem{forensic_identification}
-Bruegge~R.W.V. Spaun~N.A.
-\newblock Forensic identification of people from images and video.
-\newblock In {\em Biometrics: Theory, Applications and Systems}.
-
 \bibitem{automatic_detector_2015}
 Richard W. Vorder Bruegge~Ph.D. Nisha Srinivas~M.Sc., Patrick J. Flynn~Ph.D.
 \newblock Human identification using automatic and semi-automatically detected
   facial marks.
 \newblock {\em Journal of Forensic Sciences}, 61(S1):117--130, September 2015.
 
+\bibitem{forensic_identification}
+Bruegge~R.W.V. Spaun~N.A.
+\newblock Forensic identification of people from images and video.
+\newblock In {\em Biometrics: Theory, Applications and Systems}.
+
+\bibitem{Bertillon}
+Bertillon A.
+\newblock Forensic facial analysis. identification anthropometrique:
+  instructions signaletiques.
+\newblock France, Paris, 1885.
+
+\bibitem{twins}
+Nisha Srinivas, Gaurav Aggarwal, Patrick~J Flynn, and Richard~W Vorder~Bruegge.
+\newblock Analysis of facial marks to distinguish between identical twins.
+\newblock {\em Information Forensics and Security, IEEE Transactions on},
+  7(5):1536--1550, 2012.
+
 \bibitem{statistic_RPPVSM}
 Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
 \newblock Fundamental statistics of relatively permanent pigmented or vascular
   skin marks for criminal and victim identification.
 \newblock In {\em Biometrics (IJCB)s}.
+
+\bibitem{jain_facial}
+Anil~K Jain and Unsang Park.
+\newblock Facial marks: Soft biometric for face recognition.
+\newblock In {\em Image Processing (ICIP), 2009 16th IEEE International
+  Conference on}, pages 37--40. IEEE, 2009.
 
 \end{thebibliography}

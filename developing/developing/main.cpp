@@ -291,12 +291,254 @@ cv::Point RotatePoint(cv::Point cen_pt, cv::Point p, float angle)
 	return p;
 }
 
+cv::Mat FRS(cv::Mat cv_img)
+{
 
+
+	
+	int num_row = cv_img.rows;
+	int num_col = cv_img.cols;
+	int sigma = 0;
+	double k_scal = 9.9;
+	double alpha = 2;
+	double thresh = 0.001;
+	std::vector<int> radii = { 2, 3, 4, 5 ,7 ,9 , 11, 13};
+	cv::Mat gradient, magnitude, orientation, F_img, S_img;
+	cv::Mat S_total = cv::Mat::zeros(num_row, num_col, CV_32F);
+	cv::Mat img_gray, blurred;
+	// Gaussian blur
+	cv::GaussianBlur(cv_img, blurred, cv::Size(3, 3), sigma, sigma, cv::BORDER_DEFAULT);
+	/// Convert it to gray
+	cv::cvtColor(blurred, img_gray, CV_BGR2GRAY);
+	//--------------------------------- gradient 
+	cv::Mat grad_x, grad_y;
+	int scale = 1;
+	int delta = 0;
+	int ddepth = CV_32F;
+	/// Gradient X
+	Sobel(img_gray, grad_x, ddepth, 1, 0, 3, scale, delta, cv::BORDER_DEFAULT);
+	/// Gradient Y
+	Sobel(img_gray, grad_y, ddepth, 0, 1, 3, scale, delta, cv::BORDER_DEFAULT);
+
+	gradient = cv::Mat::zeros(num_row, num_col, CV_32F);
+	float *grad_x_ptr = (float*)(grad_x.data);
+	float *grad_y_ptr = (float*)(grad_y.data);
+	float *grad_ptr = (float*)(gradient.data);
+	for (int row = 0; row < grad_x.rows; row++){
+		for (int col = 0; col < grad_x.cols; col++){
+			float grad_norm = sqrt(pow(grad_x_ptr[grad_x.cols * row + col], 2) + pow(grad_y_ptr[grad_y.cols * row + col], 2));
+			grad_ptr[gradient.cols * row + col] = grad_norm + 0.000001;
+			}
+		}
+
+	//----------------------------------
+	for (int rad = 0; rad < radii.size(); rad++)
+	{
+
+
+		magnitude = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+		orientation = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+		F_img = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+		S_img = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+
+		float *magnitude_ptr = (float*)(magnitude.data);
+		float *orientation_ptr = (float*)(orientation.data);
+
+		double maxG, minG;
+		cv::minMaxLoc(gradient, &minG, &maxG);
+		for (int row = 0; row < gradient.rows; row++){
+			for (int col = 0; col < gradient.cols; col++){
+				cv::Point pos_pix(col, row);
+				cv::Point neg_pix(col, row);
+				int radius = radii[rad];
+				double grad_pix = grad_ptr[gradient.cols * row + col];
+				if (grad_pix > maxG*thresh)
+				{
+				pos_pix.x += round((grad_x_ptr[grad_x.cols * row + col] / grad_pix) * radius);
+				pos_pix.y += round((grad_y_ptr[grad_y.cols * row + col] / grad_pix) * radius);
+				neg_pix.x -= round((grad_x_ptr[grad_x.cols * row + col] / grad_pix) * radius);
+				neg_pix.y -= round((grad_y_ptr[grad_y.cols * row + col] / grad_pix) * radius);
+
+				magnitude_ptr[magnitude.cols * (pos_pix.y + radius) + (pos_pix.x + radius)] += grad_pix;
+				magnitude_ptr[magnitude.cols * (neg_pix.y + radius) + (neg_pix.x + radius)] -= grad_pix;
+				orientation_ptr[magnitude.cols * (pos_pix.y+ radius) + (pos_pix.x + radius)] += 1;
+				orientation_ptr[magnitude.cols * (neg_pix.y + radius) + (neg_pix.x + radius)] -= 1;
+				}
+			}
+		}
+
+
+		// Manipulate the orientation and magnitude 
+		orientation = cv::abs(orientation); // DETTA SKILJER SIG FRÅN ORGINAL TEORIN BORDE VARA EFTER
+		orientation.setTo(k_scal, orientation > k_scal);
+
+		orientation = orientation / k_scal;
+		cv::pow(orientation, alpha, orientation);
+		magnitude = magnitude / k_scal;
+
+		// Calculate F
+		F_img = magnitude.mul(orientation);
+
+		// Calculate S
+		int kern_size = 0;
+		switch ((int)round(sqrt(rad)))
+		{
+		case 1:
+			kern_size = 1;
+			break;
+		case 2:
+			kern_size = 3;
+			break;
+		case 3:
+			kern_size = 3;
+			break;
+		case 4:
+			kern_size = 5;
+			break;
+		case 5:
+			kern_size = 5;
+			break;
+		default:
+			kern_size = 7;
+		}
+
+
+		cv::GaussianBlur(F_img, S_img, cv::Size(kern_size, kern_size), sigma, sigma, cv::BORDER_DEFAULT);
+
+		cv::Rect roi(radii[rad] - 1, radii[rad] - 1, num_col, num_row);
+
+		S_total += S_img(roi);
+	}
+
+	S_total = S_total / radii.size();
+	
+	/*
+	int num_row = cv_img.rows;
+	int num_col = cv_img.cols;
+	int sigma = 1;
+	double k_scal = 9.9;
+	double alpha = 2;
+	double thresh = 0.1;
+	std::vector<int> radii = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+	cv::Mat gradient, magnitude, orientation, F_img, S_img;
+	cv::Mat S_total = cv::Mat::zeros(num_row, num_col, CV_32F);
+	//--------------------------------- gradient 
+	cv::Mat img_gray, blurred;
+	cv::GaussianBlur(cv_img, blurred, cv::Size(3, 3), sigma, sigma, cv::BORDER_DEFAULT);
+	/// Convert it to gray
+	cv::cvtColor(blurred, img_gray, CV_BGR2GRAY);
+
+	cv::Mat grad_x, grad_y;
+	int scale = 1;
+	int delta = 0;
+	int ddepth = CV_32F;
+	/// Gradient X
+	Sobel(img_gray, grad_x, ddepth, 1, 0, 3, scale, delta, cv::BORDER_DEFAULT);
+
+	Sobel(img_gray, grad_y, ddepth, 0, 1, 3, scale, delta, cv::BORDER_DEFAULT);
+
+
+
+	for (int rad = 0; rad < radii.size(); rad++)
+	{
+
+		gradient = cv::Mat(num_row, num_col, CV_32F, cv::Scalar(0.00001));
+		magnitude = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+		orientation = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+		F_img = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+		S_img = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
+
+
+		float *grad_x_ptr = (float*)(grad_x.data);
+		float *grad_y_ptr = (float*)(grad_y.data);
+		float *grad_ptr = (float*)(gradient.data);
+		float *magnitude_ptr = (float*)(magnitude.data);
+		float *orientation_ptr = (float*)(orientation.data);
+
+
+		for (int row = 0; row < grad_x.rows; row++){
+			for (int col = 0; col < grad_x.cols; col++){
+
+				float grad_norm = sqrt(pow(grad_x_ptr[grad_x.cols * row + col], 2) + pow(grad_y_ptr[grad_y.cols * row + col], 2));
+
+				grad_ptr[gradient.cols * row + col] = grad_norm;
+			}
+		}
+
+		double maxG, minG;
+		cv::minMaxLoc(gradient, &minG, &maxG);
+		for (int row = 0; row < gradient.rows; row++){
+			for (int col = 0; col < gradient.cols; col++){
+				cv::Point pos_pix(row, col);
+				cv::Point neg_pix(row, col);
+				int radius = radii[rad];
+				double grad_pix = grad_ptr[gradient.cols * row + col];
+				if (grad_pix > maxG*thresh)
+				{
+					pos_pix.x += round((grad_x_ptr[grad_x.cols * row + col] / grad_pix) * radius);
+					pos_pix.y += round((grad_y_ptr[grad_y.cols * row + col] / grad_pix) * radius);
+					neg_pix.x -= round((grad_x_ptr[grad_x.cols * row + col] / grad_pix) * radius);
+					neg_pix.y -= round((grad_y_ptr[grad_y.cols * row + col] / grad_pix) * radius);
+
+					magnitude_ptr[magnitude.cols * (pos_pix.x + radius) + (pos_pix.y + radius)] += grad_pix;
+					magnitude_ptr[magnitude.cols * (neg_pix.x + radius) + (neg_pix.y + radius)] -= grad_pix;
+					orientation_ptr[magnitude.cols * (pos_pix.x + radius) + (pos_pix.y + radius)] += 1;
+					orientation_ptr[magnitude.cols * (neg_pix.x + radius) + (neg_pix.y + radius)] -= 1;
+				}
+			}
+		}
+
+
+		// Manipulate the orientation and magnitude 
+		cv::Mat orientation_thresh;
+		cv::abs(orientation);
+		orientation.convertTo(orientation, CV_8U);
+		cv::threshold(orientation, orientation_thresh, k_scal, 0, cv::THRESH_TRUNC);
+
+		orientation_thresh = orientation_thresh / k_scal;
+		cv::pow(orientation_thresh, alpha, orientation_thresh);
+		magnitude = magnitude / k_scal;
+
+		orientation.convertTo(orientation_thresh, CV_32F);
+
+
+		// Calculate F
+		F_img = magnitude.mul(orientation_thresh);
+
+		// Calculate S
+		cv::GaussianBlur(F_img, S_img, cv::Size(3, 3), sigma, sigma, cv::BORDER_DEFAULT);
+
+		cv::Rect roi(radii[rad] - 1, radii[rad] - 1, num_col, num_row);
+
+
+		S_total += S_img(roi);
+	}
+
+	S_total = S_total / radii.size();
+	*/
+
+
+	return S_total;
+}
+
+
+//cv::Point pos_pix(cv::Point curr_pix, int radius)
+//{
+//	cv::Point pos_pix;
+//
+//	pos_pix = curr_pix; 
+//	pos_pix.x += 
+//
+//	return pos_pix;
+//}
 
 int main(){
 	//--------------------------------------------------------------------------------------------------------------------------------
-	//cv::Mat cv_img = cv::imread("C:\\Users\\NFCexjobb\\Desktop\\003_frontal.JPG");
-	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Desktop\\04423d02.JPG");
+	//cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Desktop\\WORK\\Cut_imgaes\\test.JPG");
+	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\030_frontal.JPG");
+	//cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\089_frontal.JPG"); 
+	//cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Desktop\\cirk.png"); 
+	/*
 	cv::CascadeClassifier face_Cascade;
 	dlib::shape_predictor model_dlib;
 	face_Cascade.load("haarcascade_frontalface_alt.xml");
@@ -306,10 +548,9 @@ int main(){
 	int flags = CV_HAAR_DO_CANNY_PRUNING;
 	float search_scale_factor = 1.1f;	// How detailed should the search be.
 	std::vector<cv::Rect>faces;
+	
 	// Detect faces - OPENCV
 	face_Cascade.detectMultiScale(cv_img, faces, search_scale_factor, 2, 0 | flags, minFeatureSize);
-
-	 
 	std::vector<cv::Point> landmark_vec;
 
 	//Convert from mat to dlib
@@ -317,7 +558,6 @@ int main(){
 	dlib::assign_image(img_dlib, dlib::cv_image<dlib::bgr_pixel>(cv_img));
 
 	// Vector with landmarks 
-
 	dlib::rectangle temp_face((long)faces[0].tl().x, (long)faces[0].tl().y, (long)faces[0].br().x - 1, (long)faces[0].br().y - 1);
 	dlib::full_object_detection shape = model_dlib(img_dlib, temp_face); // Find landmark in bounding box
 	for (int i = 0; i < shape.num_parts(); i++)
@@ -368,45 +608,37 @@ int main(){
 	
 	//std::pair<cv::Mat, cv::Mat> segmentation = face_segment(cv_img, landmark_vec, false);
 	
-	// show it
-	//cv::namedWindow("test", CV_WINDOW_KEEPRATIO);
-	//cv::imshow("test", rotated_img);
-	cv::namedWindow("test", CV_WINDOW_KEEPRATIO);
-	cv::imshow("test", rotated_img);
-	cv::namedWindow("orig", CV_WINDOW_KEEPRATIO);
-	cv::imshow("orig", cv_img);
-	cv::waitKey(0);
+	*/
 
-	//--------------------------------------------
+	cv::Mat frs_img = FRS(cv_img);
+	frs_img = cv::abs(frs_img);
+	double max, min;
+	cv::minMaxLoc(frs_img, &min, &max);
+	cv::Mat result; 
+	//frs_img.convertTo(frs_img, CV_8U, 255/max, 0);
+	//cv::threshold(frs_img, result, 0, 255, cv::THRESH_TOZERO | CV_THRESH_OTSU);
+	frs_img.setTo(0, frs_img <= 0.1*max);
+	frs_img.setTo(1, frs_img >= 0.1*max);
+	//cvtColor(frs_img, frs_img, CV_GRAY2RGB, CV_8U);
+	//frs_img = frs_img * 255;
+	cv_img.setTo(cv::Scalar(255, 0, 0), frs_img == 1);
+
 	
-	////cv::line(cv_img, landmark_vec[0], landmark_vec[3], CV_RGB(255, 0, 0), 2);
-	//for (int i = 0; i < landmark_vec.size(); i++)
-	//{
-	//	cv::circle(cv_img, landmark_vec[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
-	//}
-		
-	//cv::Mat hsv_img;
-	//cv::cvtColor(cv_img, hsv_img, CV_BGR2HSV);
-	//std::vector<cv::Mat> hsv_chanels = get_color_chanels(hsv_img);
-	
-	///*
-	//cv::Mat cv_gray, blur, result;
-	//cv::cvtColor(cv_img, cv_gray, CV_BGR2GRAY);
-	//cv::GaussianBlur(cv_gray, blur, cv::Size(11, 11), 0, 0);
-	//cv::threshold(blur, result, 0, 255, CV_THRESH_OTSU + CV_THRESH_BINARY);
-	//*/
-	
-	////cv::cvtColor(cv_img, result, cv::COLOR_BGR2HSV);
-	////cv::rectangle(cv_img, face, CV_RGB(255, 0, 0), 2);
-	
-	//cv::namedWindow("one", CV_WINDOW_KEEPRATIO);
-	//cv::imshow("one", hsv_chanels[0]);
-	//cv::namedWindow("two", CV_WINDOW_KEEPRATIO);
-	//cv::imshow("two", hsv_chanels[1]);
-	//cv::namedWindow("three", CV_WINDOW_KEEPRATIO);
-	//cv::imshow("three", hsv_chanels[2]);
-	//cv::waitKey(0);
-	
+	//cv::Mat img_gray; 
+	//cv::cvtColor(cv_img, img_gray, CV_BGR2GRAY);
+	//double max, min;
+	//cv::minMaxLoc(img_gray, &min, &max);
+	//cv::Mat canny_img;
+	//cv::Canny(img_gray, canny_img, max*0.2, max*0.6, 3);
+
+
+
+		//Show what you got	
+		//cv::namedWindow("result", CV_WINDOW_KEEPRATIO);
+		//cv::imshow("result", result);
+		cv::waitKey(0);
+
+
 
 
 	return 0;
