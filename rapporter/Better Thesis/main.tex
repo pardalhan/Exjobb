@@ -1,0 +1,51 @@
+\documentclass[
+  utf8,%     More capable input encoding than latin-1.
+  % parskip,%  For vertical whitespace between paragraphs.  This comes down to more than just using parskip.sty, so it's better to use this class option.
+  % S5MP % If you intend to really use margin paragraphs (not recommended!).
+%  crop,%     Produce output with crop marks and paper size A4.  Liu-Tryck should like this.  Automatically adds information, including the physical page number, at the top of each page.
+       %     Add option 'noInfo' to suppress the info at the top of each page when using option 'crop'.
+  % Font options: 'kp' (default), 'times', 'lm'.  The KpFonts (loaded using 'kp'), is the most complete font among the provided options.  Among other, it supports slanted small caps.  See rtthesis.cls for more details regarding the font options.
+  largesmallcaps,intlimits,widermath,% Good options to KpFonts.
+  sharecounter,nobreak,definition=marks,%  See comments in the results chapter of this document for more information on these options!
+  numbers, % If you want to cite references by numbers, use this option.
+  noparts% Use option 'noparts' if you do not make use of part divisions.
+]{rtthesis}
+
+\usepackage{mythesis}
+
+\begin{document}
+\selectlanguage{english}
+
+\frontmatter
+\maketitle
+
+\begin{abstract}[swedish]
+  \input{svensk-sammanfattning}
+\end{abstract}
+
+\begin{abstract}[english]
+  \input{engelsk-sammanfattning}
+\end{abstract}
+
+\include{tack}
+
+\tableofcontents
+\include{notation}
+
+\mainmatter
+\include{introduktion}
+\include{resultat}
+\include{avrundning}
+
+\part*{Appendix}
+\appendix
+\include{detaljer}
+\include{rtthesis-doc}
+\clearemptydoublepage
+\backmatter
+
+\bibliography{IEEEfull,myrefs}
+
+\printindex
+
+\end{document}

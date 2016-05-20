@@ -1,0 +1,36 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Duck(2005)]{Duck:2005}
+Donald Duck.
+\newblock The history of automatic control.
+\newblock \emph{Duckburg Journal of Science}, 106\penalty0 (3):\penalty0
+  345--401, 2005.
+
+\bibitem[Khalil(2002)]{Khalil02NonlinearSystemsBook}
+Hassan~K. Khalil.
+\newblock \emph{Nonlinear systems}.
+\newblock Prentice Hall, Inc., third edition, 2002.
+
+\bibitem[Mori(2007)]{Mori07Tables}
+Lapo~Filippo Mori.
+\newblock Tables in {\LaTeXe}: Packages and methods.
+\newblock \emph{The {Prac\TeX} Journal}, 2007\penalty0 (1), 2007.
+\newblock URL \url{http://tug.org/pracjourn/2007-1/mori}.
+
+\bibitem[Rugh(1996)]{Rugh96LinearSystemsBook}
+Wilson~J. Rugh.
+\newblock \emph{Linear system theory}.
+\newblock Prentice-Hall, Inc., second edition, 1996.
+
+\bibitem[Ryćko and Jackowski(1993)]{RyckoJackowski93TeXIndentPar}
+Marek Ryćko and Bugosław Jackowski.
+\newblock {\TeX} from {\textbackslash}indent to {\textbackslash}par.
+\newblock \emph{TUGboat}, 14\penalty0 (3), 1993.
+\newblock URL \url{http://www.tug.org/TUGboat/Articles/tb14-3/tb40rycko.pdf}.
+
+\end{thebibliography}
