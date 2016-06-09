@@ -12,12 +12,30 @@
 ]{rtthesis}
 
 \usepackage{mythesis}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{cleveref}
+
+\setupThesis{ 
+	author = {Armand Moulis},
+	title = {Automatic Detection and Localization of Relatively Permanent Pigmented or Vascular Skin Marks},
+	year = 2016,
+	examiner = {Lasse Alfredsson  \AT \textsc{isy}, Linköpings universitet},
+	supervisor = {Doktorand, Martin Danelljan \textsc{isy}, Linköpings universitet}
+		%Forensiker, Elisabet Leitet  \textsc{NFC}, Linköping 
+		%Forensiker, Niclas Appleby  \textsc{NFC}, Linköping} 
+	%department = isy
+	
+	}
 
 \begin{document}
 \selectlanguage{english}
 
 \frontmatter
 \maketitle
+
 
 \begin{abstract}[swedish]
   \input{svensk-sammanfattning}
@@ -33,17 +51,19 @@
 \include{notation}
 
 \mainmatter
-\include{introduktion}
-\include{resultat}
-\include{avrundning}
+\include{introduction}
+\include{related_work}
+\include{result}
+\include{conclusion}
 
 \part*{Appendix}
 \appendix
 \include{detaljer}
-\include{rtthesis-doc}
+%\include{rtthesis-doc}
 \clearemptydoublepage
 \backmatter
 
+\bibliographystyle{unsrt}
 \bibliography{IEEEfull,myrefs}
 
 \printindex

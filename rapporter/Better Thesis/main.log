@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.25)  17 MAY 2016 16:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.25)  22 MAY 2016 17:49
 entering extended mode
 **./main.tex
 (main.tex
@@ -1402,59 +1402,103 @@ LaTeX Font Info:    Redeclaring font encoding TS1 on input line 46.
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\siunits\SIunits
 .cfg")
 Option `squaren' provided!
-)) (main.aux (tack.aux) (notation.aux) (introduktion.aux) (resultat.aux)
-(avrundning.aux) (detaljer.aux) (rtthesis-doc.aux))
+))
+("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquot
+es.sty"
+Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
+\csq@reset=\count156
+\csq@gtype=\count157
+\csq@glevel=\count158
+\csq@qlevel=\count159
+\csq@maxlvl=\count160
+\csq@tshold=\count161
+\csq@ltx@everypar=\toks38
+
+("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquot
+es.def"
+File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquot
+es.cfg"
+File: csquotes.cfg 
+))
+("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cleveref\clever
+ef.sty"
+Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
+Package cleveref Info: `hyperref' support loaded on input line 2230.
+LaTeX Info: Redefining \cref on input line 2230.
+LaTeX Info: Redefining \Cref on input line 2230.
+LaTeX Info: Redefining \crefrange on input line 2230.
+LaTeX Info: Redefining \Crefrange on input line 2230.
+LaTeX Info: Redefining \cpageref on input line 2230.
+LaTeX Info: Redefining \Cpageref on input line 2230.
+LaTeX Info: Redefining \cpagerefrange on input line 2230.
+LaTeX Info: Redefining \Cpagerefrange on input line 2230.
+LaTeX Info: Redefining \labelcref on input line 2230.
+LaTeX Info: Redefining \labelcpageref on input line 2230.
+Package cleveref Info: `amsthm' support loaded on input line 2858.
+Package cleveref Info: `subfig' support loaded on input line 2983.
+)
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'english'.
+ (main.aux (tack.aux) (notation.aux) (introduction.aux)
+(related_work.aux) (result.aux) (conclusion.aux) (detaljer.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkpw/m/it on input line 16.
-LaTeX Font Info:    Try loading font information for OML+jkpw on input line 16.
+LaTeX Font Info:    Checking defaults for OML/jkpw/m/it on input line 33.
+LaTeX Font Info:    Try loading font information for OML+jkpw on input line 33.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\omljkpw
 .fd"
 File: omljkpw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/jkpw/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for OMS+jkpw on input line 16.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/jkpw/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for OMS+jkpw on input line 33.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\omsjkpw
 .fd"
 File: omsjkpw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for OMX+jkp on input line 16.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for OMX+jkp on input line 33.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\omxjkp.
 fd"
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for U+jkpexa on input line 16.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for U+jkpexa on input line 33.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ujkpexa
 .fd"
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 33.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Try loading font information for T1+jkpk on input line 16.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for T1+jkpk on input line 33.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\t1jkpk.
 fd"
@@ -1501,28 +1545,28 @@ File: t1jkpk.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkpk.
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf
 .mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count156
+\scratchcounter=\count162
 \scratchdimen=\dimen176
 \scratchbox=\box33
-\nofMPsegments=\count157
-\nofMParguments=\count158
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count159
+\nofMPsegments=\count163
+\nofMParguments=\count164
+\everyMPshowfont=\toks39
+\MPscratchCnt=\count165
 \MPscratchDim=\dimen177
-\MPnumerator=\count160
-\makeMPintoPDFobject=\count161
-\everyMPtoPDFconversion=\toks39
+\MPnumerator=\count166
+\makeMPintoPDFobject=\count167
+\everyMPtoPDFconversion=\toks40
 )
 Package pdfcprot Info: I didn't find jkpkbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfcprot\pplmnT
 1.cpa")
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
-LaTeX Font Info:    Try loading font information for TS1+jkpk on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
+LaTeX Font Info:    Try loading font information for TS1+jkpk on input line 33.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ts1jkpk
@@ -1530,414 +1574,414 @@ LaTeX Font Info:    Try loading font information for TS1+jkpk on input line 16.
 File: ts1jkpk.fd 2007/08/30 Fontinst v1.928 font definitions for TS1/jkpk.
 )
 Package pdfcprot Info: I didn't find jkpkbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfcprot\pplmnT
 S1.cpa")
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 33.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd
 "
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 16.
+(Font)              scaled to size 9.49997pt on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 16.
+(Font)              scaled to size 9.49997pt on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.39996pt on input line 16.
+(Font)              scaled to size 11.39996pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
-LaTeX Font Info:    Try loading font information for TS1+phv on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
+LaTeX Font Info:    Try loading font information for TS1+phv on input line 33.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ts1phv.f
 d"
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
-(Font)              scaled to size 11.39996pt on input line 16.
+(Font)              scaled to size 11.39996pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
-(Font)              scaled to size 9.49997pt on input line 16.
+(Font)              scaled to size 9.49997pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 16.
+(Font)              scaled to size 7.59998pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/b/n' will be
-(Font)              scaled to size 7.59998pt on input line 16.
+(Font)              scaled to size 7.59998pt on input line 33.
 Package pdfcprot Info: I didn't find phvbnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find jkpkmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 16.
+(Font)              scaled to size 11.39996pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 11.39996pt on input line 16.
+(Font)              scaled to size 11.39996pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 9.49997pt on input line 16.
+(Font)              scaled to size 9.49997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 16.
+(Font)              scaled to size 7.59998pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
-(Font)              scaled to size 7.59998pt on input line 16.
+(Font)              scaled to size 7.59998pt on input line 33.
 Package pdfcprot Info: I didn't find phvmnTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <8> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 7.59998pt on input line 16.
+(Font)              scaled to size 7.59998pt on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 16.
+(Font)              scaled to size 11.39996pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <12> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 11.39996pt on input line 16.
+(Font)              scaled to size 11.39996pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 16.
+(Font)              scaled to size 9.49997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <10> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 9.49997pt on input line 16.
+(Font)              scaled to size 9.49997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <9> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 8.54997pt on input line 16.
+(Font)              scaled to size 8.54997pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmitT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/it' in size <8> not available
-(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 16.
+(Font)              Font shape `TS1/phv/m/sl' tried instead on input line 33.
 LaTeX Font Info:    Font shape `TS1/phv/m/sl' will be
-(Font)              scaled to size 7.59998pt on input line 16.
+(Font)              scaled to size 7.59998pt on input line 33.
 Package pdfcprot Info: I didn't find phvmitTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslT1.cpa.
-(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 16.
+(pdfcprot)              As a fallback I will try pplmnT1.cpa. on input line 33.
 
 Package pdfcprot Info: File pplmnT1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
 Package pdfcprot Info: I didn't find phvmslTS1.cpa.
-(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 16
+(pdfcprot)              As a fallback I will try pplmnTS1.cpa. on input line 33
 .
 Package pdfcprot Info: File pplmnTS1.cpa{} used for the adjustment
 (pdfcprot)             of the char protruding. It seems that it isn't the one
-(pdfcprot)             you intended to use. on input line 16.
+(pdfcprot)             you intended to use. on input line 33.
  (main.bbl)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
@@ -1945,8 +1989,8 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box34
-Package backref Info: ** backref set up for natbib ** on input line 16.
-Package hyperref Info: Link coloring OFF on input line 16.
+Package backref Info: ** backref set up for natbib ** on input line 33.
+Package hyperref Info: Link coloring OFF on input line 33.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\namere
 f.sty"
@@ -1956,11 +2000,11 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 itlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count162
+\c@section@level=\count168
 )
-LaTeX Info: Redefining \ref on input line 16.
-LaTeX Info: Redefining \pageref on input line 16.
-LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Info: Redefining \ref on input line 33.
+LaTeX Info: Redefining \pageref on input line 33.
+LaTeX Info: Redefining \nameref on input line 33.
  (main.out) (main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -1970,52 +2014,52 @@ Option `squaren' provided!
  Command \squaren defined by SIunits package!
 
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 29.73302pt on input line 20.
+(Font)              scaled to size 29.73302pt on input line 37.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 19.70294pt on input line 20.
+(Font)              scaled to size 19.70294pt on input line 37.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 16.41594pt on input line 20.
+(Font)              scaled to size 16.41594pt on input line 37.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 16.41594pt on input line 20.
-<fig/LiU_primary_black.pdf, id=207, 314.38354pt x 112.98912pt>
+(Font)              scaled to size 16.41594pt on input line 37.
+<fig/LiU_primary_black.pdf, id=67, 314.38354pt x 112.98912pt>
 File: fig/LiU_primary_black.pdf Graphic file (type pdf)
 
 <use fig/LiU_primary_black.pdf>
-Package pdftex.def Info: fig/LiU_primary_black.pdf used on input line 20.
+Package pdftex.def Info: fig/LiU_primary_black.pdf used on input line 37.
 (pdftex.def)             Requested size: 241.84842pt x 86.92084pt.
 
-Overfull \hbox (369.88582pt too wide) in paragraph at lines 20--20
+Overfull \hbox (369.88582pt too wide) in paragraph at lines 37--37
 [][] 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+jkp on input line 20.
+LaTeX Font Info:    Try loading font information for OT1+jkp on input line 37.
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ot1jkp.
 fd"
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
 )
-LaTeX Font Info:    Try loading font information for U+jkpmiaw on input line 20
+LaTeX Font Info:    Try loading font information for U+jkpmiaw on input line 37
 .
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ujkpmia
 w.fd"
 File: ujkpmiaw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+jkpsya on input line 20.
+LaTeX Font Info:    Try loading font information for U+jkpsya on input line 37.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ujkpsya
 .fd"
 File: ujkpsya.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+jkpsybw on input line 20
+LaTeX Font Info:    Try loading font information for U+jkpsybw on input line 37
 .
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ujkpsyb
 w.fd"
 File: ujkpsybw.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 20.
+LaTeX Font Info:    Try loading font information for U+jkpsyc on input line 37.
 
 
 ("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\ujkpsyc
@@ -2031,7 +2075,7 @@ U_primary_black.pdf>] [2
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 13.67995pt on input line 22.
+(Font)              scaled to size 13.67995pt on input line 40.
  (svensk-sammanfattning.tex) [3
 
 
@@ -2052,184 +2096,85 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 
 ])
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 19.70294pt on input line 32.
- (main.toc
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 8.54991pt on input line 18.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 27.
-
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd
-"
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.54991pt on input line 35.
- [9
-
-]
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 8.54991pt on input line 41.
-)
+(Font)              scaled to size 19.70294pt on input line 50.
+ (main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [10]
+ [9
+
+]
 \openout2 = `notation.aux'.
 
- (notation.tex
-LaTeX Font Info:    Try loading font information for T1+jkp on input line 4.
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kpfonts\t1jkp.f
-d"
-File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
-) [11
+(notation.tex [10
 
 
+] [11
 
 ] [12
 
 ])
-\openout2 = `introduktion.aux'.
+\openout2 = `introduction.aux'.
 
- (introduktion.tex
+ (introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 40.54503pt on input line 1.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 (Font)              scaled to size 108.12012pt on input line 1.
-) [1
+
+Overfull \hbox (1.44997pt too wide) in paragraph at lines 3--4
+\T1/jkpk/m/n/10 in-creases rapidly and to-day there ex-ist mil-lions of de-vise
+s ca-pa-ble of tak-ing colour
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 
 
 
-]
-\openout2 = `resultat.aux'.
+])
+[2]
+\openout2 = `related_work.aux'.
 
- (resultat.tex [2
-
-
-
-]
+ (related_work.tex
 Chapter 2.
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-[]\T1/jkpk/m/n/10 Kommer
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-\T1/jkpk/m/n/10 på en
- []
+ [3
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-\T1/jkpk/m/n/10 liten
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--10
-\T1/jkpk/m/n/10 anek-
- []
-
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 4.74998pt on input line 12.
-
-Underfull \hbox (badness 1127) in paragraph at lines 12--12
-[]\T1/phv/m/n/5 Ta bort den löjliga
- []
-
-
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 12--12
-[][][][] 
- []
-
-
-LaTeX Warning: Marginpar on page 3 moved.
-
-
-Overfull \hbox (4.19403pt too wide) in paragraph at lines 16--17
-[]\T1/jkpk/m/n/10 Veseli¢, Kre²imir (Veseli¢, Kre²imir) skrev en gång en ar-tik
-el med titeln \T1/jkpk/m/sl/10 Bounds
- []
-
-<fig/clocks.pdf, id=341, page=1, 128.0374pt x 128.0374pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 1>
-Package pdftex.def Info: fig/clocks.pdf, page1 used on input line 20.
-(pdftex.def)             Requested size: 128.03706pt x 128.03706pt.
-
-<fig/clocks.pdf, id=342, page=2, 128.0374pt x 128.0374pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 2>
-Package pdftex.def Info: fig/clocks.pdf, page2 used on input line 22.
-(pdftex.def)             Requested size: 128.03706pt x 128.03706pt.
-
-Underfull \hbox (badness 4479) in paragraph at lines 22--22
-[]\T1/jkpk/b/sl/9 (b) |[][]\T1/jkpk/m/sl/9 Kiosken stänger snart,
- []
-
-<fig/clocks.pdf, id=343, page=3, 128.0374pt x 128.0374pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 3>
-Package pdftex.def Info: fig/clocks.pdf, page3 used on input line 24.
-(pdftex.def)             Requested size: 128.03706pt x 128.03706pt.
-
-<fig/clocks.pdf, id=344, page=4, 128.0374pt x 128.0374pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 4>
-Package pdftex.def Info: fig/clocks.pdf, page4 used on input line 26.
-(pdftex.def)             Requested size: 128.03706pt x 128.03706pt.
-
-<fig/clocks.pdf, id=347, page=5, 105.80467pt x 89.37326pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 5>
-Package pdftex.def Info: fig/clocks.pdf, page5 used on input line 33.
-(pdftex.def)             Requested size: 105.8044pt x 89.37303pt.
-
-<fig/clocks.pdf, id=348, page=6, 89.37326pt x 103.47682pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 6>
-Package pdftex.def Info: fig/clocks.pdf, page6 used on input line 35.
-(pdftex.def)             Requested size: 89.37303pt x 103.47656pt.
-
-<fig/clocks.pdf, id=349, page=7, 89.37326pt x 108.70534pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 7>
-Package pdftex.def Info: fig/clocks.pdf, page7 used on input line 37.
-(pdftex.def)             Requested size: 89.37303pt x 108.70506pt.
-
-<fig/clocks.pdf, id=350, page=8, 89.37326pt x 107.46289pt>
-File: fig/clocks.pdf Graphic file (type pdf)
-
-<use fig/clocks.pdf, page 8>
-Package pdftex.def Info: fig/clocks.pdf, page8 used on input line 39.
-(pdftex.def)             Requested size: 89.37303pt x 107.46262pt.
- [3] [4 <./fig/clocks.pdf> <./fig/clocks.pdf> <./fig/clocks.pdf> <./fig/clocks.
-pdf>] [5 <./fig/clocks.pdf> <./fig/clocks.pdf> <./fig/clocks.pdf> <./fig/clocks
-.pdf>]) [6
 
 ]
-\openout2 = `avrundning.aux'.
+[4]
+\openout2 = `result.aux'.
 
- (avrundning.tex
+ (result.tex
 Chapter 3.
-) [7
+) [5
 
 
 
-] [8
+]
+\openout2 = `conclusion.aux'.
+
+ (conclusion.tex [6
+
+
+
+]
+Chapter 4.
+) [7] [8
 
 
 ]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 23.63593pt on input line 40.
+(Font)              scaled to size 23.63593pt on input line 59.
  [9] [10]
 \openout2 = `detaljer.aux'.
 
@@ -2238,357 +2183,65 @@ Appendix A.
 ) [11
 
 
-]
-\openout2 = `rtthesis-doc.aux'.
-
- (rtthesis-doc.tex [12
-
-
-
-]
-Appendix B.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 19.70294pt on input line 1.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 16.84583pt on input line 1.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 11--21
-[]$[]$ 
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 24--32
-[]$[]$ 
- []
-
-[13]
-Underfull \hbox (badness 1314) in paragraph at lines 66--67
-[]|\T1/jkpk/m/n/10 Only used for li-cen-ti-ate's the-ses. It
- []
-
-
-Overfull \hbox (38.1703pt too wide) in paragraph at lines 54--71
- [][] 
- []
-
-LaTeX Font Info:    Font shape `T1/phv/m/sl' will be
-(Font)              scaled to size 7.69492pt on input line 78.
-[14]
-Underfull \hbox (badness 1655) in paragraph at lines 90--91
-[]|\T1/jkpk/m/n/10 Recommended lay-out. Mar-gin para-
- []
-
-
-Underfull \hbox (badness 5878) in paragraph at lines 96--97
-[]|\T1/jkpk/m/n/10 Write in-for-ma-tion about each page
- []
-
-
-Underfull \hbox (badness 2005) in paragraph at lines 97--98
-[]|\T1/jkpk/m/n/10 Same as [] with [] and crop
- []
-
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 106--112
-[]$[]$ 
- []
-
-[15]
-Underfull \hbox (badness 3635) in paragraph at lines 130--131
-[]|\T1/jkpk/m/n/10 Do not re-de-fine [].
- []
-
-
-Underfull \hbox (badness 3049) in paragraph at lines 131--132
-[]|\T1/jkpk/m/n/10 Make [] pro-duce a
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [16]
-
-LaTeX Font Warning: Font shape `T1/jkpk/m/scit' undefined
-(Font)              using `T1/jkpk/m/n' instead on input line 154.
-
-
-Overfull \hbox (9.32014pt too wide) in paragraph at lines 170--171
-\T1/jkpk/m/n/10 dis-cuss the [] en-vi-ron-ment (and the sim-i-lar en-vi-ron-men
-ts []
- []
-
-[17]
-Underfull \hbox (badness 1102) in paragraph at lines 185--185
-[]\T1/jkpk/b/sl/10 Table B.5: |[]\T1/jkpk/m/sl/10 Class op-tions re-lated ap-pe
-ar-ance of theorem-like en-vi-ron-
- []
-
-
-Underfull \hbox (badness 1418) in paragraph at lines 185--185
-[]\T1/jkpk/m/sl/10 , [], [], [], [], and
- []
-
-
-Underfull \hbox (badness 1521) in paragraph at lines 192--193
-[]|\T1/jkpk/m/n/10 Never put line breaks af-ter ti-tles of
- []
-
-
-Underfull \hbox (badness 3417) in paragraph at lines 195--196
-\T1/jkpk/m/n/10 are iso-lated by some ver-ti-cal white
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
-[]|\T1/jkpk/m/n/10 Use one num-ber-ing se-quence for
- []
-
-
-Underfull \hbox (badness 5091) in paragraph at lines 199--200
-\T1/jkpk/m/n/10 theorem-like en-vi-ron-ments, and the
- []
-
-[18] [19]
-Overfull \hbox (2.11865pt too wide) in paragraph at lines 244--245
-\T1/jkpk/m/n/10 counter for all sorts of theorem-like things. Again, the op-tio
-ns ap-pear in []tabell B.5[][].
- []
-
-[20]
-Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
-t line 255.
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-[]|$[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-\T1/pcr/m/n/10 plus
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-$[]$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--275
-\T1/pcr/m/n/10 minus
- []
-
-[21]
-Overfull \hbox (9.55875pt too wide) in paragraph at lines 295--296
-[] \T1/jkpk/m/n/10 en-vi-ron-ment has been de-signed to work with. The next one
-, []tabell B.7[][]
- []
-
-
-Underfull \hbox (badness 3088) in paragraph at lines 302--302
-[]\T1/jkpk/b/sl/10 Table B.7: |[]\T1/jkpk/m/sl/10 Dif-fer-ent com-bi-na-tions o
-f class op-tions that af-fects the
- []
-
-
-Underfull \hbox (badness 3088) in paragraph at lines 318--318
-[]\T1/jkpk/b/sl/10 Table B.8: |[]\T1/jkpk/m/sl/10 Dif-fer-ent com-bi-na-tions o
-f class op-tions that af-fects the
- []
-
-<fig/feedback.pdf, id=512, 202.58205pt x 38.19308pt>
-File: fig/feedback.pdf Graphic file (type pdf)
- <use fig/feedback.pdf>
-Package pdftex.def Info: fig/feedback.pdf used on input line 334.
-(pdftex.def)             Requested size: 202.58154pt x 38.19298pt.
-
-Overfull \hbox (12.22412pt too wide) in paragraph at lines 347--348
-\T1/jkpk/m/n/10 about doc-u-ment ti-tle, key-words, and other in-for-ma-tion pr
-o-vided to []
- []
-
-[22] [23 <./fig/feedback.pdf>] [24]
-Overfull \hbox (22.29218pt too wide) in paragraph at lines 418--420
-[]\T1/jkpk/m/n/10 You should then use [] in the mid-dle of a sen-tence, and []
- []
-
-[25]
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 11.69623pt on input line 443.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 447--456
-[]$[]$ 
- []
-
-
-Overfull \hbox (29.39697pt too wide) in paragraph at lines 457--458
-\T1/jkpk/m/n/10 ing in-dented. The com-mands [] and []
- []
-
-
-Underfull \hbox (badness 8019) in paragraph at lines 475--476
-[]|\T1/jkpk/m/n/10 Use Kp-Fonts (Ke-pler) and ac-ti-vate
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 477--478
-[]|\T1/jkpk/m/n/10 Use Latin Mod-ern and de-ac-ti-vate
- []
-
-[26] [27] [28] [29]
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 13.67995pt on input line 601.
-LaTeX Font Info:    Font shape `T1/phv/b/sl' will be
-(Font)              scaled to size 11.69623pt on input line 601.
- [30] [31]
-Overfull \hbox (14.26341pt too wide) in paragraph at lines 665--666
-\T1/jkpk/m/n/10 mands that should be used when there are two au-thor af-fil-i-a
--tions; put []
- []
-
-
-Overfull \hbox (26.06213pt too wide) in paragraph at lines 667--668
-[]\T1/jkpk/m/n/10 In case there is only one af-fil-i-a-tion, that af-fil-i-a-ti
-on is given by []
- []
-
-[32]
-Overfull \hbox (65.75223pt too wide) in paragraph at lines 669--670
-[]\T1/jkpk/m/n/10 In case of two af-fil-i-a-tions, you call the com-mands [] ,[
-],
- []
-
-
-Overfull \hbox (1.82689pt too wide) in paragraph at lines 673--674
-[][] \T1/jkpk/m/n/10  For or-di-nary pub-li-ca-tions. The ex-tent to which
- []
-
-
-Overfull \hbox (3.92036pt too wide) in paragraph at lines 674--675
-[][] \T1/jkpk/m/n/10  For pub-li-ca-tions for which there
- []
-
-
-Overfull \hbox (5.14207pt too wide) in paragraph at lines 688--689
-\T1/jkpk/m/n/10 pack-age load-ing or-der is-sues, it should al-ways be loaded b
-y pass-ing []
- []
-
-[33]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 7.69492pt on input line 691.
-
-Overfull \hbox (50.78217pt too wide) in paragraph at lines 694--695
-\T1/jkpk/m/n/10 to use for all of the per-publication bib-li-ogra-phies, and us
-e []
- []
-
-
-Overfull \hbox (15.52034pt too wide) in paragraph at lines 715--734
- [][] 
- []
-
-[34]
-Overfull \hbox (6.14015pt too wide) in paragraph at lines 743--743
-[]  \T1/pcr/m/n/9 supervisor={Doktorand Si \AT \textsc{isy}, Linköpings univers
-itet[] 
- []
-
-
-Overfull \hbox (4.74677pt too wide) in paragraph at lines 778--779
-\T1/jkpk/m/n/10 end. The other spe-cial pages can be pro-duced us-ing the macro
-s [],
- []
-
-[35] [36] [37]
-Overfull \hbox (15.0pt too wide) in paragraph at lines 863--872
-[]$[]$ 
- []
-
-
-Overfull \hbox (1.06393pt too wide) in paragraph at lines 875--876
-[]\T1/jkpk/m/n/10 For a dis-ser-ta-tion, there should al-ways be a spik-blad 
-(lit-er-ally, \T1/jkpk/m/sl/10 nail-ing sheet\T1/jkpk/m/n/10 ).
- []
-
-[38]) [39] [40
+] [12
 
 
 ] (main.bbl (main.brf)
 \tf@brf=\write6
 \openout6 = `main.brf'.
 
+
+Underfull \hbox (badness 3746) in paragraph at lines 49--49
+[]\T1/jkpk/m/n/10 Nisha Srini-vas, Gau-rav Ag-gar-wal, Patrick J Flynn, and Ric
+hard W
+ []
+
 )
 No file main.ind.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 51.
-[41
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
+[13
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 51.
- (main.aux (tack.aux) (notation.aux) (introduktion.aux) (resultat.aux)
-(avrundning.aux) (detaljer.aux) (rtthesis-doc.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 51.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 51.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
+ (main.aux (tack.aux) (notation.aux) (introduction.aux) (related_work.aux)
+(result.aux) (conclusion.aux) (detaljer.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 71.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 71.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 42CEFC5A8F3157A5F3718E0ED4ED9CF7;3726.
-
-
-Package rerunfilecheck Warning: File `main.brf' has changed.
-(rerunfilecheck)                Rerun to get bibliographical references right.
-
-Package rerunfilecheck Info: Checksums for `main.brf':
-(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
-(rerunfilecheck)             After:  E83018C6A66825FCDCF8CCD2A2BCBAD6;417.
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 0.43996pt have occurred.
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 51.
+(rerunfilecheck)             Checksum: 111CA68AD554EB9A8EC836DC50A89DFC;880.
+Package rerunfilecheck Info: File `main.brf' has not changed.
+(rerunfilecheck)             Checksum: 2A681A0B45BBEE7E663B9A43C7DDCDCB;553.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
  )
+(\end occurred when \ifx on line 31 was incomplete)
 (\end occurred when \ifx on line 18 was incomplete) 
 Here is how much of TeX's memory you used:
- 14461 strings out of 493634
- 211543 string characters out of 3134015
- 332799 words of memory out of 3000000
- 17195 multiletter control sequences out of 15000+200000
- 345709 words of font info for 285 fonts, out of 3000000 for 9000
+ 15957 strings out of 493634
+ 245591 string characters out of 3134015
+ 390783 words of memory out of 3000000
+ 18840 multiletter control sequences out of 15000+200000
+ 181044 words of font info for 136 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 45i,15n,89p,1090b,612s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,11n,55p,916b,550s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Stubborn/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/enc/dvips/kpfonts/kpfonts-large-sc.enc}{C:/Users
-/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:
-/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/kpfonts/kpfon
-ts-expert.enc}<C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+ocal/Programs/MiKTeX 2.9/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{C:/Users/S
+tubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}{C:/U
+sers/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/kpfonts/kpfonts
+-large-sc.enc}<C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
 public/kpfonts/jkpbn8a.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/kpfonts/jkpbn8a.pfb><C:/Users/Stubborn/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpbsc8a.pfb><C:/Users/Stubborn/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpex.pfb><C:/Users/Stub
-born/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpkmsc.pfb><
-C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/
-jkpkmsc.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/kpfonts/jkpmi.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/kpfonts/jkpmit8a.pfb><C:/Users/Stubborn/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/kpfonts/jkpmn8a.pfb><C:/Users/Stubborn/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpmn8a.pfb><C:/Users/Stubbo
-rn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpmne.pfb><C:/
-Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkp
-mne.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/kpfonts/jkpsy.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/kpfonts/jkpsyb.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/Stubborn/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/Stubborn/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Users/Stubborn/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/
-Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvbo8a.pfb
-><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/
-uhvr8a.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
-/helvetic/uhvro8a.pfb>
-Output written on main.pdf (53 pages, 428449 bytes).
+/fonts/type1/public/kpfonts/jkpkbsc.pfb><C:/Users/Stubborn/AppData/Local/Progra
+ms/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpkmsc.pfb><C:/Users/Stubborn/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpmit8a.pfb><C:/Users/St
+ubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpmn8a.pfb
+><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/kpfont
+s/jkpmn8a.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
+public/kpfonts/jkpmne.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/Stubborn/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (25 pages, 138057 bytes).
 PDF statistics:
- 792 PDF objects out of 1000 (max. 8388607)
- 154 named destinations out of 1000 (max. 500000)
- 18891 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 57 named destinations out of 1000 (max. 500000)
+ 18566 words of extra memory for PDF output out of 20736 (max. 10000000)
 

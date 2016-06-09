@@ -1,36 +1,56 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{8}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Duck(2005)]{Duck:2005}
-Donald Duck.
-\newblock The history of automatic control.
-\newblock \emph{Duckburg Journal of Science}, 106\penalty0 (3):\penalty0
-  345--401, 2005.
+\bibitem[A(1885)]{Bertillon}
+Bertillon A.
+\newblock Forensic facial analysis. identification anthropometrique:
+  instructions signaletiques.
+\newblock France, Paris, 1885.
 
-\bibitem[Khalil(2002)]{Khalil02NonlinearSystemsBook}
-Hassan~K. Khalil.
-\newblock \emph{Nonlinear systems}.
-\newblock Prentice Hall, Inc., third edition, 2002.
+\bibitem[Jain and Park(2009)]{jain_facial}
+Anil~K Jain and Unsang Park.
+\newblock Facial marks: Soft biometric for face recognition.
+\newblock In \emph{Image Processing (ICIP), 2009 16th IEEE International
+  Conference on}, pages 37--40. IEEE, 2009.
 
-\bibitem[Mori(2007)]{Mori07Tables}
-Lapo~Filippo Mori.
-\newblock Tables in {\LaTeXe}: Packages and methods.
-\newblock \emph{The {Prac\TeX} Journal}, 2007\penalty0 (1), 2007.
-\newblock URL \url{http://tug.org/pracjourn/2007-1/mori}.
+\bibitem[Nisha Srinivas~M.Sc.(2015)]{automatic_detector_2015}
+Richard W. Vorder Bruegge~Ph.D. Nisha Srinivas~M.Sc., Patrick J. Flynn~Ph.D.
+\newblock Human identification using automatic and semi-automatically detected
+  facial marks.
+\newblock \emph{Journal of Forensic Sciences}, 61\penalty0 (S1):\penalty0
+  117--130, September 2015.
 
-\bibitem[Rugh(1996)]{Rugh96LinearSystemsBook}
-Wilson~J. Rugh.
-\newblock \emph{Linear system theory}.
-\newblock Prentice-Hall, Inc., second edition, 1996.
+\bibitem[Nordgaard et~al.(2011)Nordgaard, Ansell, Drotz, and Jaeger]{NFC_stat}
+Anders Nordgaard, Ricky Ansell, Weine Drotz, and Lars Jaeger.
+\newblock Scale of conclusions for the value of evidence.
+\newblock \emph{Law, probability and risk}, pages 1--24, 2011.
 
-\bibitem[Ryćko and Jackowski(1993)]{RyckoJackowski93TeXIndentPar}
-Marek Ryćko and Bugosław Jackowski.
-\newblock {\TeX} from {\textbackslash}indent to {\textbackslash}par.
-\newblock \emph{TUGboat}, 14\penalty0 (3), 1993.
-\newblock URL \url{http://www.tug.org/TUGboat/Articles/tb14-3/tb40rycko.pdf}.
+\bibitem[Nurhudatiana~A.()]{statistic_RPPVSM}
+Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
+\newblock Fundamental statistics of relatively permanent pigmented or vascular
+  skin marks for criminal and victim identification.
+\newblock In \emph{Biometrics (IJCB)s}.
+
+\bibitem[Spaun~N.A.()]{forensic_identification}
+Bruegge~R.W.V. Spaun~N.A.
+\newblock Forensic identification of people from images and video.
+\newblock In \emph{Biometrics: Theory, Applications and Systems}.
+
+\bibitem[Srinivas et~al.(2012)Srinivas, Aggarwal, Flynn, and
+  Vorder~Bruegge]{twins}
+Nisha Srinivas, Gaurav Aggarwal, Patrick~J Flynn, and Richard~W Vorder~Bruegge.
+\newblock Analysis of facial marks to distinguish between identical twins.
+\newblock \emph{Information Forensics and Security, IEEE Transactions on},
+  7\penalty0 (5):\penalty0 1536--1550, 2012.
+
+\bibitem[Tome et~al.(2015)Tome, Vera-Rodriguez, Fierrez, and
+  Ortega-Garcia]{face_soft}
+Pedro Tome, Ruben Vera-Rodriguez, Julian Fierrez, and Javier Ortega-Garcia.
+\newblock Facial soft biometric features for forensic face recognition.
+\newblock \emph{Forensic science international}, 257:\penalty0 271--284, 2015.
 
 \end{thebibliography}

@@ -2,10 +2,53 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: plainnat.bst
 A level-1 auxiliary file: tack.aux
 A level-1 auxiliary file: notation.aux
-A level-1 auxiliary file: introduktion.aux
-A level-1 auxiliary file: resultat.aux
-A level-1 auxiliary file: avrundning.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: related_work.aux
+A level-1 auxiliary file: result.aux
+A level-1 auxiliary file: conclusion.aux
 A level-1 auxiliary file: detaljer.aux
-A level-1 auxiliary file: rtthesis-doc.aux
+Illegal, another \bibstyle command---line 57 of file main.aux
+ : \bibstyle
+ :          {unsrt}
+I'm skipping whatever remains of this command
 Database file #1: IEEEfull.bib
 Database file #2: myrefs.bib
+You're missing a field name---line 5 of file myrefs.bib
+ :  
+ :  %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 26 of file myrefs.bib
+ :  
+ :  %note     = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 33 of file myrefs.bib
+ :  
+ :  %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 50 of file myrefs.bib
+ :  
+ :  %editor   = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 71 of file myrefs.bib
+ :  
+ :  %note     = "",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
+while executing---line 1347 of file plainnat.bst
+Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
+while executing---line 1347 of file plainnat.bst
+Warning--empty booktitle in Bertillon
+Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
+while executing---line 1429 of file plainnat.bst
+Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
+while executing---line 1429 of file plainnat.bst
+Warning--empty year in statistic_RPPVSM
+Warning--empty year in statistic_RPPVSM
+Warning--empty year in forensic_identification
+Warning--empty year in forensic_identification
+(There were 10 error messages)
