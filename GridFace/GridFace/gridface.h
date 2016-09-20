@@ -31,7 +31,8 @@ public:
 
 private slots:
 	void on_btn_run_clicked();
-	void on_btn_second_clicked();
+	void on_btn_train_clicked();
+	void on_btn_validate_clicked();
 	void on_btn_browser_clicked();
 
 private:
@@ -40,10 +41,14 @@ private:
 	//void detectFaceInImage(cv::Mat orig, IplImage* input, cv::CascadeClassifier cascade, FLANDMARK_Model *model, int *bbox, double *landmarks);
 
 	// Data members 
-	int file_counter;
 	MyImage *curr_img;
-	QStringList list_of_files;
-	bool my_switch;
+	QFileInfoList list_of_files;
+	QMessageBox message;
+	cv::Ptr<cv::ml::SVM> my_svm = cv::ml::SVM::create();	
+	std::string dir_path; 
+	
+	std::vector<MyImage> processed_img_vec;
+	std::vector<MyImage> record_vec;
 };
 
 #endif // GRIDFACE_H

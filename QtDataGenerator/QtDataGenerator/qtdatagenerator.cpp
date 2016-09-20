@@ -317,7 +317,7 @@ void QtDataGenerator::pre_writing()
 
 void QtDataGenerator::write_all_selections()
 {
-	this->outPutStream << "break" << std::endl << curr_image->get_name(2).toStdString() <<
+	this->outPutStream << curr_image->get_name(2).toStdString() <<
 		std::endl << curr_image->get_name(1).toStdString() << std::endl;
 	
 	for (int it = 0; it < curr_image->class_type_vec.size(); ++it)
@@ -327,6 +327,7 @@ void QtDataGenerator::write_all_selections()
 			std::to_string(curr_image->point2_vec[it].x) << " " << std::to_string(curr_image->point2_vec[it].y)<< " " <<
 			std::to_string(curr_image->class_type_vec[it]) << std::endl;
 	}
+	this->outPutStream << "break" << std::endl;
 }
 
 void QtDataGenerator::draw_rect(std::vector<cv::Point> vec1, std::vector<cv::Point> vec2, std::vector<int> vec3)

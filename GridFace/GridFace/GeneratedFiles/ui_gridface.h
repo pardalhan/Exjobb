@@ -13,7 +13,6 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
@@ -32,8 +31,10 @@ public:
     QPushButton *btn_run;
     QLabel *lbl_msg;
     QPushButton *btn_browser;
-    QPushButton *btn_second;
-    QCheckBox *ch_method;
+    QPushButton *btn_train;
+    QPushButton *btn_validate;
+    QLabel *lbl_browser;
+    QLabel *lbl_result;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -50,21 +51,29 @@ public:
         btn_run->setGeometry(QRect(180, 10, 281, 51));
         lbl_msg = new QLabel(centralWidget);
         lbl_msg->setObjectName(QStringLiteral("lbl_msg"));
-        lbl_msg->setGeometry(QRect(50, 190, 521, 151));
+        lbl_msg->setGeometry(QRect(250, 190, 331, 151));
         lbl_msg->setAlignment(Qt::AlignCenter);
         btn_browser = new QPushButton(centralWidget);
         btn_browser->setObjectName(QStringLiteral("btn_browser"));
         btn_browser->setGeometry(QRect(240, 80, 171, 41));
-        btn_second = new QPushButton(centralWidget);
-        btn_second->setObjectName(QStringLiteral("btn_second"));
-        btn_second->setGeometry(QRect(30, 20, 91, 41));
-        ch_method = new QCheckBox(centralWidget);
-        ch_method->setObjectName(QStringLiteral("ch_method"));
-        ch_method->setGeometry(QRect(520, 30, 81, 20));
+        btn_train = new QPushButton(centralWidget);
+        btn_train->setObjectName(QStringLiteral("btn_train"));
+        btn_train->setGeometry(QRect(20, 10, 131, 61));
+        btn_validate = new QPushButton(centralWidget);
+        btn_validate->setObjectName(QStringLiteral("btn_validate"));
+        btn_validate->setGeometry(QRect(24, 82, 121, 71));
+        lbl_browser = new QLabel(centralWidget);
+        lbl_browser->setObjectName(QStringLiteral("lbl_browser"));
+        lbl_browser->setGeometry(QRect(450, 70, 161, 51));
+        lbl_browser->setAlignment(Qt::AlignCenter);
+        lbl_result = new QLabel(centralWidget);
+        lbl_result->setObjectName(QStringLiteral("lbl_result"));
+        lbl_result->setGeometry(QRect(40, 180, 151, 171));
+        lbl_result->setAlignment(Qt::AlignCenter);
         GridFaceClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(GridFaceClass);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 627, 26));
+        menuBar->setGeometry(QRect(0, 0, 627, 21));
         GridFaceClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(GridFaceClass);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -81,11 +90,13 @@ public:
     void retranslateUi(QMainWindow *GridFaceClass)
     {
         GridFaceClass->setWindowTitle(QApplication::translate("GridFaceClass", "GridFace", 0));
-        btn_run->setText(QApplication::translate("GridFaceClass", "RUN FOR THE HILLS", 0));
+        btn_run->setText(QApplication::translate("GridFaceClass", "Calculate", 0));
         lbl_msg->setText(QApplication::translate("GridFaceClass", "Message", 0));
         btn_browser->setText(QApplication::translate("GridFaceClass", "Browser", 0));
-        btn_second->setText(QApplication::translate("GridFaceClass", "Second", 0));
-        ch_method->setText(QApplication::translate("GridFaceClass", "Method", 0));
+        btn_train->setText(QApplication::translate("GridFaceClass", "Train", 0));
+        btn_validate->setText(QApplication::translate("GridFaceClass", "Validate", 0));
+        lbl_browser->setText(QApplication::translate("GridFaceClass", "Directory", 0));
+        lbl_result->setText(QApplication::translate("GridFaceClass", "Results", 0));
     } // retranslateUi
 
 };

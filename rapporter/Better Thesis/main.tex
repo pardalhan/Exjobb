@@ -17,6 +17,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{csquotes}
 \usepackage{cleveref}
+\usepackage{mathtools}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
 \setupThesis{ 
 	author = {Armand Moulis},
@@ -53,6 +57,7 @@
 \mainmatter
 \include{introduction}
 \include{related_work}
+\include{Method}
 \include{result}
 \include{conclusion}
 
@@ -64,7 +69,7 @@
 \backmatter
 
 \bibliographystyle{unsrt}
-\bibliography{IEEEfull,myrefs}
+\bibliography{myrefs}
 
 \printindex
 

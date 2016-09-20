@@ -8,6 +8,7 @@
 #include <cmath>
 #include <math.h> 
 #include <QMessageBox>
+#include <Qfiledialog.h>
 
 #include <opencv2\opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -41,29 +42,50 @@ public:
 	option 1 = name of file
 	option 2 = name of full path
 	*/
-	QString get_name(int option);  // Get filename or path 
+	std::string get_name(int option);  // Get filename or path 
 	/*
 	option 1 = name of file
 	option 2 = name of full path
 	*/
-	void set_name(QString new_name, int option); // Set filename or path 
+	void set_name(std::string new_name, int option); // Set filename or path 
 
 	void insert_selection(cv::Point point1, cv::Point point2, int class_type); // Set point and class of facial marks
 	
 	void detect_faces(cv::Mat orig);
 	void detect_landmarks(cv::Mat orig_img);
+	void calc_angle();
 	cv::Mat MyImage::rotate_img(cv::Mat orig_img);
+	std::vector<cv::Point>  MyImage::rotate_points(std::vector<cv::Point> point_vec);
 	cv::Rect enlarg_face_rect(cv::Rect face, double procent, cv::Size img_size);
 	std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv::Point> landmark_vec, bool down_sample);
 	cv::Mat MyImage::close_open(cv::Mat mask, int iterations = 7, int kernels_size = 5);
 
 	void display_landmarks(cv::Mat orig_img);
 	void draw_grid(cv::Mat img);
+	void MyImage::draw_record(cv::Mat img);
 
 	void clear_data(); // Clear all data in object
 
-	// Public data members
+	void MyImage::intersecting_areas(MyImage& actual, MyImage& predicted);
+	void MyImage::rezize_points(MyImage& my_image);
 
+	void MyImage::process_image(MyImage& my_image);
+
+	void MyImage::create_areas();
+	void MyImage::calc_freq(MyImage& my_imgae);
+
+	// SVM 
+	std::vector<MyImage> extract_from_record(std::string file_path);
+	std::vector<int> extract_lables(std::vector<MyImage> record);
+	cv::Mat extract_features(std::vector<MyImage> record, int nr_samples);
+	cv::Ptr<cv::ml::SVM> train_SVM(std::string file_path);
+	cv::Mat calc_confusion(cv::Mat predicted, cv::Mat actual);
+
+
+	cv::Mat MyImage::FRS(cv::Mat cv_img);
+	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> MyImage::get_candidates(cv::Mat cv_img, cv::Mat mask);
+	
+	// Public data members
 	cv::CascadeClassifier face_Cascade;
 	//FLANDMARK_Model *model_fland;
 	dlib::shape_predictor model_dlib;
@@ -73,19 +95,28 @@ public:
 	std::vector<int> class_type_vec; // 1 is permanent, 2 is non-permanent 
 	std::vector<cv::Rect> faces_vec; // Vector rects containing faces 
 	std::vector<cv::Point> landmark_vec; // Vector with landmark points
-	QMessageBox message;
+	std::vector<std::vector<cv::Point>> areas_vec;
+
+	std::vector<int> index_checked_detections;
+	float resize_factor;
+	float rotate_angle; 
+	cv::Size img_size; 
+	std::vector<cv::Rect> candidates; 
+	std::vector<int> frequency;
+
 
 
 private:
 	// Data members
-	QString file_path; // Whole path 
-	QString file_name; // File name 
+	std::string file_path; // Whole path 
+	std::string file_name; // File name 
 
 	// Functions 
 	//void landmarks_SVM(IplImage *grey_img, int *bbox, FLANDMARK_Model *model, double *landmarks);
 
-	void display_message(QString msg); 
-	double calc_angle(cv::Point a, cv::Point b, cv::Point c);
+	void display_message(QString msg);
+	float MyImage::my_angle_calculater(cv::Point a, cv::Point b, cv::Point c);
+
 
 };
 

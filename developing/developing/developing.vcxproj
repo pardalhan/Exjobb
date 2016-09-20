@@ -153,6 +153,7 @@
     <ClCompile Include="Header.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MSR.cpp" />
+    <ClCompile Include="MyImage.cpp" />
     <ClCompile Include="SLRMSR.cpp" />
     <ClCompile Include="source.cpp" />
   </ItemGroup>
@@ -160,6 +161,7 @@
     <ClInclude Include="C_BADGER.h" />
     <ClInclude Include="Header.h" />
     <ClInclude Include="MSR.h" />
+    <ClInclude Include="MyImage.h" />
     <ClInclude Include="SLRMSR.h" />
   </ItemGroup>
   <ItemGroup>

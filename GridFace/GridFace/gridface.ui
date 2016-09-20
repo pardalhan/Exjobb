@@ -24,15 +24,15 @@
      </rect>
     </property>
     <property name="text">
-     <string>RUN FOR THE HILLS</string>
+     <string>Calculate</string>
     </property>
    </widget>
    <widget class="QLabel" name="lbl_msg">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>250</x>
       <y>190</y>
-      <width>521</width>
+      <width>331</width>
       <height>151</height>
      </rect>
     </property>
@@ -56,30 +56,62 @@
      <string>Browser</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_second">
+   <widget class="QPushButton" name="btn_train">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>91</width>
-      <height>41</height>
+      <x>20</x>
+      <y>10</y>
+      <width>131</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="text">
-     <string>Second</string>
+     <string>Train</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="ch_method">
+   <widget class="QPushButton" name="btn_validate">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>30</y>
-      <width>81</width>
-      <height>20</height>
+      <x>24</x>
+      <y>82</y>
+      <width>121</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
-     <string>Method</string>
+     <string>Validate</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_browser">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>70</y>
+      <width>161</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Directory</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_result">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>170</y>
+      <width>151</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Results</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -89,7 +121,7 @@
      <x>0</x>
      <y>0</y>
      <width>627</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

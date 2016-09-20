@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{17}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,11 +11,48 @@ Bertillon A.
   instructions signaletiques.
 \newblock France, Paris, 1885.
 
+\bibitem[Bani{\'c} and Lon{\v{c}}ari{\'c}(2014)]{badger}
+Nikola Bani{\'c} and Sven Lon{\v{c}}ari{\'c}.
+\newblock Color badger: a novel retinex-based local tone mapping operator.
+\newblock In \emph{International Conference on Image and Signal Processing},
+  pages 400--408. Springer, 2014.
+
 \bibitem[Jain and Park(2009)]{jain_facial}
 Anil~K Jain and Unsang Park.
 \newblock Facial marks: Soft biometric for face recognition.
 \newblock In \emph{Image Processing (ICIP), 2009 16th IEEE International
   Conference on}, pages 37--40. IEEE, 2009.
+
+\bibitem[Joost van~de Weijer(2009)]{11_colours}
+Jakob Verbeek Diane~Larlus Joost van~de Weijer, Cordelia~Schmid.
+\newblock Learning color names for real-world applications.
+\newblock \emph{IEEE Transactions on Image Processing}, 18\penalty0
+  (7):\penalty0 1512--1523, July 2009.
+
+\bibitem[Kazemi and Sullivan(2014)]{dlib_landmark}
+Vahid Kazemi and Josephine Sullivan.
+\newblock One millisecond face alignment with an ensemble of regression trees.
+\newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
+  Pattern Recognition}, pages 1867--1874, 2014.
+
+\bibitem[Lee et~al.(1997)Lee, Ng, Gallagher, Coldman, and McLean]{dullrazor}
+Tim Lee, Vincent Ng, Richard Gallagher, Andrew Coldman, and David McLean.
+\newblock Dullrazor{\textregistered}: A software approach to hair removal from
+  images.
+\newblock \emph{Computers in biology and medicine}, 27\penalty0 (6):\penalty0
+  533--543, 1997.
+
+\bibitem[Loy and Zelinsky(2003)]{FRS}
+Gareth Loy and Alexander Zelinsky.
+\newblock Fast radial symmetry for detecting points of interest.
+\newblock \emph{IEEE Transactions on pattern analysis and machine
+  intelligence}, 25\penalty0 (8):\penalty0 959--973, 2003.
+
+\bibitem[Meyer(1992)]{watershed}
+Fernand Meyer.
+\newblock Color image segmentation.
+\newblock In \emph{Image Processing and its Applications, 1992., International
+  Conference on}, pages 303--306. IET, 1992.
 
 \bibitem[Nisha Srinivas~M.Sc.(2015)]{automatic_detector_2015}
 Richard W. Vorder Bruegge~Ph.D. Nisha Srinivas~M.Sc., Patrick J. Flynn~Ph.D.
@@ -35,6 +72,21 @@ Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
   skin marks for criminal and victim identification.
 \newblock In \emph{Biometrics (IJCB)s}.
 
+\bibitem[Provenzi et~al.(2007)Provenzi, Fierro, Rizzi, De~Carli, Gadia, and
+  Marini]{RSR}
+Edoardo Provenzi, Massimo Fierro, Alessandro Rizzi, Luca De~Carli, Davide
+  Gadia, and Daniele Marini.
+\newblock Random spray retinex: A new retinex implementation to investigate the
+  local properties of the model.
+\newblock \emph{IEEE Transactions on Image Processing}, 16\penalty0
+  (1):\penalty0 162--171, 2007.
+
+\bibitem[Rother et~al.(2004)Rother, Kolmogorov, and Blake]{grabcut}
+Carsten Rother, Vladimir Kolmogorov, and Andrew Blake.
+\newblock Grabcut: Interactive foreground extraction using iterated graph cuts.
+\newblock In \emph{ACM transactions on graphics (TOG)}, volume~23, pages
+  309--314. ACM, 2004.
+
 \bibitem[Spaun~N.A.()]{forensic_identification}
 Bruegge~R.W.V. Spaun~N.A.
 \newblock Forensic identification of people from images and video.
@@ -52,5 +104,12 @@ Nisha Srinivas, Gaurav Aggarwal, Patrick~J Flynn, and Richard~W Vorder~Bruegge.
 Pedro Tome, Ruben Vera-Rodriguez, Julian Fierrez, and Javier Ortega-Garcia.
 \newblock Facial soft biometric features for forensic face recognition.
 \newblock \emph{Forensic science international}, 257:\penalty0 271--284, 2015.
+
+\bibitem[Viola and Jones(2001)]{face_detection}
+Paul Viola and Michael Jones.
+\newblock Rapid object detection using a boosted cascade of simple features.
+\newblock In \emph{Computer Vision and Pattern Recognition, 2001. CVPR 2001.
+  Proceedings of the 2001 IEEE Computer Society Conference on}, volume~1, pages
+  I--511. IEEE, 2001.
 
 \end{thebibliography}

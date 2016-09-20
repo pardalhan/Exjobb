@@ -48,6 +48,22 @@ cv::Rect enlarg_face_rect(cv::Rect face, double procent, cv::Size img_size)
 	return larg_face;
 }
 
+cv::Rect enlarg_rect(cv::Rect face, double procent)
+{
+
+	cv::Rect larg_face;
+	double img_height_diff = face.height*(1 + procent) - face.height;
+	double img_width_diff = face.width*(1 + procent) - face.width;
+
+	larg_face.x = (int)round(face.x - img_width_diff / 2);
+	larg_face.y = (int)round(face.y - img_height_diff / 2);
+	larg_face.height = (int)round(face.height*(1 + procent));
+	larg_face.width = (int)round(face.width*(1 + procent));
+
+
+	return larg_face;
+}
+
 cv::Mat close_open(cv::Mat mask, int iterations = 7, int kernels_size = 5)
 {
 	cv::Mat const structure_elem = cv::getStructuringElement(
@@ -271,31 +287,33 @@ cv::Mat rotate_img(cv::Mat orig_img, std::vector<cv::Point> landmark_vec)
 	return rotated_img;
 }
 
-cv::Point RotatePoint(cv::Point cen_pt, cv::Point p, float angle)
+void RotatePoint(cv::Mat img, MyImage& my_image)
 {
-	float rand = M_PI*(angle / 180);
+
+	cv::Point2f cen_pt(img.cols / 2., img.rows / 2.);
+	float rand = M_PI*(my_image.rotate_angle / 180);
 	float s = sin(rand);
 	float c = cos(rand);
 
+	for (int num = 0; num < my_image.landmark_vec.size(); num++)
+	{
+
 	// translate point back to origin:
-	p.x -= cen_pt.x;
-	p.y -= cen_pt.y;
+	my_image.landmark_vec[num].x -= cen_pt.x;
+	my_image.landmark_vec[num].y -= cen_pt.y;
 
 	// rotate point
-	float xnew = p.x * c - p.y * s;
-	float ynew = p.x * s + p.y * c;
+	float xnew = my_image.landmark_vec[num].x * c - my_image.landmark_vec[num].y * s;
+	float ynew = my_image.landmark_vec[num].x * s + my_image.landmark_vec[num].y * c;
 
 	// translate point back:
-	p.x = xnew + cen_pt.x;
-	p.y = ynew + cen_pt.y;
-	return p;
+	my_image.landmark_vec[num].x = xnew + cen_pt.x;
+	my_image.landmark_vec[num].y = ynew + cen_pt.y;
+	}
 }
 
 cv::Mat FRS(cv::Mat cv_img)
 {
-
-
-	
 	int num_row = cv_img.rows;
 	int num_col = cv_img.cols;
 	int sigma = 0;
@@ -521,125 +539,527 @@ cv::Mat FRS(cv::Mat cv_img)
 	return S_total;
 }
 
-
-//cv::Point pos_pix(cv::Point curr_pix, int radius)
-//{
-//	cv::Point pos_pix;
-//
-//	pos_pix = curr_pix; 
-//	pos_pix.x += 
-//
-//	return pos_pix;
-//}
-
-int main(){
-	//--------------------------------------------------------------------------------------------------------------------------------
-	//cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Desktop\\WORK\\Cut_imgaes\\test.JPG");
-	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\030_frontal.JPG");
-	//cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\089_frontal.JPG"); 
-	//cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Desktop\\cirk.png"); 
-	/*
-	cv::CascadeClassifier face_Cascade;
-	dlib::shape_predictor model_dlib;
-	face_Cascade.load("haarcascade_frontalface_alt.xml");
-	dlib::deserialize("shape_predictor_68_face_landmarks.dat") >> model_dlib;
-	// Face detector parameters
-	CvSize minFeatureSize = cvSize(200, 200);	 // Smallest face size.
-	int flags = CV_HAAR_DO_CANNY_PRUNING;
-	float search_scale_factor = 1.1f;	// How detailed should the search be.
-	std::vector<cv::Rect>faces;
-	
-	// Detect faces - OPENCV
-	face_Cascade.detectMultiScale(cv_img, faces, search_scale_factor, 2, 0 | flags, minFeatureSize);
-	std::vector<cv::Point> landmark_vec;
-
-	//Convert from mat to dlib
-	dlib::array2d<dlib::rgb_pixel> img_dlib;
-	dlib::assign_image(img_dlib, dlib::cv_image<dlib::bgr_pixel>(cv_img));
-
-	// Vector with landmarks 
-	dlib::rectangle temp_face((long)faces[0].tl().x, (long)faces[0].tl().y, (long)faces[0].br().x - 1, (long)faces[0].br().y - 1);
-	dlib::full_object_detection shape = model_dlib(img_dlib, temp_face); // Find landmark in bounding box
-	for (int i = 0; i < shape.num_parts(); i++)
-	{
-		landmark_vec.push_back(cv::Point(shape.part(i).x(), shape.part(i).y()));
-	}
-	//--------------------------------------------------------------------------------------------------------------------------------
-
-
-		cv::Mat rotated_img;
-
-		cv::Point left_eye_1 = landmark_vec[36];
-		cv::Point left_eye_2 = landmark_vec[39];
-		cv::Point right_eye_1 = landmark_vec[42];
-		cv::Point right_eye_2 = landmark_vec[45];
-		cv::Point straight_point_1(left_eye_1.x + right_eye_1.x, left_eye_1.y);
-		cv::Point straight_point_2(left_eye_2.x + right_eye_2.x, left_eye_2.y);
-
-		double angle_1 = calc_angle(left_eye_1, straight_point_1, right_eye_1);
-		double angle_2 = calc_angle(left_eye_2, straight_point_2, right_eye_2);
-		double angle = (angle_1 + angle_2) / 2;
-
-		cv::Point2f pt(cv_img.cols / 2., cv_img.rows / 2.);
-		cv::Mat r = getRotationMatrix2D(pt, -angle, 1.0);
-		warpAffine(cv_img, rotated_img, r, cv::Size(cv_img.cols, cv_img.rows));
-		
-		std::vector<cv::Point> rotated_landmarks; 
-		for (int i = 0; i < landmark_vec.size(); i++)
-		{
-			cv::Point temp_rot = RotatePoint(pt, landmark_vec[i], angle);
-			rotated_landmarks.push_back(temp_rot);
-		}
-
-		for (int i = 0; i < landmark_vec.size(); i++)
-		{
-			cv::circle(cv_img, landmark_vec[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
-		}
-
-		for (int i = 0; i < rotated_landmarks.size(); i++)
-		{
-			cv::circle(rotated_img, rotated_landmarks[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
-		}
-		cv::Point temp = RotatePoint(pt, cv::Point(faces[0].x, faces[0].y),angle);
-		cv::Rect rotated_face(temp.x, temp.y, faces[0].width, faces[0].height);
-
-		cv::rectangle(cv_img, faces[0], CV_RGB(0, 0, 255), 2);
-		cv::rectangle(rotated_img, rotated_face, CV_RGB(0, 0, 255), 2);
-	
-	//std::pair<cv::Mat, cv::Mat> segmentation = face_segment(cv_img, landmark_vec, false);
-	
-	*/
+std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> get_candidates(cv::Mat cv_img, cv::Mat mask )
+{
 
 	cv::Mat frs_img = FRS(cv_img);
+
 	frs_img = cv::abs(frs_img);
 	double max, min;
 	cv::minMaxLoc(frs_img, &min, &max);
-	cv::Mat result; 
-	//frs_img.convertTo(frs_img, CV_8U, 255/max, 0);
-	//cv::threshold(frs_img, result, 0, 255, cv::THRESH_TOZERO | CV_THRESH_OTSU);
-	frs_img.setTo(0, frs_img <= 0.1*max);
-	frs_img.setTo(1, frs_img >= 0.1*max);
-	//cvtColor(frs_img, frs_img, CV_GRAY2RGB, CV_8U);
-	//frs_img = frs_img * 255;
-	cv_img.setTo(cv::Scalar(255, 0, 0), frs_img == 1);
+
+	/*
+	// OTSU THRESHOLDNING
+	frs_img.convertTo(frs_img, CV_8U);
+	cv::threshold(frs_img, frs_img, 0, 1, cv::THRESH_BINARY | CV_THRESH_OTSU);
+
+	cv::Mat const structure_elem = cv::getStructuringElement(
+	cv::MORPH_CROSS, cv::Size(3, 3));
+	cv::morphologyEx(frs_img, frs_img,
+	cv::MORPH_CLOSE, structure_elem, cv::Point(-1, -1), 1);
+
+	cv::morphologyEx(frs_img, frs_img,
+	cv::MORPH_ERODE, structure_elem, cv::Point(-1, -1), 2);
+	*/
+
+
+	// NORMAL THRESHOLDING
+	double threshold = 0.08;
+	cv::threshold(frs_img, frs_img, threshold*max, 1, cv::THRESH_BINARY);
+
+	// Remove seed outside mask 
+	frs_img.setTo(0, mask == 0);
+
+	// Draw the background markers
+	cv::Mat background;
+
+	cv::Mat const structure_elem = cv::getStructuringElement(
+		cv::MORPH_RECT, cv::Size(3, 3));
+	cv::morphologyEx(frs_img, background,
+		cv::MORPH_DILATE, structure_elem, cv::Point(-1, -1), 10);
+
+	cv::threshold(background, background, 0, 1337, cv::THRESH_BINARY_INV);
+
+	cv::Mat back_32s;
+	background.convertTo(back_32s, CV_32SC1);
+
+
+	// Create the CV_8U version of the distance image
+	// It is needed for findContours()
+	cv::Mat dist_8u;
+	frs_img.convertTo(dist_8u, CV_8U);
+
+
+	// Find seed counters
+	std::vector<std::vector<cv::Point>> contours;
+	findContours(dist_8u, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+	// Draw the foreground markers
+	cv::Mat markers_32s = cv::Mat::zeros(frs_img.size(), CV_32SC1);
+	for (size_t i = 0; i < contours.size(); i++)
+		drawContours(markers_32s, contours, static_cast<int>(i), cv::Scalar::all(static_cast<int>(i)+1), -1);
+
+	//mask.convertTo(mask, CV_32S);
+
+
+	markers_32s = markers_32s + back_32s;
+
+	// Perform the watershed algorithm
+
+	cv::watershed(cv_img, markers_32s);
+
+
+	// Connect nearby marks and find new counters
+	cv::Mat closed_marks = markers_32s.clone();
+	closed_marks.setTo(1, markers_32s >= -1);
+	closed_marks.setTo(0, markers_32s >= 1337);
+
+	std::vector<std::vector<cv::Point>> new_contours;
+	cv::Mat closed_marks_8u;
+	closed_marks.convertTo(closed_marks_8u, CV_8U);
+	findContours(closed_marks_8u, new_contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_SIMPLE);
+
+
+	/// Get bounding box 
+	std::vector<cv::Rect> boundRects(new_contours.size());
+
+
+	for (int i = 0; i < new_contours.size(); i++)
+	{
+		boundRects[i] = cv::boundingRect(cv::Mat(new_contours[i]));
+	}
+
+	return std::make_pair(new_contours, boundRects);
+}
+
+std::vector<MyImage> extract_from_record(std::string file_path)
+{
+	MyImage img;
+	std::vector<MyImage> image_vec;
+	std::string line, part;
+	int counter = 0;
+	int temp_int;
+	std::vector<int> temp_vec;
+
+	std::ifstream record_file(file_path);
+
+	if (record_file.is_open())
+	{
+		while (std::getline(record_file, line))
+		{
+
+
+			if (line == "break")
+			{
+				counter = 0;
+				image_vec.push_back(img);
+				img.clear_data();
+
+			}
+			else if (counter == 2)
+			{
+				std::istringstream iss(line);
+				while (iss >> part)
+				{
+					temp_int = atoi(part.c_str());
+					temp_vec.push_back(temp_int);
+				}
+
+				img.insert_selection(cv::Point(temp_vec[0], temp_vec[1]), cv::Point(temp_vec[2], temp_vec[3]), temp_vec[4]);
+				temp_vec.clear();
+			}
+
+			else if (counter == 1)
+			{
+				img.set_name(line, 1);
+				counter++;
+			}
+			else if (counter == 0)
+			{
+				counter++;
+			}
+			else
+			{
+				// ERROR 
+			}
+
+		}
+		record_file.close();
+	}
+
+	else
+	{
+	}
+	return image_vec;
+}
+
+std::vector<int> extract_lables(std::vector<MyImage> record)
+{
+	std::vector<int> all_labels;
+	for (int i = 0; i < record.size(); i++)
+	{
+		all_labels.insert(all_labels.end(), record[i].class_type_vec.begin(), record[i].class_type_vec.end());
+	}
+
+	return all_labels;
+}
+
+cv::Mat extract_features(std::vector<MyImage> record)
+{
+	cv::Mat curr_img;
+	cv::Mat mark;
+
+	std::vector<int> all_labels = extract_lables(record);
+
+	int nr_features = 6;
+	int nr_samples = all_labels.size();
+
+	cv::Mat training_data(nr_samples, nr_features, CV_32FC1);
+	float *training_data_ptr = (float*)(training_data.data);
+
+
+	int temp_int = 0;
+	for (int num = 0; num < record.size(); num++)
+	{
+		curr_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\" + record[num].get_name(1));
+
+		for (int kum = 0; kum < record[num].point1_vec.size(); kum++)
+		{
+			mark = curr_img(cv::Rect(record[num].point1_vec[kum], record[num].point2_vec[kum]));
+			cv::Scalar mean;
+			cv::Scalar stdvar;
+			cv::meanStdDev(mark, mean, stdvar);
+			for (int i = 0; i < 3; i++)
+			{
+				training_data_ptr[nr_features * kum + nr_features * temp_int + i] = mean[i];
+			}
+			for (int i = 0; i < 3; i++)
+			{
+				training_data_ptr[nr_features * kum + nr_features * temp_int + 3 + i] = stdvar[i];
+			}
+
+			//rectangle(curr_img, record.first[i].point1_vec[k], record.first[i].point2_vec[k], cv::Scalar(255, 255 * (record.first[i].class_type_vec[k] - 1), 0), 2, 8, 0);
+		}
+		temp_int += record[num].point1_vec.size();
+	}
+	return training_data;
+}
+
+cv::Ptr<cv::ml::SVM> train_SVM(std::string file_path)
+{
+
+	std::vector<MyImage> record = extract_from_record(file_path);
+
+	cv::Mat training_data = extract_features(record);
+	std::vector<int> all_labels = extract_lables(record);
+	cv::Mat label_Mat(all_labels);
+
+	// Train the SVM
+	cv::Ptr<cv::ml::SVM> my_svm = cv::ml::SVM::create();
+	my_svm->setType(cv::ml::SVM::C_SVC);
+	my_svm->setKernel(cv::ml::SVM::RBF);  // OBSERVERA FUNKAR INTE ATT LOADA NON-LINEAR KERNELS //
+	my_svm->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
+	my_svm->train(training_data, cv::ml::ROW_SAMPLE, label_Mat);
+	my_svm->save("C:\\Users\\Stubborn\\Desktop\\WORK\\MODEL.xml");
+
+
+	cv::Ptr<cv::ml::SVM> new_svm = cv::ml::SVM::create();
+	new_svm = cv::ml::SVM::load<cv::ml::SVM>("C:\\Users\\Stubborn\\Desktop\\WORK\\MODEL.xml");
+
+	return new_svm;
+}
+
+cv::Mat calc_confusion(cv::Mat predicted, cv::Mat actual) 
+{
+	actual.convertTo(actual, CV_32FC1);
+	cv::Mat confusion_matrix(2, 2, CV_32FC1, cv::Scalar(0));
+	float *confusion_matrix_ptr = (float*)(confusion_matrix.data);
+	float *predicted_ptr = (float*)(predicted.data);
+	float *actual_ptr = (float*)(actual.data);
+
+	for (int num = 0; num < predicted.rows; num++)
+	{
+		int current_lable_pre = predicted_ptr[num];
+		int current_lable_act = actual_ptr[num];
+		if (current_lable_pre == current_lable_act)
+		{
+			if (current_lable_pre == 1)
+			{
+				confusion_matrix_ptr[0] += 1;
+			}
+			else
+			{
+				confusion_matrix_ptr[3] += 1;
+			}
+		}
+		else
+		{
+			if (current_lable_pre == 1)
+			{
+				confusion_matrix_ptr[2] += 1;
+			}
+			else
+			{
+				confusion_matrix_ptr[1] += 1;
+			}
+		}
+	}
+
+	return confusion_matrix;
+}
+
+// NEEDED TO DRAW INTERSECTING AREA
+cv::Point center_of_mass(std::vector<cv::Point> contour)
+{
+	cv::Point center_mass(0, 0);
+	for (int num = 0; num < contour.size(); num++)
+	{
+		center_mass = center_mass + contour[num];
+	}
+	center_mass = cv::Point(round(center_mass.x / contour.size()), round(center_mass.y / contour.size()));
+
+	return center_mass;
+}
+
+struct MySort {
+	MySort(cv::Point center_mass) { this->center_mass = center_mass; }
+	bool operator()(const cv::Point p1, const cv::Point p2) 
+	{ 
+		double alpha1 = atan2(p1.y - center_mass.y, p1.x - center_mass.x);
+		double alpha2 = atan2(p2.y - center_mass.y, p2.x - center_mass.x);
+		return alpha1 < alpha2;
+	}
+
+	cv::Point center_mass;
+
+	/*
+	std::sort(foo.begin(), foo.end(), MySort(center_of_mass(foo)));
+
+	for (int num = 0; num < countour_vec.size(); num++)
+	{
+	cv::drawContours(output, countour_vec, num, cv::Scalar(num*125, 0, 255), -1);
+	}
+	*/
+};
+// NEEDED TO DRAW INTERSECTING AREA
+
+void intersecting_areas(MyImage& actual, MyImage& predicted)
+{
+
+	int width, height;
+	float predicted_area, actual_area, inter_area;
+	cv::Point center;
+	cv::RotatedRect actaul_rect, predicted_rect;
+	std::vector<cv::Point> inter_points, predicted_points, actual_points;
+	cv::Point2f vertices[4];
+
+	for (int num = 0; num < actual.class_type_vec.size(); num++)
+	{
+		width = actual.point2_vec[num].x - actual.point1_vec[num].x;
+		height = actual.point2_vec[num].y - actual.point1_vec[num].y;
+		center = cv::Point(actual.point1_vec[num].x + round(width / 2), actual.point1_vec[num].y + round(height / 2));
+		actaul_rect = cv::RotatedRect(center, cv::Size(width, height), 10); // ANGLE HERE
+		
+		
+		actaul_rect.points(vertices);
+		actual_points = std::vector<cv::Point>(vertices, vertices + sizeof vertices / sizeof vertices[0]);
+		actual_area = cv::contourArea(actual_points);
+		
+		for (int kum = 0; kum < predicted.class_type_vec.size(); kum++)
+		{
+			width = predicted.point2_vec[kum].x - predicted.point1_vec[kum].x;
+			height = predicted.point2_vec[kum].y - predicted.point1_vec[kum].y;
+			center = cv::Point(predicted.point1_vec[kum].x + round(width / 2), predicted.point1_vec[kum].y + round(height / 2));
+			predicted_rect = cv::RotatedRect(center, cv::Size(width, height), 0);
+
+			predicted_rect.points(vertices);
+			predicted_points = std::vector<cv::Point>(vertices, vertices + sizeof vertices / sizeof vertices[0]);
+			predicted_area = cv::contourArea(predicted_points);
+
+			cv::rotatedRectangleIntersection(actaul_rect, predicted_rect, inter_points);
+
+			if (inter_points.size() > 2)
+			{
+				inter_area = cv::contourArea(inter_points);
+				if (inter_area > actual_area*0.5 && predicted_area < actual_area*2)
+				{
+					predicted.index_checked_detections.push_back(kum);
+				}
+
+				inter_points.clear();
+				break;
+			}
+
+		}
+	}
+}
+
+void rezize_points(MyImage& my_image)
+{
+	for (int num = 0; num < my_image.point1_vec.size(); num++)
+	{
+		my_image.point1_vec[num].x = round(my_image.point1_vec[num].x * my_image.resize_factor);
+		my_image.point1_vec[num].y = round(my_image.point1_vec[num].y * my_image.resize_factor);
+		my_image.point2_vec[num].x = round(my_image.point2_vec[num].x * my_image.resize_factor);
+		my_image.point2_vec[num].y = round(my_image.point2_vec[num].y * my_image.resize_factor);
+	}
+}
+
+//void calc_freq(MyImage& my_imgae)
+//{
+//	cv::Mat area_img = cv::Mat::zeros(200, 200, CV_8UC1);
+//	cv::Mat rect_img = cv::Mat::zeros(200, 200, CV_8UC1);
+//	cv::Mat intersect_img = cv::Mat::zeros(200, 200, CV_8UC1);
+//	int area_size;
+//
+//	std::vector<int> result(contours.size());
+//
+//	for (int num = 0; num < contours.size(); num++)
+//	{
+//		cv::drawContours(area_img, contours, num, cv::Scalar(1), -1);
+//		for (int kum = 0; kum < rects.size(); kum++)
+//		{
+//			cv::rectangle(rect_img, rects[0], cv::Scalar(1), -1);
+//			cv::bitwise_and(area_img, rect_img, intersect_img);
+//			area_size = cv::countNonZero(intersect_img);
+//
+//			if (area_size > 0)
+//			{
+//				result[num]++;
+//			}
+//			rect_img = cv::Scalar(0);
+//		}
+//		area_img = cv::Scalar(0);
+//	}
+//
+//}
+
+
+int main(){
+	
+
+	/*
+	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\030_frontal.JPG");
+	cv::Mat mask = cv::imread("C:\\Users\\Stubborn\\Desktop\\WORK\\Cut_imgaes\\mask_img_030_frontal.JPG", CV_LOAD_IMAGE_GRAYSCALE);
+
+	cv::resize(mask, mask, cv_img.size());
+	cv::threshold(mask, mask, 10, 1, cv::THRESH_BINARY);
+
+	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = get_candidates(cv_img, mask);
+
+	/// Draw contours and bonding rects
+	cv::Mat result = cv_img.clone();
+	cv::Mat drawing = cv::Mat::zeros(cv_img.size(), CV_8UC3);
+	for (int i = 0; i< candidates.first.size(); i++)
+	{
+		cv::Scalar color = cv::Scalar(cv::theRNG().uniform(0, 255), cv::theRNG().uniform(0, 255), cv::theRNG().uniform(0, 255));
+		rectangle(drawing, candidates.second[i].tl(), candidates.second[i].br(), color, 1, 8, 0);
+		drawContours(drawing, candidates.first, static_cast<int>(i), cv::Scalar(255, 255, 255), -1);
+		drawContours(result, candidates.first, static_cast<int>(i), cv::Scalar(255, 0, 0), -1);
+	}
+	*/
+
+	/*
+		cv::CascadeClassifier face_Cascade;
+		dlib::shape_predictor model_dlib;
+		face_Cascade.load("haarcascade_frontalface_alt.xml");
+		dlib::deserialize("shape_predictor_68_face_landmarks.dat") >> model_dlib;
+		// Face detector parameters
+		CvSize minFeatureSize = cvSize(200, 200);	 // Smallest face size.
+		int flags = CV_HAAR_DO_CANNY_PRUNING;
+		float search_scale_factor = 1.1f;	// How detailed should the search be.
+		std::vector<cv::Rect>faces;
+	
+		// Detect faces - OPENCV
+		face_Cascade.detectMultiScale(cv_img, faces, search_scale_factor, 2, 0 | flags, minFeatureSize);
+		std::vector<cv::Point> landmark_vec;
+
+		//Convert from mat to dlib
+		dlib::array2d<dlib::rgb_pixel> img_dlib;
+		dlib::assign_image(img_dlib, dlib::cv_image<dlib::bgr_pixel>(cv_img));
+
+		// Vector with landmarks 
+		dlib::rectangle temp_face((long)faces[0].tl().x, (long)faces[0].tl().y, (long)faces[0].br().x - 1, (long)faces[0].br().y - 1);
+		dlib::full_object_detection shape = model_dlib(img_dlib, temp_face); // Find landmark in bounding box
+		for (int i = 0; i < shape.num_parts(); i++)
+		{
+			landmark_vec.push_back(cv::Point(shape.part(i).x(), shape.part(i).y()));
+		}
+		//--------------------------------------------------------------------------------------------------------------------------------
+
+
+			cv::Mat rotated_img;
+
+			cv::Point left_eye_1 = landmark_vec[36];
+			cv::Point left_eye_2 = landmark_vec[39];
+			cv::Point right_eye_1 = landmark_vec[42];
+			cv::Point right_eye_2 = landmark_vec[45];
+			cv::Point straight_point_1(left_eye_1.x + right_eye_1.x, left_eye_1.y);
+			cv::Point straight_point_2(left_eye_2.x + right_eye_2.x, left_eye_2.y);
+
+			double angle_1 = calc_angle(left_eye_1, straight_point_1, right_eye_1);
+			double angle_2 = calc_angle(left_eye_2, straight_point_2, right_eye_2);
+			double angle = (angle_1 + angle_2) / 2;
+
+			cv::Point2f pt(cv_img.cols / 2., cv_img.rows / 2.);
+			cv::Mat r = getRotationMatrix2D(pt, -angle, 1.0);
+			warpAffine(cv_img, rotated_img, r, cv::Size(cv_img.cols, cv_img.rows));
+		
+			std::vector<cv::Point> rotated_landmarks; 
+			for (int i = 0; i < landmark_vec.size(); i++)
+			{
+				cv::Point temp_rot = RotatePoint(pt, landmark_vec[i], angle);
+				rotated_landmarks.push_back(temp_rot);
+			}
+
+			for (int i = 0; i < landmark_vec.size(); i++)
+			{
+				cv::circle(cv_img, landmark_vec[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
+			}
+
+			for (int i = 0; i < rotated_landmarks.size(); i++)
+			{
+				cv::circle(rotated_img, rotated_landmarks[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
+			}
+			cv::Point temp = RotatePoint(pt, cv::Point(faces[0].x, faces[0].y),angle);
+			cv::Rect rotated_face(temp.x, temp.y, faces[0].width, faces[0].height);
+
+			cv::rectangle(cv_img, faces[0], CV_RGB(0, 0, 255), 2);
+			cv::rectangle(rotated_img, rotated_face, CV_RGB(0, 0, 255), 2);
+	
+		//std::pair<cv::Mat, cv::Mat> segmentation = face_segment(cv_img, landmark_vec, false);
+	
+		*/
+
+	/*
+	std::string file_path = "C:\\Users\\Stubborn\\Desktop\\WORK\\short.txt";
+	
+	std::vector<MyImage> record = extract_from_record(file_path);
+
+	cv::Ptr<cv::ml::SVM> my_svm = cv::ml::SVM::create();
+	my_svm = train_SVM(file_path);
+	cv::Mat training_data = extract_features(record);
+	std::vector<int> all_labels = extract_lables(record);
+	cv::Mat label_Mat(all_labels);
+	cv::Mat predictions;
+
+	my_svm->predict(training_data, predictions);
+	
+	cv::Mat confusion_matrix = calc_confusion(predictions, label_Mat);
+	*/
+
+	/*
+	std::string file_path = "C:\\Users\\Stubborn\\Desktop\\WORK\\short.txt";
+
+	std::vector<MyImage> record = extract_from_record(file_path);
+
+	intersecting_areas(record[0], record[0]);
+
+	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\" + record[0].get_name(1));
+	*/
+
+
 
 	
-	//cv::Mat img_gray; 
-	//cv::cvtColor(cv_img, img_gray, CV_BGR2GRAY);
-	//double max, min;
-	//cv::minMaxLoc(img_gray, &min, &max);
-	//cv::Mat canny_img;
-	//cv::Canny(img_gray, canny_img, max*0.2, max*0.6, 3);
-
-
-
-		//Show what you got	
-		//cv::namedWindow("result", CV_WINDOW_KEEPRATIO);
-		//cv::imshow("result", result);
-		cv::waitKey(0);
-
-
-
-
 	return 0;
 }
