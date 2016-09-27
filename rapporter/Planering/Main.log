@@ -1,15 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.2.25)  23 SEP 2016 19:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  24 SEP 2016 10:58
 entering extended mode
 **./Main.tex
 (Main.tex
 LaTeX2e <2015/10/01> patch level 2
-Babel <3.9n> and hyphenation patterns for 69 languages loaded.
-
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cl
-s"
+Babel <3.9m> and hyphenation patterns for 69 languages loaded.
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo
-"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\size10.clo"
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -24,39 +21,38 @@ File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphi
-cx.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.
+sty"
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval
-.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.st
+y"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphi
-cs.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.
+sty"
 Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.s
-ty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\graphi
-cs.cfg"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\00miktex\graphics.
+cfg"
 File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 94.
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdft
-ex.def"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.
+def"
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infw
-arerr.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\infware
+rr.sty"
 Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxc
-mds.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds
+.sty"
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
@@ -64,8 +60,7 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty
-"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count88
 \float@exts=\toks15
@@ -73,20 +68,18 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box27
 )
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.s
-ty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty"
 Package: inputenc 2015/03/17 v1.2c Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def"
 File: utf8.def 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
 File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -246,8 +239,7 @@ File: t1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu
-"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
 File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A0 (decimal 160)
    defining Unicode char U+00A1 (decimal 161)
@@ -288,8 +280,7 @@ File: ot1enc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu
-"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
 File: omsenc.dfu 2015/09/07 v1.1p UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -313,12 +304,12 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquot
-es.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.
+sty"
 Package: csquotes 2016/01/31 v5.1g context-sensitive quotations (JAW)
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolb
-ox.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.
+sty"
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count89
 )
@@ -330,19 +321,19 @@ Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
 \csq@tshold=\count95
 \csq@ltx@everypar=\toks19
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquot
-es.def"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.
+def"
 File: csquotes.def 2016/01/31 v5.1g csquotes generic definitions (JAW)
 )
 Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
 Package csquotes Info: ... configuration file loaded successfully.
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquot
-es.cfg"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.
+cfg"
 File: csquotes.cfg 
 ))
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cleveref\clever
-ef.sty"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\cleveref\cleveref.
+sty"
 Package: cleveref 2013/12/28 v0.19 Intelligent cross-referencing
 )
 Package csquotes Info: Checking for multilingual support...
@@ -363,8 +354,8 @@ LaTeX Font Info:    ... okay on input line 15.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
 LaTeX Font Info:    ... okay on input line 15.
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf
-.mkii"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
+ii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count96
 \scratchdimen=\dimen105
@@ -386,7 +377,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 25.
  [1
 
-{C:/Users/Stubborn/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/Users/arman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 32.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -404,12 +395,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 58--58
 [4] [1]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 97.
 
-("C:\Users\Stubborn\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
- (method.tex <"../bilder/system_flow".png, id=22, 804.606pt x 198.341pt>
+
+(method.tex <"../bilder/system_flow".png, id=22, 804.606pt x 198.341pt>
 File: "../bilder/system_flow".png Graphic file (type png)
 
 <use "../bilder/system_flow".png>
@@ -457,23 +449,22 @@ Overfull \vbox (73.54417pt too high) has occurred while \output is active []
 [6]) (expected_results.tex) [7] (Main.bbl) [8] (Main.aux) ) 
 Here is how much of TeX's memory you used:
  3889 strings out of 493634
- 65517 string characters out of 3134015
+ 65355 string characters out of 3135239
  176223 words of memory out of 3000000
  7255 multiletter control sequences out of 15000+200000
  8241 words of font info for 29 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  27i,9n,22p,974b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Stubborn/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/
-Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><C:/Users/Stubborn/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Stubborn/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Stubborn/App
-Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
-ers/Stubborn/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mti10.pfb>
-Output written on Main.pdf (12 pages, 180078 bytes).
+<C:/Users/arman/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Use
+rs/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmr10.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
+/public/amsfonts/cm/cmr12.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/arman/AppData/Local/Program
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/arman/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Main.pdf (12 pages, 180024 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
