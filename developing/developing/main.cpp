@@ -943,6 +943,7 @@ cv::Mat true_colours(cv::Mat image, int colour)
 	fsDemo["w2c"] >> w2c;
 	fsDemo.release();
 
+<<<<<<< HEAD
 
 	image.convertTo(image, CV_32F);
 
@@ -1146,6 +1147,9 @@ std::vector<cv::Rect> post_processing(std::vector<cv::Rect> candidates, cv::Mat 
 
 int main(){
 	
+=======
+	/*
+>>>>>>> d6ddde9882f8cdbfce60424bf8db230c2327b068
 	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\030_frontal.JPG");
 	cv::Mat mask = cv::imread("C:\\Users\\Stubborn\\Desktop\\WORK\\Cut_imgaes\\mask_img_030_frontal.JPG", CV_LOAD_IMAGE_GRAYSCALE);
 
