@@ -88,7 +88,6 @@ public:
 
 	cv::Mat MyImage::FRS(cv::Mat cv_img);
 	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> MyImage::get_candidates(cv::Mat cv_img, cv::Mat mask, cv::Mat frs_img, double threshold);
-	void MyImage::temp_process_image(MyImage& my_image, MyImage record);
 	
 	// Public data members
 	cv::CascadeClassifier face_Cascade;
@@ -112,18 +111,12 @@ public:
 	std::vector<cv::Rect> candidates; 
 	std::vector<int> frequency;
 
-
-	cv::Mat nr_detected_row;
-	cv::Mat nr_hits_row;
-
-
 private:
 	// Data members
 	std::string file_path; // Whole path 
 	std::string file_name; // File name 
 
 	// Functions 
-	//void landmarks_SVM(IplImage *grey_img, int *bbox, FLANDMARK_Model *model, double *landmarks);
 
 	void display_message(QString msg);
 	float MyImage::my_angle_calculater(cv::Point a, cv::Point b, cv::Point c);

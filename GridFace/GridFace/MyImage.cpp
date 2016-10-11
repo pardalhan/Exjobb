@@ -140,28 +140,6 @@ void MyImage::detect_faces(cv::Mat orig)
 }
 
 
-
-//void MyImage::landmarks_SVM(IplImage *grey_img, int *bbox, FLANDMARK_Model *model, double *landmarks)
-//{
-//	for (int iface = 0; iface < faces_vec.size(); ++iface)
-//	{
-//		// Insert bonding box
-//		bbox[0] = faces_vec[iface].x;
-//		bbox[1] = faces_vec[iface].y;
-//		bbox[2] = faces_vec[iface].x + faces_vec[iface].width;
-//		bbox[3] = faces_vec[iface].y + faces_vec[iface].height;
-//
-//		// Detect landmarks
-//		flandmark_detect(grey_img, bbox, model, landmarks);
-//		
-//		for (int i = 0; i < 2 * model->data.options.M; i += 2)
-//		{
-//			this->landmark_vec.push_back(cv::Point(int(landmarks[i]), int(landmarks[i + 1])));
-//		}
-//	}
-//}
-
-
 void MyImage::detect_landmarks(cv::Mat orig_img)
 {
 
@@ -465,8 +443,6 @@ void MyImage::display_message(QString msg)
 	message.exec();
 	exit(1);
 }
-
-
 
 cv::Rect MyImage::enlarg_face_rect(cv::Rect face, double procent, cv::Size img_size)
 {
@@ -1133,27 +1109,7 @@ cv::Ptr<cv::ml::SVM> MyImage::train_SVM(cv::Mat training_data, cv::Mat training_
 	my_svm->train(training_data, cv::ml::ROW_SAMPLE, training_labels);
 
 	return my_svm;
-	/*
-	std::vector<MyImage> record = extract_from_record(file_path);
-	std::vector<int> labels_vec = extract_lables(record);
 
-	cv::Mat training_data = extract_features(record, labels_vec.size());
-	cv::Mat label_Mat(labels_vec);
-
-	// Train the SVM
-	cv::Ptr<cv::ml::SVM> my_svm = cv::ml::SVM::create();
-	my_svm->setType(cv::ml::SVM::C_SVC);
-	my_svm->setKernel(cv::ml::SVM::RBF);  // OBSERVERA FUNKAR INTE ATT LOADA NON-LINEAR KERNELS //
-	my_svm->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
-	my_svm->train(training_data, cv::ml::ROW_SAMPLE, label_Mat);
-	
-
-	//my_svm->save("C:\\Users\\Stubborn\\Desktop\\WORK\\MODEL.xml");
-	//cv::Ptr<cv::ml::SVM> new_svm = cv::ml::SVM::create();
-	//new_svm = cv::ml::SVM::load<cv::ml::SVM>("C:\\Users\\Stubborn\\Desktop\\WORK\\MODEL.xml");
-
-	return my_svm;
-	*/
 }
 
 cv::Mat MyImage::calc_confusion(cv::Mat predicted, cv::Mat actual)
@@ -1462,102 +1418,6 @@ void MyImage::post_processing(cv::Mat cv_img)
 
 }
 
-void MyImage::temp_process_image(MyImage& my_image, MyImage record)
-{
-	cv::Mat cv_img = cv::imread(my_image.get_name(2) + "\\" + my_image.get_name(1)); // load input image
-	my_image.img_size = cv_img.size();
-
-	// Light normalization
-	cv::Mat img_light = badger_process(cv_img);
-	//cv::Mat img_light = MSR_process(cv_img);
-	//cv::Mat img_light = cv_img;
-
-	my_image.detect_faces(img_light); // Face detection
-	my_image.detect_landmarks(img_light); // Landmark detection
-
-	my_image.calc_angle();
-	cv::Mat rotated_img = my_image.rotate_img(img_light); //Rotate image 
-	my_image.landmark_vec = my_image.rotate_points(my_image.landmark_vec);
-
-	//Segmentation mask
-	std::pair<cv::Mat, cv::Mat> segmentation = my_image.face_segment(rotated_img, my_image.landmark_vec, false);
-
-	// Resize factor 
-	cv::Point middle_1 = my_image.landmark_vec[36] + (my_image.landmark_vec[39] - my_image.landmark_vec[36]) / 2;
-	cv::Point middle_2 = my_image.landmark_vec[42] + (my_image.landmark_vec[45] - my_image.landmark_vec[42]) / 2;
-	float resize_factor = (float)500 / (float)(middle_2.x - middle_1.x);
-	my_image.resize_factor = resize_factor;
-	// Resize image 
-	cv::Mat img_resize;
-	cv::Mat img_resize_mask;
-	cv::resize(rotated_img, img_resize, cv::Size(rotated_img.size().width*resize_factor, rotated_img.size().height*resize_factor), 0, 0, CV_INTER_CUBIC);
-	cv::resize(segmentation.first, img_resize_mask, cv::Size(segmentation.first.size().width*resize_factor, segmentation.first.size().height*resize_factor), 0, 0, CV_INTER_NN);
-	my_image.rezize_points(my_image);
-
-	img_resize_mask.setTo(255, img_resize_mask > 125);
-	img_resize_mask.setTo(0, img_resize_mask <= 125);
-
-	record.resize_factor = my_image.resize_factor;
-	record.rotate_angle = my_image.rotate_angle;
-	record.rezize_points(record);
-	record.img_size = my_image.img_size;
-	record.point1_vec = record.rotate_points(record.point1_vec);
-	record.point2_vec = record.rotate_points(record.point2_vec);
-
-	
-	cv::Mat frs = my_image.FRS(img_resize);
-
-
-	double mydouble[] = { 0.05, 0.06, 0.07, 0.08, 0.09, 0.10, 0.11, 0.12, 0.13, 0.14, 0.15 };
-	std::vector<double> threshes(mydouble, mydouble + sizeof(mydouble) / sizeof(double));
-	int nr_detected;
-	int nr_hits;
-	cv::Mat nr_detected_row;
-	cv::Mat nr_hits_row;
-
-	for (int lum = 0; lum < threshes.size(); lum++)
-	{
-	// Get candidates
-	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = my_image.get_candidates(img_resize, img_resize_mask, frs, threshes[lum]);
-
-	my_image.candidates = candidates.second;
-
-
-	cv::Mat resulting = cv::imread(my_image.get_name(2) + "\\" + my_image.get_name(1));
-	cv::resize(resulting, resulting, cv::Size(resulting.size().width*my_image.resize_factor, resulting.size().height*my_image.resize_factor), 0, 0, CV_INTER_CUBIC);
-	resulting = my_image.rotate_img(resulting);
-		
-	record.draw_record(resulting);
-
-	for (int num = 0; num < my_image.candidates.size(); num++)
-	{
-		cv::rectangle(resulting, my_image.candidates[num], cv::Scalar(255, 255, 0), 2, 8, 0);
-	}
-
-	my_image.post_processing(img_resize);
-	record.intersecting_areas(record, my_image);	
-	nr_detected = my_image.candidates.size();
-	nr_hits = my_image.index_checked_detections.size();
-
-	for (int num = 0; num < my_image.candidates.size(); num++)
-	{
-		cv::rectangle(resulting, my_image.candidates[num], cv::Scalar(0, 255, 0), 2, 8, 0);
-	}
-
-	for (int rum : my_image.index_checked_detections)
-	{
-		cv::rectangle(resulting, my_image.candidates[rum], cv::Scalar(255, 0, 0), 2, 8, 0);
-	}
-	
-	my_image.nr_detected_row.push_back(nr_detected);
-	my_image.nr_hits_row.push_back(nr_hits);
-
-	my_image.candidates.clear();
-	my_image.index_checked_detections.clear();
-	
-	}
-	
-}
 
 void MyImage::process_image(MyImage& my_image)
 {
