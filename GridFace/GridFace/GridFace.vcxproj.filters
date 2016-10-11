@@ -107,6 +107,9 @@
     <None Include="dlib\shape_predictor_68_face_landmarks.dat">
       <Filter>dlib</Filter>
     </None>
+    <None Include="w2c.yml">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="opencv\haarcascade_eye.xml">

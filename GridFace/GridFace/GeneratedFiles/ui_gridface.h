@@ -68,7 +68,7 @@ public:
         lbl_browser->setAlignment(Qt::AlignCenter);
         lbl_result = new QLabel(centralWidget);
         lbl_result->setObjectName(QStringLiteral("lbl_result"));
-        lbl_result->setGeometry(QRect(40, 180, 151, 171));
+        lbl_result->setGeometry(QRect(40, 170, 151, 211));
         lbl_result->setAlignment(Qt::AlignCenter);
         GridFaceClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(GridFaceClass);

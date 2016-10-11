@@ -4,14 +4,10 @@
 
 std::vector<cv::Mat> get_color_chanels(cv::Mat img)
 {
-	cv::Mat ch1, ch2, ch3;
 	// "channels" is a vector of 3 Mat arrays:
 	std::vector<cv::Mat> channels(3);
 	// split img:
 	split(img, channels);
-	ch1 = channels[0];
-	ch2 = channels[1];
-	ch3 = channels[2];
 
 	return channels;
 }
@@ -934,17 +930,222 @@ void rezize_points(MyImage& my_image)
 //
 //}
 
+cv::Mat true_colours(cv::Mat image, int colour)
+{
+
+	/*
+	Colour 2 = brown
+	Colour 8 = red
+	*/
+
+	cv::Mat w2c;
+	cv::FileStorage fsDemo("C:\\Users\\Stubborn\\desktop\\w2c.yml", cv::FileStorage::READ);
+	fsDemo["w2c"] >> w2c;
+	fsDemo.release();
+
+
+	image.convertTo(image, CV_32F);
+
+	std::vector<cv::Mat> chanels;
+	split(image, chanels);
+
+	cv::Mat b_mat = chanels[0] / 8;
+	cv::Mat g_mat = chanels[1] / 8;
+	cv::Mat r_mat = chanels[2] / 8;
+
+	float *b_mat_ptr = (float*)(b_mat.data);
+	float *g_mat_ptr = (float*)(g_mat.data);
+	float *r_mat_ptr = (float*)(r_mat.data);
+
+	for (int num = 0; num < b_mat.rows*b_mat.cols; num++)
+	{
+		b_mat_ptr[num] = floor(b_mat_ptr[num]);
+		g_mat_ptr[num] = floor(g_mat_ptr[num]);
+		r_mat_ptr[num] = floor(r_mat_ptr[num]);
+	}
+
+	cv::Mat one_mat = cv::Mat::ones(image.size(), CV_32F);
+	cv::Mat index_mat = one_mat + r_mat + (32 * g_mat) + (32 * 32 * b_mat);
+
+	cv::Mat w2c_choice = w2c.col(colour).clone();
+
+	float *w2c_choice_ptr = (float*)(w2c_choice.data);
+	float *index_mat_ptr = (float*)(index_mat.data);
+
+
+	for (int num = 0; num < index_mat.rows*index_mat.cols; num++)
+	{
+		index_mat_ptr[num] = w2c_choice_ptr[(int)index_mat_ptr[num] - 1];
+	}
+
+	double mat_min, mat_max;
+	cv::minMaxLoc(index_mat, &mat_min, &mat_max);
+	index_mat = 255 * index_mat / mat_max;
+	index_mat.convertTo(index_mat, CV_8U);
+	
+	return index_mat; 
+}
+
+cv::Rect enlarg_rect_to(cv::Rect rect)
+{
+	int size = 25;
+	if (rect.area() < (double)pow(size,2))
+	{
+	cv::Rect larg_rect;
+	double img_height_diff = size - rect.height;
+	double img_width_diff = size - rect.width;
+
+	larg_rect.x = (int)round(rect.x - img_width_diff / 2);
+	larg_rect.y = (int)round(rect.y - img_height_diff / 2);
+	larg_rect.height = size;
+	larg_rect.width = size;
+	
+	return larg_rect;
+	}
+	else
+	{
+		return rect;
+	}
+
+}
+
+
+std::vector<cv::Rect> post_processing(std::vector<cv::Rect> candidates, cv::Mat cv_img)
+{
+
+	// HAIR START
+	cv::Mat union_result(cv_img.size(), CV_8UC1, cv::Scalar(1));
+
+	// ELements 
+	cv::Mat element_0(cv::Size(1, 6), CV_8UC1, cv::Scalar(1));
+	element_0.at<uchar>(0) = 0;
+	element_0.at<uchar>(5) = 0;
+	cv::Mat element_90 = element_0.t();
+	cv::Mat element_45 = cv::Mat::eye(cv::Size(5,5), CV_8UC1);
+	element_45.at<uchar>(0, 0) = 0;
+	element_45.at<uchar>(4, 4) = 0;
+
+	cv::Mat cv_img_copy; 
+	cv_img.convertTo(cv_img_copy, CV_32F);
+	std::vector<cv::Mat> chanels;
+	split(cv_img_copy, chanels);
+
+	for (int num = 0; num < chanels.size(); num++)
+	{
+		cv::Mat chanel = chanels[num];
+
+		cv::Mat result_0, result_45, result_90, result(chanel.size(), CV_32F);
+
+		cv::morphologyEx(chanel, result_0,
+			cv::MORPH_CLOSE, element_0, cv::Point(-1, -1), 1);
+		cv::morphologyEx(chanel, result_45,
+			cv::MORPH_CLOSE, element_45, cv::Point(-1, -1), 1);
+		cv::morphologyEx(chanel, result_90,
+			cv::MORPH_CLOSE, element_90, cv::Point(-1, -1), 1);
+
+		float *result_0_ptr = (float*)(result_0.data);
+		float *result_45_ptr = (float*)(result_45.data);
+		float *result_90_ptr = (float*)(result_90.data);
+		float *result_ptr = (float*)(result.data);
+
+		for (int num = 0; num < chanel.cols*chanel.rows; num++)
+		{
+			result_ptr[num] = result_0_ptr[num];
+			if (result_45_ptr[num] > result_ptr[num])
+			{
+				result_ptr[num] = result_45_ptr[num];
+			}
+
+			if (result_90_ptr[num] >result_ptr[num])
+			{
+				result_ptr[num] = result_90_ptr[num];
+			}
+		}
+
+		cv::Mat hair = cv::abs(chanel - result);
+
+		double min, max;
+		cv::minMaxLoc(hair, &min, &max);
+
+		double threshold_mask = 0.11;
+		cv::Mat hair_mask;
+		cv::threshold(hair, hair_mask, max*threshold_mask, 1, cv::THRESH_BINARY);
+
+		hair_mask.convertTo(hair_mask, CV_8UC1);
+
+		cv::bitwise_and(union_result, hair_mask, union_result);
+	}
+
+	// HAIR END
+
+	// BLOB START
+
+	// set up the parameters (check the defaults in opencv's code in blobdetector.cpp)
+	cv::SimpleBlobDetector::Params params;
+	params.minDistBetweenBlobs = 1.0f;
+	params.filterByInertia = true;
+	params.minInertiaRatio = 0;
+	params.maxInertiaRatio = 1;
+	params.filterByConvexity = true;
+	params.maxConvexity = 1;
+	params.minConvexity = 0;
+	//params.filterByColor = false;
+	params.filterByCircularity = true;
+	params.maxCircularity = 1;
+	params.minCircularity = 0;
+	params.filterByArea = true;
+	params.minArea = 1.0f;
+	params.maxArea = 50000.0f;
+
+	// set up and create the detector using the parameters
+	cv::Ptr<cv::SimpleBlobDetector> detector = cv::SimpleBlobDetector::create(params);
+
+	// BLOB END
+
+	// Eleminate fals candidates
+
+	cv::Mat gray_img;
+	cv::cvtColor(cv_img, gray_img, CV_BGR2GRAY);
+
+	cv::Mat target_hair, target_blob;
+	std::vector<cv::KeyPoint> keypoints;
+	double threshold_target = 0.10;
+
+	for (int num = 0; num < candidates.size(); num++)
+	{
+		target_hair = union_result(enlarg_rect_to(candidates[num]));
+
+		int hair_count = cv::countNonZero(target_hair);
+
+		if (hair_count > (int)target_hair.rows*target_hair.cols*threshold_target)
+		{
+				candidates.erase(candidates.begin() + num);
+				num--;
+		}
+	}
+
+
+	for (int num = 0; num < candidates.size(); num++)
+	{
+		target_blob = gray_img(enlarg_rect_to(candidates[num]));
+		detector->detect(target_blob, keypoints);
+
+		if (keypoints.size() != 1)
+		{
+			candidates.erase(candidates.begin() + num);
+			num--;
+		}
+
+		keypoints.clear();
+	}
+
+	return candidates;
+}
+
+
 
 int main(){
 	
-	cv::Mat w2c;
-
-
-	cv::FileStorage fsDemo("C:\\Users\\Stubborn\\desktop\\w2c.yml", cv::FileStorage::READ);
-	fsDemo["w2c"] >> w2c;
-
-	fsDemo.release();
-	/*
 	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\030_frontal.JPG");
 	cv::Mat mask = cv::imread("C:\\Users\\Stubborn\\Desktop\\WORK\\Cut_imgaes\\mask_img_030_frontal.JPG", CV_LOAD_IMAGE_GRAYSCALE);
 
@@ -953,17 +1154,51 @@ int main(){
 
 	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = get_candidates(cv_img, mask);
 
+
+
+
 	/// Draw contours and bonding rects
 	cv::Mat result = cv_img.clone();
-	cv::Mat drawing = cv::Mat::zeros(cv_img.size(), CV_8UC3);
+	cv::Mat drawing = cv::Mat::ones(cv_img.size(), CV_8UC3);
+	drawing = cv::Scalar(255, 255, 255);
 	for (int i = 0; i< candidates.first.size(); i++)
 	{
 		cv::Scalar color = cv::Scalar(cv::theRNG().uniform(0, 255), cv::theRNG().uniform(0, 255), cv::theRNG().uniform(0, 255));
-		rectangle(drawing, candidates.second[i].tl(), candidates.second[i].br(), color, 1, 8, 0);
-		drawContours(drawing, candidates.first, static_cast<int>(i), cv::Scalar(255, 255, 255), -1);
+		//rectangle(drawing, candidates.second[i].tl(), candidates.second[i].br(), color, 1, 8, 0);
+		drawContours(drawing, candidates.first, static_cast<int>(i), cv::Scalar(0, 0, 0), -1);
 		drawContours(result, candidates.first, static_cast<int>(i), cv::Scalar(255, 0, 0), -1);
 	}
+
+	std::vector<cv::Rect> rects = candidates.second;
+
+
+	std::vector<cv::Rect> result_cand = post_processing(rects, cv_img);
+
+	for (int i = 0; i < result_cand.size(); i++)
+	{
+		rectangle(result, result_cand[i].tl(), result_cand[i].br(), cv::Scalar(0, 0, 255), 1, 8, 0);
+	}
+	
+	
+
+
+
+	int test =1; 
+	/*
+	// Write to file 
+	cv::Mat cv_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\030_frontal.JPG");
+	cv::FileStorage file("C:\\Users\\Stubborn\\desktop\\some_name.yml", cv::FileStorage::WRITE);
+	file << "matName" << cv_img;
+	file.release(); 
+
+
+	cv::Mat w2c;
+	cv::FileStorage fsDemo("C:\\Users\\Stubborn\\desktop\\some_name.yml", cv::FileStorage::READ);
+	fsDemo["matName"] >> w2c;
+	fsDemo.release();
 	*/
+	
+	
 
 	/*
 		cv::CascadeClassifier face_Cascade;

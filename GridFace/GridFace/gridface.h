@@ -42,7 +42,8 @@ private:
 
 	// Data members 
 	MyImage *curr_img;
-	QFileInfoList list_of_files;
+	//QFileInfoList list_of_files;
+	QStringList list_of_files;
 	QMessageBox message;
 	cv::Ptr<cv::ml::SVM> my_svm = cv::ml::SVM::create();	
 	std::string dir_path; 

@@ -233,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="dlib\shape_predictor_68_face_landmarks.dat" />
+    <None Include="w2c.yml" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="opencv\haarcascade_eye.xml" />
