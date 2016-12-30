@@ -1,1 +1,30 @@
-\section{Discussion}
+\chapter{Discussion}\label{cha:Discussion}
+
+This section will discuss the results from the algorithm and the methods used to implement it.
+
+\section{Result}
+
+As seen, the detector has problem with false detections which is a huge problem. The precision is not very good, not even over 10\%, due to the many false detections. The precision does not increase faster than the decline of the recall with an increasing $h_{frs}$-value. This indicates that there are margins for improvement when it comes to the candidate detector. The elimination method used does improve the precession well enough which means that they also can be improved.
+
+When looking at the accuracy of the mark classifier, with an accuracy of 90\%, the result is pretty satisfactory. 
+
+
+\section{Method}
+
+There are a lot to say about the methods used in the algorithm. The major problem with the algorithm is the elimination of candidates. The blob detector works well in not eliminating true detections which the hair removal algorithm does not. It eliminates candidates which are true facial marks. This is because it indicates that the facial marks are hair which makes it hard to separate the true candidates and the hair intensive candidates. 
+Tim et Lee al. describes their algorithm well except when they are explaining how to calculate the hair mask for each colour channel. It is not clear what the maximum from refers to. The algorithm in this work used the maximal pixel value between the different structuring elements. 
+
+The mark detector used in the algorithm was good at indicating the potential facial marks but the simple thresholding method to pin point them out was not optimal. It kept the pixels larger than a certain percent of the maximal value in the FRS image. This resulted in many unnecessary candidates which of course contributed to the high false detection rate. 
+
+The blob-detector used is hardly improving the precision at the cost of recall loss. This means that the blob-detector is not contributing to the algorithm in a positive way. The hair-eliminator on the other hand does improve the precision which is the whole point with the candidate eliminators.  
+
+When it comes to the mark classifier, it could have performed better if the number of features was larger and more explored. Now the features are very simple and there is overweight of permanent marks among the annotated facial marks which is not ideal.
+
+Regarding the references used in these thesis, several of them uses FRS to detect point of interest which shows the actuality of the method. Many of the papers trying to detect facial marks uses a crude segmentation mask which does not follow the hairline and chin well. This algorithm uses a more precise segmentation method which reduces the areas which is not processed. 
+
+
+\section{Ethical perspective}
+
+As with all applications which can be used for surveillance of people, the integrity is at stake. Facial recognition algorithms using facial marks can be misused for malicious intent. They can also help the legal system to catch and convict criminals which is desirable outcome of this paper. 
+
+When it comes to the facial images, they are taken from a open source database which should only be used for academical research. There are no personal information attached to the images which makes them as anonymous as possible without corrupting the images.    

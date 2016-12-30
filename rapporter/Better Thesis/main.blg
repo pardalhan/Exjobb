@@ -1,14 +1,13 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: plainnat.bst
 A level-1 auxiliary file: tack.aux
-A level-1 auxiliary file: notation.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: related_work.aux
 A level-1 auxiliary file: Method.aux
 A level-1 auxiliary file: result.aux
+A level-1 auxiliary file: Discussion.aux
 A level-1 auxiliary file: conclusion.aux
-A level-1 auxiliary file: detaljer.aux
-Illegal, another \bibstyle command---line 58 of file main.aux
+Illegal, another \bibstyle command---line 57 of file main.aux
  : \bibstyle
  :          {unsrt}
 I'm skipping whatever remains of this command
@@ -47,6 +46,7 @@ while executing---line 1347 of file plainnat.bst
 Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbeek, Diane Larlus" for entry 11_colours
 while executing---line 1347 of file plainnat.bst
 Warning--empty booktitle in Bertillon
+Warning--empty journal in svm_guide
 Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbeek, Diane Larlus" for entry 11_colours
 while executing---line 1429 of file plainnat.bst
 Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbeek, Diane Larlus" for entry 11_colours
@@ -58,6 +58,4 @@ while executing---line 1429 of file plainnat.bst
 Warning--empty year in statistic_RPPVSM
 Warning--empty year in statistic_RPPVSM
 Warning--can't use both volume and number fields in grabcut
-Warning--empty year in forensic_identification
-Warning--empty year in forensic_identification
 (There were 14 error messages)

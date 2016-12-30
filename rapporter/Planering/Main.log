@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  24 SEP 2016 10:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  24 NOV 2016 21:37
 entering extended mode
 **./Main.tex
 (Main.tex
@@ -401,28 +401,51 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
 
-(method.tex <"../bilder/system_flow".png, id=22, 804.606pt x 198.341pt>
-File: "../bilder/system_flow".png Graphic file (type png)
+(method.tex
 
-<use "../bilder/system_flow".png>
-Package pdftex.def Info: "../bilder/system_flow".png used on input line 6.
-(pdftex.def)             Requested size: 430.0pt x 105.9979pt.
- [2 <../bilder/system_flow.png>]
-<"../bilder/detection_flow".png, id=29, 765.259pt x 43.362pt>
-File: "../bilder/detection_flow".png Graphic file (type png)
+! LaTeX Error: File `"../bilder/system_flow"' not found.
 
-<use "../bilder/detection_flow".png>
-Package pdftex.def Info: "../bilder/detection_flow".png used on input line 27.
-(pdftex.def)             Requested size: 430.0pt x 24.36525pt.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 ...dth=1.0\linewidth]{"../bilder/system_flow"}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-<"../bilder/Grid_flow".png, id=30, 601.447pt x 43.362pt>
-File: "../bilder/Grid_flow".png Graphic file (type png)
+[2]
 
-<use "../bilder/Grid_flow".png>
-Package pdftex.def Info: "../bilder/Grid_flow".png used on input line 38.
-(pdftex.def)             Requested size: 430.0pt x 31.00159pt.
- [3 <../bilder/detection_flow.png> <../bilder/Grid_flow.png>]) (reference_base.
-tex [4]) (time_plan.tex
+! LaTeX Error: File `"../bilder/detection_flow"' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.27 ...1.0\linewidth]{"../bilder/detection_flow"}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: File `"../bilder/Grid_flow"' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ...idth=1.0\linewidth]{"../bilder/Grid_flow"}
+                                                  
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[3]) (reference_base.tex) (time_plan.tex
 Underfull \hbox (badness 10000) in paragraph at lines 11--11
 []\OT1/cmr/bx/n/10 Time
  []
@@ -437,7 +460,7 @@ Underfull \hbox (badness 1997) in paragraph at lines 19--19
 []\OT1/cmr/m/n/10 Post-processing (De-tec-
  []
 
-
+[4]
 Underfull \hbox (badness 3492) in paragraph at lines 49--49
 []\OT1/cmr/m/n/10 Thesis plan ap-proved and
  []
@@ -448,10 +471,10 @@ Overfull \vbox (73.54417pt too high) has occurred while \output is active []
 
 [6]) (expected_results.tex) [7] (Main.bbl) [8] (Main.aux) ) 
 Here is how much of TeX's memory you used:
- 3889 strings out of 493634
- 65355 string characters out of 3135239
- 176223 words of memory out of 3000000
- 7255 multiletter control sequences out of 15000+200000
+ 3888 strings out of 493634
+ 65008 string characters out of 3135239
+ 175223 words of memory out of 3000000
+ 7243 multiletter control sequences out of 15000+200000
  8241 words of font info for 29 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  27i,9n,22p,974b,239s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -464,9 +487,9 @@ onts/cm/cmr10.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/arman/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/arman/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Main.pdf (12 pages, 180024 bytes).
+Output written on Main.pdf (12 pages, 131310 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

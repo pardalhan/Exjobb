@@ -1,4 +1,4 @@
-\begin{thebibliography}{17}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,6 +17,30 @@ Nikola Bani{\'c} and Sven Lon{\v{c}}ari{\'c}.
 \newblock In \emph{International Conference on Image and Signal Processing},
   pages 400--408. Springer, 2014.
 
+\bibitem[Boykov and Jolly(2001)]{graphcut}
+Yuri~Y Boykov and M-P Jolly.
+\newblock Interactive graph cuts for optimal boundary \& region segmentation of
+  objects in nd images.
+\newblock In \emph{Computer Vision, 2001. ICCV 2001. Proceedings. Eighth IEEE
+  International Conference on}, volume~1, pages 105--112. IEEE, 2001.
+
+\bibitem[Bradski et~al.(2000)]{opencv}
+Gary Bradski et~al.
+\newblock The opencv library.
+\newblock \emph{Doctor Dobbs Journal}, 25\penalty0 (11):\penalty0 120--126,
+  2000.
+
+\bibitem[Grgic et~al.(2011)Grgic, Delac, and Grgic]{SCface}
+Mislav Grgic, Kresimir Delac, and Sonja Grgic.
+\newblock Scface--surveillance cameras face database.
+\newblock \emph{Multimedia tools and applications}, 51\penalty0 (3):\penalty0
+  863--879, 2011.
+
+\bibitem[Hsu et~al.(2003)Hsu, Chang, Lin, et~al.]{svm_guide}
+Chih-Wei Hsu, Chih-Chung Chang, Chih-Jen Lin, et~al.
+\newblock A practical guide to support vector classification.
+\newblock 2003.
+
 \bibitem[Jain and Park(2009)]{jain_facial}
 Anil~K Jain and Unsang Park.
 \newblock Facial marks: Soft biometric for face recognition.
@@ -34,6 +58,12 @@ Vahid Kazemi and Josephine Sullivan.
 \newblock One millisecond face alignment with an ensemble of regression trees.
 \newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, pages 1867--1874, 2014.
+
+\bibitem[Kotsiantis et~al.(2007)Kotsiantis, Zaharakis, and
+  Pintelas]{machine_learning}
+Sotiris~B Kotsiantis, I~Zaharakis, and P~Pintelas.
+\newblock Supervised machine learning: A review of classification techniques,
+  2007.
 
 \bibitem[Lee et~al.(1997)Lee, Ng, Gallagher, Coldman, and McLean]{dullrazor}
 Tim Lee, Vincent Ng, Richard Gallagher, Andrew Coldman, and David McLean.
@@ -66,6 +96,14 @@ Anders Nordgaard, Ricky Ansell, Weine Drotz, and Lars Jaeger.
 \newblock Scale of conclusions for the value of evidence.
 \newblock \emph{Law, probability and risk}, pages 1--24, 2011.
 
+\bibitem[Nurhudatiana et~al.(2013)Nurhudatiana, Kong, Altieri, and
+  Craft]{svm_marks}
+Arfika Nurhudatiana, Adams Wai-Kin Kong, Lisa Altieri, and Noah Craft.
+\newblock Automated identification of relatively permanent pigmented or
+  vascular skin marks (rppvsm).
+\newblock In \emph{2013 IEEE International Conference on Acoustics, Speech and
+  Signal Processing}, pages 2984--2988. IEEE, 2013.
+
 \bibitem[Nurhudatiana~A.()]{statistic_RPPVSM}
 Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
 \newblock Fundamental statistics of relatively permanent pigmented or vascular
@@ -87,10 +125,18 @@ Carsten Rother, Vladimir Kolmogorov, and Andrew Blake.
 \newblock In \emph{ACM transactions on graphics (TOG)}, volume~23, pages
   309--314. ACM, 2004.
 
-\bibitem[Spaun~N.A.()]{forensic_identification}
-Bruegge~R.W.V. Spaun~N.A.
-\newblock Forensic identification of people from images and video.
-\newblock In \emph{Biometrics: Theory, Applications and Systems}.
+\bibitem[Schier and Kov{\'a}r(2011)]{yeast}
+Jan Schier and Bohumil Kov{\'a}r.
+\newblock Automated counting of yeast colonies using the fast radial transform
+  algorithm.
+\newblock In \emph{Bioinformatics}, pages 22--27, 2011.
+
+\bibitem[Schneiderman and Kanade(2000)]{face_detecion_comp}
+Henry Schneiderman and Takeo Kanade.
+\newblock A statistical method for 3d object detection applied to faces and
+  cars.
+\newblock In \emph{Computer Vision and Pattern Recognition, 2000. Proceedings.
+  IEEE Conference on}, volume~1, pages 746--751. IEEE, 2000.
 
 \bibitem[Srinivas et~al.(2012)Srinivas, Aggarwal, Flynn, and
   Vorder~Bruegge]{twins}
@@ -98,6 +144,12 @@ Nisha Srinivas, Gaurav Aggarwal, Patrick~J Flynn, and Richard~W Vorder~Bruegge.
 \newblock Analysis of facial marks to distinguish between identical twins.
 \newblock \emph{Information Forensics and Security, IEEE Transactions on},
   7\penalty0 (5):\penalty0 1536--1550, 2012.
+
+\bibitem[Sung and Poggio(1998)]{face_detecion_comp_2}
+K-K Sung and Tomaso Poggio.
+\newblock Example-based learning for view-based human face detection.
+\newblock \emph{IEEE Transactions on pattern analysis and machine
+  intelligence}, 20\penalty0 (1):\penalty0 39--51, 1998.
 
 \bibitem[Tome et~al.(2015)Tome, Vera-Rodriguez, Fierrez, and
   Ortega-Garcia]{face_soft}

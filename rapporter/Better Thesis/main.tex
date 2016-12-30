@@ -18,16 +18,17 @@
 \usepackage{csquotes}
 \usepackage{cleveref}
 \usepackage{mathtools}
+\usepackage{parskip}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
 \setupThesis{ 
 	author = {Armand Moulis},
-	title = {Automatic Detection and Localization of Relatively Permanent Pigmented or Vascular Skin Marks},
+	title = {Automatic Detection and Classification of Permanent and Non-Permanent Skin Marks},
 	year = 2016,
-	examiner = {Lasse Alfredsson  \AT \textsc{isy}, Linköpings universitet},
-	supervisor = {Doktorand, Martin Danelljan \textsc{isy}, Linköpings universitet}
+	examiner = {Lasse Alfredsson, \textsc{isy}, Linköpings universitet},
+	supervisor = {Martin Danelljan, \textsc{isy}, Linköpings universitet}
 		%Forensiker, Elisabet Leitet  \textsc{NFC}, Linköping 
 		%Forensiker, Niclas Appleby  \textsc{NFC}, Linköping} 
 	%department = isy
@@ -52,18 +53,19 @@
 \include{tack}
 
 \tableofcontents
-\include{notation}
+%\include{notation}
 
 \mainmatter
 \include{introduction}
 \include{related_work}
 \include{Method}
 \include{result}
+\include{Discussion}
 \include{conclusion}
 
-\part*{Appendix}
-\appendix
-\include{detaljer}
+%\part*{Appendix}
+%\appendix
+%\include{detaljer}
 %\include{rtthesis-doc}
 \clearemptydoublepage
 \backmatter

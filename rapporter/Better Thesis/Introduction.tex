@@ -1,29 +1,44 @@
 \chapter{Introduction}\label{cha:intro}
 \section{Motivation}
-The amount of technical tools available for forensic analysis in law enforcement increases rapidly and today there exist millions of devises capable of taking colour images. Video surveillance cameras, security cameras and cellphone cameras can all be used to catch perpetrators in the act. The videos and still images can be used as evidence for identification during trails which means that forensic technicians need tools to evaluate if the suspect is the same person as the one caught on camera.
 
-One common method of evaluating whether the perpetrator and the suspect are the same person is to compare facial features such as eyes, nose, mouth, scars, and other facial marks. This is nowadays done manually \cite{face_soft} by the forensic examiners and in order to give a objective and comparable conclusion value a likelihood ratio \cite{NFC_stat} is calculated. The likelihood ratio expresses how strong the evidences against the suspect.
+The amount of video surveillance cameras, security cameras and cellphone cameras increases rapidly and today there exist millions of devises capable of catching perpetrators in the act. The videos and still images can be
+used as evidence for identification during trials where forensic experts evaluate the strength of evidence whether if the suspect is the same person as the one caught
+on camera.
 
-To calculate the likelihood ratio it is required to have enough observations of facial features and these are acquired manually by experts since facial recognition processes have not been found to be reliable enough \cite{automatic_detector_2015}. To record all these observations manually is time consuming and there exist a interest in doing this automatically \cite{forensic_identification}. 
+%The amount of technical tools available for forensic analysis in law enforcement increases rapidly and today there exist millions of devises capable of taking colour images. Video surveillance cameras, security cameras and cellphone cameras can all be used to catch perpetrators in the act. The videos and still images can be used as evidence for identification during trails which means that forensic technicians need tools to evaluate if the suspect is the same person as the one caught on camera.
 
-This master thesis was motivated by the need of large amount of data from facial marks. The National Forensic Centre (NFC) in Sweden is supporting this work by providing guidance and practical help.  
+One common method of evaluating whether the perpetrator and the suspect are the same person is to compare facial features such as eyes, nose, mouth, scars, and other facial marks. This is nowadays done manually \cite{face_soft} by the forensic examiners, and in order to evaluate the strength of the results, a likelihood ratio \cite{NFC_stat} from Bayes rule is calculated. The likelihood ratio is estimated from two hypotheses, where the numerator gives the probability to achieve the results 
+if the perpetrator and the suspect are the same person and the denominator the probability to achieve the results if the perpetrator is another man. 
 
+National Forensic Centre (NFC) is currently running a project where an automatic facial recognition system can be used to extract statistics from a database of facial images. The main advantages of using such a method are that the likelihood ratio can be calculated based on statistics, and that the risk for human bias in the decision process is diminished.
+
+%To calculate the likelihood ratio it is required to have enough observations of facial features and these are acquired manually by experts since facial recognition processes have not been found to be reliable enough \cite{automatic_detector_2015}. To record all these observations manually is time consuming and there exist a interest in doing this automatically \cite{forensic_identification}. 
+This master thesis was motivated by the need of combining the automatically calculated likelihood ratio value with the evidential value derived from the frequency of facial marks in certain regions of the face. The NFC in Sweden is supporting this work by providing guidance and practical help.
+
+%This master thesis was motivated by the need of large amount of data from facial marks. The National Forensic Centre (NFC) in Sweden is supporting this work by providing guidance and practical help.  
 \section{Aim}
 
-The aim of this master thesis is to examine the possibilities of automatically detecting and locating facial marks and classifying them as permanent or non-permanent marks. The frequency, location and size of the permanent marks are stored such that it can be used to calculate the likelihood ratio. By automatically creating a large data base with face images and their features, the accuracy and speed in face recognition cases can be increased. 
+The aim of thie master thesis is to create a algorithm to automatically create a large data base with facial images and their features. By using this algorithm, the evidential value in forensic facial image comparison examinations can be better grounded.
 
 \section{Problem specification}
-This master thesis is going to answers the following questions: 
-\begin{displayquote}
-	Is it possible to implement a program which can automatically detect RPPVSM?
 
-	How can the RPPVSM be given a location and size within a face?
+The problem of this master thesis is to find a method for automatically detect and locate facial marks and classify them as permanent or non-permanent marks. The frequency, location and size of the permanent marks are stored such that they can be used together with the previously calculated likelihood ratio
 
-	With which accuracy can the program detect and localize RPPVSM?
-\end{displayquote}
+%This master thesis is going to answers the following questions: 
+%\begin{displayquote}
+%	Is it possible to implement a algorithm which can automatically detect RPPVSM?
+%
+%	How can the RPPVSM be given a location and size within a face?
+%
+%	With which accuracy can the algorithm detect and localize RPPVSM?
+%\end{displayquote}
 
 
 
-\section{Boundary}
+\section{Scope}
 
-In general, when working with image, the quality of the images are crucial for the results. Low resolution and badly illuminated images taken from different angles can cause analytical difficulties. Therefore, this thesis will us images which are high resolute, well illuminated, taken en face and in RGB-colours. 
+In general, when working with image, the quality of the images are crucial for the results. Low resolution and badly illuminated images taken from different angles can cause analytical difficulties. Therefore, this thesis assumes images which are high resolute, well illuminated, taken en face and in RGB-colours. 
+
+\section{Thesis outline}
+
+This chapter describes the aim and problem specification of this master thesis. In Chapter \ref{cha:related_work}, gives an insight in related work the methods used by other researchers. Chapter \ref{cha:method} describes the methods used in the algorithm developed during this master thesis. The results from the algorithm can be studied in Chapter \ref{cha:result} and an discussion about the result and methods used is found in Chapter \ref{cha:Discussion}. Finally, Chapter \ref{cha:conclusion} consist of a conclusion of the master thesis and ideas for future work within the same scope. 
