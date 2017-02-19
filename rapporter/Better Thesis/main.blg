@@ -1,38 +1,34 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
 The style file: plainnat.bst
 A level-1 auxiliary file: tack.aux
+A level-1 auxiliary file: notation.aux
 A level-1 auxiliary file: introduction.aux
 A level-1 auxiliary file: related_work.aux
 A level-1 auxiliary file: Method.aux
 A level-1 auxiliary file: result.aux
 A level-1 auxiliary file: Discussion.aux
 A level-1 auxiliary file: conclusion.aux
-Illegal, another \bibstyle command---line 57 of file main.aux
+Illegal, another \bibstyle command---line 58 of file main.aux
  : \bibstyle
  :          {unsrt}
 I'm skipping whatever remains of this command
 Database file #1: myrefs.bib
-You're missing a field name---line 5 of file myrefs.bib
- :  
- :  %editor   = "",
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 26 of file myrefs.bib
+You're missing a field name---line 19 of file myrefs.bib
  :  
  :  %note     = "",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 33 of file myrefs.bib
+You're missing a field name---line 26 of file myrefs.bib
  :  
  :  %editor   = "",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 50 of file myrefs.bib
+You're missing a field name---line 43 of file myrefs.bib
  :  
  :  %editor   = "",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 71 of file myrefs.bib
+You're missing a field name---line 64 of file myrefs.bib
  :  
  :  %note     = "",
 (Error may have been on previous line)
@@ -51,6 +47,7 @@ Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbee
 while executing---line 1429 of file plainnat.bst
 Too many commas in name 1 of "Joost van de Weijer, Cordelia Schmid, Jakob Verbeek, Diane Larlus" for entry 11_colours
 while executing---line 1429 of file plainnat.bst
+Warning--there's a number but no volume in keller1985fuzzy
 Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
 while executing---line 1429 of file plainnat.bst
 Too many commas in name 1 of "Nurhudatiana A., Matinpour K., Siu-Yeung Cho, Craft N." for entry statistic_RPPVSM
@@ -58,4 +55,4 @@ while executing---line 1429 of file plainnat.bst
 Warning--empty year in statistic_RPPVSM
 Warning--empty year in statistic_RPPVSM
 Warning--can't use both volume and number fields in grabcut
-(There were 14 error messages)
+(There were 13 error messages)

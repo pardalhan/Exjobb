@@ -1,5 +1,6 @@
 \chapter{Conclusion}\label{cha:conclusion}
 
-This master thesis has examined the possibilities to develop an algorithm which could detect facial marks and separate them into permanent and non-permanent. The result from the experiments shows that the detector can initially find the facial mark with high recall but with a low precision. The precision increases as the false detections are eliminated. The mark classifier demonstrates good result with its accuracy of 90\%.  
+This master thesis has examined the possibilities to develop an algorithm which could detect facial marks and separate them into permanent and non-permanent. The result from the experiments shows that the detector can initially find the facial mark with high recall but loses its precision after the post-processing of the facial mark candidates. This master thesis has show that the colors of the permanent and non-permanent marks are more important than the structure when separating the two classes. The classifier demonstrate a good result which is promising.   
 
-A proposed remedy for the low precision on the detector is to improve the elimination of the false candidates. The hair-detector is to crude and may be combined with or replaced by a module which looks at the Fourier Transform of the candidates. The mark classifier could perform better with better discriminative features. By finding better features through examination of the differences between permanent and non-permanent marks.
+There are many areas where method used to improve the algorithm described in this master thesis. One should first of all improve the elimination of false detections. This would make the algorithm more reliable to be used as a tool for forensics.  
+

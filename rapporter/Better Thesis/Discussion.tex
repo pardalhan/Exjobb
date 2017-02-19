@@ -1,27 +1,35 @@
 \chapter{Discussion}\label{cha:Discussion}
 
-This section will discuss the results from the algorithm and the methods used to implement it.
+This section will discuss the results from the algorithm and the methods used to implement it. This section will also suggest future work and mention ethical perspective.  
 
 \section{Result}
 
-As seen, the detector has problem with false detections which is a huge problem. The precision is not very good, not even over 10\%, due to the many false detections. The precision does not increase faster than the decline of the recall with an increasing $h_{frs}$-value. This indicates that there are margins for improvement when it comes to the candidate detector. The elimination method used does improve the precession well enough which means that they also can be improved.
+As seen, the detector has problem with false detections which is a huge problem. The precision is not very good, not even over 10\%, due to the many false detections. The precision does not increase faster than the decline of the recall with an increasing $h_{frs}$-value. This indicates that there are margins for improvement when it comes to the candidate detector.
 
-When looking at the accuracy of the mark classifier, with an accuracy of 90\%, the result is pretty satisfactory. 
+Vorder Bruegge et al. \cite{automatic_detector_2015} got a precision of 71\% which is a lot better then the result from this master thesis. Taeg Sang Cho et al.\cite{reliable_mole} got a recall value of 84.7\% which is also better than the results form this master thesis. One thing that should be noticed is that Vorder Bruegge et al. has been focusing to finding RPPVSM which is a wide definition of skin marks. This master thesis has tried to find the skin marks which has been of interest to the forensics at NFC. This could be one of the reasons to the large amount of false detections. The detector is probably detecting RPPVSM which has not been deemed of interest.     
 
+When looking at the The elimination method used, they do improve the precision and recall values but maybe not to the extant which one was hoping for. There can be a great improvement in trying to find optimal values for $h_{hair}$ threshold value since this has not be investigated. 
+
+The classifier offers some indication to the importance of colors when it comes to separating permanent and non-permanent marks. The structural features alone perform poorly and does not improve the accuracy when they are combined with color based features. The researcher using classifiers for face recognition show the result of matching images using skin marks. This means that no result has been found how well a classifier can separate permanent and non-permanent skin marks.
 
 \section{Method}
 
-There are a lot to say about the methods used in the algorithm. The major problem with the algorithm is the elimination of candidates. The blob detector works well in not eliminating true detections which the hair removal algorithm does not. It eliminates candidates which are true facial marks. This is because it indicates that the facial marks are hair which makes it hard to separate the true candidates and the hair intensive candidates. 
-Tim et Lee al. describes their algorithm well except when they are explaining how to calculate the hair mask for each colour channel. It is not clear what the maximum from refers to. The algorithm in this work used the maximal pixel value between the different structuring elements. 
+There are a lot to say about the methods used in the algorithm. The major problem with the algorithm is the elimination of candidates. They eliminate candidates which are true facial marks. The hair elimination part does improve the precision the best. The blob detector on the other hand is hardly improving the precision at the cost of recall loss. This means that the blob-detector is not contributing to the algorithm in a positive way.
+
+Tim et Lee al. describes their algorithm well except when they are explaining how to calculate the hair mask for each color channel. It is not clear what the maximum from refers to. The algorithm in this work used the maximal pixel value between the different structuring elements. 
 
 The mark detector used in the algorithm was good at indicating the potential facial marks but the simple thresholding method to pin point them out was not optimal. It kept the pixels larger than a certain percent of the maximal value in the FRS image. This resulted in many unnecessary candidates which of course contributed to the high false detection rate. 
 
-The blob-detector used is hardly improving the precision at the cost of recall loss. This means that the blob-detector is not contributing to the algorithm in a positive way. The hair-eliminator on the other hand does improve the precision which is the whole point with the candidate eliminators.  
+Regarding the references used in these thesis, several of them uses FRS to detect point of interest which shows the actuality of the method. Many of the papers trying to detect facial marks uses a crude segmentation mask which does not follow the hairline and chin well. This algorithm uses a more precise segmentation method which reduces the areas which are processed. 
 
-When it comes to the mark classifier, it could have performed better if the number of features was larger and more explored. Now the features are very simple and there is overweight of permanent marks among the annotated facial marks which is not ideal.
 
-Regarding the references used in these thesis, several of them uses FRS to detect point of interest which shows the actuality of the method. Many of the papers trying to detect facial marks uses a crude segmentation mask which does not follow the hairline and chin well. This algorithm uses a more precise segmentation method which reduces the areas which is not processed. 
+\section{Future work}
 
+A proposed remedy for the low precision on the detector is to improve the elimination of the false candidates. The hair-detector is to crude and may be combined with or replaced by a module which looks at the Fourier Transform of the candidates. 
+
+The scope of this master thesis did not allow to compare different skin mark detection methods. There are not many reports which compare a LoG-based with a FRS-based detector which would be interesting. Many face recognition algorithm uses multi scale methods to determine if a skin mark is permanent and not a classifier. Why is this is would be good research field.   
+
+It would be interesting to examine how different types of classifier would affect the performance of the classifier. Maybe would a random forest classifier perform better or even a nearest neighbor classifier. Also, one would like to make a multi class classifier where one class would be non-facial mark. Maybe would this be a solution to the low precision result from the detector.  
 
 \section{Ethical perspective}
 

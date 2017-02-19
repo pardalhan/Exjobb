@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  24 NOV 2016 21:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.1.18)  21 JAN 2017 18:54
 entering extended mode
 **./Main.tex
 (Main.tex
@@ -341,18 +341,18 @@ Package csquotes Info: ... none found.
  (Main.aux)
 \openout1 = `Main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 ("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mk
 ii"
@@ -370,46 +370,46 @@ ii"
 \everyMPtoPDFconversion=\toks21
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 25.
+(Font)              <12> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 25.
+(Font)              <8> on input line 26.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 25.
+(Font)              <6> on input line 26.
  [1
 
 {C:/Users/arman/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 32.
+(Font)              <7> on input line 33.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 32.
+(Font)              <5> on input line 33.
 
 [2] (Main.toc)
 \tf@toc=\write3
 \openout3 = `Main.toc'.
 
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 58--58
+Underfull \hbox (badness 10000) in paragraph at lines 59--59
 []\OT1/cmr/m/n/10 Grammatical cor-rec-tions and
  []
 
 [4] [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 97.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
 
 ("C:\Users\arman\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 97.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
 
 (method.tex
 
-! LaTeX Error: File `"../bilder/system_flow"' not found.
+! LaTeX Error: File `"system_flow"' not found.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.6 ...dth=1.0\linewidth]{"../bilder/system_flow"}
+l.6 ...raphics[width=1.0\linewidth]{"system_flow"}
                                                   
 I could not locate the file with any of these extensions:
 .png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
@@ -418,13 +418,13 @@ If that doesn't work, type  X <return>  to quit.
 
 [2]
 
-! LaTeX Error: File `"../bilder/detection_flow"' not found.
+! LaTeX Error: File `"detection_flow"' not found.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.27 ...1.0\linewidth]{"../bilder/detection_flow"}
+l.27 ...ics[width=1.0\linewidth]{"detection_flow"}
                                                   
 I could not locate the file with any of these extensions:
 .png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
@@ -432,13 +432,13 @@ Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-! LaTeX Error: File `"../bilder/Grid_flow"' not found.
+! LaTeX Error: File `"Grid_flow"' not found.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.38 ...idth=1.0\linewidth]{"../bilder/Grid_flow"}
+l.38 ...graphics[width=1.0\linewidth]{"Grid_flow"}
                                                   
 I could not locate the file with any of these extensions:
 .png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
@@ -471,8 +471,8 @@ Overfull \vbox (73.54417pt too high) has occurred while \output is active []
 
 [6]) (expected_results.tex) [7] (Main.bbl) [8] (Main.aux) ) 
 Here is how much of TeX's memory you used:
- 3888 strings out of 493634
- 65008 string characters out of 3135239
+ 3887 strings out of 493634
+ 64998 string characters out of 3135239
  175223 words of memory out of 3000000
  7243 multiletter control sequences out of 15000+200000
  8241 words of font info for 29 fonts, out of 3000000 for 9000
@@ -487,7 +487,7 @@ onts/cm/cmr10.pfb><C:/Users/arman/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/arman/AppData/Local/Program
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/arman/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Main.pdf (12 pages, 131310 bytes).
+Output written on Main.pdf (12 pages, 130777 bytes).
 PDF statistics:
  69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

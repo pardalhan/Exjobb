@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{54}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,11 +11,43 @@ Bertillon A.
   instructions signaletiques.
 \newblock France, Paris, 1885.
 
+\bibitem[Ahonen et~al.(2006)Ahonen, Hadid, and Pietikainen]{facedetection_LBP}
+Timo Ahonen, Abdenour Hadid, and Matti Pietikainen.
+\newblock Face description with local binary patterns: Application to face
+  recognition.
+\newblock \emph{IEEE transactions on pattern analysis and machine
+  intelligence}, 28\penalty0 (12):\penalty0 2037--2041, 2006.
+
 \bibitem[Bani{\'c} and Lon{\v{c}}ari{\'c}(2014)]{badger}
 Nikola Bani{\'c} and Sven Lon{\v{c}}ari{\'c}.
 \newblock Color badger: a novel retinex-based local tone mapping operator.
 \newblock In \emph{International Conference on Image and Signal Processing},
   pages 400--408. Springer, 2014.
+
+\bibitem[Barnard et~al.(2003)Barnard, Duygulu, Forsyth, Freitas, Blei, and
+  Jordan]{barnard2003matching}
+Kobus Barnard, Pinar Duygulu, David Forsyth, Nando~de Freitas, David~M Blei,
+  and Michael~I Jordan.
+\newblock Matching words and pictures.
+\newblock \emph{Journal of machine learning research}, 3\penalty0
+  (Feb):\penalty0 1107--1135, 2003.
+
+\bibitem[Bishop(2006)]{bishop2006pattern}
+Christopher~M Bishop.
+\newblock Pattern recognition.
+\newblock \emph{Machine Learning}, 128, 2006.
+
+\bibitem[Blum and Langley(1997)]{blum1997selection}
+Avrim~L Blum and Pat Langley.
+\newblock Selection of relevant features and examples in machine learning.
+\newblock \emph{Artificial intelligence}, 97\penalty0 (1):\penalty0 245--271,
+  1997.
+
+\bibitem[Boser et~al.(1992)Boser, Guyon, and Vapnik]{boser1992training}
+Bernhard~E Boser, Isabelle~M Guyon, and Vladimir~N Vapnik.
+\newblock A training algorithm for optimal margin classifiers.
+\newblock In \emph{Proceedings of the fifth annual workshop on Computational
+  learning theory}, pages 144--152. ACM, 1992.
 
 \bibitem[Boykov and Jolly(2001)]{graphcut}
 Yuri~Y Boykov and M-P Jolly.
@@ -30,22 +62,76 @@ Gary Bradski et~al.
 \newblock \emph{Doctor Dobbs Journal}, 25\penalty0 (11):\penalty0 120--126,
   2000.
 
+\bibitem[Carter(1997)]{hsv_color}
+Matthew~P Carter.
+\newblock Computer graphics: principles and practice, 1997.
+
+\bibitem[Cho et~al.(2007)Cho, Freeman, and Tsao]{reliable_mole}
+Taeg~Sang Cho, William~T Freeman, and Hensin Tsao.
+\newblock A reliable skin mole localization scheme.
+\newblock In \emph{2007 IEEE 11th International Conference on Computer Vision},
+  pages 1--8. IEEE, 2007.
+
+\bibitem[Cortes and Vapnik(1995)]{cortes1995support}
+Corinna Cortes and Vladimir Vapnik.
+\newblock Support-vector networks.
+\newblock \emph{Machine learning}, 20\penalty0 (3):\penalty0 273--297, 1995.
+
+\bibitem[Dalal and Triggs(2005)]{hog_dalal}
+Navneet Dalal and Bill Triggs.
+\newblock Histograms of oriented gradients for human detection.
+\newblock In \emph{Computer Vision and Pattern Recognition, 2005. CVPR 2005.
+  IEEE Computer Society Conference on}, volume~1, pages 886--893. IEEE, 2005.
+
+\bibitem[Enzweiler and Gavrila(2011)]{pedestrian_detection}
+Markus Enzweiler and Dariu~M Gavrila.
+\newblock A multilevel mixture-of-experts framework for pedestrian
+  classification.
+\newblock \emph{IEEE Transactions on Image Processing}, 20\penalty0
+  (10):\penalty0 2967--2979, 2011.
+
 \bibitem[Grgic et~al.(2011)Grgic, Delac, and Grgic]{SCface}
 Mislav Grgic, Kresimir Delac, and Sonja Grgic.
 \newblock Scface--surveillance cameras face database.
 \newblock \emph{Multimedia tools and applications}, 51\penalty0 (3):\penalty0
   863--879, 2011.
 
+\bibitem[Griffin(2006)]{griffin2006optimality}
+Lewis~D Griffin.
+\newblock Optimality of the basic colour categories for classification.
+\newblock \emph{Journal of the Royal Society Interface}, 3\penalty0
+  (6):\penalty0 71--85, 2006.
+
+\bibitem[Han et~al.(2006)Han, Shan, Cekander, Sawhney, and Kumar]{vehicle_hog}
+Feng Han, Ying Shan, Ryan Cekander, Harpreet~S Sawhney, and Rakesh Kumar.
+\newblock A two-stage approach to people and vehicle detection with hog-based
+  svm.
+\newblock In \emph{Performance Metrics for Intelligent Systems 2006 Workshop},
+  pages 133--140. Citeseer, 2006.
+
+\bibitem[He and Wang(1991)]{pre_hog}
+Dong-Chen He and Li~Wang.
+\newblock Texture features based on texture spectrum.
+\newblock \emph{Pattern Recognition}, 24\penalty0 (5):\penalty0 391--399, 1991.
+
+\bibitem[Heflin et~al.(2012)Heflin, Scheirer, and Boult]{tattoos}
+Brian Heflin, Walter Scheirer, and Terrance~E Boult.
+\newblock Detecting and classifying scars, marks, and tattoos found in the
+  wild.
+\newblock In \emph{Biometrics: Theory, Applications and Systems (BTAS), 2012
+  IEEE Fifth International Conference on}, pages 31--38. IEEE, 2012.
+
+\bibitem[Hofmann(1999)]{hofmann1999probabilistic}
+Thomas Hofmann.
+\newblock Probabilistic latent semantic indexing.
+\newblock In \emph{Proceedings of the 22nd annual international ACM SIGIR
+  conference on Research and development in information retrieval}, pages
+  50--57. ACM, 1999.
+
 \bibitem[Hsu et~al.(2003)Hsu, Chang, Lin, et~al.]{svm_guide}
 Chih-Wei Hsu, Chih-Chung Chang, Chih-Jen Lin, et~al.
 \newblock A practical guide to support vector classification.
 \newblock 2003.
-
-\bibitem[Jain and Park(2009)]{jain_facial}
-Anil~K Jain and Unsang Park.
-\newblock Facial marks: Soft biometric for face recognition.
-\newblock In \emph{Image Processing (ICIP), 2009 16th IEEE International
-  Conference on}, pages 37--40. IEEE, 2009.
 
 \bibitem[Joost van~de Weijer(2009)]{11_colours}
 Jakob Verbeek Diane~Larlus Joost van~de Weijer, Cordelia~Schmid.
@@ -59,11 +145,22 @@ Vahid Kazemi and Josephine Sullivan.
 \newblock In \emph{Proceedings of the IEEE Conference on Computer Vision and
   Pattern Recognition}, pages 1867--1874, 2014.
 
-\bibitem[Kotsiantis et~al.(2007)Kotsiantis, Zaharakis, and
-  Pintelas]{machine_learning}
-Sotiris~B Kotsiantis, I~Zaharakis, and P~Pintelas.
-\newblock Supervised machine learning: A review of classification techniques,
-  2007.
+\bibitem[Keller et~al.(1985)Keller, Gray, and Givens]{keller1985fuzzy}
+James~M Keller, Michael~R Gray, and James~A Givens.
+\newblock A fuzzy k-nearest neighbor algorithm.
+\newblock \emph{IEEE transactions on systems, man, and cybernetics}, \penalty0
+  (4):\penalty0 580--585, 1985.
+
+\bibitem[King(2009)]{dlib09}
+Davis~E. King.
+\newblock Dlib-ml: A machine learning toolkit.
+\newblock \emph{Journal of Machine Learning Research}, 10:\penalty0 1755--1758,
+  2009.
+
+\bibitem[Kohonen(1988)]{kohonen1988introduction}
+Teuvo Kohonen.
+\newblock An introduction to neural computing.
+\newblock \emph{Neural networks}, 1\penalty0 (1):\penalty0 3--16, 1988.
 
 \bibitem[Lee et~al.(1997)Lee, Ng, Gallagher, Coldman, and McLean]{dullrazor}
 Tim Lee, Vincent Ng, Richard Gallagher, Andrew Coldman, and David McLean.
@@ -72,11 +169,34 @@ Tim Lee, Vincent Ng, Richard Gallagher, Andrew Coldman, and David McLean.
 \newblock \emph{Computers in biology and medicine}, 27\penalty0 (6):\penalty0
   533--543, 1997.
 
+\bibitem[Lee et~al.(2005)Lee, Atkins, King, Lau, and McLean]{torso_mole}
+Tim~K Lee, M~Stella Atkins, Michael~A King, Savio Lau, and David~I McLean.
+\newblock Counting moles automatically from back images.
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 52\penalty0
+  (11):\penalty0 1966--1969, 2005.
+
+\bibitem[Li et~al.(2001)Li, Hestenes, and Rockwood]{li2001generalized}
+Hongbo Li, David Hestenes, and Alyn Rockwood.
+\newblock Generalized homogeneous coordinates for computational geometry.
+\newblock In \emph{Geometric Computing with Clifford Algebras}, pages 27--59.
+  Springer, 2001.
+
+\bibitem[Loh(2011)]{loh2011classification}
+Wei-Yin Loh.
+\newblock Classification and regression trees.
+\newblock \emph{Wiley Interdisciplinary Reviews: Data Mining and Knowledge
+  Discovery}, 1\penalty0 (1):\penalty0 14--23, 2011.
+
 \bibitem[Loy and Zelinsky(2003)]{FRS}
 Gareth Loy and Alexander Zelinsky.
 \newblock Fast radial symmetry for detecting points of interest.
 \newblock \emph{IEEE Transactions on pattern analysis and machine
   intelligence}, 25\penalty0 (8):\penalty0 959--973, 2003.
+
+\bibitem[MATLAB(2010)]{MATLAB:2010}
+MATLAB.
+\newblock \emph{version 7.10.0 (R2010a)}.
+\newblock The MathWorks Inc., Natick, Massachusetts, 2010.
 
 \bibitem[Meyer(1992)]{watershed}
 Fernand Meyer.
@@ -97,7 +217,7 @@ Anders Nordgaard, Ricky Ansell, Weine Drotz, and Lars Jaeger.
 \newblock \emph{Law, probability and risk}, pages 1--24, 2011.
 
 \bibitem[Nurhudatiana et~al.(2013)Nurhudatiana, Kong, Altieri, and
-  Craft]{svm_marks}
+  Craft]{torso_RPPVSM}
 Arfika Nurhudatiana, Adams Wai-Kin Kong, Lisa Altieri, and Noah Craft.
 \newblock Automated identification of relatively permanent pigmented or
   vascular skin marks (rppvsm).
@@ -109,6 +229,28 @@ Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
 \newblock Fundamental statistics of relatively permanent pigmented or vascular
   skin marks for criminal and victim identification.
 \newblock In \emph{Biometrics (IJCB)s}.
+
+\bibitem[Ojala et~al.(1994)Ojala, Pietikainen, and Harwood]{ojala_hog}
+Timo Ojala, Matti Pietikainen, and David Harwood.
+\newblock Performance evaluation of texture measures with classification based
+  on kullback discrimination of distributions.
+\newblock In \emph{Pattern Recognition, 1994. Vol. 1-Conference A: Computer
+  Vision \& Image Processing., Proceedings of the 12th IAPR International
+  Conference on}, volume~1, pages 582--585. IEEE, 1994.
+
+\bibitem[Park and Jain(2010)]{face_matching}
+Unsang Park and Anil~K Jain.
+\newblock Face matching and retrieval using soft biometrics.
+\newblock \emph{IEEE Transactions on Information Forensics and Security},
+  5\penalty0 (3):\penalty0 406--415, 2010.
+
+\bibitem[Phillips et~al.(2005)Phillips, Flynn, Scruggs, Bowyer, Chang, Hoffman,
+  Marques, Min, and Worek]{FRGC}
+P~Jonathon Phillips, Patrick~J Flynn, Todd Scruggs, Kevin~W Bowyer, Jin Chang,
+  Kevin Hoffman, Joe Marques, Jaesik Min, and William Worek.
+\newblock Overview of the face recognition grand challenge.
+\newblock In \emph{Computer vision and pattern recognition, 2005. CVPR 2005.
+  IEEE computer society conference on}, volume~1, pages 947--954. IEEE, 2005.
 
 \bibitem[Provenzi et~al.(2007)Provenzi, Fierro, Rizzi, De~Carli, Gadia, and
   Marini]{RSR}
@@ -138,6 +280,19 @@ Henry Schneiderman and Takeo Kanade.
 \newblock In \emph{Computer Vision and Pattern Recognition, 2000. Proceedings.
   IEEE Conference on}, volume~1, pages 746--751. IEEE, 2000.
 
+\bibitem[Sokolova and Lapalme(2009)]{sokolova2009systematic}
+Marina Sokolova and Guy Lapalme.
+\newblock A systematic analysis of performance measures for classification
+  tasks.
+\newblock \emph{Information Processing \& Management}, 45\penalty0
+  (4):\penalty0 427--437, 2009.
+
+\bibitem[Spaun and Bruegge(2008)]{forensic_identification}
+Nicole~A Spaun and Richard W~Vorder Bruegge.
+\newblock Forensic identification of people from images and video.
+\newblock In \emph{Biometrics: Theory, Applications and Systems, 2008. BTAS
+  2008. 2nd IEEE International Conference on}, pages 1--4. IEEE, 2008.
+
 \bibitem[Srinivas et~al.(2012)Srinivas, Aggarwal, Flynn, and
   Vorder~Bruegge]{twins}
 Nisha Srinivas, Gaurav Aggarwal, Patrick~J Flynn, and Richard~W Vorder~Bruegge.
@@ -157,11 +312,34 @@ Pedro Tome, Ruben Vera-Rodriguez, Julian Fierrez, and Javier Ortega-Garcia.
 \newblock Facial soft biometric features for forensic face recognition.
 \newblock \emph{Forensic science international}, 257:\penalty0 271--284, 2015.
 
+\bibitem[Torralba et~al.(2006)Torralba, Oliva, Castelhano, and
+  Henderson]{gist_descriptor}
+Antonio Torralba, Aude Oliva, Monica~S Castelhano, and John~M Henderson.
+\newblock Contextual guidance of eye movements and attention in real-world
+  scenes: the role of global features in object search.
+\newblock \emph{Psychological review}, 113\penalty0 (4):\penalty0 766, 2006.
+
+\bibitem[Vapnik(1963)]{vapnik1963pattern}
+Vladimir Vapnik.
+\newblock Pattern recognition using generalized portrait method.
+\newblock \emph{Automation and remote control}, 24:\penalty0 774--780, 1963.
+
+\bibitem[Vert et~al.(2004)Vert, Tsuda, and Sch{\"o}lkopf]{vert2004primer}
+Jean-Philippe Vert, Koji Tsuda, and Bernhard Sch{\"o}lkopf.
+\newblock A primer on kernel methods.
+\newblock \emph{Kernel Methods in Computational Biology}, pages 35--70, 2004.
+
 \bibitem[Viola and Jones(2001)]{face_detection}
 Paul Viola and Michael Jones.
 \newblock Rapid object detection using a boosted cascade of simple features.
 \newblock In \emph{Computer Vision and Pattern Recognition, 2001. CVPR 2001.
   Proceedings of the 2001 IEEE Computer Society Conference on}, volume~1, pages
   I--511. IEEE, 2001.
+
+\bibitem[Yu and Kim(2012)]{yu2012svm}
+Hwanjo Yu and Sungchul Kim.
+\newblock Svm tutorial—classification, regression and ranking.
+\newblock In \emph{Handbook of Natural computing}, pages 479--506. Springer,
+  2012.
 
 \end{thebibliography}

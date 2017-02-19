@@ -3,90 +3,155 @@
 This Chapter first describes the experiment to evaluate the algorithm and then presents the results.
 
 \section{Experiment}
-%{and FRGC database CITE}
-To evaluate the algorithm, a set of 106 images of faces en face were acquired from SCface database \cite{SCface}. Facial marks of interest were marked and labeled as a permanent or a non-permanent by the supervisors at NFC. This resulted in 506 marks where 353 were permanent and 153 were non-permanent.
 
-The experiment was set such that the image set was processed by the algorithm with 11 different thresholds values, $h_{FRS}$, for the FRS-image. The $h_{FRS}$ ranged from $0.05$ to $0.15$. The output was compared to the ground truth. A correct detection was defined as all detections which had a union with an annotated mark. This definition has been chosen since some of the detections can be very small. Also, since candidates larger than 1000 pixels has been eliminated, no over large candidates can give correct detections.   
-
-The evaluation measurement for the detector is the precision \eqref{eq:precision} and recall \eqref{eq:recall} value. Precision tells how well the detector is to avoid false detections while recall tells how well it finds the annotated marks. The result from the different $h_{FRS}$-values can be seen in \cref{fig:results_bar_frs}.
-
-\begin{equation} \label{eq:precision}
-Precision = \frac{\text{Number of correct detections}}{\text{Number of detections}}
-\end{equation}
-\begin{equation} \label{eq:recall}
-Recall = \frac{\text{Number of correct detections}}{\text{Number of annotated marks}}
-\end{equation}
+The experiment was set such that the image set was processed by the algorithm with 11 different thresholds values, $h_{FRS}$, for the FRS-image. The $h_{FRS}$ ranged from $0.05$ to $0.15$. The output was compared to the ground truth. A correct detection was defined as all detections which had a union with an annotated mark. This definition has been chosen since some of the detections can be very small. Also, since candidates larger than 1000 pixels has been eliminated, no overly large candidates can give correct detections.   
 
 The $h_{FRS}$-value which gives the best recall value was used to evaluate the elimination process of the candidates. This was done by calculating the precision and recall values before the different elimination steps. The results is displayed in \cref{fig:results_bar_frs}.
 
-To evaluate the facial mark classifier, a cross validation of the 506 annotated mark were performed. 25 marks was chosen at random to be used as test marks while the remaining marks was used for training the SVM. This was repeated until all the marks had been used as test marks.
+To evaluate how the elimination process is working, the recall and precision values after each elimination step. These results can be observed in \cref{fig:results_bar_elimniation}.
 
-In order to find the best $C$-value and $\gamma$-value for the mark classifier, the parameters are varied over a rough interval to narrow down the search. Afterwards, a more fine interval is used to find the best parameters. This has been shown by Chih-Wei et. al. \cite{svm_guide}  to be an effective method compared to a more random selection of parameters which is often used by people unfamiliar to SVM. 
+To evaluate the facial mark classifier, a cross validation of the 506 annotated mark were performed. 100 marks was chosen at random to be used as test marks while the remaining marks was used for training the SVM. This was repeated until all the marks had been used as test marks.
+
+In order to find the best set of descriptive features from \cref{table:feature_sets}, the classifier was trained for each set of features. The parameters $C$ and $\gamma$ was optimized for each set.  
+
+%In order to find the best $C$-value and $\gamma$-value for the mark classifier, the parameters are varied over a rough interval to narrow down the search. Afterwards, a more fine interval is used to find the best parameters. This has been shown by Chih-Wei et. al. \cite{svm_guide}  to be an effective method compared to a more random selection of parameters which is often used by people unfamiliar to SVM. 
 
 \section{Results from experiment}
 
-In the \cref{fig:results_bar_frs}, the precision and recall for different $h_{FRS}$-value can be examined. The precision corresponds to the white bar and the recall corresponds to the black bar. Note that this is only the detections of facial mark and no classification between permanent and non-permanent marks. 
+This section will present the results from experiment described above. The result is divided into two parts: Detector and Classifier. 
 
+\subsection{Detector}
+
+Here the results from the facial mark detector is presented. In the \cref{fig:results_bar_frs}, the precision and recall for different $h_{FRS}$-value can be examined. The precision corresponds to the white bar and the recall corresponds to the black bar. Note that this is only the detections of facial mark and no classification between permanent and non-permanent marks. 
+
+\FloatBarrier
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth*3/4,height=\textheight*3/4,keepaspectratio]{results_bar_frs}
 	\caption{Detection results from the algorithm with different $h_{frs}$-values. The white bars represent the precision value and the black bars represent recall value.  \label{fig:results_bar_frs}}
 \end{figure}
+\FloatBarrier
 
 As one can see, the precision increases with higher $h_{FRS}$-value without affecting the recall substantially. This is means that the number of candidates decreases with a growing $h_{FRS}$-value. Thus, a small $h_{FRS}$-value results in a large amount of candidates while a larger value gives fewer candidates.
 
 In \cref{fig:results_bar_elimniation}, it is possible to see the effects of the different elimination steps. As before, the white bar represent the precision and the black bar represent the recall. The first pair is the result just after the candidate detection and the second pair is the result after the blob detector. Furthermore, the third pair is after the hair eliminator and the last pair is after the size eliminator. 
 
+\FloatBarrier
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=\textwidth*3/4,height=\textheight*3/4,keepaspectratio]{results_bar_elimniation}
 	\caption{Detection results from the algorithm  after different candidate elimination steps. 1 = before elimination, 2 = after blob-elimination, 3 = after hair-elimination, 4 = after size-elimination. The white bars represent the precision value and the black bars represent recall value.  \label{fig:results_bar_elimniation}}
 \end{figure}
+\FloatBarrier
 
 It is obvious that the different eliminators are essential for the algorithm. The hair eliminator improves the precision the most while the blob detector worsen the recall the most.     
 
 
+In \cref{fig:all_detections} below one can observe all the candidates found by the detector before post-processing. The candidates are shown as blue bounding boxes and the annotated facial marks for this image is show as red bounding boxes. There are many false detections in the hair and the beard which is some of the problems identified in this master thesis. 
 
+After the post-processing, \cref{fig:all_hits}, almost all the false detection has been eliminated but some of them remain. The remaining false detection are located in the beard and hair. Some bounding boxes are around skin marks which has not been deemed of interest by the forensics at NFC. 
 
-%The result from the classifier can be presented as a confusion matrix, see \cref{table:confusion_mat}. A positive result is a permanent mark and a negative result is a non-permanent mark. The accuracy of the classifier is $83\%$ 
-
-%\begin{table}[h!]
-%\begin{center}
-%	\caption{Confusion matrix from RPPVS classifier}
-%	\begin{tabular}{|c|c|c|}
-%		\hline
-%		                 & Predicted positive & Predicted negative \\ \hline
-%		Labeled positive &        321         &        32         \\ \hline
-%		Labeled negative &         54         &        99         \\ \hline
-%
-%	\end{tabular}
-%
-%\label{table:confusion_mat}
-%\end{center}
-%\end{table}
-\newpage
-The result from the mark classifier is presented as accuracy matrix with varying $C$-value and $\gamma$-value. The accuracy is calculated as in \eqref{eq:accuracy}. In \cref{fig:crude_acc}, the $C$-value ranges from $1$ to $100$ while the $\gamma$-value ranges from $10^{-2}$ to $1$.
-
-\begin{equation} \label{eq:accuracy}
-Accuracy [\%] = \frac{\text{True positive} + \text{True negative}}{\text{Number of annotated marks}}
-\end{equation}
-
-\begin{figure}[h!]
+\FloatBarrier
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth*3/4,height=\textheight*3/4,keepaspectratio]{crude_acc_2}
-	\caption{Crude accuracy matrix where $1 \leq \gamma \leq 100$ and $10^{-2} \leq \gamma \leq 1$.
-		 \label{fig:crude_acc}}
+	\includegraphics[width=\textwidth*4/10,height=\textheight*4/10,keepaspectratio]{001_all_detections}
+	\caption{An image of all potential facial marks. Each potential mark is shown as a blue box and all annotated facial mark is shown as a red box. \label{fig:all_detections}}
 \end{figure}
+\FloatBarrier
 
- As show, the best accuracy is when $C \approx 95$ and $\gamma \approx 5*10^{-2}$. Therefore, with a finer interval for the two parameters, \cref{fig:fine_acc} was generated. Here, the $C$-value ranges from $90$ to $115$ while the $\gamma$-value ranges from $5*10^{-2}$ to $2*10^{-1}$. 
-
-\begin{figure}[h!]
+\FloatBarrier
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=\textwidth*3/4,height=\textheight*3/4,keepaspectratio]{fine_acc_2}
-	\caption{Fine accuracy matrix where $90 \leq \gamma \leq 115$ and $5*10^{-2} \leq \gamma \leq 2*10^{-1}$.
-		 \label{fig:fine_acc}}
+	\includegraphics[width=\textwidth*4/10,height=\textheight*4/10,keepaspectratio]{001_hits}
+	\caption{An image of the final result of the detector. Green boxes denotes true detections, red boxes denotes annotated marks and blue boxes denotes false detections. \label{fig:all_hits}}
 \end{figure}
+\FloatBarrier
 
-Form \cref{fig:fine_acc} it is possible to conclude that the best accuracy is acquired with several pair of parameters and results in the accuracy 90\%. $C = 100$ and $\gamma = 0,14$ is one of those pairs. Therefore, the mark classifier is given these values as parameters for the SVM. 
+\subsection{Classifier}
+
+Here the results from the different feature sets for the classifier is presented. When looking at the different features separately, \cref{table:single_feature}, one can see that the HOG and LBP feature perform bad compared to the color based features. 
+
+\FloatBarrier
+\begin{table}[h!]
+\begin{center}
+	\caption{Confusion matrix for single features}
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+		\hline
+		Feature set &  RGB  &  HSV  & COLOR &  HOG  &  LBP    \\ \hline
+		    TP      &  336  &  334  &  335  &  348  &  313    \\ \hline
+		    TN      &  107  &  104  &  107  &  32   &  88     \\ \hline
+		    FP      &  17   &  19   &  18   &   5   &  40     \\ \hline
+		    FN      &  46   &  49   &  46   &  121  &  65     \\ \hline
+		 Accuracy   & 87,55 & 86,56 & 87,35 & 79,25 & 75,10   \\ \hline
+	\end{tabular}
+\label{table:single_feature}
+\end{center}
+\end{table}
+\FloatBarrier
+
+Now, if the color based features are added to the HOG and LBP features respectably, \cref{table:hog_features,table:lbp_features} it is clear that the color based features improve the accuracy for the structure based features. However, it is clear that the color names gives the best result to the classifier. 
+
+\FloatBarrier
+\begin{table}[h!]
+	\begin{center}
+		\caption{Confusion matrix for HOG and color based features}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Feature set & HOG + RGB & HOG + HSV & HOG + COLOR \\ \hline
+			    TP      &    326    &    341    &     332     \\ \hline
+			    TN      &    63     &    46     &     111     \\ \hline
+			    FP      &    27     &    12     &     21      \\ \hline
+			    FN      &    90     &    107    &     42      \\ \hline
+			 Accuracy   &   76,88   &   76,48   &    87,55    \\ \hline
+		\end{tabular}
+		
+		\label{table:hog_features}
+	\end{center}
+\end{table}
+\FloatBarrier
+
+\FloatBarrier
+\begin{table}[h!]
+	\begin{center}
+		\caption{Confusion matrix for LBP and color based features}
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			Feature set & LBP + RGB & LBP + HSV & LBP + COLOR   \\ \hline
+			    TP      &    313    &    313    &     333       \\ \hline
+			    TN      &    89     &    88     &     106       \\ \hline
+			    FP      &    40     &    40     &     20        \\ \hline
+			    FN      &    64     &    65     &     47        \\ \hline
+			 Accuracy   &   79,45   &   79,25   &    86,76      \\ \hline
+		\end{tabular}
+		\label{table:lbp_features}
+	\end{center}
+\end{table}
+\FloatBarrier
+
+If on combines the color based features \cref{table:color_features} the accuracy does not improve but stays at the same level as only using the color names. 
+
+\FloatBarrier
+\begin{table}[h!]
+	\begin{center}
+		\caption{Confusion matrix for color based features combined}
+		\begin{tabular}{|c|c|}
+			\hline
+			Feature set & RGB + HSV + COLOR \\ \hline
+			    TP      &    336    \\ \hline
+			    TN      &    106     \\ \hline
+			    FP      &    17     \\ \hline
+			    FN      &    47     \\ \hline
+			 Accuracy   &   87,35   \\ \hline
+		\end{tabular}
+		
+		\label{table:color_features}
+	\end{center}
+\end{table}
+\FloatBarrier
+
+If one is interested how the accuracy changes depending on the parameters $C$ and $\gamma$, please look in the appendix. 
+
+
+
 
 

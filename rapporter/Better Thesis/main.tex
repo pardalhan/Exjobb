@@ -19,9 +19,14 @@
 \usepackage{cleveref}
 \usepackage{mathtools}
 \usepackage{parskip}
+\usepackage{placeins}
+\usepackage{amsmath}
+\usepackage{adjustbox}
+
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclareMathOperator{\argmin}{arg\,min} 
 
 \setupThesis{ 
 	author = {Armand Moulis},
@@ -53,7 +58,7 @@
 \include{tack}
 
 \tableofcontents
-%\include{notation}
+\include{notation}
 
 \mainmatter
 \include{introduction}
@@ -63,8 +68,8 @@
 \include{Discussion}
 \include{conclusion}
 
-%\part*{Appendix}
-%\appendix
+
+\include{appendix}
 %\include{detaljer}
 %\include{rtthesis-doc}
 \clearemptydoublepage

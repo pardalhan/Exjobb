@@ -5,31 +5,58 @@
 \select@language {english}
 \select@language {english}
 \select@language {english}
+\contentsline {chapter}{Notation}{xi}{section*.7}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
-\contentsline {section}{\numberline {1.2}Aim}{2}{section.1.2}
-\contentsline {section}{\numberline {1.3}Problem specification}{2}{section.1.3}
-\contentsline {section}{\numberline {1.4}Scope}{2}{section.1.4}
-\contentsline {section}{\numberline {1.5}Thesis outline}{2}{section.1.5}
-\contentsline {chapter}{\numberline {2}Related work}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}Facial marks}{4}{section.2.1}
-\contentsline {chapter}{\numberline {3}Method}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Detection}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Face detection}{5}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Landmark detection}{6}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Facial grid}{6}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Normalization}{7}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Segmentation}{8}{subsection.3.1.5}
-\contentsline {subsection}{\numberline {3.1.6}Fast Radial Symmetry Detector}{9}{subsection.3.1.6}
-\contentsline {subsection}{\numberline {3.1.7}Candidate elimination}{11}{subsection.3.1.7}
-\contentsline {section}{\numberline {3.2}Classification}{11}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Features}{12}{subsection.3.2.1}
-\contentsline {chapter}{\numberline {4}Result}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Experiment}{15}{section.4.1}
-\contentsline {section}{\numberline {4.2}Results from experiment}{16}{section.4.2}
-\contentsline {chapter}{\numberline {5}Discussion}{21}{chapter.5}
-\contentsline {section}{\numberline {5.1}Result}{21}{section.5.1}
-\contentsline {section}{\numberline {5.2}Method}{21}{section.5.2}
-\contentsline {section}{\numberline {5.3}Ethical perspective}{22}{section.5.3}
-\contentsline {chapter}{\numberline {6}Conclusion}{23}{chapter.6}
-\contentsline {chapter}{Bibliography}{25}{chapter*.16}
+\contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Related work}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}Motivation}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Aim}{4}{section.1.4}
+\contentsline {section}{\numberline {1.5}Problem specification}{4}{section.1.5}
+\contentsline {section}{\numberline {1.6}Scope}{5}{section.1.6}
+\contentsline {section}{\numberline {1.7}Thesis outline}{5}{section.1.7}
+\contentsline {chapter}{\numberline {2}Theory}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Landmarks}{7}{section.2.1}
+\contentsline {section}{\numberline {2.2}Image normalization}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Geometric normalization}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Photometric normalization}{8}{subsection.2.2.2}
+\contentsline {section}{\numberline {2.3}Face detection}{8}{section.2.3}
+\contentsline {section}{\numberline {2.4}Segmentation}{9}{section.2.4}
+\contentsline {section}{\numberline {2.5}Fast Radial Symmetry}{9}{section.2.5}
+\contentsline {section}{\numberline {2.6}Candidate elimination}{11}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Blob selection}{11}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Hair deselection}{11}{subsection.2.6.2}
+\contentsline {subsection}{\numberline {2.6.3}Size deselection}{12}{subsection.2.6.3}
+\contentsline {section}{\numberline {2.7}Machine learning}{12}{section.2.7}
+\contentsline {subsection}{\numberline {2.7.1}Supervised learning}{13}{subsection.2.7.1}
+\contentsline {subsection}{\numberline {2.7.2}Support vector machine}{14}{subsection.2.7.2}
+\contentsline {subsubsection}{Linear SVM}{14}{section*.11}
+\contentsline {subsubsection}{Soft margin SVM}{15}{section*.13}
+\contentsline {subsubsection}{Non-linear SVM}{16}{section*.15}
+\contentsline {subsection}{\numberline {2.7.3}Overfitting}{17}{subsection.2.7.3}
+\contentsline {section}{\numberline {2.8}Features descriptors}{18}{section.2.8}
+\contentsline {subsection}{\numberline {2.8.1}Histogram of Oriented Gradients}{18}{subsection.2.8.1}
+\contentsline {subsection}{\numberline {2.8.2}Local Binary Patterns}{19}{subsection.2.8.2}
+\contentsline {subsection}{\numberline {2.8.3}RGB and HSV}{20}{subsection.2.8.3}
+\contentsline {subsection}{\numberline {2.8.4}Color names}{20}{subsection.2.8.4}
+\contentsline {chapter}{\numberline {3}Method}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Data and annotation}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Programing language}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Pre-processing}{24}{section.3.3}
+\contentsline {section}{\numberline {3.4}Candidate detection}{27}{section.3.4}
+\contentsline {section}{\numberline {3.5}Post-processing}{29}{section.3.5}
+\contentsline {section}{\numberline {3.6}Classification}{29}{section.3.6}
+\contentsline {section}{\numberline {3.7}Evaluation}{30}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Confusion matrix}{30}{subsection.3.7.1}
+\contentsline {subsection}{\numberline {3.7.2}Cross validation}{31}{subsection.3.7.2}
+\contentsline {chapter}{\numberline {4}Result}{33}{chapter.4}
+\contentsline {section}{\numberline {4.1}Experiment}{33}{section.4.1}
+\contentsline {section}{\numberline {4.2}Results from experiment}{34}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Detector}{34}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Classifier}{37}{subsection.4.2.2}
+\contentsline {chapter}{\numberline {5}Discussion}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Result}{39}{section.5.1}
+\contentsline {section}{\numberline {5.2}Method}{40}{section.5.2}
+\contentsline {section}{\numberline {5.3}Future work}{40}{section.5.3}
+\contentsline {section}{\numberline {5.4}Ethical perspective}{41}{section.5.4}
+\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
+\contentsline {chapter}{Bibliography}{49}{chapter*.45}
