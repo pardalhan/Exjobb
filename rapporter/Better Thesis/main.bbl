@@ -131,13 +131,8 @@ Thomas Hofmann.
 \bibitem[Hsu et~al.(2003)Hsu, Chang, Lin, et~al.]{svm_guide}
 Chih-Wei Hsu, Chih-Chung Chang, Chih-Jen Lin, et~al.
 \newblock A practical guide to support vector classification.
-\newblock 2003.
-
-\bibitem[Joost van~de Weijer(2009)]{11_colours}
-Jakob Verbeek Diane~Larlus Joost van~de Weijer, Cordelia~Schmid.
-\newblock Learning color names for real-world applications.
-\newblock \emph{IEEE Transactions on Image Processing}, 18\penalty0
-  (7):\penalty0 1512--1523, July 2009.
+\newblock Tech. rep. Department of Computer Science, National Taiwan
+  University, 2003.
 
 \bibitem[Kazemi and Sullivan(2014)]{dlib_landmark}
 Vahid Kazemi and Josephine Sullivan.
@@ -193,10 +188,10 @@ Gareth Loy and Alexander Zelinsky.
 \newblock \emph{IEEE Transactions on pattern analysis and machine
   intelligence}, 25\penalty0 (8):\penalty0 959--973, 2003.
 
-\bibitem[MATLAB(2010)]{MATLAB:2010}
+\bibitem[MATLAB(2016)]{MATLAB:2010}
 MATLAB.
-\newblock \emph{version 7.10.0 (R2010a)}.
-\newblock The MathWorks Inc., Natick, Massachusetts, 2010.
+\newblock \emph{version 9.0.0 (R2016a)}.
+\newblock The MathWorks Inc., Natick, Massachusetts, 2016.
 
 \bibitem[Meyer(1992)]{watershed}
 Fernand Meyer.
@@ -216,6 +211,15 @@ Anders Nordgaard, Ricky Ansell, Weine Drotz, and Lars Jaeger.
 \newblock Scale of conclusions for the value of evidence.
 \newblock \emph{Law, probability and risk}, pages 1--24, 2011.
 
+\bibitem[Nurhudatiana et~al.(2011)Nurhudatiana, Kong, Matinpour, Cho, and
+  Craft]{statistic_RPPVSM}
+Arfika Nurhudatiana, Adams Wai-Kin Kong, Keyan Matinpour, Siu-Yeung Cho, and
+  Noah Craft.
+\newblock Fundamental statistics of relatively permanent pigmented or vascular
+  skin marks for criminal and victim identification.
+\newblock In \emph{Biometrics (IJCB), 2011 International Joint Conference on},
+  pages 1--6. IEEE, 2011.
+
 \bibitem[Nurhudatiana et~al.(2013)Nurhudatiana, Kong, Altieri, and
   Craft]{torso_RPPVSM}
 Arfika Nurhudatiana, Adams Wai-Kin Kong, Lisa Altieri, and Noah Craft.
@@ -223,12 +227,6 @@ Arfika Nurhudatiana, Adams Wai-Kin Kong, Lisa Altieri, and Noah Craft.
   vascular skin marks (rppvsm).
 \newblock In \emph{2013 IEEE International Conference on Acoustics, Speech and
   Signal Processing}, pages 2984--2988. IEEE, 2013.
-
-\bibitem[Nurhudatiana~A.()]{statistic_RPPVSM}
-Siu-Yeung Cho Craft~N. Nurhudatiana~A., Matinpour~K.
-\newblock Fundamental statistics of relatively permanent pigmented or vascular
-  skin marks for criminal and victim identification.
-\newblock In \emph{Biometrics (IJCB)s}.
 
 \bibitem[Ojala et~al.(1994)Ojala, Pietikainen, and Harwood]{ojala_hog}
 Timo Ojala, Matti Pietikainen, and David Harwood.
@@ -318,6 +316,13 @@ Antonio Torralba, Aude Oliva, Monica~S Castelhano, and John~M Henderson.
 \newblock Contextual guidance of eye movements and attention in real-world
   scenes: the role of global features in object search.
 \newblock \emph{Psychological review}, 113\penalty0 (4):\penalty0 766, 2006.
+
+\bibitem[Van De~Weijer et~al.(2009)Van De~Weijer, Schmid, Verbeek, and
+  Larlus]{11_colours}
+Joost Van De~Weijer, Cordelia Schmid, Jakob Verbeek, and Diane Larlus.
+\newblock Learning color names for real-world applications.
+\newblock \emph{IEEE Transactions on Image Processing}, 18\penalty0
+  (7):\penalty0 1512--1523, 2009.
 
 \bibitem[Vapnik(1963)]{vapnik1963pattern}
 Vladimir Vapnik.

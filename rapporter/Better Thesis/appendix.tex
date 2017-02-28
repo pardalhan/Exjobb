@@ -1,3 +1,7 @@
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\setcounter{figure}{0}
+
 \part*{Appendix}
 %\appendix
 
@@ -9,9 +13,12 @@
 %		\label{fig:crude_acc}}
 %\end{figure}
 %\FloatBarrier
+\section*{Parameter optimization} \label{sec:appendix} 
+
+This section shows the different accuracy for different pair of parameters set in the classifier. Each image shows the accuracy for on set of features evaluated in this master thesis. 
 
 \FloatBarrier
-\begin{figure}[!tbp]
+\begin{figure}[!h]
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth*5/4,height=\textheight*5/4,keepaspectratio]{RGB_accuracy_fine}
 		\caption{Accuracy for RGB feature}
@@ -25,7 +32,7 @@
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[!tbp]
+\begin{figure}[!h]
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth*5/4,height=\textheight*5/4,keepaspectratio]{color_accuracy_fine}
 		\caption{Accuracy for COLOR feature}
@@ -39,7 +46,7 @@
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[!tbp]
+\begin{figure}[!h]
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth*5/4,height=\textheight*5/4,keepaspectratio]{LBP_accuracy_fine}
 		\caption{Accuracy for LBP feature}
@@ -53,7 +60,7 @@
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[!tbp]
+\begin{figure}[!h]
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth*5/4,height=\textheight*5/4,keepaspectratio]{HOG+HSV_accuracy_fine}
 		\caption{Accuracy for HOG+HSV features}
@@ -68,7 +75,7 @@
 
 
 \FloatBarrier
-\begin{figure}[!tbp]
+\begin{figure}[!h]
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth*5/4,height=\textheight*5/4,keepaspectratio]{LBP+RGB_accuracy_fine}
 		\caption{Accuracy for LBP+RGB features}
@@ -82,7 +89,7 @@
 \FloatBarrier
 
 \FloatBarrier
-\begin{figure}[!tbp]
+\begin{figure}[!h]
 	\begin{minipage}[b]{0.4\textwidth}
 		\includegraphics[width=\textwidth*5/4,height=\textheight*5/4,keepaspectratio]{LBP+color_accuracy_fine}
 		\caption{Accuracy for LBP+RGB features}

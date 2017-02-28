@@ -1,8 +1,10 @@
 \chapter{Method}\label{cha:method}
 
-This chapter will describe the pipeline of the algorithm developed during this master thesis. The different parts of the algorithm is viewed with a more implementation focused view.
+This chapter will describe the pipeline of the algorithm developed during this master thesis. The different parts of the algorithm are viewed with a more implementation focused view.
 
- An overview of the algorithm is presented in figure \ref{fig:detection_flow}. The algorithm consist of several submodules which has their own functionality.
+\section{Overview}
+
+An overview of the algorithm is presented in figure \ref{fig:detection_flow}. The algorithm start of with pre-processing an input image. This step makes sure that the image is normalized and that all necessary sub-parts are generated. Then a facial mask is generated in the segmentation step. Now the algorithm have everything in order to detect the skin mark candidates. All the candidates are then post-processed to eliminate false detections. Finally, the remaining skin marks are classified as a permanent or non-permanent skin mark.    
 
 \FloatBarrier
  \begin{figure}[h]
@@ -14,7 +16,7 @@ This chapter will describe the pipeline of the algorithm developed during this m
 
 \section{Data and annotation}
 
-To evaluate the algorithm, a set of 106 images of faces en face were acquired from SCface database \cite{SCface} and FRGC database \cite{FRGC}. These images where collected at University of Zagreb and University of Notre Dame respectively. The purpose of the databases is to provide data to develop and improve face recognition algorithms. The images where taken in under controlled conditions indoor in a studio setting indoor with a high-quality photo camera. Figure \ref{fig:orig_img} shows a example of the images from the databases.
+To evaluate the algorithm, a set of 106 images of faces en face were acquired from SCface database \cite{SCface} and FRGC database \cite{FRGC}. These images where collected at University of Zagreb and University of Notre Dame respectively. The purpose of the databases is to provide data to develop and improve face recognition algorithms. The images where taken in under controlled conditions indoor in a studio setting indoor with a high-quality photo camera. Figure \ref{fig:orig_img} shows an example of the images from the databases.
 
 \FloatBarrier
 \begin{figure}[h]
@@ -24,27 +26,23 @@ To evaluate the algorithm, a set of 106 images of faces en face were acquired fr
 \end{figure}
 \FloatBarrier
 
-Each image was examined the supervisors at NFC who labeled facial skin mark of interest. Each mark was given either the label permanent or non-permanent according to NFC definitions. This resulted in 506 marks where 353 were labeled as permanent and 153 non-permanent.
-
-\section{Programing language}
-
-The algorithm was implemented in Visual Studios 2013 using the OpenCV 3.0.0 \cite{opencv} for most image processing. The landmark detection algorithm comes from a open source library Dlib 18.18 \cite{dlib09}. When it comes to the graphs and bar-diagrams in this master thesis, Matlab \cite{MATLAB:2010} was used since it it easy to produce good looking graphs.   
+Each image was examined the supervisors at NFC who labeled facial skin mark of interest. Each mark was given either the label permanent or non-permanent according to NFC definitions. This resulted in 506 marks where 353 were labeled as permanent and 153 non-permanent. 
 
 \section{Pre-processing}
 
-When the algorithm is given a RGB image, denoted $I$, it first detects the location of the face with the help of the face detector in OpenCV. It surrounds the face with a bounding box. With the bounding box, the facial landmark can be detected by using the algorithm from Dlib. This landmark algorithm was chosen since it reduces the error faster than other state of the art methods \cite{dlib_landmark}. 
+When the algorithm is given a RGB image, denoted $I$, it first detects the location of the face with the help of the face detector in OpenCV. It surrounds the face with a bounding box. With the bounding box, the facial landmarks can be detected by using the algorithm from Dlib. This landmark algorithm was chosen since it converges faster than other state of the art methods \cite{dlib_landmark}. 
 
 \FloatBarrier
 \begin{figure}[!h]
 	\centering
 	\includegraphics[width=\textwidth/2,height=\textheight/2,keepaspectratio]{landmarks}
-	\caption{Image with the 64 landmarks shows as blue dots \label{fig:landmarks}}
+	\caption{Image with the 64 landmarks shown as blue dots \label{fig:landmarks}}
 \end{figure}
 \FloatBarrier
 
-With the landmarks, it is possible to begin the normalization process. First, the image is photometric normalized using LRSR algorithm. This tone mapping operator is fast and had a good implementation available in C++. It performs on pair with the best tone mapping operator of today \cite{badger}. Photometric normalization is vital since the visibility of facial marks can be affected by varying illumination of the image.  
+With the landmarks, it is possible to begin the normalization process, see \cref{sec:normalization}. First, the image is photometric normalized using LRSR algorithm. This tone mapping operator is fast and had a good implementation available in C++. It performs on pair with the best tone mapping operator of today \cite{badger}. Photometric normalization is vital since the visibility of facial marks can be affected by varying illumination of the image.  
 
-Second, the image is rescaled such that the interpupillary distance is 500 pixels. This resizes the images to approximately 2100x2800 and the interpolation method used is cubic interpolation. The landmarks are also used to rotate the image so that the eyes are level. The rotation and resizing of the image is called geometric normalization and is necessary remove the effect of the distance and tilt of the camera. In \cref{fig:rotated_img} one can se the result from the image normalization. 
+Second, the image is rescaled such that the interpupillary distance is 500 pixels. This resizes the images to approximately 2100x2800 and the interpolation method used is cubic interpolation. The landmarks are also used to rotate the image so that the eyes are level. The rotation and resizing of the image is called geometric normalization and is necessary remove the effect of the distance and tilt of the camera. In \cref{fig:rotated_img} one can see the result from the image normalization. 
 
 \FloatBarrier
 \begin{figure}[!h]
@@ -54,7 +52,7 @@ Second, the image is rescaled such that the interpupillary distance is 500 pixel
 \end{figure}
 \FloatBarrier
 
-The last part of the pre-processing step is to segment out areas which can cause false detections such as facial hair, nostrils, pupils etc. This is done by generating a binary mask. To segment out areas with skin, the implementation of GrabCut in OpenCV was used since it has proven to perform as well or better than many other user interactive foreground extraction methods \cite{grabcut}. From the skin mask, the eyes, nostrils, mouth and throat are cut out using elliptical shapes around the landmarks marking these regions. To expand these holes, a morphological erosion algorithm was performed on the image with a 3x3-kernel containing ones. The resulting mask can be observed in \cref{fig:mask_img}. 
+The last part of the pre-processing step is to segment out areas, see \cref{sec:segmentation}, which can cause false detections such as facial hair, nostrils, pupils etc. This is done by generating a binary mask. To segment out areas with skin, the implementation of GrabCut in OpenCV was used since it has proven to perform as well or better than many other user interactive foreground extraction methods \cite{grabcut}. From the skin mask, the eyes, nostrils, mouth and throat are cut out using elliptical shapes around the landmarks marking these regions. To expand these holes, a morphological erosion algorithm was performed on the image with a 3x3-kernel containing ones. The resulting mask can be observed in \cref{fig:mask_img}. 
 
 \FloatBarrier
 \begin{figure}[!h]
@@ -66,9 +64,9 @@ The last part of the pre-processing step is to segment out areas which can cause
 
 \section{Candidate detection}
 
-The pre-processed image, denoted $I_{pre}$, can now be used to search for facial mark candidates. This is done with the help of FRS algorithm since it highlight circular shapes which can be more easily detected. The algorithm makes calculations with different radii, $N$, and the ones used are $N = \{1, 3, 5, 7, 9, 11, 13, 15 \}$. These radii was used since 75\% of facial marks had a area smaller than 600 pixels, see \cref{fig:result_box_size}. The Gaussian kernel $A_n$ size increased from 3x3 to 7x7 depending on the radius $r$. 
+The pre-processed image, denoted $I_{pre}$, can now be used to search for facial skin mark candidates. This is done with the help of FRS algorithm, see \cref{sec:FRS}. It highlights circular shapes which can be more easily detected. The algorithm makes calculations with different radii, $N$, and the ones used are $N = \{1, 3, 5, 7, 9, 11, 13, 15 \}$. These radii were used since 75\% of facial marks had an area smaller than 600 pixels, see \cref{fig:result_box_size}. The Gaussian kernel $A_n$ size increased from 3x3 to 7x7 depending on the radius $r$. 
 
-Below, \cref{fig:frs}, the resulting FRS image is presented. It is hard to see the facial marks since the image contains positive and negative values. By taking the absolute value of the the image, the marks appear more prominent, see \cref{fig:frs_abs}.  
+Below, \cref{fig:frs}, the resulting FRS image is presented. It is hard to see the facial marks since the image contains positive and negative values. By taking the absolute value of the image, the marks appear more prominent, see \cref{fig:frs_abs}.  
 
 \FloatBarrier
 \begin{figure}[h]
@@ -102,23 +100,25 @@ The $h_{FRS}$ is the only parameter which is varied in the candidate detector. I
 
 \section{Post-processing}
 
-After candidate detection, the false detection was eliminated by using three methods. The first method finds candidates which contains a blob. The blob detector in OpenCV was used and it was given the three parameters: inertiaRatio, convexity and circularity. The method also allows to sort out all candidates which contains more than one blob. These candidates was eliminated.
+After candidate detection, the false detection was eliminated by using three methods. The first method finds candidates which contains a blob. The blob detector in OpenCV was used and it was given the three parameters: inertiaRatio, convexity and circularity. The method also allows to sort out all candidates which contains more than one blob. These candidates was eliminated. 
 
 %minInertiaRatio = 0 vs 1
 %minconvexity = 0 vs 1
 %minCircularit = 0 vs 1
 
-The second part removes candidates which contain to many hair pixels. The $h_{hair}$ threshold was set to 0.02 and candidates containing more than 10\% hair pixels was excluded. 
+The second part removes candidates which contain to many hair pixels. The $h_{hair}$ threshold, see \cref{subsec:hair_eli}, was set to 0.02 and candidates containing more than 10\% hair pixels was excluded.
+
+The parameters from the first and second eliminator was chosen such that the number of false detection was reduced while preserving true detections. This was done by examining a few images with different parameter settings. 
 
 The third and last method simply removed all candidates which had a larger area than 1000 pixels. This value was chosen since no annotated marks had a area larger than that, see \cref{fig:result_box_size}. 
 
 \section{Classification}
 
-When a set of facial marks has been acquired through the skin mark detector, they have to be separated into permanent and non-permanent marks. This is done with a non-linear SVM with a RBF-kernel. It was trained with different sets of feature descriptors, \cref{table:feature_sets}. Each set was trained with one part training data and evaluated with one part of test data.
+When a set of facial marks has been acquired through the skin mark detector, they have to be separated into permanent and non-permanent marks. This is done with a non-linear SVM with a RBF-kernel, see \cref{sec:machine_learning}. It was trained with different sets of feature descriptors, \cref{table:feature_sets}. Each set was trained with one part training data and evaluated with one part of test data.
 
-The parameters $C$ and $\gamma$ was optimized by first training the classifier with a crude range of values. The $C$-value and $\gamma$ that gave the best accuracy from the crude grid of values was located. Next a finer grid search was performed in the region of the best pair of $C$ and $\gamma$. From this finer grid, the best parameters for the specific set of features could be picked out. Each grid of parameters contained 20x20 pair of parameters. The low amount of pair was chosen to reduce the computation time when searching for the best parameter pair.  
+The parameters $C$ and $\gamma$ was optimized by first training the classifier with a crude range of values. The $C$-value and $\gamma$ that gave the best accuracy from the crude grid of values was located. Next a finer grid search was performed in the region of the best pair of $C$ and $\gamma$. From this finer grid, the best parameters for the specific set of features could be picked out. Each grid of parameters contained 20x20 pair of parameters. The low number of pairs was chosen to reduce the computation time when searching for the best parameter pair.  
 
-When in comes to the feature descriptors, the LBP-features has no variable parameters which is used in this master thesis. The HOG-features needs a couple of parameters. The window size was set to 48x48 pixels, block size was 8x8, block stride was 4x4, cell size 4x4 and 9 bins. 
+When in comes to the feature descriptors, see \cref{sec:features}, the LBP-features has no variable parameters which is used in this master thesis. The HOG-features needs a couple of parameters. The window size was set to 48x48 pixels, block size was 8x8, block stride was 4x4, cell size 4x4 and 9 bins. 
 
 The different set of features used to train the classifier can be seen in \cref{table:feature_sets}. Here, COLOR means the 11 color names described in \cref{subsection:Color}. 
 
@@ -147,63 +147,9 @@ The different set of features used to train the classifier can be seen in \cref{
 \end{table}
 \FloatBarrier
 
-\section{Evaluation}
+\section{Implementation details}
 
-To be able to compare the results from the different feature descriptors with each others it is crucial to have some kind of evaluation measurement. The most common measurements for binary classifiers are based on the confusion matrix \cite{sokolova2009systematic}. 
-
-\subsection{Confusion matrix}
-
-The confusion matrix displays the result from a classifier consist of four values:
-
-\begin{itemize}
-	\item True positive (TB)\\
-	The samples which were labeled as class one has also been predicted to belong to class one.
-	
-	\item True negative (TN)\\
-	The samples which were labeled as class two has also been predicted to belong to class two.
-	
-	\item False positive (FP)\\
-	Samples that were incorrectly assigned to class one.
-	
-	\item False negative (FN)\\
-	Samples that were incorrectly assigned to class two.
-\end{itemize}
-
-\FloatBarrier
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=\textwidth*3/4,height=\textheight*3/4,keepaspectratio]{confusion_matrix.PNG}
-	\caption{Confusion matrix
-		\label{fig:confusion}}
-\end{figure} 
-\FloatBarrier
-
-From the confusion matrix, a collections of performance measurement can be calculated. This master thesis will use three values: accuracy \cref{eq:accuracy}, precision \cref{eq:precision} and recall \cref{eq:recall}. Accuracy show the overall effectiveness of the classifier. Precision show class agreement of the data labels with the positive labels given by the classifier. Recall show the effectiveness of a classifier to identify positive labels
-
-\begin{equation} \label{eq:accuracy}
-\text{Accuracy} \: [\%] = \frac{\text{TP} + \text{TN}}{\text{TP}+\text{TN}+\text{FP}+\text{FN}}
-\end{equation}
-
-\begin{equation} \label{eq:precision}
-\text{Precision} \: [\%] = \frac{\text{TP}}{\text{TP}+\text{FP}}
-\end{equation}
-\begin{equation} \label{eq:recall}
-\text{Recall} \: [\%] = \frac{\text{TP}}{\text{TP}+\text{FN}}
-\end{equation}
-
-\subsection{Cross validation}
-
-In order to avoid overfitting and get a reliable performance value, one often use a method called cross validation. Cross validation is when the data i split up into $k$-subsets an one of them is used as test data while $k -1$ are used as training data. See \cref{fig:cross_validation} for a schematic overview of a five-fold cross validations procedure.  
-
-
-\FloatBarrier
-\begin{figure}[!h]
-	\centering
-	\includegraphics[width=\textwidth*3/4,height=\textheight*3/4,keepaspectratio]{cross_validation.PNG}
-	\caption{Cross validation
-		\label{fig:cross_validation}}
-\end{figure} 
-\FloatBarrier
+The algorithm was implemented in Visual Studio 2013 using the OpenCV 3.0.0 \cite{opencv} for most image processing. The landmark detection algorithm comes from an open source library Dlib 18.18 \cite{dlib09}. When it comes to the graphs and bar-diagrams in this master thesis, Matlab \cite{MATLAB:2010} was used since it is easy to produce good looking graphs.  
 
 %To evaluate the detector and classifier, the performance values recall, precision and accuracy was used. For the detector, recall and precision was used to compare the performance of the $h_{FRS}$-value and the different elimination methods. For the classifier the accuracy measurement was used. A five-fold cross validation was used throughout the evaluation of the classifier.   
 

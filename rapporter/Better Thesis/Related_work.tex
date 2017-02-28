@@ -2,20 +2,20 @@
 
 This chapter will describe the underlying theory about the methods and algorithms used during in the automatic facial mark algorithm. 
 
-\section{Landmarks}
+\section{Facial landmarks} \label{sec:landmarks} 
 
-To process a facial image, it is useful to know where different parts of the face are located, e.g. mouth and eyes. These parts can be pinpointed with points called landmarks. With these landmarks, it is possible to create a unique mask for each face and produce a grid with different regions in the face. The landmarks are extracted by using an implementation based on Vahid Kazemi et al. \cite{dlib_landmark}. It uses sate of the art algorithms for face alignment where cascade of regression functions are crucial for its success. The estimated shape of the face is updated by regressing the shape parameters based on normalized features from the image. The parameters are updated until they converges.
+To process a facial image, it is useful to know where different parts of the face are located, e.g. mouth and eyes. These parts can be pinpointed with points called landmarks. With these landmarks, it is possible to create a unique mask for each face and produce a grid with different regions in the face. The landmarks are extracted by using an implementation based on Vahid Kazemi et al. \cite{dlib_landmark}. It uses sate of the art algorithms for face alignment where cascade of regression functions is crucial for its success. The estimated shape of the face is updated by regressing the shape parameters based on normalized features from the image. The parameters are updated until they converge.
 
 From this algorithm, 68 landmarks are extracted where the eyes, mouth, nose and chin are marked. From these, a mask generated where the nostrils, eyes, throat and background are cut out. 
 
-\section{Image normalization}
+\section{Image normalization} \label{sec:normalization} 
 
 In order to get a reliable and uniform result in the algorithm, the facial images have to be normalized. There are two kinds of normalization applied on the image, geometric normalization and photometric normalization.  
 
-\subsection{Geometric normalization}
-The geometric normalization consist of rotation of the image such that the line between the pupils is aligned with the bottom of the image. The rotations angle is calculated with the help of the landmarks at the corners of the eyes. An angle is calculated by averaging an angle from the right and left eye. 
+\subsection{Geometric normalization} \label{subsec:geo_norm} 
+The geometric normalization consists of rotation of the image such that the line between the pupils is aligned with the bottom of the image. The rotations angle is calculated with the help of the landmarks at the corners of the eyes. An angle is calculated by averaging an angle from the right and left eye. 
 
-Rotation of a image is done by using a affine transformation with homogeneous coordinates \cite{li2001generalized}. Assume that a point is described as $(x, y)$ in cartesian coordinates. Then, the point can be transformed into homogeneous coordinates such that the point is described as $(x, y, 1)$. Thanks to this coordinate system, rotation can be expressed as a simple matrix multiplication as in \cref{eq:rotation} where $(x', y', 1)$ are the rotated coordinates for a point. $\phi$ is the angle which each point is rotated counter clockwise. 
+Rotation of an image is done by using a affine transformation with homogeneous coordinates \cite{li2001generalized}. Assume that a point is described as $(x, y)$ in Cartesian coordinates. Then, the point can be transformed into homogeneous coordinates such that the point is described as $(x, y, 1)$. Thanks to this coordinate system, rotation can be expressed as a simple matrix multiplication as in \cref{eq:rotation} where $(x', y', 1)$ are the rotated coordinates for a point. $\phi$ is the angle which each point is rotated counter clockwise. 
 
 \begin{equation} \label{eq:rotation}
 \begin{bmatrix}
@@ -36,17 +36,15 @@ y \\[0.3em]
 \end{bmatrix}
 \end{equation}
 
-The geometric normalization also include a resize of the image such that the interpupillary distance is 500 pixels. A resizing factor is calculated by taking the fraction between 500 and the number of pixels between the pupils.  
+The geometric normalization also includes a resize of the image such that the interpupillary distance is 500 pixels. A resizing factor is calculated by taking the fraction between 500 and the number of pixels between the pupils.  
 
-\subsection{Photometric normalization}
+\subsection{Photometric normalization} \label{subsec:photo_norm} 
 
-The photometric normalization is performed by using tone mapping operator based on the work of Nikola Banic et al.\cite{badger}. It uses a Light Random Sprays Retinex (LRSR) which is an improvement of the Random Sprays Retinex (RSR)\cite{RSR}. All tone mapping operator transform pixel intensities depending on its surrounding. The RSR uses a random selection of pixels around the the current pixel which decreases computations costs, sampling noise and dependency. The calculations are done on the intensity image of each RGB colour channels.
-
----------------------------- BESKRIV MER -----------------------------------
+The photometric normalization is performed by using tone mapping operator based on the work of Nikola Banic et al.\cite{badger}. It uses a Light Random Sprays Retinex (LRSR) which is an improvement of the Random Sprays Retinex (RSR)\cite{RSR}. All tone mapping operator transform pixel intensities depending on its surrounding. The RSR uses a random selection of pixels around the current pixel which decreases computations costs, sampling noise and dependency. The calculations are done on the intensity image of each RGB colour channels. An example of the output from the image normalization can be seen in \cref{fig:rotated_img}.
 
 \section{Face detection}
 
-An important component in the algorithm is the bounding box of the face in each image. It is found by using an OpenCV \cite{opencv} implementation of object detection by Paul Viola et al. \cite{face_detection}. This face detection algorithm was chosen since it has equivalent positive result as other methods \cite{face_detecion_comp,face_detecion_comp_2}. In addition, it is much faster the the other detector. The algorithm from Paul Viola et al. take advantage of three different parts. 
+An important component in the algorithm is the bounding box of the face in each image. It is found by using an OpenCV \cite{opencv} implementation of object detection by Paul Viola et al. \cite{face_detection}. This face detection algorithm was chosen since it has equivalent positive result as other methods \cite{face_detecion_comp,face_detecion_comp_2}. In addition, it is much faster the other detector. The algorithm from Paul Viola et al. take advantage of three different parts. 
 
 The first is part is a new image representation which allows Haar features from each image to be calculated rapidly. The speed is achieved by using integral images instead of the original image. 
 
@@ -54,19 +52,19 @@ The second part is the extraction of the most important features through AdaBoos
 
 The third part is a cascade decision which reduces the computations costs by rejecting potential bounding boxes for the face. A simple classifier is used to determine if the bounding boxes are promising candidates before a more complex classifier is engaged. This is repeated until all classifiers has been passed or if one of the returns a negative result. All bounding boxes which has returned a negative result is rejected immediately.  
 
-\section{Segmentation}
+\section{Segmentation} \label{sec:segmentation} 
 
-When searching for facial mark, hair lines and hair can cause false detection. Therefore the image has to be segmented so that only skin area is regarded during the search of facial marks. Since interactive segmentation methods are more and more popular \cite{graphcut}, it should be beneficial to chose a interactive segmentation method. Carsten Rother et al.\cite{grabcut} compared several popular interactive segmentation methods and also presented their own method, GrabCut. They concluded that GrabCut performs as well as GraphCut \cite{graphcut} with fewer user interactions.
+When searching for facial mark, hair lines and hair can cause false detection. Therefore, the image has to be segmented so that only skin area is regarded during the search of facial marks. Since interactive segmentation methods are more and more popular \cite{graphcut}, it should be beneficial to choose an interactive segmentation method. Carsten Rother et al.\cite{grabcut} compared several popular interactive segmentation methods and also presented their own method, GrabCut. They concluded that GrabCut performs as well as GraphCut \cite{graphcut} with fewer user interactions.
 
-Thus, the segmentation method used for the algorithm is GrabCut which uses Gaussian Mixture Model (GMM) for a colour image. GrabCut needs a GMM for a know foreground and one for a known background. The known foreground used e.g. is the cheeks and forehead, is extracted with the help of the landmarks. 
+Thus, the segmentation method used for the algorithm is GrabCut which uses Gaussian Mixture Model (GMM) for a color image. GrabCut needs a GMM for a known foreground and one for a known background. The known foreground used e.g. is the cheeks and forehead, is extracted with the help of the landmarks. 
 
-After creating GMM:s, a energy function is created so that its minimum correspond to a good segmentation which depends on the given foreground and background. The function is minimized iteratively until a converged segmentation is produced.
+After creating GMM:s, an energy function is created so that its minimum correspond to a good segmentation which depends on the given foreground and background. The function is minimized iteratively until a converged segmentation is produced.
 
 The segmentation mask is used to improve the mask created from the landmarks. Now using the improved mask, a well segmented image can be searched for facial marks. 
 
-\section{Fast Radial Symmetry}
+\section{Fast Radial Symmetry} \label{sec:FRS} 
 
-There are many ways to extract interesting points or marks. One way is to look at the radial symmetry in the image. This method has been used by several researcher \cite{twins,FRS,automatic_detector_2015,yeast}. It seems to be a reliable method since the point is to detect small circular shapes, which is what Jan Schier et al.\cite{yeast} did whey they tried to count yeast colonies. This is why the actual mark detector uses an algorithm called Fast Radial Symmetry (FRS) and it was created by Gareth Loy et al.\cite{FRS}. 
+There are many ways to extract interesting points or marks. One way is to look at the radial symmetry in the image. This method has been used by several researcher \cite{twins,FRS,automatic_detector_2015,yeast}. It seems to be a reliable method since the point is to detect small circular shapes, which is what Jan Schier et al.\cite{yeast} did when they tried to count yeast colonies. This is why the actual mark detector uses an algorithm called Fast Radial Symmetry (FRS) and it was created by Gareth Loy et al.\cite{FRS}. 
 
 For each point, $p$, in an image, the contribution of radial symmetry at radius $r$ is calculated by producing an orientation projection image $O_n$ and a magnitude projection image $M_n$. $n$ is a specific radius. These images needs to know the so called positively-affecting pixel, $p_{+}(p)$, and negatively-affecting pixel, $p_{-}(p)$. To find theses affecting pixels the gradient, $g$, of the image is needed and it is calculated using a 3x3-Sobel kernel. Since the gradient computations are discrete, it is necessary to average the image with a 3x3 Gaussian kernel to remove sharp edges. 
 
@@ -110,29 +108,27 @@ $A_n$ is a Gaussian kernel with different size depending on $n$, $\alpha$ is rad
 
 The final radial symmetry image $S_n$ is calculated 
 
-\begin{equation} \label{eq:M-}
+\begin{equation} \label{eq:S_for_n}
 S_{n} = F_n * A_n
 \end{equation}
 
-This was a calculation for radius $n$ and it desirables to use multiple radii to detect point larger than $n$. It is not necessary to use a continuous spectrum of radii according to Gareth Loy et al. The average of radial symmetry images, $S$, are then calculated as in \cref{eq:M-}. The image S is highlighting radial symmetrical regions and suppressing regions that are asymmetrical.  
+This was a calculation for radius $n$ and it desirables to use multiple radii to detect point larger than $n$. It is not necessary to use a continuous spectrum of radii according to Gareth Loy et al. The average of radial symmetry images, $S$, are then calculated as in \cref{eq:S_total}. The image S is highlighting radial symmetrical regions and suppressing regions that are asymmetrical.  
 
-\begin{equation} \label{eq:M-}
+\begin{equation} \label{eq:S_total}
 S =\frac{1}{N} \sum_{n=1}^{N} S_n
 \end{equation}
 
 
 
-\section{Candidate elimination}
+\section{Candidate elimination} \label{sec:elimination} 
 
 Since many facial mark candidates may be false positives, they have to be discovered and excluded. Vorder Bruegge et al. \cite{automatic_detector_2015} used three elimination methods which seemed intuitive. Size, shape and presence of hair should be good indicators if the candidate is a false detection or not. Each detected candidate is given a 30x30 area which is processed through three eliminators. 
 
-\subsection{Blob selection}
+\subsection{Blob selection} \label{subsec:blob_eli} 
 
-Facial marks are often blob-shaped which is why the first eliminator uses a simple blob detector from OpenCV. It creates a thresholded images with connective pixels and does this with different threshold values. If the union of all the different images does not contain a blob-shaped object, the area is excluded from the candidates.  
+Facial marks are often blob-shaped which is why the first eliminator uses a simple blob detector from OpenCV. It creates a thresholded images with connective pixels and does this with different threshold values. Each image created with a fixed threshold is put together into image which is the union of all the thresholded images. If the union does not contain a blob-shaped object, the candidate is eliminated. A blob-shaped object is defined by its circularity, inertia and convexity.  
 
-%-------------------- BESKRIV MER -------------------------------------
-
-\subsection{Hair deselection}
+\subsection{Hair elimination} \label{subsec:hair_eli} 
 
 The second eliminator uses a hair removal algorithm by Tim Lee et al. \cite{dullrazor}. The algorithm smooth out hair pixels with closing operations using the three different structuring elements. The suggested structuring elements by Tim Lee et al. is larger than the one used in this implementation since their hair-structures where wider. Thus, the smaller structuring elements $T_{0}$, $T_{45}$ and $T_{90}$ were used. \\
 
@@ -149,19 +145,17 @@ The second eliminator uses a hair removal algorithm by Tim Lee et al. \cite{dull
 	\end{array} \right]$ \quad $T_{90} = (T_{0})^{T} $ \\
 \end{center}
 
-The closed image is generated by applying each structure element on each colour channel as \eqref{eq:hair}, where $G$ is the closed image, $M$ is the image of a mark, $T_x = [T_{0}, T_{45}, T_{90} ]$ and $C$ the RGB-channels. This means that $M_c$ is a gray image of a mark where the structuring elements detect thin and small edges.    
+The closed image is generated by applying each structure element on each color channel as \eqref{eq:hair}, where $G$ is the closed image, $M$ is the image of a mark, $T_x = [T_{0}, T_{45}, T_{90} ]$ and $C$ the RGB-channels. This means that $M_c$ is a gray image of a mark where the structuring elements detect thin and small edges.    
 
 \begin{equation} \label{eq:hair}
 G_c = \abs{M_c - \max_{x}(M_c * T_x)} 
 \end{equation}
 
-$\max\limits_x(M_c * T_x)$ means that the largest pixel value from the structuring elements are pick for that colour channel. In the end, the union of $G_c$ is calculated and to get a hair mask, the union is binary thresholded with $h_{hair}$. If a region contains more than a certain amount of hair pixels, it will be excluded.
+$\max\limits_x(M_c * T_x)$ means that the largest pixel value from the structuring elements are pick for that color channel. In the end, the union of $G_c$ is calculated and to get a hair mask, the union is binary thresholded with $h_{hair}$. If a region contains more than a certain amount of hair pixels, it will be excluded.
 
-\subsection{Size deselection}
+\subsection{Size elimination} \label{subsec:size_eli} 
 
 The third eliminator removes candidates depending on their size. If the candidate has an area smaller than 20 pixels or an area larger than 1000 pixels, it is eliminated. The thresholds were chosen because all annotated marks is within this interval, see \cref{fig:result_box_size}.
-
-%---------------------------- BESKRIV OM ------------------------------
 
 \FloatBarrier
 \begin{figure}[!h]
@@ -171,7 +165,7 @@ The third eliminator removes candidates depending on their size. If the candidat
 \end{figure}
 \FloatBarrier
 
-\section{Machine learning}
+\section{Machine learning} \label{sec:machine_learning} 
 
 Machine learning is a very popular way of determining the future or sorting object into groups, e.g. whether forecast and spam filtering. The field of machine learning is growing quickly and new and more accurate methods are developed constantly. The principle is to use data to predict the outcome. The data can be somewhat incomprehensible when the dimension is getting large and abstract. This is when computers can ease the prediction by analyzing and finding patterns in the data. 
 
@@ -202,7 +196,7 @@ This master thesis will only focus on supervised learning and classification sin
 
 \subsection{Supervised learning}
 
-Supervised learning is when one try to find a function $g$ that maps $X \to \Omega$. $X$ is a vector with $N$ samples with $M$ descriptive features \cref{eq:supervised}, see \cref{section:features}. A binary classifier usually has $\Omega = \{-1,1\}$ which it is in this case. The function $g$ takes a set of parameters $\omega = \{\omega_1 \dots \omega_K\} $ to speed up the classification of a new sample. To train the classifier, it needs training data which is a set of samples, $X$, paired with a label, $Y$. The labels has the same values as $\Omega$. 
+Supervised learning is when one try to find a function $g$ that maps $X \to \Omega$. $X$ is a vector with $N$ samples with $M$ descriptive features \cref{eq:supervised}, see \cref{sec:features}. A binary classifier usually has $\Omega = \{-1,1\}$ which it is in this case. The function $g$ takes a set of parameters $\omega = \{\omega_1 \dots \omega_K\} $ to speed up the classification of a new sample. To train the classifier, it needs training data which is a set of samples, $X$, paired with a label, $Y$. The labels has the same values as $\Omega$. 
 
 \begin{equation} \label{eq:supervised}
 X = \{x_1 \dots x_N \} \quad \text{where} \quad x_i = \{f_{i1} \dots f_{iM} \}
@@ -261,7 +255,7 @@ y_i(\omega^T \bullet x_i + b) \geq 1
 
 \subsubsection{Soft margin SVM}
 
-All classification problems is not always linearly separable. In this case, \cref{eq:linear_SVM_in_margin} does not hold true for all samples. This is solved by introducing a penalty $\zeta$ \cite{cortes1995support} for each sample on the wrong side of the hyperplane. This type of SVM is called a soft margin SVM. In this type, one try to solve \cref{eq:soft_SVM} where $C$ is a parameters set before optimization. 
+All classification problems are not always linearly separable. In this case, \cref{eq:linear_SVM_in_margin} does not hold true for all samples. This is solved by introducing a penalty $\zeta$ \cite{cortes1995support} for each sample on the wrong side of the hyperplane. This type of SVM is called a soft margin SVM. In this type, one try to solve \cref{eq:soft_SVM} where $C$ is a parameters set before optimization. 
 
 \begin{equation} \label{eq:soft_SVM}
 \underset{\omega,b,\zeta}{\mathrm{\argmin}} 
@@ -276,7 +270,7 @@ under the condition \cref{eq:soft_SVM_2}
 y_i(\omega^T \bullet x_i + b) \geq 1 - \zeta \quad \zeta \geq 0
 \end{equation} 
 
-Large values on $C$ results in a greater penalization for wrongly classified samples. This parameter makes a trade off between having a large margin and allowing samples to be on the wrong side of the hyperplane.    
+Large values on $C$ results in a greater penalization for wrongly classified samples. This parameter makes a tradeoff between having a large margin and allowing samples to be on the wrong side of the hyperplane.    
 
 \FloatBarrier
 \begin{figure}[!h]
@@ -297,8 +291,7 @@ Things are not always as simple as the case in \cref{fig:easy_class,fig:soft_cla
 	\item Sigmoid: $k(x_i,x_j) =\kappa x_i \bullet  x_j + c$
 \end{itemize}
 
-where $\gamma$, $d$, $\kappa$ and $c$ are parameters set by the user. This master thesis will only use the RBF kernel since it is easy to tune and the polynomial kernel has more hyperparameters which influence the complexity of the model \cite{svm_guide}. 
-the RBF kernel The $\gamma$ parameter defines how far the influence of a sample reaches, a small value meaning 'far' and vice versa. Read more about kernels in \cite{vert2004primer} 
+where $\gamma$, $d$, $\kappa$ and $c$ are parameters set by the user. This master thesis will only use the RBF kernel since it is easy to tune and the polynomial kernel has more hyperparameters which influence the complexity of the model \cite{svm_guide}. The $\gamma$ parameter defines how far the influence of a sample reaches, a small value meaning 'far' and vice versa. Read more about kernels in \cite{vert2004primer} 
 
 \FloatBarrier
 \begin{figure}[!h]
@@ -322,7 +315,7 @@ A large number of parameters makes it possible to produce overly complicated bou
 \end{figure} 
 \FloatBarrier
 
-\section{Features descriptors} \label{section:features}
+\section{Features descriptors} \label{sec:features}
 
 A feature descriptor extract information about patterns in an image, in this case a facial mark. This information can consist of colors in the image, edges for distinguishing light and dark areas, the texture of a surface and the direction of movement. The feature descriptors HOG, \cref{subsection:HOG}, and LBP, \cref{subsection:LBP} are common descriptors when working with detection of objects \cite{pedestrian_detection,vehicle_hog,facedetection_LBP} which is why these feature are used. Since facial marks mostly differ in color rather than shape \cite{torso_RPPVSM}, it would be wise to use features which are based on the color of the skin marks. RGB and HSV, \cref{subsection:RGB_HSV}, are primitive color-mapping but has been used a feature descriptors before \cite{torso_RPPVSM}. It would be even better to use more colors than just RGB and HSV color space. Color names, \cref{subsection:Color}, are linguistic color labels given to a single pixel \cite{11_colours}. By using even more colors to describe the facial marks it should result in better classification results. 
 
@@ -358,7 +351,7 @@ Dalal and Triggs also showed that the performance of the descriptors increased e
 
 \subsection{Local Binary Patterns} \label{subsection:LBP}
 
-Local Binary Patterns (LBP) was developed by Timo Ojala et al. \cite{ojala_hog} by improving the work of Li Wang et al. \cite{pre_hog}. Li Wang et al. introduced a texture analysis method so-called texture unit. From a 3x3 pixel area, the pixels surrounding the central pixel was given either the value 0, 1 or 2. Each 3x3 pixel area would thus be given 1 out of 6561 possible texture unit. The distribution of texture units over a image was called a texture spectrum.  
+Local Binary Patterns (LBP) was developed by Timo Ojala et al. \cite{ojala_hog} by improving the work of Li Wang et al. \cite{pre_hog}. Li Wang et al. introduced a texture analysis method so-called texture unit. From a 3x3 pixel area, the pixels surrounding the central pixel was given either the value 0, 1 or 2. Each 3x3 pixel area would thus be given 1 out of 6561 possible texture unit. The distribution of texture units over an image was called a texture spectrum.  
 
 Timo Ojala et al. reduced the number of possible texture unit by making a binary version of the texture unit. Each surrounding pixel, $p_s$ can would instead receive 0 or 1 depending on the value of the central pixel, $p_c$. The value is decided by \cref{eq:f_LBP}. By using a binary version of the texture unit, the number of possible texture unit is instead 256. 
 
@@ -399,23 +392,23 @@ RBG is the intuitive feature of choice if one want information about the color o
 p_{\sigma} = \sqrt{\frac{1}{N}\sum_{i = 1}^{N}(p_i - \bar{p})^2}
 \end{equation}
 
-Similarly, the mean and standard deviation are extracted from the Hue, Saturation, and Value (HSV) color space \cite{hsv_color}. HSV color space is a common cylindrical-coordinate representations of the RGB color space. It was developed to be more intuitive color representation than the RGB color space.  
+Similarly, the mean and standard deviation are extracted from the Hue, Saturation, and Value (HSV) color space \cite{hsv_color}. HSV color space is a common cylindrical-coordinate representation of the RGB color space. It was developed to be more intuitive color representation than the RGB color space.  
 
 \subsection{Color names} \label{subsection:Color}
 
-We use color names to describe our surrounding everyday without thinking about it. It becomes however a challenge for computers to detect certain object with a specific color attribute, e.g. a red car. In computer vision, color names are used in search engines to retrieve demanded object with a certain color. To use color names in computer vision, the RGB color space has to be mapped to different colors. This has mainly been done by letting test subject label color chips \cite{griffin2006optimality}. The colors are to be chosen from a set of colors, usually black, blue, brown, grey, green, orange, pink, purpale, red, white and yellow. These colors are the basic colors of the English language. The color mapping is derived from the labeled color chips. 
+We use color names to describe our surrounding every day without thinking about it. It becomes however a challenge for computers to detect certain object with a specific color attribute, e.g. a red car. In computer vision, color names are used in search engines to retrieve demanded object with a certain color. To use color names in computer vision, the RGB color space has to be mapped to different colors. This has mainly been done by letting test subject label color chips \cite{griffin2006optimality}. The colors are to be chosen from a set of colors, usually black, blue, brown, gray, green, orange, pink, purple, red, white and yellow. These colors are the basic colors of the English language. The color mapping is derived from the labeled color chips. 
 
-The problem with the color chip method is that the color chips are under ideal lighting on a color neutral background. This is not the case with real-world images which is why Joost van de Weijer et al. \cite{11_colours} have investigate the use of color names in images from real-world applications. They used a large data set of labeled real-world images and used probabilistic latent semantic analysis (PLSA) \cite{hofmann1999probabilistic} to model the data. This model tries to find the "meaning" of the words i a document. This model have also been used in computer vision where images take the role of documents and pixels the role of word \cite{barnard2003matching}. The "meaning" of the pixels are in this case the color. Joost van de Weijer et al. showed that color names learned from real-world image outperform color chips which is why this trained color mapping is used in this master thesis. 
+The problem with the color chip method is that the color chips are under ideal lighting on a color neutral background. This is not the case with real-world images which is why Joost van de Weijer et al. \cite{11_colours} have investigate the use of color names in images from real-world applications. They used a large data set of labeled real-world images and used probabilistic latent semantic analysis (PLSA) \cite{hofmann1999probabilistic} to model the data. This model tries to find the "meaning" of the words i a document. The model has also been used in computer vision where images take the role of documents and pixels the role of word \cite{barnard2003matching}. The "meaning" of the pixels are in this case the color. Joost van de Weijer et al. showed that color names learned from real-world image outperform color chips which is why this trained color mapping is used in this master thesis. 
 
 \FloatBarrier
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{faces}
-	\caption{Different color channels: (a) RGB, (b), (c), (d), (e), (f), (g), (h), (i), (j), (k), (l)  \label{fig:per_vs_non}}
+	\caption{Different color channels: (a) RGB, (b) black, (c) blue, (d) brown, (e) gray, (f) green, (g) orange, (h) pink, (i) purple, (j) red, (k) white, (l) yellow  \label{fig:color_channels}}
 \end{figure}
 \FloatBarrier
 
-Like the RGB and HSV color space, the mean and standard deviation is extracted from each of the 11 color names: black, blue, brown, grey, green, orange, pink, purpale, red, white and yellow. 
+Like the RGB and HSV color space, the mean and standard deviation is extracted from each of the 11 color names: black, blue, brown, gray, green, orange, pink, purple, red, white and yellow. 
 
 
 
