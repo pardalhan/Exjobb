@@ -4,11 +4,11 @@ This section will discuss the results from the algorithm and the methods used to
 
 \section{Result}
 
-As seen, the detector has problem with false detections which is a huge problem. The precision is not very good, not even over 10\%, due to the many false detections. The precision does not increase faster than the decline of the recall with an increasing $h_{frs}$-value. This indicates that there are margins for improvement when it comes to the candidate detector.
+As seen, the detector has a huge problem with false detections. The precision is low, not even over 10\%, due to the many false detections. The precision does not increase faster than the decline of the recall with an increasing $h_{frs}$-value. This indicates that there are margins for improvement when it comes to the candidate detector.
 
 Vorder Bruegge et al. \cite{automatic_detector_2015} got a precision of 71\% which is a lot better than the result from this master thesis. Taeg Sang Cho et al.\cite{reliable_mole} got a recall value of 84.7\% which is also better than the results from this master thesis. One thing that should be noticed is that Vorder Bruegge et al. has been focusing to finding RPPVSM which is a wide definition of skin marks. This master thesis has tried to find the skin marks which has been of interest to the forensics at NFC. This could be one of the reasons to the large amount of false detections. The detector is probably detecting RPPVSM which has not been deemed of interest.     
 
-When looking at the elimination method used, they do improve the precision and recall values but maybe not to the extant which one was hoping for. There can be a great improvement in trying to find a optimal value for the $h_{hair}$ threshold since this has not be investigated. Maybe there are better methods to bee used to eliminate the false detections than the ones used in this master thesis.  
+When looking at the elimination method used, they do improve the precision and recall values but less than expected. There can be a great improvement in trying to find a optimal value for the $h_{hair}$ threshold since this has not be investigated. Maybe there are better methods to bee used to eliminate the false detections than the ones used in this master thesis.  
 
 The classifier offers some indication to the importance of colors when it comes to separating permanent and non-permanent marks. The structural features alone perform all right but they do not improve the accuracy when they are combined with color based features. Simply put, they do not show complementary properties. 
 

@@ -13,9 +13,9 @@ From this algorithm, 68 landmarks are extracted where the eyes, mouth, nose and 
 In order to get a reliable and uniform result in the algorithm, the facial images have to be normalized. There are two kinds of normalization applied on the image, geometric normalization and photometric normalization.  
 
 \subsection{Geometric normalization} \label{subsec:geo_norm} 
-The geometric normalization consists of rotation of the image such that the line between the pupils is aligned with the bottom of the image. The rotations angle is calculated with the help of the landmarks at the corners of the eyes. An angle is calculated by averaging an angle from the right and left eye. 
+The geometric normalization consists of a rotation of the image such that the line between the pupils is aligned with the bottom of the image. The rotation angle is calculated with the help of the landmarks at the corners of the eyes. Each eye contributes with a rotation angle and the average of them is used to rotate the image.
 
-Rotation of an image is done by using a affine transformation with homogeneous coordinates \cite{li2001generalized}. Assume that a point is described as $(x, y)$ in Cartesian coordinates. Then, the point can be transformed into homogeneous coordinates such that the point is described as $(x, y, 1)$. Thanks to this coordinate system, rotation can be expressed as a simple matrix multiplication as in \cref{eq:rotation} where $(x', y', 1)$ are the rotated coordinates for a point. $\phi$ is the angle which each point is rotated counter clockwise. 
+Rotation of an image is done by using an affine transformation with homogeneous coordinates \cite{li2001generalized}. Assume that a point is described as $(x, y)$ in Cartesian coordinates. Then, the point can be transformed into homogeneous coordinates such that the point is described as $(x, y, 1)$. Thanks to this coordinate system, rotation can be expressed as a simple matrix multiplication as in \cref{eq:rotation} where $(x', y', 1)$ are the rotated coordinates for a point. Each point is rotated counter clockwise with $\phi$ degrees.
 
 \begin{equation} \label{eq:rotation}
 \begin{bmatrix}
@@ -36,21 +36,21 @@ y \\[0.3em]
 \end{bmatrix}
 \end{equation}
 
-The geometric normalization also includes a resize of the image such that the interpupillary distance is 500 pixels. A resizing factor is calculated by taking the fraction between 500 and the number of pixels between the pupils.  
+The geometric normalization also includes a rescaling of the image such that the interpupillary distance is 500 pixels. A resizing factor is calculated by taking the fraction between 500 and the number of pixels between the pupils.  
 
 \subsection{Photometric normalization} \label{subsec:photo_norm} 
 
-The photometric normalization is performed by using tone mapping operator based on the work of Nikola Banic et al.\cite{badger}. It uses a Light Random Sprays Retinex (LRSR) which is an improvement of the Random Sprays Retinex (RSR)\cite{RSR}. All tone mapping operator transform pixel intensities depending on its surrounding. The RSR uses a random selection of pixels around the current pixel which decreases computations costs, sampling noise and dependency. The calculations are done on the intensity image of each RGB colour channels. An example of the output from the image normalization can be seen in \cref{fig:rotated_img}.
+The photometric normalization is performed by using a tone mapping operator based on the work of Nikola Banic et al.\cite{badger}. It uses a Light Random Sprays Retinex (LRSR) which is an improvement of the Random Sprays Retinex (RSR)\cite{RSR}. All tone mapping operators transform pixel intensities based on its surrounding. The RSR uses a random selection of pixels around the current pixel which decreases computation costs, sampling noise and dependency. The calculations are done on the intensity image of each RGB colour channels. An example of the output from the image normalization can be seen in \cref{fig:rotated_img}.
 
 \section{Face detection}
 
-An important component in the algorithm is the bounding box of the face in each image. It is found by using an OpenCV \cite{opencv} implementation of object detection by Paul Viola et al. \cite{face_detection}. This face detection algorithm was chosen since it has equivalent positive result as other methods \cite{face_detecion_comp,face_detecion_comp_2}. In addition, it is much faster the other detector. The algorithm from Paul Viola et al. take advantage of three different parts. 
+An important component in the algorithm is the bounding box of the face in each image. It is found by using an OpenCV \cite{opencv} implementation of object detection by Paul Viola et al. \cite{face_detection}. This face detection algorithm was chosen since it shows as positive result as other methods \cite{face_detecion_comp,face_detecion_comp_2}. In addition, it is much faster the other detector. The algorithm from Paul Viola et al. take advantage of three different parts. 
 
 The first is part is a new image representation which allows Haar features from each image to be calculated rapidly. The speed is achieved by using integral images instead of the original image. 
 
-The second part is the extraction of the most important features through AdaBoosting. It creates a strong classifier by combining the strength of weaker classifiers. A weak classifier is the best threshold for a feature which separates the faces from the non-faces.
+The second part is the extraction of the most important features through AdaBoosting. It creates a strong classifier by combining the strength of weaker classifiers. A weak classifier is the best threshold for a feature which separates faces and non-faces.
 
-The third part is a cascade decision which reduces the computations costs by rejecting potential bounding boxes for the face. A simple classifier is used to determine if the bounding boxes are promising candidates before a more complex classifier is engaged. This is repeated until all classifiers has been passed or if one of the returns a negative result. All bounding boxes which has returned a negative result is rejected immediately.  
+The third part is a cascade decision which reduces the computation costs by rejecting potential bounding boxes for the face. A simple classifier is used to determine if the bounding boxes are promising candidates before a more complex classifier is engaged. This is repeated until all classifiers have been passed or one of the returns a negative result. All bounding boxes which have returned a negative result is rejected immediately.  
 
 \section{Segmentation} \label{sec:segmentation} 
 
@@ -106,7 +106,7 @@ O_n(p)    & \quad \text{if } O_n(p) < k_n\\
 
 $A_n$ is a Gaussian kernel with different size depending on $n$, $\alpha$ is radial strictness parameter and $k_n$ is a scaling factor. $\alpha$ is set to $2$ and $k_n$ to $9.9$ since Gareth Loy et al. deemed suitable for most applications.
 
-The final radial symmetry image $S_n$ is calculated 
+The final radial symmetry image $S_n$ is given by 
 
 \begin{equation} \label{eq:S_for_n}
 S_{n} = F_n * A_n
@@ -230,10 +230,10 @@ x_s = z_p + \epsilon \hat{\omega} \\
 
 \begin{equation} \label{eq:linear_SVM_simple}
 \begin{split}
-& \omega^T \bullet (z_p + \epsilon \hat{\omega}) + b = 1  \iff \\
-& \epsilon \omega^T \bullet \hat{\omega} + \omega^T \bullet z_p + b = 1 \iff \\
-& \backslash \omega^T \bullet \hat{\omega} = \norm{\omega} \:\:  \text{and} \:\: \omega^T \bullet z_p + b = 0  \backslash \\
-& \epsilon \norm{\omega} = 1
+& \omega^T \bullet (z_p + \epsilon \hat{\omega}) + b = 1  \iff 
+ \epsilon \omega^T \bullet \hat{\omega} + \omega^T \bullet z_p + b = 1 \iff 
+%& \backslash \omega^T \bullet \hat{\omega} = \norm{\omega} \:\:  \text{and} \:\: \omega^T \bullet z_p + b = 0  \backslash \\
+\epsilon \norm{\omega} = 1
 \end{split}
 \end{equation} 
 
@@ -382,7 +382,7 @@ The LBP for each pixel is binned in the corresponding decimal value. This result
 
 \subsection{RGB and HSV} \label{subsection:RGB_HSV}
 
-RBG is the intuitive feature of choice if one want information about the color of the object. It is possible to extract much information from the color channels but this master thesis will only use the mean, $\bar{p}$ \cref{eq:mean_RGB}, and the standard deviation, $p_{\sigma}$ \cref{eq:std_RGB}, from each color channel. These values are put into a vector and are used to train the classifier.  
+RBG is the intuitive choice to extract features if one want information about the color of the object. It is possible to extract much information from the color channels but this master thesis will only use the mean, $\bar{p}$ \cref{eq:mean_RGB}, and the standard deviation, $p_{\sigma}$ \cref{eq:std_RGB}, from each color channel. These values are put into a vector and are used to train the classifier.  
 
 \begin{equation} \label{eq:mean_RGB}
 \bar{p} = \frac{1}{N}\sum_{i = 1}^{N} p_i

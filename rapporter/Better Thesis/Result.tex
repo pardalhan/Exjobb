@@ -2,14 +2,14 @@
 
 This Chapter first describes the experiment to evaluate the algorithm and then presents the results.
 
-\section{Evaluation measures}
+\section{Evaluation measures} \label{section:evaluation_measures}
 
-To be able to compare the results from the different feature descriptors with each other, it is crucial to have some kind of evaluation measurement. The most common measurements for binary classifiers are based on the confusion matrix \cite{sokolova2009systematic}. 
+In order to be able to compare the results from the different feature descriptors with each other, it is crucial to have some kind of evaluation measurement. The most common measurements for binary classifiers are based on the confusion matrix \cite{sokolova2009systematic}. 
 
 The confusion matrix displays the result from a classifier consist of four values:
 
 \begin{itemize}
-	\item True positive (TB)\\
+	\item True positive (TP)\\
 	The samples which were labeled as class one has also been predicted to belong to class one.
 	
 	\item True negative (TN)\\
@@ -118,8 +118,7 @@ It is obvious that the different eliminators are essential for the algorithm. Th
 
 In \cref{fig:all_detections} below one can observe all the candidates found by the detector before post-processing. The candidates are shown as blue bounding boxes and the annotated facial marks for this image is show as red bounding boxes. There are many false detections in the hair and the beard which is some of the problems identified in this master thesis. 
 
-After the post-processing, \cref{fig:all_hits}, almost all the false detection has been eliminated but some of them remain. The remaining false detection are located in the beard and hair. Some bounding boxes are around skin marks which has not been deemed of interest by the forensics at NFC. 
-
+ 
 \FloatBarrier
 \begin{figure}[h]
 	\centering
@@ -136,9 +135,22 @@ After the post-processing, \cref{fig:all_hits}, almost all the false detection h
 \end{figure}
 \FloatBarrier
 
+After the post-processing, \cref{fig:all_hits}, almost all the false detection has been eliminated but some of them remain. The remaining false detection are located in the beard and hair. Some bounding boxes are around skin marks which has not been deemed of interest by the forensics at NFC. Looking at \cref{fig:no_label_vs_false} one can see examples of false detections.\cref{fig:no_label_vs_false}(a) shows some of skin marks which maybe should have been annotated as either permanent or non-permanent marks. \cref{fig:no_label_vs_false}(b) shows on the other hand some detections which definitely should have been eliminated.    
+
+\FloatBarrier
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{no_label_vs_false}
+	\caption{Examples of falsely detected skin marks: (a) potential skin marks, (b) non-potential skin marks
+		 \label{fig:no_label_vs_false}}
+\end{figure}
+\FloatBarrier
+
 \subsection{Classifier}
 
-Here the results from the different feature sets for the classifier is presented. When looking at the different features separately, \cref{table:single_feature}, one can see that the HOG and LBP feature perform bad compared to the color based features. The RGB and the color names features has approximately the same accuracy which means they perform the best.  
+Here, the results from the classifier is presented when using different sets of features. The tables in this section are constructed such that the left column contain the different evaluation measurements described in \cref{section:evaluation_measures}. The upper row contain the different sets of features displayed in \cref{table:feature_sets}. The results in the tables shows how well the classifier performs with different sets of features. The most interesting evaluation measurement is the accuracy value. 
+
+\cref{table:single_feature} shows how the classifier performs if only one set of features are used to train the classifier. One can see that the color based features, RGB, HSV and color names, performs equally well with a accuracy around 87\%. The structure based features, HOG and LBP, on the other hand have a accuracy below 80\%. The color based features have approximately the same ratio between false positives and false negatives while HOG almost only have false negatives. This means that the classifier rarely labels any skin marks as non-permanent when using HOG.  
 
 \FloatBarrier
 \begin{table}[h!]
@@ -158,7 +170,9 @@ Here the results from the different feature sets for the classifier is presented
 \end{table}
 \FloatBarrier
 
-Now, if the color based features are added to the HOG and LBP features respectably, \cref{table:hog_features,table:lbp_features} it is clear that the color based features improve the accuracy for the structure based features. However, it is clear that the color names gives the best result to the classifier. It seams that the color names features is not effected as much by HOG and LBP features as the RGB features are. 
+Now, what happens when the structural based features are combined with the color based ones are interesting. One can think that adding features should improve the performance of the classifier, see \cref{table:hog_features,table:lbp_features}. However, the accuracy hardly change when combining HOG or LBP with color names. The RGB and HSV on the other hand do not benefit from the structural features. 
+
+The best classification results is achieved with color names when combined with HOG.
 
 \FloatBarrier
 \begin{table}[h!]
