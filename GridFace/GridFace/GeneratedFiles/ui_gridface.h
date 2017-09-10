@@ -49,6 +49,7 @@ public:
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         btn_next_run = new QPushButton(centralWidget);
         btn_next_run->setObjectName(QStringLiteral("btn_next_run"));
+        btn_next_run->setEnabled(false);
         btn_next_run->setGeometry(QRect(240, 90, 151, 71));
         lbl_msg = new QLabel(centralWidget);
         lbl_msg->setObjectName(QStringLiteral("lbl_msg"));
@@ -65,7 +66,7 @@ public:
         btn_validate->setGeometry(QRect(30, 10, 121, 71));
         lbl_browser = new QLabel(centralWidget);
         lbl_browser->setObjectName(QStringLiteral("lbl_browser"));
-        lbl_browser->setGeometry(QRect(450, 70, 161, 51));
+        lbl_browser->setGeometry(QRect(50, 320, 531, 51));
         lbl_browser->setAlignment(Qt::AlignCenter);
         lbl_result = new QLabel(centralWidget);
         lbl_result->setObjectName(QStringLiteral("lbl_result"));

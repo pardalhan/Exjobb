@@ -20,7 +20,7 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GridFace_t {
     QByteArrayData data[9];
-    char stringdata0[156];
+    char stringdata0[152];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -30,19 +30,19 @@ struct qt_meta_stringdata_GridFace_t {
 static const qt_meta_stringdata_GridFace_t qt_meta_stringdata_GridFace = {
     {
 QT_MOC_LITERAL(0, 0, 8), // "GridFace"
-QT_MOC_LITERAL(1, 9, 23), // "on_btn_next_run_clicked"
-QT_MOC_LITERAL(2, 33, 0), // ""
-QT_MOC_LITERAL(3, 34, 20), // "on_btn_train_clicked"
-QT_MOC_LITERAL(4, 55, 23), // "on_btn_validate_clicked"
-QT_MOC_LITERAL(5, 79, 22), // "on_btn_browser_clicked"
-QT_MOC_LITERAL(6, 102, 28), // "on_btn_next_validate_clicked"
-QT_MOC_LITERAL(7, 131, 9), // "run_image"
-QT_MOC_LITERAL(8, 141, 14) // "validate_image"
+QT_MOC_LITERAL(1, 9, 18), // "on_btn_run_clicked"
+QT_MOC_LITERAL(2, 28, 0), // ""
+QT_MOC_LITERAL(3, 29, 23), // "on_btn_next_run_clicked"
+QT_MOC_LITERAL(4, 53, 20), // "on_btn_train_clicked"
+QT_MOC_LITERAL(5, 74, 23), // "on_btn_validate_clicked"
+QT_MOC_LITERAL(6, 98, 28), // "on_btn_next_validate_clicked"
+QT_MOC_LITERAL(7, 127, 9), // "run_image"
+QT_MOC_LITERAL(8, 137, 14) // "validate_image"
 
     },
-    "GridFace\0on_btn_next_run_clicked\0\0"
-    "on_btn_train_clicked\0on_btn_validate_clicked\0"
-    "on_btn_browser_clicked\0"
+    "GridFace\0on_btn_run_clicked\0\0"
+    "on_btn_next_run_clicked\0on_btn_train_clicked\0"
+    "on_btn_validate_clicked\0"
     "on_btn_next_validate_clicked\0run_image\0"
     "validate_image"
 };
@@ -88,10 +88,10 @@ void GridFace::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         GridFace *_t = static_cast<GridFace *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_btn_next_run_clicked(); break;
-        case 1: _t->on_btn_train_clicked(); break;
-        case 2: _t->on_btn_validate_clicked(); break;
-        case 3: _t->on_btn_browser_clicked(); break;
+        case 0: _t->on_btn_run_clicked(); break;
+        case 1: _t->on_btn_next_run_clicked(); break;
+        case 2: _t->on_btn_train_clicked(); break;
+        case 3: _t->on_btn_validate_clicked(); break;
         case 4: _t->on_btn_next_validate_clicked(); break;
         case 5: _t->run_image(); break;
         case 6: _t->validate_image(); break;

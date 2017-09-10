@@ -17,20 +17,21 @@ GridFace::~GridFace()
 
 }
 
-void GridFace::on_btn_browser_clicked()
+void GridFace::on_btn_run_clicked()
 {
 	on_btn_train_clicked();
 
 	ui.lbl_msg->setText("RUN");
 	QStringList files = QFileDialog::getOpenFileNames(this, "Select one or more files to open", "C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder", "*.png *.jpg *.jpeg *.bmp *.gif");
 	this->dir_path = QFileInfo(files[0]).absoluteDir().absolutePath().toStdString().c_str();
+
 	this->list_of_files = files;
 
 	ui.btn_browser->setEnabled(false);
 	ui.btn_next_run->setEnabled(true);
 	ui.btn_train->setEnabled(true);
 	ui.btn_validate->setEnabled(false);
-
+	ui.lbl_browser->setText(QFileInfo(files[0]).absoluteDir().absolutePath().toStdString().c_str());
 }
 
 void GridFace::on_btn_next_run_clicked()
@@ -38,7 +39,7 @@ void GridFace::on_btn_next_run_clicked()
 	cv::namedWindow("MainWindow", CV_WINDOW_KEEPRATIO);
 	cv::resizeWindow("MainWindow", 800, 800);
 
-	if (this->list_of_files.size() > this->file_counter)
+	if (this->list_of_files.size() >= this->file_counter)
 	{
 	this->run_image();
 	this->file_counter += 1; 
@@ -56,7 +57,7 @@ void GridFace::on_btn_next_validate_clicked()
 	cv::namedWindow("MainWindow", CV_WINDOW_KEEPRATIO);
 	cv::resizeWindow("MainWindow", 800, 800);
 
-	if (this->record_vec.size() > this->file_counter)
+	if (this->record_vec.size() >= this->file_counter)
 	{
 		this->validate_image();
 		this->file_counter += 1;
@@ -79,15 +80,6 @@ void GridFace::on_btn_train_clicked()
 	myfile["svm_data"] >> data;
 	myfile["svm_label"] >> label;
 	myfile.release();
-
-
-	//QStringList files = QFileDialog::getOpenFileNames(this, "Select record file (.txt)", "C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder", "*.txt");
-	//std::string file_path = QFileInfo(files[0]).absoluteFilePath().toStdString().c_str();
-	//std::string path = QFileInfo(files[0]).absoluteDir().absolutePath().toStdString().c_str();
-	//this->record_vec = curr_img->extract_from_record(file_path);
-	//std::vector<int> labels_vec = curr_img->extract_lables(record_vec);
-	//cv::Mat data = curr_img->extract_training_data(record_vec,path);
-	//cv::Mat label(labels_vec);
 
 	curr_img->image_svm = curr_img->train_SVM(data, label, 350, pow(10,-5));
 }
@@ -112,6 +104,7 @@ void GridFace::on_btn_validate_clicked()
 
 	ui.btn_next_validate->setEnabled(true);
 	ui.btn_validate->setEnabled(false);
+	ui.lbl_browser->setText(QFileInfo(files[0]).absoluteDir().absolutePath().toStdString().c_str());
 
 
 }
@@ -119,7 +112,7 @@ void GridFace::on_btn_validate_clicked()
 
 void GridFace::run_image()
 {
-
+	ui.lbl_result->setText("RUNNING");
 	{
 		int num = this->file_counter;
 		this->curr_img->clear_data();
@@ -176,14 +169,13 @@ void GridFace::run_image()
 		outPutStream.close(); 
 
 
-		ui.lbl_result->setText("Run time [ms]: " + QString::number(t));
+		ui.lbl_result->setText("Run time [ms]: " + QString::number(t/1000));
 
 	}
 }
 
 void GridFace::validate_image()
 {
-	//for (int kum = 0; kum < record_vec.size(); kum++)
 	int kum = this->file_counter; 
 	{
 		this->curr_img->clear_data();

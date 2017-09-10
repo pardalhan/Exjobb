@@ -30,10 +30,10 @@ public:
 	~GridFace();
 
 private slots:
+	void on_btn_run_clicked();
 	void on_btn_next_run_clicked();
 	void on_btn_train_clicked();
 	void on_btn_validate_clicked();
-	void on_btn_browser_clicked();
 	void on_btn_next_validate_clicked();
 
 	void run_image();

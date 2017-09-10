@@ -21,10 +21,6 @@ void MyImage::init()
 		exit(1);
 	}
 
-	
-	
-	//model_fland = flandmark_init("SVM_landmarks\\flandmark_model.dat"); // load flandmark model structure and initialize
-
 	dlib::deserialize("dlib\\shape_predictor_68_face_landmarks.dat") >> model_dlib;
 
 
@@ -763,119 +759,11 @@ cv::Mat MyImage::FRS(cv::Mat cv_img)
 
 	S_total = S_total / radii.size();
 
-	/*
-	int num_row = cv_img.rows;
-	int num_col = cv_img.cols;
-	int sigma = 1;
-	double k_scal = 9.9;
-	double alpha = 2;
-	double thresh = 0.1;
-	std::vector<int> radii = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-	cv::Mat gradient, magnitude, orientation, F_img, S_img;
-	cv::Mat S_total = cv::Mat::zeros(num_row, num_col, CV_32F);
-	//--------------------------------- gradient
-	cv::Mat img_gray, blurred;
-	cv::GaussianBlur(cv_img, blurred, cv::Size(3, 3), sigma, sigma, cv::BORDER_DEFAULT);
-	/// Convert it to gray
-	cv::cvtColor(blurred, img_gray, CV_BGR2GRAY);
-
-	cv::Mat grad_x, grad_y;
-	int scale = 1;
-	int delta = 0;
-	int ddepth = CV_32F;
-	/// Gradient X
-	Sobel(img_gray, grad_x, ddepth, 1, 0, 3, scale, delta, cv::BORDER_DEFAULT);
-
-	Sobel(img_gray, grad_y, ddepth, 0, 1, 3, scale, delta, cv::BORDER_DEFAULT);
-
-
-
-	for (int rad = 0; rad < radii.size(); rad++)
-	{
-
-	gradient = cv::Mat(num_row, num_col, CV_32F, cv::Scalar(0.00001));
-	magnitude = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
-	orientation = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
-	F_img = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
-	S_img = cv::Mat::zeros(num_row + radii[rad] * 2, num_col + radii[rad] * 2, CV_32F);
-
-
-	float *grad_x_ptr = (float*)(grad_x.data);
-	float *grad_y_ptr = (float*)(grad_y.data);
-	float *grad_ptr = (float*)(gradient.data);
-	float *magnitude_ptr = (float*)(magnitude.data);
-	float *orientation_ptr = (float*)(orientation.data);
-
-
-	for (int row = 0; row < grad_x.rows; row++){
-	for (int col = 0; col < grad_x.cols; col++){
-
-	float grad_norm = sqrt(pow(grad_x_ptr[grad_x.cols * row + col], 2) + pow(grad_y_ptr[grad_y.cols * row + col], 2));
-
-	grad_ptr[gradient.cols * row + col] = grad_norm;
-	}
-	}
-
-	double maxG, minG;
-	cv::minMaxLoc(gradient, &minG, &maxG);
-	for (int row = 0; row < gradient.rows; row++){
-	for (int col = 0; col < gradient.cols; col++){
-	cv::Point pos_pix(row, col);
-	cv::Point neg_pix(row, col);
-	int radius = radii[rad];
-	double grad_pix = grad_ptr[gradient.cols * row + col];
-	if (grad_pix > maxG*thresh)
-	{
-	pos_pix.x += round((grad_x_ptr[grad_x.cols * row + col] / grad_pix) * radius);
-	pos_pix.y += round((grad_y_ptr[grad_y.cols * row + col] / grad_pix) * radius);
-	neg_pix.x -= round((grad_x_ptr[grad_x.cols * row + col] / grad_pix) * radius);
-	neg_pix.y -= round((grad_y_ptr[grad_y.cols * row + col] / grad_pix) * radius);
-
-	magnitude_ptr[magnitude.cols * (pos_pix.x + radius) + (pos_pix.y + radius)] += grad_pix;
-	magnitude_ptr[magnitude.cols * (neg_pix.x + radius) + (neg_pix.y + radius)] -= grad_pix;
-	orientation_ptr[magnitude.cols * (pos_pix.x + radius) + (pos_pix.y + radius)] += 1;
-	orientation_ptr[magnitude.cols * (neg_pix.x + radius) + (neg_pix.y + radius)] -= 1;
-	}
-	}
-	}
-
-
-	// Manipulate the orientation and magnitude
-	cv::Mat orientation_thresh;
-	cv::abs(orientation);
-	orientation.convertTo(orientation, CV_8U);
-	cv::threshold(orientation, orientation_thresh, k_scal, 0, cv::THRESH_TRUNC);
-
-	orientation_thresh = orientation_thresh / k_scal;
-	cv::pow(orientation_thresh, alpha, orientation_thresh);
-	magnitude = magnitude / k_scal;
-
-	orientation.convertTo(orientation_thresh, CV_32F);
-
-
-	// Calculate F
-	F_img = magnitude.mul(orientation_thresh);
-
-	// Calculate S
-	cv::GaussianBlur(F_img, S_img, cv::Size(3, 3), sigma, sigma, cv::BORDER_DEFAULT);
-
-	cv::Rect roi(radii[rad] - 1, radii[rad] - 1, num_col, num_row);
-
-
-	S_total += S_img(roi);
-	}
-
-	S_total = S_total / radii.size();
-	*/
-
-
 	return S_total;
 }
 
 std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> MyImage::get_candidates(cv::Mat cv_img, cv::Mat mask, cv::Mat frs, double threshold)
 {
-
-	//cv::Mat frs_img = this->FRS(cv_img);
 
 	cv::Mat frs_img = frs.clone(); 
 	frs_img = cv::abs(frs_img);	
@@ -1426,10 +1314,6 @@ void MyImage::rezize_points(MyImage& my_image)
 cv::Mat MyImage::true_colours(cv::Mat image, int colour)
 {
 
-	/*
-	Colour 2 = brown
-	Colour 8 = red
-	*/
 
 	image.convertTo(image, CV_32F);
 
@@ -1760,6 +1644,7 @@ void MyImage::validate_process_image(MyImage& my_image, MyImage record)
 	cv::Point middle_2 = my_image.landmark_vec[42] + (my_image.landmark_vec[45] - my_image.landmark_vec[42]) / 2;
 	float resize_factor = (float)500 / (float)(middle_2.x - middle_1.x);
 	my_image.resize_factor = resize_factor;
+	
 	// Resize image 
 	cv::Mat img_resize;
 	cv::Mat img_resize_mask;
@@ -1779,8 +1664,8 @@ void MyImage::validate_process_image(MyImage& my_image, MyImage record)
 
 	cv::Mat frs = my_image.FRS(img_resize);
 
+	// FRS tröskelvärde
 	double frs_tresh = 0.10;
-
 
 	// Get candidates
 	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = my_image.get_candidates(img_resize, img_resize_mask, frs, frs_tresh);
@@ -1828,11 +1713,13 @@ void MyImage::validate_process_image(MyImage& my_image, MyImage record)
 		cv::circle(resulting, center_of_candidate, 15, mark_color, 4, 8, 0);
 	}
 
+	//// Markering för de områden som överlappar mellan äkta märken och kandidater 
 	//for (int rum : my_image.index_checked_detections)
 	//{
 	//	cv::rectangle(resulting, my_image.candidates[rum], cv::Scalar(0, 255, 0), 4, 8, 0);
 	//}
 
+	///////////////////////// Bra ställe att sätta en breakpoint då man kan se alla bilder ImageWatch
 	cv::imshow("MainWindow", resulting);
 	
 	my_image.candidates.clear();
@@ -1867,6 +1754,7 @@ void MyImage::process_image(MyImage& my_image)
 	cv::Point middle_2 = my_image.landmark_vec[42] + (my_image.landmark_vec[45] - my_image.landmark_vec[42]) / 2;
 	float resize_factor = (float)500 / (float)(middle_2.x - middle_1.x);
 	my_image.resize_factor = resize_factor;
+	
 	// Resize image 
 	cv::Mat img_resize;
 	cv::Mat img_resize_mask;
@@ -1877,16 +1765,14 @@ void MyImage::process_image(MyImage& my_image)
 	img_resize_mask.setTo(255, img_resize_mask > 125);
 	img_resize_mask.setTo(0, img_resize_mask <= 125);
 	
-
 	cv::Mat frs = my_image.FRS(img_resize);
+
 	// Get candidates
 	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = my_image.get_candidates(img_resize, img_resize_mask, frs, 0.11);
 
 	my_image.candidates = candidates.second; 
 
 	my_image.post_processing(img_resize, my_image);
-
-
 
 	// Classify
 	cv_img = cv::imread(my_image.get_name(2) + "\\" + my_image.get_name(1));
@@ -1899,7 +1785,7 @@ void MyImage::process_image(MyImage& my_image)
 	this->image_svm->predict(predicton_data, predictions);
 
 	std::vector<int> v = predictions.reshape(0, 1);
-	this->predictions = v; 
+	my_image.predictions = v; 
 	
 	// Frequency
 	my_image.create_areas();
@@ -1920,40 +1806,14 @@ void MyImage::process_image(MyImage& my_image)
 		}
 		cv::rectangle(img_resize, enlarg_rect_to_predict(this->candidates[num], 25, img_resize.size()), mark_color, 4, 8, 0);
 	}
+
+	///////////////////////// Bra ställe att sätta en breakpoint då man kan se alla bilder ImageWatch
 	cv::imshow("MainWindow", img_resize);
 
 }
 
 void MyImage::calc_freq(MyImage& my_imgae)
 {
-	/*
-	// Intersecting area 
-	cv::Mat area_img = cv::Mat::zeros(my_imgae.img_size, CV_8UC1);
-	cv::Mat rect_img = cv::Mat::zeros(my_imgae.img_size, CV_8UC1);
-	cv::Mat intersect_img = cv::Mat::zeros(my_imgae.img_size, CV_8UC1);
-	int area_size;
-
-	my_imgae.frequency = std::vector<int>(my_imgae.areas_vec.size());
-
-	for (int num = 0; num < my_imgae.areas_vec.size(); num++)
-	{
-		cv::drawContours(area_img, my_imgae.areas_vec, num, cv::Scalar(1), -1);
-		for (int kum = 0; kum < my_imgae.candidates.size(); kum++)
-		{
-			cv::rectangle(rect_img, my_imgae.candidates[kum], cv::Scalar(1), -1);
-			cv::bitwise_and(area_img, rect_img, intersect_img);
-			area_size = cv::countNonZero(intersect_img);
-
-			if (area_size > 0)
-			{
-				my_imgae.frequency[num]++;
-			}
-			rect_img = cv::Scalar(0);
-		}
-		area_img = cv::Scalar(0);
-	}
-	*/
-
 	cv::Rect temp_rect;
 	cv::Rect inter_rect;
 	my_imgae.frequency = std::vector<int>(my_imgae.areas_vec.size());
@@ -1971,7 +1831,7 @@ void MyImage::calc_freq(MyImage& my_imgae)
 			{
 				my_imgae.frequency[num]++;
 
-				if (my_imgae.predictions[num] == 1)
+				if (my_imgae.predictions[kum] == 1)
 				{
 					my_imgae.predictions_1[num]++;
 				}
