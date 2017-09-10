@@ -30,10 +30,14 @@ public:
 	~GridFace();
 
 private slots:
-	void on_btn_run_clicked();
+	void on_btn_next_run_clicked();
 	void on_btn_train_clicked();
 	void on_btn_validate_clicked();
 	void on_btn_browser_clicked();
+	void on_btn_next_validate_clicked();
+
+	void run_image();
+	void validate_image();
 
 private:
 	Ui::GridFaceClass ui;
@@ -42,6 +46,7 @@ private:
 
 	// Data members 
 	MyImage *curr_img;
+	int file_counter = 0;
 	//QFileInfoList list_of_files;
 	QStringList list_of_files;
 	QMessageBox message;

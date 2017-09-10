@@ -232,6 +232,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <None Include="color_data.yml" />
     <None Include="dlib\shape_predictor_68_face_landmarks.dat" />
     <None Include="w2c.yml" />
   </ItemGroup>

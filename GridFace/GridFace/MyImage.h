@@ -54,13 +54,17 @@ public:
 	void detect_faces(cv::Mat orig);
 	void detect_landmarks(cv::Mat orig_img);
 	void calc_angle();
-	cv::Rect MyImage::enlarg_rect_to(cv::Rect rect);
+	cv::Rect MyImage::enlarg_rect_to(cv::Rect rect, int size);
+	cv::Rect enlarg_rect_to_predict(cv::Rect rect, int size, cv::Size img_size);
 	cv::Mat MyImage::rotate_img(cv::Mat orig_img);
 	std::vector<cv::Point>  MyImage::rotate_points(std::vector<cv::Point> point_vec);
 	cv::Rect enlarg_face_rect(cv::Rect face, double procent, cv::Size img_size);
 	std::pair<cv::Mat, cv::Mat> MyImage::face_segment(cv::Mat cv_img, std::vector<cv::Point> landmark_vec, bool down_sample);
 	cv::Mat MyImage::close_open(cv::Mat mask, int iterations = 7, int kernels_size = 5);
 	cv::Mat MyImage::true_colours(cv::Mat image, int colour);
+	cv::Mat MyImage::get_hog(cv::Mat mark);
+
+	cv::Mat MyImage::get_lbp(cv::Mat mark);
 
 	void display_landmarks(cv::Mat orig_img);
 	void draw_grid(cv::Mat img);
@@ -71,7 +75,7 @@ public:
 	void MyImage::intersecting_areas(MyImage& actual, MyImage& predicted);
 	void MyImage::rezize_points(MyImage& my_image);
 
-	void MyImage::post_processing(cv::Mat cv_img);
+	void MyImage::post_processing(cv::Mat cv_img, MyImage& my_image);
 
 	void MyImage::process_image(MyImage& my_image);
 
@@ -81,13 +85,15 @@ public:
 	// SVM 
 	std::vector<MyImage> extract_from_record(std::string file_path);
 	std::vector<int> extract_lables(std::vector<MyImage> record);
-	cv::Mat extract_features(std::vector<MyImage> record, int nr_samples);
-	cv::Ptr<cv::ml::SVM> train_SVM(cv::Mat training_data, cv::Mat training_labels);
+	cv::Mat extract_training_data(std::vector<MyImage> record, std::string path);
+	cv::Ptr<cv::ml::SVM> train_SVM(cv::Mat training_data, cv::Mat training_labels, float C, float gamma);
+	cv::Mat MyImage::predict_data(cv::Mat image, std::vector<cv::Rect> candidates);
 	cv::Mat calc_confusion(cv::Mat predicted, cv::Mat actual);
 
 
 	cv::Mat MyImage::FRS(cv::Mat cv_img);
 	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> MyImage::get_candidates(cv::Mat cv_img, cv::Mat mask, cv::Mat frs_img, double threshold);
+	void MyImage::validate_process_image(MyImage& my_image, MyImage record);
 	
 	// Public data members
 	cv::CascadeClassifier face_Cascade;
@@ -110,16 +116,23 @@ public:
 	cv::Size img_size; 
 	std::vector<cv::Rect> candidates; 
 	std::vector<int> frequency;
+	std::vector<int> predictions;
+	std::vector<int> predictions_1;
+	std::vector<int> predictions_2;
+
+	cv::Ptr<cv::ml::SVM> image_svm = cv::ml::SVM::create();
+	cv::Mat nr_detected_row;
+	cv::Mat nr_hits_row;
+
 
 private:
 	// Data members
 	std::string file_path; // Whole path 
 	std::string file_name; // File name 
 
-	// Functions 
-
 	void display_message(QString msg);
 	float MyImage::my_angle_calculater(cv::Point a, cv::Point b, cv::Point c);
+
 
 
 };

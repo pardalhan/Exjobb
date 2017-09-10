@@ -139,7 +139,6 @@ void MyImage::detect_faces(cv::Mat orig)
 	}
 }
 
-
 void MyImage::detect_landmarks(cv::Mat orig_img)
 {
 
@@ -172,7 +171,7 @@ void MyImage::display_landmarks(cv::Mat orig_img)
 {
 	for (int i = 0; i < this->landmark_vec.size(); i++)
 	{
-		cv::circle(orig_img, this->landmark_vec[i], 2, CV_RGB(0, 0, 255), CV_FILLED);
+		cv::circle(orig_img, this->landmark_vec[i], 4, CV_RGB(0, 0, 255), CV_FILLED);
 		//// Display number 
 		//cv::putText(orig_img, std::to_string(i), this->landmark_vec[i] + cv::Point(5,5),		
 		//	CV_FONT_HERSHEY_SIMPLEX, 0.5, CV_RGB(0, 0, 255), 2); 
@@ -310,7 +309,7 @@ void MyImage::draw_grid(cv::Mat img)
 	}	
 	for (int num = 0; num < this->areas_vec.size(); num++)
 	{
-		cv::drawContours(img, this->areas_vec, num, cv::Scalar(0,255,0), 2, 8);
+		cv::drawContours(img, this->areas_vec, num, cv::Scalar(0,0,0), 4, 8);
 	}
 
 }
@@ -332,9 +331,22 @@ void MyImage::draw_record(cv::Mat img)
 
 	}
 
+
 	for (int num = 0; num < contours.size(); num++)
 	{
-		cv::drawContours(img, contours, num, cv::Scalar(0, 0, 255), 2);
+
+		cv::Scalar my_permanent(255, 0, 0);
+		cv::Scalar my_non_permanent(0, 0, 255);
+
+		if (this->class_type_vec[num] == 1)
+		{
+			cv::drawContours(img, contours, num, my_permanent, 4);
+		}
+		else
+		{
+			cv::drawContours(img, contours, num, my_non_permanent, 4);
+		}
+
 	}
 
 
@@ -434,6 +446,7 @@ index_checked_detections.clear();
 img_size = cv::Size(0,0);
 candidates.clear();
 frequency.clear();
+predictions.clear();
 }
 
 void MyImage::display_message(QString msg)
@@ -872,25 +885,8 @@ std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> MyImage::g
 	double max, min;
 	cv::minMaxLoc(frs_img, &min, &max);
 
-	/*
-	// OTSU THRESHOLDNING
-	frs_img.convertTo(frs_img, CV_8U);
-	cv::threshold(frs_img, frs_img, 0, 1, cv::THRESH_BINARY | CV_THRESH_OTSU);
-
-	cv::Mat const structure_elem = cv::getStructuringElement(
-	cv::MORPH_CROSS, cv::Size(3, 3));
-	cv::morphologyEx(frs_img, frs_img,
-	cv::MORPH_CLOSE, structure_elem, cv::Point(-1, -1), 1);
-
-	cv::morphologyEx(frs_img, frs_img,
-	cv::MORPH_ERODE, structure_elem, cv::Point(-1, -1), 2);
-	*/
-
-
 	// NORMAL THRESHOLDING
 	cv::threshold(frs_img, frs_img, threshold*max, 1, cv::THRESH_BINARY);
-
-
 
 	// Draw the background markers
 	cv::Mat background;
@@ -906,8 +902,7 @@ std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> MyImage::g
 	background.convertTo(back_32s, CV_32SC1);
 
 
-	// Create the CV_8U version of the distance image
-	// It is needed for findContours()
+	// Create the CV_8U version of the distance image It is needed for findContours()
 	cv::Mat dist_8u;
 	frs_img.convertTo(dist_8u, CV_8U);
 
@@ -1044,72 +1039,275 @@ std::vector<int> MyImage::extract_lables(std::vector<MyImage> record)
 	return labels_vec;
 }
 
-cv::Mat MyImage::extract_features(std::vector<MyImage> record, int nr_samples)
+cv::Mat MyImage::extract_training_data(std::vector<MyImage> record, std::string path)
 {
-	cv::Mat curr_img, red_img, brown_img;
-	cv::Mat mark, red_mark, brown_mark;
-	int nr_features = 10;
+	cv::Mat curr_img, img_1, img_2, img_3, img_4, img_5, img_6, img_7, img_8, img_9, img_10, img_11;
+	cv::Mat mark, mark_1, mark_2, mark_3, mark_4, mark_5, mark_6, mark_7, mark_8, mark_9, mark_10, mark_11;
+	std::vector<float> feature_vec;
+	cv::Mat training_data;
 
-	cv::Mat training_data(nr_samples, nr_features, CV_32FC1);
-	float *training_data_ptr = (float*)(training_data.data);
-
-
-
-	int temp_int = 0;
 	for (int num = 0; num < record.size(); num++)
 	{
-		curr_img = cv::imread("C:\\Users\\Stubborn\\Dropbox\\Exjobb\\ExjobbBilder\\" + record[num].get_name(1));
-		red_img = true_colours(curr_img, 8);
-		brown_img = true_colours(curr_img, 2);
+		curr_img = cv::imread(path + "\\" + record[num].get_name(1));
+		img_1 = true_colours(curr_img, 0);
+		img_2 = true_colours(curr_img, 1);
+		img_3 = true_colours(curr_img, 2);
+		img_4 = true_colours(curr_img, 3);
+		img_5 = true_colours(curr_img, 4);
+		img_6 = true_colours(curr_img, 5);
+		img_7 = true_colours(curr_img, 6);
+		img_8 = true_colours(curr_img, 7);
+		img_9 = true_colours(curr_img, 8);
+		img_10 = true_colours(curr_img, 9);
+		img_11 = true_colours(curr_img, 10);
 
 		for (int kum = 0; kum < record[num].point1_vec.size(); kum++)
 		{
-			mark = curr_img(cv::Rect(record[num].point1_vec[kum], record[num].point2_vec[kum]));
-			red_mark = red_img(cv::Rect(record[num].point1_vec[kum], record[num].point2_vec[kum]));
-			brown_mark = brown_img(cv::Rect(record[num].point1_vec[kum], record[num].point2_vec[kum]));
+
+			cv::Rect my_rect = cv::Rect(record[num].point1_vec[kum], record[num].point2_vec[kum]);
+
+			mark = curr_img(my_rect);
+			mark_1 = img_1(my_rect);
+			mark_2 = img_2(my_rect);
+			mark_3 = img_3(my_rect);
+			mark_4 = img_4(my_rect);
+			mark_5 = img_5(my_rect);
+			mark_6 = img_6(my_rect);
+			mark_7 = img_7(my_rect);
+			mark_8 = img_8(my_rect);
+			mark_9 = img_9(my_rect);
+			mark_10 = img_10(my_rect);
+			mark_11 = img_11(my_rect);
 
 			cv::Scalar mean;
 			cv::Scalar stdvar;
-			cv::meanStdDev(mark, mean, stdvar);
-			for (int i = 0; i < 3; i++)
-			{
-				training_data_ptr[nr_features * kum + nr_features * temp_int + i] = mean[i];
-			}
-			for (int i = 0; i < 3; i++)
-			{
-				training_data_ptr[nr_features * kum + nr_features * temp_int + 3 + i] = stdvar[i];
-			}
-			
-			
-			cv::meanStdDev(red_mark, mean, stdvar);
-			training_data_ptr[nr_features * kum + nr_features * temp_int + 3 + 3] = mean[0];
-			training_data_ptr[nr_features * kum + nr_features * temp_int + 3 + 4] = stdvar[0];
-
-			cv::meanStdDev(brown_mark, mean, stdvar);
-			training_data_ptr[nr_features * kum + nr_features * temp_int + 3 + 5] = mean[0];
-			training_data_ptr[nr_features * kum + nr_features * temp_int + 3 + 6] = stdvar[0];
 
 
-			int test = 1;
-			//rectangle(curr_img, record.first[i].point1_vec[k], record.first[i].point2_vec[k], cv::Scalar(255, 255 * (record.first[i].class_type_vec[k] - 1), 0), 2, 8, 0);
+			////////// RGB
+			//cv::meanStdDev(mark, mean, stdvar);
+			//for (int i = 0; i < 3; i++)
+			//{
+			//	feature_vec.push_back(mean[i]);
+			//}
+			//for (int i = 0; i < 3; i++)
+			//{
+			//	feature_vec.push_back(stdvar[i]);
+			//}
+
+
+			/////////////// HSV
+			//cv::Mat img_hsv;
+			//cv::cvtColor(mark, img_hsv, CV_BGR2HSV);
+			//cv::meanStdDev(img_hsv, mean, stdvar);
+
+			//feature_vec.push_back(mean[0]);
+			//feature_vec.push_back(mean[1]);
+			//feature_vec.push_back(mean[2]);
+			//feature_vec.push_back(stdvar[0]);
+			//feature_vec.push_back(stdvar[1]);
+			//feature_vec.push_back(stdvar[2]);
+
+			/////////////// COLORS
+			cv::meanStdDev(mark_1, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_2, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_3, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_4, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_5, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_6, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_7, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_8, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_9, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_10, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+			cv::meanStdDev(mark_11, mean, stdvar);
+			feature_vec.push_back(mean[0]);
+			feature_vec.push_back(stdvar[0]);
+
+
+			cv::Mat training_data_row(feature_vec);
+
+			//cv::Mat training_data_row = get_hog(mark);
+
+			training_data.push_back(training_data_row.t());
+			feature_vec.clear();
 		}
-		temp_int += record[num].point1_vec.size();
 	}
 	return training_data;
 }
 
-cv::Ptr<cv::ml::SVM> MyImage::train_SVM(cv::Mat training_data, cv::Mat training_labels)
+cv::Ptr<cv::ml::SVM> MyImage::train_SVM(cv::Mat training_data, cv::Mat training_labels, float C, float gamma)
 {
 
 	// Train the SVM
 	cv::Ptr<cv::ml::SVM> my_svm = cv::ml::SVM::create();
 	my_svm->setType(cv::ml::SVM::C_SVC);
 	my_svm->setKernel(cv::ml::SVM::RBF);  // OBSERVERA FUNKAR INTE ATT LOADA NON-LINEAR KERNELS //
-	my_svm->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 100, 1e-6));
+	my_svm->setGamma(gamma); // OBSERVERA FUNKAR INTE ATT LOADA NON-LINEAR KERNELS //
+	my_svm->setC(C);
+	my_svm->setTermCriteria(cv::TermCriteria(cv::TermCriteria::MAX_ITER, 5000, 1e-6));
 	my_svm->train(training_data, cv::ml::ROW_SAMPLE, training_labels);
 
 	return my_svm;
+}
 
+cv::Mat MyImage::predict_data(cv::Mat image, std::vector<cv::Rect> candidates)
+{
+
+	cv::Mat mark_1, mark_2, mark_3, mark_4, mark_5, mark_6, mark_7, mark_8, mark_9, mark_10, mark_11;
+	cv::Mat img_1, img_2, img_3, img_4, img_5, img_6, img_7, img_8, img_9, img_10, img_11;
+
+	img_1 = true_colours(image, 0);
+	img_2 = true_colours(image, 1);
+	img_3 = true_colours(image, 2);
+	img_4 = true_colours(image, 3);
+	img_5 = true_colours(image, 4);
+	img_6 = true_colours(image, 5);
+	img_7 = true_colours(image, 6);
+	img_8 = true_colours(image, 7);
+	img_9 = true_colours(image, 8);
+	img_10 = true_colours(image, 9);
+	img_11 = true_colours(image, 10);
+
+	cv::Mat predictiondata;
+
+	for (int rum = 0; rum < candidates.size(); rum++)
+	{
+
+		std::vector<float> feature_vec;
+		cv::Rect temp_rect = candidates[rum];
+		temp_rect = enlarg_rect_to_predict(temp_rect, 30, image.size());
+
+		cv::Mat mark = image(temp_rect);
+
+		mark_1 = img_1(temp_rect);
+		mark_2 = img_2(temp_rect);
+		mark_3 = img_3(temp_rect);
+		mark_4 = img_4(temp_rect);
+		mark_5 = img_5(temp_rect);
+		mark_6 = img_6(temp_rect);
+		mark_7 = img_7(temp_rect);
+		mark_8 = img_8(temp_rect);
+		mark_9 = img_9(temp_rect);
+		mark_10 = img_10(temp_rect);
+		mark_11 = img_11(temp_rect);
+
+
+
+
+		cv::Scalar mean;
+		cv::Scalar stdvar;
+
+
+		////////// RGB
+		//cv::meanStdDev(mark, mean, stdvar);
+		//for (int i = 0; i < 3; i++)
+		//{
+		//	feature_vec.push_back(mean[i]);
+		//}
+		//for (int i = 0; i < 3; i++)
+		//{
+		//	feature_vec.push_back(stdvar[i]);
+		//}
+
+
+		/////////////// HSV
+		//cv::Mat img_hsv;
+		//cv::cvtColor(mark, img_hsv, CV_BGR2HSV);
+		//cv::meanStdDev(img_hsv, mean, stdvar);
+
+		//feature_vec.push_back(mean[0]);
+		//feature_vec.push_back(mean[1]);
+		//feature_vec.push_back(mean[2]);
+		//feature_vec.push_back(stdvar[0]);
+		//feature_vec.push_back(stdvar[1]);
+		//feature_vec.push_back(stdvar[2]);
+
+		/////////////// COLORS
+		cv::meanStdDev(mark_1, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_2, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_3, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_4, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_5, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_6, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_7, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_8, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_9, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_10, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+		cv::meanStdDev(mark_11, mean, stdvar);
+		feature_vec.push_back(mean[0]);
+		feature_vec.push_back(stdvar[0]);
+
+
+		cv::Mat training_data_row(feature_vec);
+
+		//cv::Mat training_data_row = get_hog(mark);
+
+
+		predictiondata.push_back(training_data_row.t());
+		feature_vec.clear();
+	
+
+	}
+			return predictiondata;
 }
 
 cv::Mat MyImage::calc_confusion(cv::Mat predicted, cv::Mat actual)
@@ -1191,7 +1389,7 @@ void MyImage::intersecting_areas(MyImage& actual, MyImage& predicted)
 				{
 					predicted.index_checked_detections.push_back(kum);			
 					inter_points.clear();
-					//break;
+					break;
 				}
 
 				inter_points.clear();
@@ -1275,9 +1473,89 @@ cv::Mat MyImage::true_colours(cv::Mat image, int colour)
 	return index_mat;
 }
 
-cv::Rect MyImage::enlarg_rect_to(cv::Rect rect)
+cv::Mat MyImage::get_hog(cv::Mat mark)
 {
-	int size = 30;
+	cv::resize(mark, mark, cv::Size(48, 48));
+	cv::Mat img_gray, result_descriptor;
+	cv::cvtColor(mark, img_gray, CV_BGR2GRAY);
+
+	std::vector< float> descriptorsValues;
+	std::vector< cv::Point> locations;
+
+	cv::HOGDescriptor hog_desc(cv::Size(48, 48), cv::Size(8, 8), cv::Size(4, 4), cv::Size(4, 4), 9);
+	hog_desc.compute(img_gray, descriptorsValues, cv::Size(0, 0), cv::Size(0, 0), locations);
+
+	cv::Mat row_descriptor(descriptorsValues);
+
+	return row_descriptor.clone();
+}
+
+cv::Mat MyImage::get_lbp(cv::Mat mark)
+{
+	cv::resize(mark, mark, cv::Size(48, 48));
+	cv::Mat img_gray;
+	cv::cvtColor(mark, img_gray, CV_BGR2GRAY);
+
+	std::vector<int> descriptorsValues;
+
+	cv::Mat row_descriptor(255, 1, CV_32F, cv::Scalar(0));
+	float *row_descriptor_ptr = (float*)(row_descriptor.data);
+
+	img_gray.convertTo(img_gray, CV_32F);
+	float *img_gray_ptr = (float*)(img_gray.data);
+
+	int temp_lbp = 0;
+	float temp_center;
+
+	for (int num = 1; num < img_gray.rows - 1; num++)
+	{
+		for (int kum = 1; kum < img_gray.cols - 1; kum++)
+		{
+			temp_center = img_gray_ptr[num* img_gray.cols + kum];
+
+			if (temp_center < img_gray_ptr[(num - 1)* img_gray.cols + kum - 1])
+			{
+				temp_lbp += pow(2, 0);
+			}
+			if (temp_center < img_gray_ptr[(num - 1)* img_gray.cols + kum])
+			{
+				temp_lbp += pow(2, 1);
+			}
+			if (temp_center < img_gray_ptr[(num - 1)* img_gray.cols + kum + 1])
+			{
+				temp_lbp += pow(2, 2);
+			}
+			if (temp_center < img_gray_ptr[(num)* img_gray.cols + kum + 1])
+			{
+				temp_lbp += pow(2, 3);
+			}
+			if (temp_center < img_gray_ptr[(num + 1)* img_gray.cols + kum + 1])
+			{
+				temp_lbp += pow(2, 4);
+			}
+			if (temp_center < img_gray_ptr[(num + 1)* img_gray.cols + kum])
+			{
+				temp_lbp += pow(2, 5);
+			}
+			if (temp_center < img_gray_ptr[(num + 1)* img_gray.cols + kum - 1])
+			{
+				temp_lbp += pow(2, 6);
+			}
+			if (temp_center < img_gray_ptr[(num)* img_gray.cols + kum - 1])
+			{
+				temp_lbp += pow(2, 7);
+			}
+
+			row_descriptor_ptr[temp_lbp] += 1;
+			temp_lbp = 0;
+		}
+	}
+
+	return row_descriptor.clone();
+}
+
+cv::Rect MyImage::enlarg_rect_to(cv::Rect rect, int size)
+{
 	if (rect.area() < (double)pow(size, 2))
 	{
 		cv::Rect larg_rect;
@@ -1289,6 +1567,7 @@ cv::Rect MyImage::enlarg_rect_to(cv::Rect rect)
 		larg_rect.height = size;
 		larg_rect.width = size;
 
+
 		return larg_rect;
 	}
 	else
@@ -1298,7 +1577,46 @@ cv::Rect MyImage::enlarg_rect_to(cv::Rect rect)
 
 }
 
-void MyImage::post_processing(cv::Mat cv_img)
+cv::Rect MyImage::enlarg_rect_to_predict(cv::Rect rect, int size, cv::Size img_size)
+{
+	if (rect.area() < (double)pow(size, 2))
+	{
+		cv::Rect larg_rect;
+		double img_height_diff = size - rect.height;
+		double img_width_diff = size - rect.width;
+
+		larg_rect.x = (int)round(rect.x - img_width_diff / 2);
+		larg_rect.y = (int)round(rect.y - img_height_diff / 2);
+		larg_rect.height = size;
+		larg_rect.width = size;
+
+		if (larg_rect.x < 0)
+		{
+			larg_rect.x = 0;
+		}
+		if (larg_rect.y < 0)
+		{
+			larg_rect.y = 0;
+		}
+		if (larg_rect.height > img_size.height)
+		{
+			larg_rect.height = img_size.height;
+		}
+		if (larg_rect.width > img_size.width)
+		{
+			larg_rect.width = img_size.width;
+		}
+
+		return larg_rect;
+	}
+	else
+	{
+		return rect;
+	}
+
+}
+
+void MyImage::post_processing(cv::Mat cv_img, MyImage& my_image)
 {
 
 	// HAIR START
@@ -1378,7 +1696,7 @@ void MyImage::post_processing(cv::Mat cv_img)
 	// Hair
 	for (int num = 0; num < this->candidates.size(); num++)
 	{
-		target_hair = union_result(this->enlarg_rect_to(this->candidates[num]));
+		target_hair = union_result(this->enlarg_rect_to(this->candidates[num],30));
 
 		int hair_count = cv::countNonZero(target_hair);
 
@@ -1392,7 +1710,7 @@ void MyImage::post_processing(cv::Mat cv_img)
 	// Blob
 	for (int num = 0; num < this->candidates.size(); num++)
 	{
-		target_blob = gray_img(this->enlarg_rect_to(this->candidates[num]));
+		target_blob = gray_img(this->enlarg_rect_to(this->candidates[num],30));
 		this->blob_detector->detect(target_blob, keypoints);
 
 		if (keypoints.size() < 1)
@@ -1415,9 +1733,113 @@ void MyImage::post_processing(cv::Mat cv_img)
 		}
 
 	}
-
 }
 
+void MyImage::validate_process_image(MyImage& my_image, MyImage record)
+{
+	std::string name = my_image.get_name(1); 
+	cv::Mat cv_img = cv::imread(my_image.get_name(2) + "\\" + my_image.get_name(1)); // load input image
+
+	my_image.img_size = cv_img.size();
+
+	// Light normalization
+	cv::Mat img_light = badger_process(cv_img);
+
+	my_image.detect_faces(img_light); // Face detection
+	my_image.detect_landmarks(img_light); // Landmark detection
+
+	my_image.calc_angle();
+	cv::Mat rotated_img = my_image.rotate_img(img_light); //Rotate image 
+	my_image.landmark_vec = my_image.rotate_points(my_image.landmark_vec);
+
+	//Segmentation mask
+	std::pair<cv::Mat, cv::Mat> segmentation = my_image.face_segment(rotated_img, my_image.landmark_vec, true);
+
+	// Resize factor 
+	cv::Point middle_1 = my_image.landmark_vec[36] + (my_image.landmark_vec[39] - my_image.landmark_vec[36]) / 2;
+	cv::Point middle_2 = my_image.landmark_vec[42] + (my_image.landmark_vec[45] - my_image.landmark_vec[42]) / 2;
+	float resize_factor = (float)500 / (float)(middle_2.x - middle_1.x);
+	my_image.resize_factor = resize_factor;
+	// Resize image 
+	cv::Mat img_resize;
+	cv::Mat img_resize_mask;
+	cv::resize(rotated_img, img_resize, cv::Size(rotated_img.size().width*resize_factor, rotated_img.size().height*resize_factor), 0, 0, CV_INTER_CUBIC);
+	cv::resize(segmentation.first, img_resize_mask, cv::Size(segmentation.first.size().width*resize_factor, segmentation.first.size().height*resize_factor), 0, 0, CV_INTER_NN);
+	my_image.rezize_points(my_image);
+
+	img_resize_mask.setTo(255, img_resize_mask > 125);
+	img_resize_mask.setTo(0, img_resize_mask <= 125);
+
+	record.resize_factor = my_image.resize_factor;
+	record.rotate_angle = my_image.rotate_angle;
+	record.rezize_points(record);
+	record.img_size = my_image.img_size;
+	record.point1_vec = record.rotate_points(record.point1_vec);
+	record.point2_vec = record.rotate_points(record.point2_vec);
+
+	cv::Mat frs = my_image.FRS(img_resize);
+
+	double frs_tresh = 0.10;
+
+
+	// Get candidates
+	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = my_image.get_candidates(img_resize, img_resize_mask, frs, frs_tresh);
+
+	my_image.candidates = candidates.second;
+
+	cv_img = cv::imread(my_image.get_name(2) + "\\" + my_image.get_name(1));
+	cv::resize(cv_img, cv_img, cv::Size(cv_img.size().width*my_image.resize_factor, cv_img.size().height*my_image.resize_factor), 0, 0, CV_INTER_CUBIC);
+	cv_img = my_image.rotate_img(cv_img);
+
+	cv::Mat resulting = cv_img.clone(); 
+
+	my_image.post_processing(img_resize, my_image);
+
+	my_image.intersecting_areas(record, my_image);
+
+	record.draw_record(resulting);
+
+	cv::Mat predicton_data = this->predict_data(cv_img, this->candidates);
+	cv::Mat predictions;
+
+	this->image_svm->predict(predicton_data, predictions);
+
+	// Display
+	cv::Scalar mark_color;
+	float *predictions_ptr = (float*)(predictions.data);
+	for (int num = 0; num < this->candidates.size(); num++)
+	{
+		if (predictions_ptr[num] == 1)
+		{
+			mark_color = cv::Scalar(255, 124, 124);
+		}
+		else
+		{
+			mark_color = cv::Scalar(124, 124, 255);
+		}
+
+		cv::Point center_of_candidate;
+
+		center_of_candidate = my_image.candidates[num].tl();
+		center_of_candidate.x = center_of_candidate.x + round(my_image.candidates[num].width/2);
+		center_of_candidate.y = center_of_candidate.y + round(my_image.candidates[num].height / 2);
+
+		//cv::rectangle(resulting, enlarg_rect_to_predict(my_image.candidates[num], 25, resulting.size()), mark_color, 4, 8, 0);
+		cv::circle(resulting, center_of_candidate, 15, mark_color, 4, 8, 0);
+	}
+
+	//for (int rum : my_image.index_checked_detections)
+	//{
+	//	cv::rectangle(resulting, my_image.candidates[rum], cv::Scalar(0, 255, 0), 4, 8, 0);
+	//}
+
+	cv::imshow("MainWindow", resulting);
+	
+	my_image.candidates.clear();
+	my_image.index_checked_detections.clear();
+
+	
+}
 
 void MyImage::process_image(MyImage& my_image)
 {
@@ -1426,9 +1848,9 @@ void MyImage::process_image(MyImage& my_image)
 	my_image.img_size = cv_img.size();
 
 	// Light normalization
-	//cv::Mat img_light = badger_process(cv_img);
+	cv::Mat img_light = badger_process(cv_img);
 	//cv::Mat img_light = MSR_process(cv_img);
-	cv::Mat img_light = cv_img;
+	//cv::Mat img_light = cv_img;
 
 	my_image.detect_faces(img_light); // Face detection
 	my_image.detect_landmarks(img_light); // Landmark detection
@@ -1455,42 +1877,50 @@ void MyImage::process_image(MyImage& my_image)
 	img_resize_mask.setTo(255, img_resize_mask > 125);
 	img_resize_mask.setTo(0, img_resize_mask <= 125);
 	
-	/*
-	// Get preprocessed images and save them
-	cv::Mat frs_img = this->FRS(img_resize);
-	cv::Mat cv_img_resize;
-	cv::Mat cv_img_rotated = my_image.rotate_img(cv_img); //Rotate image 
-	cv::resize(cv_img_rotated, cv_img_resize, cv::Size(cv_img_rotated.size().width*resize_factor, cv_img_rotated.size().height*resize_factor), 0, 0, CV_INTER_CUBIC);
-
-	cv::FileStorage file("C:\\Users\\Stubborn\\desktop\\processed_imges\\" + my_image.get_name(1) + "_frs.yml", cv::FileStorage::WRITE);
-	file << "frs" << frs_img;
-	file.release();
-	imwrite("C:\\Users\\Stubborn\\desktop\\processed_imges\\" + my_image.get_name(1) + "_mask.png", img_resize_mask);
-	imwrite("C:\\Users\\Stubborn\\desktop\\processed_imges\\" + my_image.get_name(1) + "_cv_img.png", cv_img_resize);
-	imwrite("C:\\Users\\Stubborn\\desktop\\processed_imges\\" + my_image.get_name(1) + "_light_img.png", img_resize);
-	*/
 
 	cv::Mat frs = my_image.FRS(img_resize);
 	// Get candidates
-	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = my_image.get_candidates(img_resize, img_resize_mask, frs, 0.15);
+	std::pair<std::vector<std::vector<cv::Point>>, std::vector<cv::Rect>> candidates = my_image.get_candidates(img_resize, img_resize_mask, frs, 0.11);
 
 	my_image.candidates = candidates.second; 
 
-	my_image.post_processing(img_resize);
+	my_image.post_processing(img_resize, my_image);
 
-	my_image.create_areas(); 
-	my_image.calc_freq(my_image);
+
+
+	// Classify
+	cv_img = cv::imread(my_image.get_name(2) + "\\" + my_image.get_name(1));
+	cv_img = my_image.rotate_img(cv_img);
+	cv::resize(cv_img, cv_img, cv::Size(cv_img.size().width*my_image.resize_factor, cv_img.size().height*my_image.resize_factor), 0, 0, CV_INTER_CUBIC);
 	
+	cv::Mat predicton_data = this->predict_data(cv_img, this->candidates);
+	cv::Mat predictions; 
+
+	this->image_svm->predict(predicton_data, predictions);
+
+	std::vector<int> v = predictions.reshape(0, 1);
+	this->predictions = v; 
+	
+	// Frequency
+	my_image.create_areas();
+	my_image.calc_freq(my_image);
+
 	// Display
-	my_image.display_landmarks(img_resize);
-	my_image.draw_grid(img_resize);
-
-
-
+	cv::Scalar mark_color;
+	float *predictions_ptr = (float*)(predictions.data);
 	for (int num = 0; num < this->candidates.size(); num++)
 	{
-		cv::rectangle(img_resize, this->candidates[num], cv::Scalar(0, 0, 255), 2, 8, 0);
+		if (predictions_ptr[num] == 1)
+		{
+			mark_color = cv::Scalar(255, 0, 0);
+		}
+		else
+		{
+			mark_color = cv::Scalar(0, 0, 255);
+		}
+		cv::rectangle(img_resize, enlarg_rect_to_predict(this->candidates[num], 25, img_resize.size()), mark_color, 4, 8, 0);
 	}
+	cv::imshow("MainWindow", img_resize);
 
 }
 
@@ -1527,6 +1957,8 @@ void MyImage::calc_freq(MyImage& my_imgae)
 	cv::Rect temp_rect;
 	cv::Rect inter_rect;
 	my_imgae.frequency = std::vector<int>(my_imgae.areas_vec.size());
+	my_imgae.predictions_1 = std::vector<int>(my_imgae.areas_vec.size());
+	my_imgae.predictions_2 = std::vector<int>(my_imgae.areas_vec.size());
 
 	for (int num = 0; num < my_imgae.areas_vec.size(); num++)
 	{
@@ -1538,6 +1970,16 @@ void MyImage::calc_freq(MyImage& my_imgae)
 			if (inter_rect.area() > 0)
 			{
 				my_imgae.frequency[num]++;
+
+				if (my_imgae.predictions[num] == 1)
+				{
+					my_imgae.predictions_1[num]++;
+				}
+				else
+				{
+					my_imgae.predictions_2[num]++;
+				}
+
 			}
 		}
 
